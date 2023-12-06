@@ -32,7 +32,6 @@ import (
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/auth"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/auth/credentials"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/auth/credentials/provider"
-	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/endpoints"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/errors"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/responses"
@@ -78,6 +77,8 @@ type Client struct {
 	Network         string
 	Domain          string
 	isOpenAsync     bool
+
+	EndpointResolver Resolver
 }
 
 func (client *Client) Init() (err error) {
@@ -374,43 +375,14 @@ func (client *Client) buildRequestWithSigner(request requests.AcsRequest, signer
 	}
 
 	// resolve endpoint
-	endpoint := request.GetDomain()
 
-	if endpoint == "" && client.Domain != "" {
-		endpoint = client.Domain
+	if client.EndpointResolver == nil {
+		client.EndpointResolver = GetDefaultResolver()
 	}
 
-	if endpoint == "" {
-		endpoint = endpoints.GetEndpointFromMap(regionId, request.GetProduct())
-	}
-
-	if endpoint == "" && client.EndpointType != "" &&
-		(request.GetProduct() != "Sts" || len(request.GetQueryParams()) == 0) {
-		if client.EndpointMap != nil && client.Network == "" || client.Network == "public" {
-			endpoint = client.EndpointMap[regionId]
-		}
-
-		if endpoint == "" {
-			endpoint, err = client.GetEndpointRules(regionId, request.GetProduct())
-			if err != nil {
-				return
-			}
-		}
-	}
-
-	if endpoint == "" {
-		resolveParam := &endpoints.ResolveParam{
-			Domain:               request.GetDomain(),
-			Product:              request.GetProduct(),
-			RegionId:             regionId,
-			LocationProduct:      request.GetLocationServiceCode(),
-			LocationEndpointType: request.GetLocationEndpointType(),
-			CommonApi:            client.ProcessCommonRequest,
-		}
-		endpoint, err = endpoints.Resolve(resolveParam)
-		if err != nil {
-			return
-		}
+	endpoint, err := client.EndpointResolver.TryResolve(client, request)
+	if err != nil {
+		return
 	}
 
 	request.SetDomain(endpoint)
@@ -722,11 +694,13 @@ func isServerError(httpResponse *http.Response) bool {
 	return httpResponse.StatusCode >= http.StatusInternalServerError
 }
 
-/**
+/*
+*
 only block when any one of the following occurs:
 1. the asyncTaskQueue is full, increase the queue size to avoid this
 2. Shutdown() in progressing, the client is being closed
-**/
+*
+*/
 func (client *Client) AddAsyncTask(task func()) (err error) {
 	if client.asyncTaskQueue != nil {
 		if client.isOpenAsync {
