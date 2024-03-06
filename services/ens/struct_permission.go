@@ -26,4 +26,5 @@ type Permission struct {
 	DestCidrIp      string `json:"DestCidrIp" xml:"DestCidrIp"`
 	Priority        int    `json:"Priority" xml:"Priority"`
 	SourcePortRange string `json:"SourcePortRange" xml:"SourcePortRange"`
+	Description     string `json:"Description" xml:"Description"`
 }

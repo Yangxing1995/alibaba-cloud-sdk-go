@@ -71,10 +71,13 @@ func (client *Client) QueryConfigWithCallback(request *QueryConfigRequest, callb
 // QueryConfigRequest is the request struct for api QueryConfig
 type QueryConfigRequest struct {
 	*requests.RpcRequest
-	ConfigType  string `position:"Query" name:"ConfigType"`
-	ClusterId   string `position:"Query" name:"ClusterId"`
-	InstanceId  string `position:"Query" name:"InstanceId"`
-	RequestPars string `position:"Query" name:"RequestPars"`
+	MseSessionId    string           `position:"Query" name:"MseSessionId"`
+	RequestPars     string           `position:"Query" name:"RequestPars"`
+	NeedRunningConf requests.Boolean `position:"Query" name:"NeedRunningConf"`
+	ConfigType      string           `position:"Query" name:"ConfigType"`
+	ClusterId       string           `position:"Query" name:"ClusterId"`
+	InstanceId      string           `position:"Query" name:"InstanceId"`
+	AcceptLanguage  string           `position:"Query" name:"AcceptLanguage"`
 }
 
 // QueryConfigResponse is the response struct for api QueryConfig
@@ -93,8 +96,8 @@ func CreateQueryConfigRequest() (request *QueryConfigRequest) {
 	request = &QueryConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "QueryConfig", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "QueryConfig", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

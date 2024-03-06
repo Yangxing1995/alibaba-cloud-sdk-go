@@ -17,5 +17,5 @@ package live
 
 // ContentInDescribeDomainWithIntegrity is a nested struct in live response
 type ContentInDescribeDomainWithIntegrity struct {
-	ContentItem []ContentItemInDescribeDomainWithIntegrity `json:"Content" xml:"Content"`
+	ContentItem []ContentItem `json:"content" xml:"content"`
 }

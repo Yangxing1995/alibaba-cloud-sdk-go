@@ -71,18 +71,20 @@ func (client *Client) GetGatewayWithCallback(request *GetGatewayRequest, callbac
 // GetGatewayRequest is the request struct for api GetGateway
 type GetGatewayRequest struct {
 	*requests.RpcRequest
+	MseSessionId    string `position:"Query" name:"MseSessionId"`
 	GatewayUniqueId string `position:"Query" name:"GatewayUniqueId"`
+	AcceptLanguage  string `position:"Query" name:"AcceptLanguage"`
 }
 
 // GetGatewayResponse is the response struct for api GetGateway
 type GetGatewayResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
-	Code           int    `json:"Code" xml:"Code"`
-	Success        bool   `json:"Success" xml:"Success"`
-	Data           Data   `json:"Data" xml:"Data"`
+	RequestId      string           `json:"RequestId" xml:"RequestId"`
+	HttpStatusCode int              `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Message        string           `json:"Message" xml:"Message"`
+	Code           int              `json:"Code" xml:"Code"`
+	Success        bool             `json:"Success" xml:"Success"`
+	Data           DataInGetGateway `json:"Data" xml:"Data"`
 }
 
 // CreateGetGatewayRequest creates a request to invoke GetGateway API
@@ -90,8 +92,8 @@ func CreateGetGatewayRequest() (request *GetGatewayRequest) {
 	request = &GetGatewayRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "GetGateway", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "GetGateway", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

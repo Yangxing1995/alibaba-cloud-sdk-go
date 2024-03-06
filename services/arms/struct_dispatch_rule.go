@@ -17,12 +17,13 @@ package arms
 
 // DispatchRule is a nested struct in arms response
 type DispatchRule struct {
-	Name                     string                   `json:"Name" xml:"Name"`
-	State                    string                   `json:"State" xml:"State"`
-	DispatchType             string                   `json:"DispatchType" xml:"DispatchType"`
-	RuleId                   int64                    `json:"RuleId" xml:"RuleId"`
-	IsRecover                bool                     `json:"IsRecover" xml:"IsRecover"`
-	LabelMatchExpressionGrid LabelMatchExpressionGrid `json:"LabelMatchExpressionGrid" xml:"LabelMatchExpressionGrid"`
-	GroupRules               []GroupRule              `json:"GroupRules" xml:"GroupRules"`
-	NotifyRules              []NotifyRule             `json:"NotifyRules" xml:"NotifyRules"`
+	Name                     string                             `json:"Name" xml:"Name"`
+	DispatchType             string                             `json:"DispatchType" xml:"DispatchType"`
+	State                    string                             `json:"State" xml:"State"`
+	RuleId                   int64                              `json:"RuleId" xml:"RuleId"`
+	IsRecover                bool                               `json:"IsRecover" xml:"IsRecover"`
+	Id                       int64                              `json:"id" xml:"id"`
+	LabelMatchExpressionGrid LabelMatchExpressionGrid           `json:"LabelMatchExpressionGrid" xml:"LabelMatchExpressionGrid"`
+	GroupRules               []GroupRule                        `json:"GroupRules" xml:"GroupRules"`
+	NotifyRules              []NotifyRuleInDescribeDispatchRule `json:"NotifyRules" xml:"NotifyRules"`
 }

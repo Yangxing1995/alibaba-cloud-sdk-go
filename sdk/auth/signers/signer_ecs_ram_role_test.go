@@ -41,7 +41,7 @@ func Test_EcsRamRoleSigner_GetAccessKeyId(t *testing.T) {
 	}()
 
 	accessKeyId, err := s.GetAccessKeyId()
-	assert.True(t, strings.HasSuffix(err.Error(), "no such host"))
+	assert.True(t, strings.Contains(err.Error(), "dial tcp: lookup invalid-domain-xxx"))
 	assert.Equal(t, "", accessKeyId)
 }
 
@@ -70,7 +70,7 @@ func Test_EcsRamRoleSigner_GetAccessKeyId2(t *testing.T) {
 		securityCredURL = originalSecurityCredURL
 	}()
 	accessKeyId, err := s.GetAccessKeyId()
-	assert.Equal(t, "SDK.ServerError\nErrorCode: \nRecommend: \nRequestId: \nMessage: {}", err.Error())
+	assert.Equal(t, "SDK.ServerError\nErrorCode: \nRecommend: \nRequestId: \nMessage: {}\nRespHeaders: map[]", err.Error())
 	assert.Equal(t, "", accessKeyId)
 }
 

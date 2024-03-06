@@ -72,21 +72,21 @@ func (client *Client) DescribeRestoreRangeInfoWithCallback(request *DescribeRest
 type DescribeRestoreRangeInfoRequest struct {
 	*requests.RpcRequest
 	BeginTimestampForRestore requests.Integer `position:"Query" name:"BeginTimestampForRestore"`
-	EndTimestampForRestore   requests.Integer `position:"Query" name:"EndTimestampForRestore"`
 	ClientToken              string           `position:"Query" name:"ClientToken"`
 	BackupPlanId             string           `position:"Query" name:"BackupPlanId"`
-	OwnerId                  string           `position:"Query" name:"OwnerId"`
 	RecentlyRestore          requests.Boolean `position:"Query" name:"RecentlyRestore"`
+	EndTimestampForRestore   requests.Integer `position:"Query" name:"EndTimestampForRestore"`
+	OwnerId                  string           `position:"Query" name:"OwnerId"`
 }
 
 // DescribeRestoreRangeInfoResponse is the response struct for api DescribeRestoreRangeInfo
 type DescribeRestoreRangeInfoResponse struct {
 	*responses.BaseResponse
-	Success        bool                            `json:"Success" xml:"Success"`
-	ErrCode        string                          `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string                          `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int                             `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string                          `json:"RequestId" xml:"RequestId"`
+	ErrCode        string                          `json:"ErrCode" xml:"ErrCode"`
+	Success        bool                            `json:"Success" xml:"Success"`
+	ErrMessage     string                          `json:"ErrMessage" xml:"ErrMessage"`
 	Items          ItemsInDescribeRestoreRangeInfo `json:"Items" xml:"Items"`
 }
 

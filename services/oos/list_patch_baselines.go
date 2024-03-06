@@ -71,19 +71,29 @@ func (client *Client) ListPatchBaselinesWithCallback(request *ListPatchBaselines
 // ListPatchBaselinesRequest is the request struct for api ListPatchBaselines
 type ListPatchBaselinesRequest struct {
 	*requests.RpcRequest
-	OperationSystem string           `position:"Query" name:"OperationSystem"`
-	NextToken       string           `position:"Query" name:"NextToken"`
-	Name            string           `position:"Query" name:"Name"`
-	MaxResults      requests.Integer `position:"Query" name:"MaxResults"`
-	ShareType       string           `position:"Query" name:"ShareType"`
+	Sources                          *[]string                 `position:"Query" name:"Sources"  type:"Json"`
+	NextToken                        string                    `position:"Query" name:"NextToken"`
+	ShareType                        string                    `position:"Query" name:"ShareType"`
+	ApprovedPatchesEnableNonSecurity requests.Boolean          `position:"Query" name:"ApprovedPatchesEnableNonSecurity"`
+	Tags                             *[]ListPatchBaselinesTags `position:"Query" name:"Tags"  type:"Json"`
+	OperationSystem                  string                    `position:"Query" name:"OperationSystem"`
+	Name                             string                    `position:"Query" name:"Name"`
+	MaxResults                       requests.Integer          `position:"Query" name:"MaxResults"`
+	ApprovedPatches                  *[]string                 `position:"Query" name:"ApprovedPatches"  type:"Json"`
+}
+
+// ListPatchBaselinesTags is a repeated param struct in ListPatchBaselinesRequest
+type ListPatchBaselinesTags struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // ListPatchBaselinesResponse is the response struct for api ListPatchBaselines
 type ListPatchBaselinesResponse struct {
 	*responses.BaseResponse
+	NextToken      string          `json:"NextToken" xml:"NextToken"`
 	RequestId      string          `json:"RequestId" xml:"RequestId"`
 	MaxResults     int             `json:"MaxResults" xml:"MaxResults"`
-	NextToken      string          `json:"NextToken" xml:"NextToken"`
 	PatchBaselines []PatchBaseline `json:"PatchBaselines" xml:"PatchBaselines"`
 }
 
@@ -92,7 +102,7 @@ func CreateListPatchBaselinesRequest() (request *ListPatchBaselinesRequest) {
 	request = &ListPatchBaselinesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("oos", "2019-06-01", "ListPatchBaselines", "", "")
+	request.InitWithApiInfo("oos", "2019-06-01", "ListPatchBaselines", "oos", "openAPI")
 	request.Method = requests.POST
 	return
 }

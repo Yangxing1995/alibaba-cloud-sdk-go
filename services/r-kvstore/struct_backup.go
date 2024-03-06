@@ -17,17 +17,18 @@ package r_kvstore
 
 // Backup is a nested struct in r_kvstore response
 type Backup struct {
-	BackupId                  int    `json:"BackupId" xml:"BackupId"`
+	BackupMode                string `json:"BackupMode" xml:"BackupMode"`
+	EngineVersion             string `json:"EngineVersion" xml:"EngineVersion"`
+	BackupIntranetDownloadURL string `json:"BackupIntranetDownloadURL" xml:"BackupIntranetDownloadURL"`
+	NodeInstanceId            string `json:"NodeInstanceId" xml:"NodeInstanceId"`
+	BackupEndTime             string `json:"BackupEndTime" xml:"BackupEndTime"`
 	BackupDBNames             string `json:"BackupDBNames" xml:"BackupDBNames"`
+	BackupMethod              string `json:"BackupMethod" xml:"BackupMethod"`
+	BackupType                string `json:"BackupType" xml:"BackupType"`
+	BackupSize                int64  `json:"BackupSize" xml:"BackupSize"`
+	BackupJobID               int    `json:"BackupJobID" xml:"BackupJobID"`
 	BackupStatus              string `json:"BackupStatus" xml:"BackupStatus"`
 	BackupStartTime           string `json:"BackupStartTime" xml:"BackupStartTime"`
-	BackupEndTime             string `json:"BackupEndTime" xml:"BackupEndTime"`
-	BackupType                string `json:"BackupType" xml:"BackupType"`
-	BackupMode                string `json:"BackupMode" xml:"BackupMode"`
-	BackupMethod              string `json:"BackupMethod" xml:"BackupMethod"`
+	BackupId                  int    `json:"BackupId" xml:"BackupId"`
 	BackupDownloadURL         string `json:"BackupDownloadURL" xml:"BackupDownloadURL"`
-	BackupSize                int64  `json:"BackupSize" xml:"BackupSize"`
-	EngineVersion             string `json:"EngineVersion" xml:"EngineVersion"`
-	NodeInstanceId            string `json:"NodeInstanceId" xml:"NodeInstanceId"`
-	BackupIntranetDownloadURL string `json:"BackupIntranetDownloadURL" xml:"BackupIntranetDownloadURL"`
 }

@@ -83,12 +83,12 @@ type GetHDMLastAliyunResourceSyncResultRequest struct {
 // GetHDMLastAliyunResourceSyncResultResponse is the response struct for api GetHDMLastAliyunResourceSyncResult
 type GetHDMLastAliyunResourceSyncResultResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Synchro   string `json:"Synchro" xml:"Synchro"`
-	Code      string `json:"Code" xml:"Code"`
-	Success   string `json:"Success" xml:"Success"`
-	Data      Data   `json:"Data" xml:"Data"`
+	Message   string                                   `json:"Message" xml:"Message"`
+	RequestId string                                   `json:"RequestId" xml:"RequestId"`
+	Synchro   string                                   `json:"Synchro" xml:"Synchro"`
+	Code      string                                   `json:"Code" xml:"Code"`
+	Success   string                                   `json:"Success" xml:"Success"`
+	Data      DataInGetHDMLastAliyunResourceSyncResult `json:"Data" xml:"Data"`
 }
 
 // CreateGetHDMLastAliyunResourceSyncResultRequest creates a request to invoke GetHDMLastAliyunResourceSyncResult API
@@ -96,7 +96,7 @@ func CreateGetHDMLastAliyunResourceSyncResultRequest() (request *GetHDMLastAliyu
 	request = &GetHDMLastAliyunResourceSyncResultRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("DAS", "2020-01-16", "GetHDMLastAliyunResourceSyncResult", "das", "openAPI")
+	request.InitWithApiInfo("DAS", "2020-01-16", "GetHDMLastAliyunResourceSyncResult", "", "")
 	request.Method = requests.POST
 	return
 }

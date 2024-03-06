@@ -72,6 +72,7 @@ func (client *Client) UpdateExecutionWithCallback(request *UpdateExecutionReques
 type UpdateExecutionRequest struct {
 	*requests.RpcRequest
 	ClientToken string `position:"Query" name:"ClientToken"`
+	Description string `position:"Query" name:"Description"`
 	ExecutionId string `position:"Query" name:"ExecutionId"`
 	Parameters  string `position:"Query" name:"Parameters"`
 }
@@ -87,7 +88,7 @@ func CreateUpdateExecutionRequest() (request *UpdateExecutionRequest) {
 	request = &UpdateExecutionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("oos", "2019-06-01", "UpdateExecution", "", "")
+	request.InitWithApiInfo("oos", "2019-06-01", "UpdateExecution", "oos", "openAPI")
 	request.Method = requests.POST
 	return
 }

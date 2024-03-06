@@ -24,4 +24,5 @@ type ImageInDescribeImages struct {
 	ImageOwnerAlias string `json:"ImageOwnerAlias" xml:"ImageOwnerAlias"`
 	ImageSize       string `json:"ImageSize" xml:"ImageSize"`
 	Platform        string `json:"Platform" xml:"Platform"`
+	SnapshotId      string `json:"SnapshotId" xml:"SnapshotId"`
 }

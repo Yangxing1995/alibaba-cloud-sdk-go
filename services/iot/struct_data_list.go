@@ -17,5 +17,9 @@ package iot
 
 // DataList is a nested struct in iot response
 type DataList struct {
-	DataListItem []DataListItem `json:"DataList" xml:"DataList"`
+	AlgoInstanceUid string `json:"AlgoInstanceUid" xml:"AlgoInstanceUid"`
+	Name            string `json:"Name" xml:"Name"`
+	PowerStationUid string `json:"PowerStationUid" xml:"PowerStationUid"`
+	RatedPower      int    `json:"RatedPower" xml:"RatedPower"`
+	Description     string `json:"Description" xml:"Description"`
 }

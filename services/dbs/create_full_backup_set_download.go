@@ -72,19 +72,19 @@ func (client *Client) CreateFullBackupSetDownloadWithCallback(request *CreateFul
 type CreateFullBackupSetDownloadRequest struct {
 	*requests.RpcRequest
 	ClientToken         string `position:"Query" name:"ClientToken"`
+	BackupSetDataFormat string `position:"Query" name:"BackupSetDataFormat"`
 	BackupSetId         string `position:"Query" name:"BackupSetId"`
 	OwnerId             string `position:"Query" name:"OwnerId"`
-	BackupSetDataFormat string `position:"Query" name:"BackupSetDataFormat"`
 }
 
 // CreateFullBackupSetDownloadResponse is the response struct for api CreateFullBackupSetDownload
 type CreateFullBackupSetDownloadResponse struct {
 	*responses.BaseResponse
-	Success                 bool   `json:"Success" xml:"Success"`
-	ErrCode                 string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage              string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode          int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId               string `json:"RequestId" xml:"RequestId"`
+	ErrCode                 string `json:"ErrCode" xml:"ErrCode"`
+	Success                 bool   `json:"Success" xml:"Success"`
+	ErrMessage              string `json:"ErrMessage" xml:"ErrMessage"`
 	BackupSetDownloadTaskId string `json:"BackupSetDownloadTaskId" xml:"BackupSetDownloadTaskId"`
 }
 

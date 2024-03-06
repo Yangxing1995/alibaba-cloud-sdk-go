@@ -71,6 +71,7 @@ func (client *Client) CreateHybridClusterWithCallback(request *CreateHybridClust
 // CreateHybridClusterRequest is the request struct for api CreateHybridCluster
 type CreateHybridClusterRequest struct {
 	*requests.RpcRequest
+	EcsOrderManagerInstanceType string                                  `position:"Query" name:"EcsOrder.Manager.InstanceType"`
 	KeyPairName                 string                                  `position:"Query" name:"KeyPairName"`
 	MultiOs                     requests.Boolean                        `position:"Query" name:"MultiOs"`
 	SecurityGroupName           string                                  `position:"Query" name:"SecurityGroupName"`
@@ -78,6 +79,8 @@ type CreateHybridClusterRequest struct {
 	ImageOwnerAlias             string                                  `position:"Query" name:"ImageOwnerAlias"`
 	ResourceGroupId             string                                  `position:"Query" name:"ResourceGroupId"`
 	Password                    string                                  `position:"Query" name:"Password"`
+	HybridClusterOpMode         string                                  `position:"Query" name:"HybridClusterOpMode"`
+	WinAdPar                    CreateHybridClusterWinAdPar             `position:"Query" name:"WinAdPar"  type:"Struct"`
 	ComputeSpotPriceLimit       requests.Float                          `position:"Query" name:"ComputeSpotPriceLimit"`
 	OnPremiseVolumeLocalPath    string                                  `position:"Query" name:"OnPremiseVolumeLocalPath"`
 	RemoteDirectory             string                                  `position:"Query" name:"RemoteDirectory"`
@@ -94,6 +97,7 @@ type CreateHybridClusterRequest struct {
 	SecurityGroupId             string                                  `position:"Query" name:"SecurityGroupId"`
 	Description                 string                                  `position:"Query" name:"Description"`
 	EcsOrderComputeInstanceType string                                  `position:"Query" name:"EcsOrder.Compute.InstanceType"`
+	OpenldapPar                 CreateHybridClusterOpenldapPar          `position:"Query" name:"OpenldapPar"  type:"Struct"`
 	JobQueue                    string                                  `position:"Query" name:"JobQueue"`
 	VolumeType                  string                                  `position:"Query" name:"VolumeType"`
 	OnPremiseVolumeMountPoint   string                                  `position:"Query" name:"OnPremiseVolumeMountPoint"`
@@ -102,11 +106,20 @@ type CreateHybridClusterRequest struct {
 	ClientVersion               string                                  `position:"Query" name:"ClientVersion"`
 	OsTag                       string                                  `position:"Query" name:"OsTag"`
 	Nodes                       *[]CreateHybridClusterNodes             `position:"Query" name:"Nodes"  type:"Repeated"`
+	Plugin                      string                                  `position:"Query" name:"Plugin"`
 	Application                 *[]CreateHybridClusterApplication       `position:"Query" name:"Application"  type:"Repeated"`
 	VpcId                       string                                  `position:"Query" name:"VpcId"`
 	VolumeMountpoint            string                                  `position:"Query" name:"VolumeMountpoint"`
 	SchedulerPreInstall         requests.Boolean                        `position:"Query" name:"SchedulerPreInstall"`
 	Location                    string                                  `position:"Query" name:"Location"`
+}
+
+// CreateHybridClusterWinAdPar is a repeated param struct in CreateHybridClusterRequest
+type CreateHybridClusterWinAdPar struct {
+	AdUser       string `name:"AdUser"`
+	AdUserPasswd string `name:"AdUserPasswd"`
+	AdIp         string `name:"AdIp"`
+	AdDc         string `name:"AdDc"`
 }
 
 // CreateHybridClusterPostInstallScript is a repeated param struct in CreateHybridClusterRequest
@@ -115,13 +128,21 @@ type CreateHybridClusterPostInstallScript struct {
 	Url  string `name:"Url"`
 }
 
+// CreateHybridClusterOpenldapPar is a repeated param struct in CreateHybridClusterRequest
+type CreateHybridClusterOpenldapPar struct {
+	FallbackHomeDir string `name:"FallbackHomeDir"`
+	BaseDn          string `name:"BaseDn"`
+	LdapServerIp    string `name:"LdapServerIp"`
+}
+
 // CreateHybridClusterNodes is a repeated param struct in CreateHybridClusterRequest
 type CreateHybridClusterNodes struct {
 	IpAddress     string `name:"IpAddress"`
 	HostName      string `name:"HostName"`
 	Role          string `name:"Role"`
-	AccountType   string `name:"AccountType"`
 	SchedulerType string `name:"SchedulerType"`
+	AccountType   string `name:"AccountType"`
+	Dir           string `name:"Dir"`
 }
 
 // CreateHybridClusterApplication is a repeated param struct in CreateHybridClusterRequest
@@ -133,8 +154,8 @@ type CreateHybridClusterApplication struct {
 type CreateHybridClusterResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
-	ClusterId string `json:"ClusterId" xml:"ClusterId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	ClusterId string `json:"ClusterId" xml:"ClusterId"`
 }
 
 // CreateCreateHybridClusterRequest creates a request to invoke CreateHybridCluster API
@@ -142,7 +163,7 @@ func CreateCreateHybridClusterRequest() (request *CreateHybridClusterRequest) {
 	request = &CreateHybridClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "CreateHybridCluster", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "CreateHybridCluster", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -81,8 +81,8 @@ type ModifySecurityGroupConfigurationRequest struct {
 // ModifySecurityGroupConfigurationResponse is the response struct for api ModifySecurityGroupConfiguration
 type ModifySecurityGroupConfigurationResponse struct {
 	*responses.BaseResponse
-	RequestId      string                                  `json:"RequestId" xml:"RequestId"`
 	DBInstanceName string                                  `json:"DBInstanceName" xml:"DBInstanceName"`
+	RequestId      string                                  `json:"RequestId" xml:"RequestId"`
 	Items          ItemsInModifySecurityGroupConfiguration `json:"Items" xml:"Items"`
 }
 
@@ -91,7 +91,7 @@ func CreateModifySecurityGroupConfigurationRequest() (request *ModifySecurityGro
 	request = &ModifySecurityGroupConfigurationRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifySecurityGroupConfiguration", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifySecurityGroupConfiguration", "", "")
 	request.Method = requests.POST
 	return
 }

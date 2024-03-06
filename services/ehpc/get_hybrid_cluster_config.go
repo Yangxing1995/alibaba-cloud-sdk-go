@@ -78,8 +78,8 @@ type GetHybridClusterConfigRequest struct {
 // GetHybridClusterConfigResponse is the response struct for api GetHybridClusterConfig
 type GetHybridClusterConfigResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
 	ClusterConfig string `json:"ClusterConfig" xml:"ClusterConfig"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateGetHybridClusterConfigRequest creates a request to invoke GetHybridClusterConfig API
@@ -87,7 +87,7 @@ func CreateGetHybridClusterConfigRequest() (request *GetHybridClusterConfigReque
 	request = &GetHybridClusterConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "GetHybridClusterConfig", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "GetHybridClusterConfig", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

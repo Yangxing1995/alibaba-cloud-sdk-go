@@ -71,13 +71,15 @@ func (client *Client) BatchAddThingTopoWithCallback(request *BatchAddThingTopoRe
 // BatchAddThingTopoRequest is the request struct for api BatchAddThingTopo
 type BatchAddThingTopoRequest struct {
 	*requests.RpcRequest
-	GwProductKey  string                          `position:"Query" name:"GwProductKey"`
-	IotInstanceId string                          `position:"Query" name:"IotInstanceId"`
-	Ext           string                          `position:"Query" name:"Ext"`
-	TopoAddItem   *[]BatchAddThingTopoTopoAddItem `position:"Query" name:"TopoAddItem"  type:"Repeated"`
-	GwDeviceName  string                          `position:"Query" name:"GwDeviceName"`
-	ApiProduct    string                          `position:"Body" name:"ApiProduct"`
-	ApiRevision   string                          `position:"Body" name:"ApiRevision"`
+	GwProductKey      string                          `position:"Query" name:"GwProductKey"`
+	RealTenantId      string                          `position:"Query" name:"RealTenantId"`
+	RealTripartiteKey string                          `position:"Query" name:"RealTripartiteKey"`
+	IotInstanceId     string                          `position:"Query" name:"IotInstanceId"`
+	Ext               string                          `position:"Query" name:"Ext"`
+	TopoAddItem       *[]BatchAddThingTopoTopoAddItem `position:"Query" name:"TopoAddItem"  type:"Repeated"`
+	GwDeviceName      string                          `position:"Query" name:"GwDeviceName"`
+	ApiProduct        string                          `position:"Body" name:"ApiProduct"`
+	ApiRevision       string                          `position:"Body" name:"ApiRevision"`
 }
 
 // BatchAddThingTopoTopoAddItem is a repeated param struct in BatchAddThingTopoRequest

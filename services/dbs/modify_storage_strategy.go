@@ -71,22 +71,22 @@ func (client *Client) ModifyStorageStrategyWithCallback(request *ModifyStorageSt
 // ModifyStorageStrategyRequest is the request struct for api ModifyStorageStrategy
 type ModifyStorageStrategyRequest struct {
 	*requests.RpcRequest
-	DuplicationArchivePeriod          requests.Integer `position:"Query" name:"DuplicationArchivePeriod"`
 	ClientToken                       string           `position:"Query" name:"ClientToken"`
 	BackupPlanId                      string           `position:"Query" name:"BackupPlanId"`
+	DuplicationInfrequentAccessPeriod requests.Integer `position:"Query" name:"DuplicationInfrequentAccessPeriod"`
+	DuplicationArchivePeriod          requests.Integer `position:"Query" name:"DuplicationArchivePeriod"`
 	OwnerId                           string           `position:"Query" name:"OwnerId"`
 	BackupRetentionPeriod             requests.Integer `position:"Query" name:"BackupRetentionPeriod"`
-	DuplicationInfrequentAccessPeriod requests.Integer `position:"Query" name:"DuplicationInfrequentAccessPeriod"`
 }
 
 // ModifyStorageStrategyResponse is the response struct for api ModifyStorageStrategy
 type ModifyStorageStrategyResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	BackupPlanId   string `json:"BackupPlanId" xml:"BackupPlanId"`
 	NeedPrecheck   bool   `json:"NeedPrecheck" xml:"NeedPrecheck"`
 }

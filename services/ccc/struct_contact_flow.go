@@ -17,16 +17,19 @@ package ccc
 
 // ContactFlow is a nested struct in ccc response
 type ContactFlow struct {
-	ContactFlowId string   `json:"ContactFlowId" xml:"ContactFlowId"`
-	CreatedTime   string   `json:"CreatedTime" xml:"CreatedTime"`
-	Definition    string   `json:"Definition" xml:"Definition"`
-	Description   string   `json:"Description" xml:"Description"`
-	DraftId       string   `json:"DraftId" xml:"DraftId"`
-	Editor        string   `json:"Editor" xml:"Editor"`
-	InstanceId    string   `json:"InstanceId" xml:"InstanceId"`
-	Name          string   `json:"Name" xml:"Name"`
-	Published     bool     `json:"Published" xml:"Published"`
-	Type          string   `json:"Type" xml:"Type"`
-	UpdatedTime   string   `json:"UpdatedTime" xml:"UpdatedTime"`
-	NumberList    []string `json:"NumberList" xml:"NumberList"`
+	Name            string   `json:"Name" xml:"Name"`
+	UpdatedTime     string   `json:"UpdatedTime" xml:"UpdatedTime"`
+	Editor          string   `json:"Editor" xml:"Editor"`
+	AudioFileName   string   `json:"AudioFileName" xml:"AudioFileName"`
+	OssFileKey      string   `json:"OssFileKey" xml:"OssFileKey"`
+	CreatedTime     string   `json:"CreatedTime" xml:"CreatedTime"`
+	DraftId         string   `json:"DraftId" xml:"DraftId"`
+	Published       bool     `json:"Published" xml:"Published"`
+	InstanceId      string   `json:"InstanceId" xml:"InstanceId"`
+	AudioResourceId string   `json:"AudioResourceId" xml:"AudioResourceId"`
+	ContactFlowId   string   `json:"ContactFlowId" xml:"ContactFlowId"`
+	Definition      string   `json:"Definition" xml:"Definition"`
+	Description     string   `json:"Description" xml:"Description"`
+	Type            string   `json:"Type" xml:"Type"`
+	NumberList      []string `json:"NumberList" xml:"NumberList"`
 }

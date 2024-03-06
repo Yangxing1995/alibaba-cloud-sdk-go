@@ -71,14 +71,17 @@ func (client *Client) RecognizeExpressionWithCallback(request *RecognizeExpressi
 // RecognizeExpressionRequest is the request struct for api RecognizeExpression
 type RecognizeExpressionRequest struct {
 	*requests.RpcRequest
-	ImageURL string `position:"Body" name:"ImageURL"`
+	FormatResultToJson requests.Boolean `position:"Query" name:"FormatResultToJson"`
+	OssFile            string           `position:"Query" name:"OssFile"`
+	RequestProxyBy     string           `position:"Query" name:"RequestProxyBy"`
+	ImageURL           string           `position:"Body" name:"ImageURL"`
 }
 
 // RecognizeExpressionResponse is the response struct for api RecognizeExpression
 type RecognizeExpressionResponse struct {
 	*responses.BaseResponse
-	RequestId string                    `json:"RequestId" xml:"RequestId"`
-	Data      DataInRecognizeExpression `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Data      Data   `json:"Data" xml:"Data"`
 }
 
 // CreateRecognizeExpressionRequest creates a request to invoke RecognizeExpression API

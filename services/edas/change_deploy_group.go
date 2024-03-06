@@ -81,8 +81,8 @@ type ChangeDeployGroupRequest struct {
 type ChangeDeployGroupResponse struct {
 	*responses.BaseResponse
 	Code          int    `json:"Code" xml:"Code"`
-	Message       string `json:"Message" xml:"Message"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Message       string `json:"Message" xml:"Message"`
 	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
@@ -91,7 +91,7 @@ func CreateChangeDeployGroupRequest() (request *ChangeDeployGroupRequest) {
 	request = &ChangeDeployGroupRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "ChangeDeployGroup", "/pop/v5/changeorder/co_change_group", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "ChangeDeployGroup", "/pop/v5/changeorder/co_change_group", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -19,6 +19,7 @@ package rds
 type DBInstance struct {
 	Engine                       string                                     `json:"Engine" xml:"Engine"`
 	VpcName                      string                                     `json:"VpcName" xml:"VpcName"`
+	BpeEnabled                   string                                     `json:"BpeEnabled" xml:"BpeEnabled"`
 	VpcCloudInstanceId           string                                     `json:"VpcCloudInstanceId" xml:"VpcCloudInstanceId"`
 	DBInstanceNetType            string                                     `json:"DBInstanceNetType" xml:"DBInstanceNetType"`
 	DBInstanceClass              string                                     `json:"DBInstanceClass" xml:"DBInstanceClass"`
@@ -33,6 +34,7 @@ type DBInstance struct {
 	TipsLevel                    int                                        `json:"TipsLevel" xml:"TipsLevel"`
 	EngineVersion                string                                     `json:"EngineVersion" xml:"EngineVersion"`
 	PayType                      string                                     `json:"PayType" xml:"PayType"`
+	BurstingEnabled              bool                                       `json:"BurstingEnabled" xml:"BurstingEnabled"`
 	Tips                         string                                     `json:"Tips" xml:"Tips"`
 	DedicatedHostZoneIdForSlave  string                                     `json:"DedicatedHostZoneIdForSlave" xml:"DedicatedHostZoneIdForSlave"`
 	TempDBInstanceId             string                                     `json:"TempDBInstanceId" xml:"TempDBInstanceId"`
@@ -65,5 +67,6 @@ type DBInstance struct {
 	ConnectionString             string                                     `json:"ConnectionString" xml:"ConnectionString"`
 	DedicatedHostNameForMaster   string                                     `json:"DedicatedHostNameForMaster" xml:"DedicatedHostNameForMaster"`
 	AutoUpgradeMinorVersion      string                                     `json:"AutoUpgradeMinorVersion" xml:"AutoUpgradeMinorVersion"`
+	DeletionProtection           bool                                       `json:"DeletionProtection" xml:"DeletionProtection"`
 	ReadOnlyDBInstanceIds        ReadOnlyDBInstanceIdsInDescribeDBInstances `json:"ReadOnlyDBInstanceIds" xml:"ReadOnlyDBInstanceIds"`
 }

@@ -71,10 +71,12 @@ func (client *Client) UpdateQueueConfigWithCallback(request *UpdateQueueConfigRe
 // UpdateQueueConfigRequest is the request struct for api UpdateQueueConfig
 type UpdateQueueConfigRequest struct {
 	*requests.RpcRequest
-	QueueName           string `position:"Query" name:"QueueName"`
-	ClusterId           string `position:"Query" name:"ClusterId"`
-	ResourceGroupId     string `position:"Query" name:"ResourceGroupId"`
-	ComputeInstanceType string `position:"Query" name:"ComputeInstanceType"`
+	DeploymentSetId             string `position:"Query" name:"DeploymentSetId"`
+	QueueName                   string `position:"Query" name:"QueueName"`
+	ClusterId                   string `position:"Query" name:"ClusterId"`
+	NetworkInterfaceTrafficMode string `position:"Query" name:"NetworkInterfaceTrafficMode"`
+	ResourceGroupId             string `position:"Query" name:"ResourceGroupId"`
+	ComputeInstanceType         string `position:"Query" name:"ComputeInstanceType"`
 }
 
 // UpdateQueueConfigResponse is the response struct for api UpdateQueueConfig
@@ -88,7 +90,7 @@ func CreateUpdateQueueConfigRequest() (request *UpdateQueueConfigRequest) {
 	request = &UpdateQueueConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "UpdateQueueConfig", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "UpdateQueueConfig", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

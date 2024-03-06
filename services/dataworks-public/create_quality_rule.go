@@ -71,35 +71,37 @@ func (client *Client) CreateQualityRuleWithCallback(request *CreateQualityRuleRe
 // CreateQualityRuleRequest is the request struct for api CreateQualityRule
 type CreateQualityRuleRequest struct {
 	*requests.RpcRequest
-	ProjectName       string           `position:"Body" name:"ProjectName"`
+	TaskSetting       string           `position:"Body" name:"TaskSetting"`
 	Trend             string           `position:"Body" name:"Trend"`
-	RuleType          requests.Integer `position:"Body" name:"RuleType"`
 	BlockType         requests.Integer `position:"Body" name:"BlockType"`
 	PropertyType      string           `position:"Body" name:"PropertyType"`
 	EntityId          requests.Integer `position:"Body" name:"EntityId"`
 	RuleName          string           `position:"Body" name:"RuleName"`
 	Checker           requests.Integer `position:"Body" name:"Checker"`
+	Operator          string           `position:"Body" name:"Operator"`
+	Property          string           `position:"Body" name:"Property"`
+	WarningThreshold  string           `position:"Body" name:"WarningThreshold"`
+	ProjectId         requests.Integer `position:"Body" name:"ProjectId"`
+	MethodName        string           `position:"Body" name:"MethodName"`
+	ProjectName       string           `position:"Body" name:"ProjectName"`
+	RuleType          requests.Integer `position:"Body" name:"RuleType"`
 	TemplateId        requests.Integer `position:"Body" name:"TemplateId"`
 	ExpectValue       string           `position:"Body" name:"ExpectValue"`
-	Operator          string           `position:"Body" name:"Operator"`
 	WhereCondition    string           `position:"Body" name:"WhereCondition"`
 	CriticalThreshold string           `position:"Body" name:"CriticalThreshold"`
-	Property          string           `position:"Body" name:"Property"`
 	Comment           string           `position:"Body" name:"Comment"`
 	PredictType       requests.Integer `position:"Body" name:"PredictType"`
-	WarningThreshold  string           `position:"Body" name:"WarningThreshold"`
-	MethodName        string           `position:"Body" name:"MethodName"`
 }
 
 // CreateQualityRuleResponse is the response struct for api CreateQualityRule
 type CreateQualityRuleResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	Data           string `json:"Data" xml:"Data"`
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Data           string `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateCreateQualityRuleRequest creates a request to invoke CreateQualityRule API

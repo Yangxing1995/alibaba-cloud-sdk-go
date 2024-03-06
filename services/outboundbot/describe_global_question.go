@@ -79,8 +79,8 @@ type DescribeGlobalQuestionRequest struct {
 // DescribeGlobalQuestionResponse is the response struct for api DescribeGlobalQuestion
 type DescribeGlobalQuestionResponse struct {
 	*responses.BaseResponse
-	Code           string         `json:"Code" xml:"Code"`
 	HttpStatusCode int            `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string         `json:"Code" xml:"Code"`
 	Message        string         `json:"Message" xml:"Message"`
 	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	Success        bool           `json:"Success" xml:"Success"`
@@ -92,7 +92,7 @@ func CreateDescribeGlobalQuestionRequest() (request *DescribeGlobalQuestionReque
 	request = &DescribeGlobalQuestionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeGlobalQuestion", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeGlobalQuestion", "", "")
 	request.Method = requests.POST
 	return
 }

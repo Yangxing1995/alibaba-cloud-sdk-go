@@ -17,11 +17,12 @@ package config
 
 // EvaluationResult is a nested struct in config response
 type EvaluationResult struct {
+	ConfigRuleInvokedTimestamp int64                      `json:"ConfigRuleInvokedTimestamp" xml:"ConfigRuleInvokedTimestamp"`
+	RiskLevel                  int                        `json:"RiskLevel" xml:"RiskLevel"`
+	RemediationEnabled         bool                       `json:"RemediationEnabled" xml:"RemediationEnabled"`
 	Annotation                 string                     `json:"Annotation" xml:"Annotation"`
 	ComplianceType             string                     `json:"ComplianceType" xml:"ComplianceType"`
-	ConfigRuleInvokedTimestamp int64                      `json:"ConfigRuleInvokedTimestamp" xml:"ConfigRuleInvokedTimestamp"`
-	InvokingEventMessageType   string                     `json:"InvokingEventMessageType" xml:"InvokingEventMessageType"`
 	ResultRecordedTimestamp    int64                      `json:"ResultRecordedTimestamp" xml:"ResultRecordedTimestamp"`
-	RiskLevel                  int                        `json:"RiskLevel" xml:"RiskLevel"`
+	InvokingEventMessageType   string                     `json:"InvokingEventMessageType" xml:"InvokingEventMessageType"`
 	EvaluationResultIdentifier EvaluationResultIdentifier `json:"EvaluationResultIdentifier" xml:"EvaluationResultIdentifier"`
 }

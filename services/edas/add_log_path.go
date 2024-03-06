@@ -78,9 +78,9 @@ type AddLogPathRequest struct {
 // AddLogPathResponse is the response struct for api AddLogPath
 type AddLogPathResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateAddLogPathRequest creates a request to invoke AddLogPath API
@@ -88,7 +88,7 @@ func CreateAddLogPathRequest() (request *AddLogPathRequest) {
 	request = &AddLogPathRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "AddLogPath", "/pop/v5/log/popListLogDirs", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "AddLogPath", "/pop/v5/log/popListLogDirs", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

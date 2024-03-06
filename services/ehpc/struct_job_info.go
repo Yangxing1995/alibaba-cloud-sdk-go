@@ -17,19 +17,17 @@ package ehpc
 
 // JobInfo is a nested struct in ehpc response
 type JobInfo struct {
-	Id             string    `json:"Id" xml:"Id"`
-	Name           string    `json:"Name" xml:"Name"`
-	Owner          string    `json:"Owner" xml:"Owner"`
-	NodeList       string    `json:"NodeList" xml:"NodeList"`
-	Priority       string    `json:"Priority" xml:"Priority"`
-	State          string    `json:"State" xml:"State"`
-	SubmitTime     string    `json:"SubmitTime" xml:"SubmitTime"`
-	StartTime      string    `json:"StartTime" xml:"StartTime"`
-	LastModifyTime string    `json:"LastModifyTime" xml:"LastModifyTime"`
-	Stdout         string    `json:"Stdout" xml:"Stdout"`
-	Stderr         string    `json:"Stderr" xml:"Stderr"`
-	ShellPath      string    `json:"ShellPath" xml:"ShellPath"`
-	Comment        string    `json:"Comment" xml:"Comment"`
-	ArrayRequest   string    `json:"ArrayRequest" xml:"ArrayRequest"`
-	Resources      Resources `json:"Resources" xml:"Resources"`
+	LastModifyTime  int64            `json:"LastModifyTime" xml:"LastModifyTime"`
+	JobId           string           `json:"JobId" xml:"JobId"`
+	User            string           `json:"User" xml:"User"`
+	EndTime         int64            `json:"EndTime" xml:"EndTime"`
+	StartTime       int64            `json:"StartTime" xml:"StartTime"`
+	SubmitTime      int64            `json:"SubmitTime" xml:"SubmitTime"`
+	State           string           `json:"State" xml:"State"`
+	Queue           string           `json:"Queue" xml:"Queue"`
+	Priority        int64            `json:"Priority" xml:"Priority"`
+	IsArrayJob      bool             `json:"IsArrayJob" xml:"IsArrayJob"`
+	JobName         string           `json:"JobName" xml:"JobName"`
+	ArrayProperties ArrayProperties  `json:"ArrayProperties" xml:"ArrayProperties"`
+	ContainerGroups []ContainerGroup `json:"ContainerGroups" xml:"ContainerGroups"`
 }

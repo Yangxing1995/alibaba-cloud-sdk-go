@@ -71,9 +71,11 @@ func (client *Client) CreateZnodeWithCallback(request *CreateZnodeRequest, callb
 // CreateZnodeRequest is the request struct for api CreateZnode
 type CreateZnodeRequest struct {
 	*requests.RpcRequest
-	Data      string `position:"Query" name:"Data"`
-	ClusterId string `position:"Query" name:"ClusterId"`
-	Path      string `position:"Query" name:"Path"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	Data           string `position:"Query" name:"Data"`
+	Path           string `position:"Query" name:"Path"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // CreateZnodeResponse is the response struct for api CreateZnode
@@ -92,7 +94,7 @@ func CreateCreateZnodeRequest() (request *CreateZnodeRequest) {
 	request = &CreateZnodeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "CreateZnode", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "CreateZnode", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

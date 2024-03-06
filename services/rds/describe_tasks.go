@@ -88,9 +88,9 @@ type DescribeTasksRequest struct {
 type DescribeTasksResponse struct {
 	*responses.BaseResponse
 	RequestId        string               `json:"RequestId" xml:"RequestId"`
-	TotalRecordCount int                  `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	PageNumber       int                  `json:"PageNumber" xml:"PageNumber"`
 	PageRecordCount  int                  `json:"PageRecordCount" xml:"PageRecordCount"`
+	TotalRecordCount int                  `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	Items            ItemsInDescribeTasks `json:"Items" xml:"Items"`
 }
 
@@ -99,7 +99,7 @@ func CreateDescribeTasksRequest() (request *DescribeTasksRequest) {
 	request = &DescribeTasksRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeTasks", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeTasks", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -72,21 +72,22 @@ func (client *Client) ListQualityResultsByRuleWithCallback(request *ListQualityR
 type ListQualityResultsByRuleRequest struct {
 	*requests.RpcRequest
 	ProjectName string           `position:"Body" name:"ProjectName"`
+	StartDate   string           `position:"Body" name:"StartDate"`
+	PageNumber  requests.Integer `position:"Body" name:"PageNumber"`
 	EndDate     string           `position:"Body" name:"EndDate"`
 	PageSize    requests.Integer `position:"Body" name:"PageSize"`
 	RuleId      requests.Integer `position:"Body" name:"RuleId"`
-	StartDate   string           `position:"Body" name:"StartDate"`
-	PageNumber  requests.Integer `position:"Body" name:"PageNumber"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // ListQualityResultsByRuleResponse is the response struct for api ListQualityResultsByRule
 type ListQualityResultsByRuleResponse struct {
 	*responses.BaseResponse
-	RequestId      string                         `json:"RequestId" xml:"RequestId"`
-	Success        bool                           `json:"Success" xml:"Success"`
-	ErrorCode      string                         `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                         `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                            `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string                         `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string                         `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string                         `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool                           `json:"Success" xml:"Success"`
 	Data           DataInListQualityResultsByRule `json:"Data" xml:"Data"`
 }
 

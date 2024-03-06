@@ -85,6 +85,7 @@ type DescribeParametersResponse struct {
 	RequestId         string            `json:"RequestId" xml:"RequestId"`
 	Engine            string            `json:"Engine" xml:"Engine"`
 	EngineVersion     string            `json:"EngineVersion" xml:"EngineVersion"`
+	ParamGroupInfo    ParamGroupInfo    `json:"ParamGroupInfo" xml:"ParamGroupInfo"`
 	ConfigParameters  ConfigParameters  `json:"ConfigParameters" xml:"ConfigParameters"`
 	RunningParameters RunningParameters `json:"RunningParameters" xml:"RunningParameters"`
 }
@@ -94,7 +95,7 @@ func CreateDescribeParametersRequest() (request *DescribeParametersRequest) {
 	request = &DescribeParametersRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeParameters", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeParameters", "", "")
 	request.Method = requests.POST
 	return
 }

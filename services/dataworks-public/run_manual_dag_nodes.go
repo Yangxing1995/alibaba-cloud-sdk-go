@@ -73,6 +73,8 @@ type RunManualDagNodesRequest struct {
 	*requests.RpcRequest
 	ProjectEnv     string           `position:"Body" name:"ProjectEnv"`
 	ProjectName    string           `position:"Body" name:"ProjectName"`
+	StartBizDate   string           `position:"Body" name:"StartBizDate"`
+	EndBizDate     string           `position:"Body" name:"EndBizDate"`
 	DagParameters  string           `position:"Body" name:"DagParameters"`
 	IncludeNodeIds string           `position:"Body" name:"IncludeNodeIds"`
 	BizDate        string           `position:"Body" name:"BizDate"`
@@ -85,8 +87,8 @@ type RunManualDagNodesRequest struct {
 // RunManualDagNodesResponse is the response struct for api RunManualDagNodes
 type RunManualDagNodesResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	DagId     int64  `json:"DagId" xml:"DagId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateRunManualDagNodesRequest creates a request to invoke RunManualDagNodes API

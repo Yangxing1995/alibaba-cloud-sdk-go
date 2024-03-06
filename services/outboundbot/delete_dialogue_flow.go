@@ -79,8 +79,8 @@ type DeleteDialogueFlowRequest struct {
 // DeleteDialogueFlowResponse is the response struct for api DeleteDialogueFlow
 type DeleteDialogueFlowResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -91,7 +91,7 @@ func CreateDeleteDialogueFlowRequest() (request *DeleteDialogueFlowRequest) {
 	request = &DeleteDialogueFlowRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DeleteDialogueFlow", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DeleteDialogueFlow", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -75,19 +75,19 @@ type CreateGetDBListFromAgentTaskRequest struct {
 	BackupGatewayId      requests.Integer `position:"Query" name:"BackupGatewayId"`
 	DatabaseType         string           `position:"Query" name:"DatabaseType"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
+	SourceEndpointIP     string           `position:"Query" name:"SourceEndpointIP"`
 	OwnerId              string           `position:"Query" name:"OwnerId"`
 	SourceEndpointPort   requests.Integer `position:"Query" name:"SourceEndpointPort"`
-	SourceEndpointIP     string           `position:"Query" name:"SourceEndpointIP"`
 }
 
 // CreateGetDBListFromAgentTaskResponse is the response struct for api CreateGetDBListFromAgentTask
 type CreateGetDBListFromAgentTaskResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	TaskId         int64  `json:"TaskId" xml:"TaskId"`
 }
 

@@ -81,11 +81,11 @@ type DescribeCacheAnalysisJobsRequest struct {
 // DescribeCacheAnalysisJobsResponse is the response struct for api DescribeCacheAnalysisJobs
 type DescribeCacheAnalysisJobsResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
-	Success   string `json:"Success" xml:"Success"`
-	Data      Data   `json:"Data" xml:"Data"`
+	Message   string                          `json:"Message" xml:"Message"`
+	RequestId string                          `json:"RequestId" xml:"RequestId"`
+	Code      string                          `json:"Code" xml:"Code"`
+	Success   string                          `json:"Success" xml:"Success"`
+	Data      DataInDescribeCacheAnalysisJobs `json:"Data" xml:"Data"`
 }
 
 // CreateDescribeCacheAnalysisJobsRequest creates a request to invoke DescribeCacheAnalysisJobs API
@@ -93,7 +93,7 @@ func CreateDescribeCacheAnalysisJobsRequest() (request *DescribeCacheAnalysisJob
 	request = &DescribeCacheAnalysisJobsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("DAS", "2020-01-16", "DescribeCacheAnalysisJobs", "das", "openAPI")
+	request.InitWithApiInfo("DAS", "2020-01-16", "DescribeCacheAnalysisJobs", "", "")
 	request.Method = requests.POST
 	return
 }

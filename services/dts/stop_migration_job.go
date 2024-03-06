@@ -73,17 +73,15 @@ type StopMigrationJobRequest struct {
 	*requests.RpcRequest
 	ClientToken    string `position:"Query" name:"ClientToken"`
 	MigrationJobId string `position:"Query" name:"MigrationJobId"`
-	OwnerId        string `position:"Query" name:"OwnerId"`
-	AccountId      string `position:"Query" name:"AccountId"`
 }
 
 // StopMigrationJobResponse is the response struct for api StopMigrationJob
 type StopMigrationJobResponse struct {
 	*responses.BaseResponse
-	ErrCode    string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 	RequestId  string `json:"RequestId" xml:"RequestId"`
+	ErrCode    string `json:"ErrCode" xml:"ErrCode"`
 	Success    string `json:"Success" xml:"Success"`
+	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 }
 
 // CreateStopMigrationJobRequest creates a request to invoke StopMigrationJob API
@@ -91,7 +89,7 @@ func CreateStopMigrationJobRequest() (request *StopMigrationJobRequest) {
 	request = &StopMigrationJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Dts", "2020-01-01", "StopMigrationJob", "dts", "openAPI")
+	request.InitWithApiInfo("Dts", "2017-06-01", "StopMigrationJob", "dts", "openAPI")
 	request.Method = requests.POST
 	return
 }

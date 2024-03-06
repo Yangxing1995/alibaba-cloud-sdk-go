@@ -72,19 +72,20 @@ func (client *Client) ListQualityRulesWithCallback(request *ListQualityRulesRequ
 type ListQualityRulesRequest struct {
 	*requests.RpcRequest
 	ProjectName string           `position:"Body" name:"ProjectName"`
-	PageSize    requests.Integer `position:"Body" name:"PageSize"`
 	EntityId    requests.Integer `position:"Body" name:"EntityId"`
 	PageNumber  requests.Integer `position:"Body" name:"PageNumber"`
+	PageSize    requests.Integer `position:"Body" name:"PageSize"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // ListQualityRulesResponse is the response struct for api ListQualityRules
 type ListQualityRulesResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string                 `json:"ErrorCode" xml:"ErrorCode"`
-	Success        bool                   `json:"Success" xml:"Success"`
-	ErrorMessage   string                 `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string                 `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string                 `json:"ErrorMessage" xml:"ErrorMessage"`
+	Success        bool                   `json:"Success" xml:"Success"`
+	ErrorCode      string                 `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInListQualityRules `json:"Data" xml:"Data"`
 }
 

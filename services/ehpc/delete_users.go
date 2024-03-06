@@ -72,6 +72,7 @@ func (client *Client) DeleteUsersWithCallback(request *DeleteUsersRequest, callb
 type DeleteUsersRequest struct {
 	*requests.RpcRequest
 	ClusterId string             `position:"Query" name:"ClusterId"`
+	Async     requests.Boolean   `position:"Query" name:"Async"`
 	User      *[]DeleteUsersUser `position:"Query" name:"User"  type:"Repeated"`
 }
 
@@ -91,7 +92,7 @@ func CreateDeleteUsersRequest() (request *DeleteUsersRequest) {
 	request = &DeleteUsersRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "DeleteUsers", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "DeleteUsers", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

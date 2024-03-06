@@ -71,6 +71,7 @@ func (client *Client) CreateScalingRuleWithCallback(request *CreateScalingRuleRe
 // CreateScalingRuleRequest is the request struct for api CreateScalingRule
 type CreateScalingRuleRequest struct {
 	*requests.RpcRequest
+	AlarmDimension           *[]CreateScalingRuleAlarmDimension `position:"Query" name:"AlarmDimension"  type:"Repeated"`
 	StepAdjustment           *[]CreateScalingRuleStepAdjustment `position:"Query" name:"StepAdjustment"  type:"Repeated"`
 	ScalingGroupId           string                             `position:"Query" name:"ScalingGroupId"`
 	DisableScaleIn           requests.Boolean                   `position:"Query" name:"DisableScaleIn"`
@@ -95,19 +96,25 @@ type CreateScalingRuleRequest struct {
 	TargetValue              requests.Float                     `position:"Query" name:"TargetValue"`
 }
 
+// CreateScalingRuleAlarmDimension is a repeated param struct in CreateScalingRuleRequest
+type CreateScalingRuleAlarmDimension struct {
+	DimensionValue string `name:"DimensionValue"`
+	DimensionKey   string `name:"DimensionKey"`
+}
+
 // CreateScalingRuleStepAdjustment is a repeated param struct in CreateScalingRuleRequest
 type CreateScalingRuleStepAdjustment struct {
-	MetricIntervalLowerBound string `name:"MetricIntervalLowerBound"`
 	MetricIntervalUpperBound string `name:"MetricIntervalUpperBound"`
+	MetricIntervalLowerBound string `name:"MetricIntervalLowerBound"`
 	ScalingAdjustment        string `name:"ScalingAdjustment"`
 }
 
 // CreateScalingRuleResponse is the response struct for api CreateScalingRule
 type CreateScalingRuleResponse struct {
 	*responses.BaseResponse
-	ScalingRuleId  string `json:"ScalingRuleId" xml:"ScalingRuleId"`
 	ScalingRuleAri string `json:"ScalingRuleAri" xml:"ScalingRuleAri"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ScalingRuleId  string `json:"ScalingRuleId" xml:"ScalingRuleId"`
 }
 
 // CreateCreateScalingRuleRequest creates a request to invoke CreateScalingRule API

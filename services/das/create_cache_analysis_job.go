@@ -74,16 +74,17 @@ type CreateCacheAnalysisJobRequest struct {
 	BackupSetId string `position:"Query" name:"BackupSetId"`
 	InstanceId  string `position:"Query" name:"InstanceId"`
 	NodeId      string `position:"Query" name:"NodeId"`
+	Separators  string `position:"Query" name:"Separators"`
 }
 
 // CreateCacheAnalysisJobResponse is the response struct for api CreateCacheAnalysisJob
 type CreateCacheAnalysisJobResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
-	Success   string `json:"Success" xml:"Success"`
-	Data      Data   `json:"Data" xml:"Data"`
+	Message   string                       `json:"Message" xml:"Message"`
+	RequestId string                       `json:"RequestId" xml:"RequestId"`
+	Code      string                       `json:"Code" xml:"Code"`
+	Success   string                       `json:"Success" xml:"Success"`
+	Data      DataInCreateCacheAnalysisJob `json:"Data" xml:"Data"`
 }
 
 // CreateCreateCacheAnalysisJobRequest creates a request to invoke CreateCacheAnalysisJob API
@@ -91,7 +92,7 @@ func CreateCreateCacheAnalysisJobRequest() (request *CreateCacheAnalysisJobReque
 	request = &CreateCacheAnalysisJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("DAS", "2020-01-16", "CreateCacheAnalysisJob", "das", "openAPI")
+	request.InitWithApiInfo("DAS", "2020-01-16", "CreateCacheAnalysisJob", "", "")
 	request.Method = requests.POST
 	return
 }

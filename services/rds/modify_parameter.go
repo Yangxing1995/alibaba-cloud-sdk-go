@@ -73,9 +73,11 @@ type ModifyParameterRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
+	SwitchTimeMode       string           `position:"Query" name:"SwitchTimeMode"`
 	ParameterGroupId     string           `position:"Query" name:"ParameterGroupId"`
 	DBInstanceId         string           `position:"Query" name:"DBInstanceId"`
 	Forcerestart         requests.Boolean `position:"Query" name:"Forcerestart"`
+	SwitchTime           string           `position:"Query" name:"SwitchTime"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
@@ -93,7 +95,7 @@ func CreateModifyParameterRequest() (request *ModifyParameterRequest) {
 	request = &ModifyParameterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyParameter", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyParameter", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -17,21 +17,24 @@ package live
 
 // CertInfo is a nested struct in live response
 type CertInfo struct {
-	CertName       string `json:"CertName" xml:"CertName"`
-	CertOrg        string `json:"CertOrg" xml:"CertOrg"`
-	ServCert       string `json:"ServCert" xml:"ServCert"`
-	CertExpireTime string `json:"CertExpireTime" xml:"CertExpireTime"`
-	PrivateKey     string `json:"PrivateKey" xml:"PrivateKey"`
-	DomainName     string `json:"DomainName" xml:"DomainName"`
-	CertType       string `json:"CertType" xml:"CertType"`
-	Ask            string `json:"Ask" xml:"Ask"`
-	SSLProtocol    string `json:"SSLProtocol" xml:"SSLProtocol"`
-	SSLPub         string `json:"SSLPub" xml:"SSLPub"`
-	Passphrase     string `json:"Passphrase" xml:"Passphrase"`
-	CreateDate     string `json:"CreateDate" xml:"CreateDate"`
-	Status         string `json:"Status" xml:"Status"`
-	Description    string `json:"Description" xml:"Description"`
-	CertDomainName string `json:"CertDomainName" xml:"CertDomainName"`
-	CertLife       string `json:"CertLife" xml:"CertLife"`
-	CertId         string `json:"CertId" xml:"CertId"`
+	CertName              string `json:"CertName" xml:"CertName"`
+	CertOrg               string `json:"CertOrg" xml:"CertOrg"`
+	DomainList            string `json:"DomainList" xml:"DomainList"`
+	Issuer                string `json:"Issuer" xml:"Issuer"`
+	DomainNames           string `json:"DomainNames" xml:"DomainNames"`
+	CertExpireTime        string `json:"CertExpireTime" xml:"CertExpireTime"`
+	CertStatus            string `json:"CertStatus" xml:"CertStatus"`
+	CertType              string `json:"CertType" xml:"CertType"`
+	DomainName            string `json:"DomainName" xml:"DomainName"`
+	SSLPub                string `json:"SSLPub" xml:"SSLPub"`
+	SSLProtocol           string `json:"SSLProtocol" xml:"SSLProtocol"`
+	CertUpdateTime        string `json:"CertUpdateTime" xml:"CertUpdateTime"`
+	CertSubjectCommonName string `json:"CertSubjectCommonName" xml:"CertSubjectCommonName"`
+	CertCaIsLegacy        string `json:"CertCaIsLegacy" xml:"CertCaIsLegacy"`
+	CertCommonName        string `json:"CertCommonName" xml:"CertCommonName"`
+	Status                string `json:"Status" xml:"Status"`
+	CertExpired           string `json:"CertExpired" xml:"CertExpired"`
+	CertLife              string `json:"CertLife" xml:"CertLife"`
+	CertDomainName        string `json:"CertDomainName" xml:"CertDomainName"`
+	CertStartTime         string `json:"CertStartTime" xml:"CertStartTime"`
 }

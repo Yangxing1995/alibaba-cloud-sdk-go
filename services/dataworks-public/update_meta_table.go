@@ -71,6 +71,7 @@ func (client *Client) UpdateMetaTableWithCallback(request *UpdateMetaTableReques
 // UpdateMetaTableRequest is the request struct for api UpdateMetaTable
 type UpdateMetaTableRequest struct {
 	*requests.RpcRequest
+	Schema        string           `position:"Query" name:"Schema"`
 	Visibility    requests.Integer `position:"Query" name:"Visibility"`
 	Caption       string           `position:"Query" name:"Caption"`
 	NewOwnerId    string           `position:"Query" name:"NewOwnerId"`
@@ -86,8 +87,8 @@ type UpdateMetaTableRequest struct {
 // UpdateMetaTableResponse is the response struct for api UpdateMetaTable
 type UpdateMetaTableResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
 	UpdateResult bool   `json:"UpdateResult" xml:"UpdateResult"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpdateMetaTableRequest creates a request to invoke UpdateMetaTable API

@@ -79,12 +79,13 @@ type StartBackupPlanRequest struct {
 // StartBackupPlanResponse is the response struct for api StartBackupPlan
 type StartBackupPlanResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	BackupPlanId   string `json:"BackupPlanId" xml:"BackupPlanId"`
+	HttpStatusCode         int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId              string `json:"RequestId" xml:"RequestId"`
+	ErrCode                string `json:"ErrCode" xml:"ErrCode"`
+	Success                bool   `json:"Success" xml:"Success"`
+	ErrMessage             string `json:"ErrMessage" xml:"ErrMessage"`
+	CreatedFullBackupsetId string `json:"CreatedFullBackupsetId" xml:"CreatedFullBackupsetId"`
+	BackupPlanId           string `json:"BackupPlanId" xml:"BackupPlanId"`
 }
 
 // CreateStartBackupPlanRequest creates a request to invoke StartBackupPlan API

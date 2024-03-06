@@ -73,17 +73,17 @@ type RevokePermissionRequest struct {
 	*requests.RpcRequest
 	NamespaceSource string `position:"Query" name:"NamespaceSource"`
 	GroupId         string `position:"Query" name:"GroupId"`
-	Namespace       string `position:"Query" name:"Namespace"`
 	UserId          string `position:"Query" name:"UserId"`
+	Namespace       string `position:"Query" name:"Namespace"`
 }
 
 // RevokePermissionResponse is the response struct for api RevokePermission
 type RevokePermissionResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
-	Success   bool   `json:"Success" xml:"Success"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Success   bool   `json:"Success" xml:"Success"`
 }
 
 // CreateRevokePermissionRequest creates a request to invoke RevokePermission API

@@ -76,6 +76,7 @@ type CreateHostAvailabilityRequest struct {
 	AlertConfigEscalationList          *[]CreateHostAvailabilityAlertConfigEscalationList `position:"Query" name:"AlertConfigEscalationList"  type:"Repeated"`
 	TaskName                           string                                             `position:"Query" name:"TaskName"`
 	AlertConfigSilenceTime             requests.Integer                                   `position:"Query" name:"AlertConfig.SilenceTime"`
+	AlertConfigTargetList              *[]CreateHostAvailabilityAlertConfigTargetList     `position:"Query" name:"AlertConfigTargetList"  type:"Repeated"`
 	TaskOptionHttpResponseCharset      string                                             `position:"Query" name:"TaskOption.HttpResponseCharset"`
 	TaskOptionHttpNegative             requests.Boolean                                   `position:"Query" name:"TaskOption.HttpNegative"`
 	TaskOptionInterval                 requests.Integer                                   `position:"Query" name:"TaskOption.Interval"`
@@ -93,6 +94,14 @@ type CreateHostAvailabilityRequest struct {
 	AlertConfigWebHook                 string                                             `position:"Query" name:"AlertConfig.WebHook"`
 }
 
+// CreateHostAvailabilityAlertConfigTargetList is a repeated param struct in CreateHostAvailabilityRequest
+type CreateHostAvailabilityAlertConfigTargetList struct {
+	Level      string `name:"Level"`
+	Id         string `name:"Id"`
+	Arn        string `name:"Arn"`
+	JsonParams string `name:"JsonParams"`
+}
+
 // CreateHostAvailabilityAlertConfigEscalationList is a repeated param struct in CreateHostAvailabilityRequest
 type CreateHostAvailabilityAlertConfigEscalationList struct {
 	Times      string `name:"Times"`
@@ -107,9 +116,9 @@ type CreateHostAvailabilityResponse struct {
 	*responses.BaseResponse
 	Code      string `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
-	Success   bool   `json:"Success" xml:"Success"`
 	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    int64  `json:"TaskId" xml:"TaskId"`
+	Success   bool   `json:"Success" xml:"Success"`
 }
 
 // CreateCreateHostAvailabilityRequest creates a request to invoke CreateHostAvailability API

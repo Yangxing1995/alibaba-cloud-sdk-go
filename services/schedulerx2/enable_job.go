@@ -71,19 +71,19 @@ func (client *Client) EnableJobWithCallback(request *EnableJobRequest, callback 
 // EnableJobRequest is the request struct for api EnableJob
 type EnableJobRequest struct {
 	*requests.RpcRequest
-	JobId           requests.Integer `position:"Query" name:"JobId"`
 	NamespaceSource string           `position:"Query" name:"NamespaceSource"`
 	GroupId         string           `position:"Query" name:"GroupId"`
+	JobId           requests.Integer `position:"Query" name:"JobId"`
 	Namespace       string           `position:"Query" name:"Namespace"`
 }
 
 // EnableJobResponse is the response struct for api EnableJob
 type EnableJobResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
-	Success   bool   `json:"Success" xml:"Success"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Success   bool   `json:"Success" xml:"Success"`
 }
 
 // CreateEnableJobRequest creates a request to invoke EnableJob API

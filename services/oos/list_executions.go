@@ -73,18 +73,22 @@ type ListExecutionsRequest struct {
 	*requests.RpcRequest
 	ExecutedBy            string                 `position:"Query" name:"ExecutedBy"`
 	IncludeChildExecution requests.Boolean       `position:"Query" name:"IncludeChildExecution"`
+	Description           string                 `position:"Query" name:"Description"`
 	Mode                  string                 `position:"Query" name:"Mode"`
 	ExecutionId           string                 `position:"Query" name:"ExecutionId"`
+	ResourceGroupId       string                 `position:"Query" name:"ResourceGroupId"`
 	RamRole               string                 `position:"Query" name:"RamRole"`
 	NextToken             string                 `position:"Query" name:"NextToken"`
 	TemplateName          string                 `position:"Query" name:"TemplateName"`
 	EndDateBefore         string                 `position:"Query" name:"EndDateBefore"`
 	SortOrder             string                 `position:"Query" name:"SortOrder"`
+	Categories            string                 `position:"Query" name:"Categories"`
 	ResourceId            string                 `position:"Query" name:"ResourceId"`
 	StartDateAfter        string                 `position:"Query" name:"StartDateAfter"`
 	StartDateBefore       string                 `position:"Query" name:"StartDateBefore"`
 	Tags                  map[string]interface{} `position:"Query" name:"Tags"`
 	ParentExecutionId     string                 `position:"Query" name:"ParentExecutionId"`
+	Depth                 string                 `position:"Query" name:"Depth"`
 	EndDateAfter          string                 `position:"Query" name:"EndDateAfter"`
 	MaxResults            requests.Integer       `position:"Query" name:"MaxResults"`
 	SortField             string                 `position:"Query" name:"SortField"`
@@ -96,9 +100,9 @@ type ListExecutionsRequest struct {
 // ListExecutionsResponse is the response struct for api ListExecutions
 type ListExecutionsResponse struct {
 	*responses.BaseResponse
+	NextToken  string      `json:"NextToken" xml:"NextToken"`
 	RequestId  string      `json:"RequestId" xml:"RequestId"`
 	MaxResults int         `json:"MaxResults" xml:"MaxResults"`
-	NextToken  string      `json:"NextToken" xml:"NextToken"`
 	Executions []Execution `json:"Executions" xml:"Executions"`
 }
 
@@ -107,7 +111,7 @@ func CreateListExecutionsRequest() (request *ListExecutionsRequest) {
 	request = &ListExecutionsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("oos", "2019-06-01", "ListExecutions", "", "")
+	request.InitWithApiInfo("oos", "2019-06-01", "ListExecutions", "oos", "openAPI")
 	request.Method = requests.POST
 	return
 }

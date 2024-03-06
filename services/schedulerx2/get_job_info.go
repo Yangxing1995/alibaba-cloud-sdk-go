@@ -71,18 +71,19 @@ func (client *Client) GetJobInfoWithCallback(request *GetJobInfoRequest, callbac
 // GetJobInfoRequest is the request struct for api GetJobInfo
 type GetJobInfoRequest struct {
 	*requests.RpcRequest
-	JobId           requests.Integer `position:"Query" name:"JobId"`
 	NamespaceSource string           `position:"Query" name:"NamespaceSource"`
 	GroupId         string           `position:"Query" name:"GroupId"`
+	JobId           requests.Integer `position:"Query" name:"JobId"`
 	Namespace       string           `position:"Query" name:"Namespace"`
+	JobName         string           `position:"Query" name:"JobName"`
 }
 
 // GetJobInfoResponse is the response struct for api GetJobInfo
 type GetJobInfoResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }

@@ -71,7 +71,9 @@ func (client *Client) SegmentHDBodyWithCallback(request *SegmentHDBodyRequest, c
 // SegmentHDBodyRequest is the request struct for api SegmentHDBody
 type SegmentHDBodyRequest struct {
 	*requests.RpcRequest
-	ImageURL string `position:"Query" name:"ImageURL"`
+	OssFile        string `position:"Query" name:"OssFile"`
+	RequestProxyBy string `position:"Query" name:"RequestProxyBy"`
+	ImageURL       string `position:"Query" name:"ImageURL"`
 }
 
 // SegmentHDBodyResponse is the response struct for api SegmentHDBody

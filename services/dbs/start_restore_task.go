@@ -72,18 +72,18 @@ func (client *Client) StartRestoreTaskWithCallback(request *StartRestoreTaskRequ
 type StartRestoreTaskRequest struct {
 	*requests.RpcRequest
 	ClientToken   string `position:"Query" name:"ClientToken"`
-	OwnerId       string `position:"Query" name:"OwnerId"`
 	RestoreTaskId string `position:"Query" name:"RestoreTaskId"`
+	OwnerId       string `position:"Query" name:"OwnerId"`
 }
 
 // StartRestoreTaskResponse is the response struct for api StartRestoreTask
 type StartRestoreTaskResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	RestoreTaskId  string `json:"RestoreTaskId" xml:"RestoreTaskId"`
 }
 

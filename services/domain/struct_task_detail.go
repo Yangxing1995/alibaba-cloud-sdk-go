@@ -17,17 +17,11 @@ package domain
 
 // TaskDetail is a nested struct in domain response
 type TaskDetail struct {
-	ErrorMsg            string `json:"ErrorMsg" xml:"ErrorMsg"`
-	TaskDetailNo        string `json:"TaskDetailNo" xml:"TaskDetailNo"`
-	UpdateTime          string `json:"UpdateTime" xml:"UpdateTime"`
-	DomainName          string `json:"DomainName" xml:"DomainName"`
-	TaskStatusCode      int    `json:"TaskStatusCode" xml:"TaskStatusCode"`
-	CreateTime          string `json:"CreateTime" xml:"CreateTime"`
-	TaskTypeDescription string `json:"TaskTypeDescription" xml:"TaskTypeDescription"`
-	TaskStatus          string `json:"TaskStatus" xml:"TaskStatus"`
-	TaskNo              string `json:"TaskNo" xml:"TaskNo"`
-	InstanceId          string `json:"InstanceId" xml:"InstanceId"`
-	TryCount            int    `json:"TryCount" xml:"TryCount"`
-	TaskType            string `json:"TaskType" xml:"TaskType"`
-	TaskResult          string `json:"TaskResult" xml:"TaskResult"`
+	TaskType   string `json:"TaskType" xml:"TaskType"`
+	TaskNo     string `json:"TaskNo" xml:"TaskNo"`
+	UpdateTime string `json:"UpdateTime" xml:"UpdateTime"`
+	TaskStatus string `json:"TaskStatus" xml:"TaskStatus"`
+	TryCount   int    `json:"TryCount" xml:"TryCount"`
+	ErrorMsg   string `json:"ErrorMsg" xml:"ErrorMsg"`
+	DomainName string `json:"DomainName" xml:"DomainName"`
 }

@@ -71,9 +71,11 @@ func (client *Client) DescribeRiskLevelsWithCallback(request *DescribeRiskLevels
 // DescribeRiskLevelsRequest is the request struct for api DescribeRiskLevels
 type DescribeRiskLevelsRequest struct {
 	*requests.RpcRequest
-	CustomType requests.Integer `position:"Query" name:"CustomType"`
-	SourceIp   string           `position:"Query" name:"SourceIp"`
-	Lang       string           `position:"Query" name:"Lang"`
+	FeatureType requests.Integer `position:"Query" name:"FeatureType"`
+	CustomType  requests.Integer `position:"Query" name:"CustomType"`
+	TemplateId  requests.Integer `position:"Query" name:"TemplateId"`
+	SourceIp    string           `position:"Query" name:"SourceIp"`
+	Lang        string           `position:"Query" name:"Lang"`
 }
 
 // DescribeRiskLevelsResponse is the response struct for api DescribeRiskLevels
@@ -88,7 +90,7 @@ func CreateDescribeRiskLevelsRequest() (request *DescribeRiskLevelsRequest) {
 	request = &DescribeRiskLevelsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeRiskLevels", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeRiskLevels", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

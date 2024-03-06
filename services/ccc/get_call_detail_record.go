@@ -71,8 +71,8 @@ func (client *Client) GetCallDetailRecordWithCallback(request *GetCallDetailReco
 // GetCallDetailRecordRequest is the request struct for api GetCallDetailRecord
 type GetCallDetailRecordRequest struct {
 	*requests.RpcRequest
-	InstanceId string `position:"Query" name:"InstanceId"`
 	ContactId  string `position:"Query" name:"ContactId"`
+	InstanceId string `position:"Query" name:"InstanceId"`
 }
 
 // GetCallDetailRecordResponse is the response struct for api GetCallDetailRecord

@@ -78,11 +78,11 @@ type DescribeDsReportsRequest struct {
 // DescribeDsReportsResponse is the response struct for api DescribeDsReports
 type DescribeDsReportsResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	DsReports      string `json:"DsReports" xml:"DsReports"`
 }
 
@@ -91,7 +91,7 @@ func CreateDescribeDsReportsRequest() (request *DescribeDsReportsRequest) {
 	request = &DescribeDsReportsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeDsReports", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeDsReports", "", "")
 	request.Method = requests.POST
 	return
 }

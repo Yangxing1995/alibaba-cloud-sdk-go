@@ -93,6 +93,7 @@ type DescribeTablesRequest struct {
 	OrderBy             string           `position:"Query" name:"OrderBy"`
 	EndTime             requests.Integer `position:"Query" name:"EndTime"`
 	CurrentPage         requests.Integer `position:"Query" name:"CurrentPage"`
+	TemplateId          requests.Integer `position:"Query" name:"TemplateId"`
 	RuleIds             string           `position:"Query" name:"RuleIds"`
 	InstanceId          requests.Integer `position:"Query" name:"InstanceId"`
 	InstanceName        string           `position:"Query" name:"InstanceName"`
@@ -103,11 +104,11 @@ type DescribeTablesRequest struct {
 // DescribeTablesResponse is the response struct for api DescribeTables
 type DescribeTablesResponse struct {
 	*responses.BaseResponse
-	RequestId   string                  `json:"RequestId" xml:"RequestId"`
-	PageSize    int                     `json:"PageSize" xml:"PageSize"`
-	CurrentPage int                     `json:"CurrentPage" xml:"CurrentPage"`
-	TotalCount  int                     `json:"TotalCount" xml:"TotalCount"`
-	Items       []TableInDescribeTables `json:"Items" xml:"Items"`
+	CurrentPage int     `json:"CurrentPage" xml:"CurrentPage"`
+	RequestId   string  `json:"RequestId" xml:"RequestId"`
+	PageSize    int     `json:"PageSize" xml:"PageSize"`
+	TotalCount  int     `json:"TotalCount" xml:"TotalCount"`
+	Items       []Table `json:"Items" xml:"Items"`
 }
 
 // CreateDescribeTablesRequest creates a request to invoke DescribeTables API
@@ -115,7 +116,7 @@ func CreateDescribeTablesRequest() (request *DescribeTablesRequest) {
 	request = &DescribeTablesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeTables", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeTables", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -72,16 +72,16 @@ func (client *Client) TestNetworkConnectionWithCallback(request *TestNetworkConn
 type TestNetworkConnectionRequest struct {
 	*requests.RpcRequest
 	ResourceGroup  string           `position:"Query" name:"ResourceGroup"`
-	EnvType        string           `position:"Query" name:"EnvType"`
 	DatasourceName string           `position:"Query" name:"DatasourceName"`
+	EnvType        string           `position:"Query" name:"EnvType"`
 	ProjectId      requests.Integer `position:"Query" name:"ProjectId"`
 }
 
 // TestNetworkConnectionResponse is the response struct for api TestNetworkConnection
 type TestNetworkConnectionResponse struct {
 	*responses.BaseResponse
-	RequestId string   `json:"RequestId" xml:"RequestId"`
 	Success   bool     `json:"Success" xml:"Success"`
+	RequestId string   `json:"RequestId" xml:"RequestId"`
 	TaskList  TaskList `json:"TaskList" xml:"TaskList"`
 }
 

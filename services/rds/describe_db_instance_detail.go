@@ -75,17 +75,18 @@ type DescribeDBInstanceDetailRequest struct {
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	DBInstanceId         string           `position:"Query" name:"DBInstanceId"`
 }
 
 // DescribeDBInstanceDetailResponse is the response struct for api DescribeDBInstanceDetail
 type DescribeDBInstanceDetailResponse struct {
 	*responses.BaseResponse
-	RequestId       string `json:"RequestId" xml:"RequestId"`
-	DBInstanceId    string `json:"DBInstanceId" xml:"DBInstanceId"`
-	RegionId        string `json:"RegionId" xml:"RegionId"`
-	LicenseType     string `json:"LicenseType" xml:"LicenseType"`
 	ActivationState string `json:"ActivationState" xml:"ActivationState"`
+	DBInstanceId    string `json:"DBInstanceId" xml:"DBInstanceId"`
+	LicenseType     string `json:"LicenseType" xml:"LicenseType"`
+	RequestId       string `json:"RequestId" xml:"RequestId"`
+	RegionId        string `json:"RegionId" xml:"RegionId"`
 }
 
 // CreateDescribeDBInstanceDetailRequest creates a request to invoke DescribeDBInstanceDetail API
@@ -93,7 +94,7 @@ func CreateDescribeDBInstanceDetailRequest() (request *DescribeDBInstanceDetailR
 	request = &DescribeDBInstanceDetailRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceDetail", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceDetail", "", "")
 	request.Method = requests.POST
 	return
 }

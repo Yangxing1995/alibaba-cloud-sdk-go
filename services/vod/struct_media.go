@@ -17,11 +17,13 @@ package vod
 
 // Media is a nested struct in vod response
 type Media struct {
-	MediaType     string        `json:"MediaType" xml:"MediaType"`
 	CreationTime  string        `json:"CreationTime" xml:"CreationTime"`
+	MediaType     string        `json:"MediaType" xml:"MediaType"`
 	MediaId       string        `json:"MediaId" xml:"MediaId"`
 	Video         Video         `json:"Video" xml:"Video"`
 	Audio         Audio         `json:"Audio" xml:"Audio"`
 	Image         Image         `json:"Image" xml:"Image"`
 	AttachedMedia AttachedMedia `json:"AttachedMedia" xml:"AttachedMedia"`
+	AiData        AiData        `json:"AiData" xml:"AiData"`
+	AiRoughData   AiRoughData   `json:"AiRoughData" xml:"AiRoughData"`
 }

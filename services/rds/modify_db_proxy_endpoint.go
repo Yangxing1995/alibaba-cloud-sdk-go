@@ -78,6 +78,7 @@ type ModifyDBProxyEndpointRequest struct {
 	ReadOnlyInstanceMaxDelayTime     string           `position:"Query" name:"ReadOnlyInstanceMaxDelayTime"`
 	ResourceOwnerAccount             string           `position:"Query" name:"ResourceOwnerAccount"`
 	DbEndpointAliases                string           `position:"Query" name:"DbEndpointAliases"`
+	DBProxyEngineType                string           `position:"Query" name:"DBProxyEngineType"`
 	DbEndpointOperator               string           `position:"Query" name:"DbEndpointOperator"`
 	DbEndpointType                   string           `position:"Query" name:"DbEndpointType"`
 	OwnerId                          requests.Integer `position:"Query" name:"OwnerId"`
@@ -97,7 +98,7 @@ func CreateModifyDBProxyEndpointRequest() (request *ModifyDBProxyEndpointRequest
 	request = &ModifyDBProxyEndpointRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDBProxyEndpoint", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDBProxyEndpoint", "", "")
 	request.Method = requests.POST
 	return
 }

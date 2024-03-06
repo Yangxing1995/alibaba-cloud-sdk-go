@@ -79,9 +79,9 @@ type UpdateHookConfigurationRequest struct {
 // UpdateHookConfigurationResponse is the response struct for api UpdateHookConfiguration
 type UpdateHookConfigurationResponse struct {
 	*responses.BaseResponse
-	RequestId          string          `json:"RequestId" xml:"RequestId"`
 	Code               int             `json:"Code" xml:"Code"`
 	Message            string          `json:"Message" xml:"Message"`
+	RequestId          string          `json:"RequestId" xml:"RequestId"`
 	HooksConfiguration []Configuration `json:"HooksConfiguration" xml:"HooksConfiguration"`
 }
 
@@ -90,7 +90,7 @@ func CreateUpdateHookConfigurationRequest() (request *UpdateHookConfigurationReq
 	request = &UpdateHookConfigurationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateHookConfiguration", "/pop/app/config_app_hook_json", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateHookConfiguration", "/pop/app/config_app_hook_json", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

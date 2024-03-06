@@ -72,10 +72,10 @@ func (client *Client) CreateFreeLockCorrectOrderWithCallback(request *CreateFree
 type CreateFreeLockCorrectOrderRequest struct {
 	*requests.RpcRequest
 	Tid             requests.Integer                `position:"Query" name:"Tid"`
-	AttachmentKey   string                          `position:"Query" name:"AttachmentKey"`
 	Param           CreateFreeLockCorrectOrderParam `position:"Query" name:"Param"  type:"Struct"`
-	Comment         string                          `position:"Query" name:"Comment"`
 	RelatedUserList *[]string                       `position:"Query" name:"RelatedUserList"  type:"Json"`
+	AttachmentKey   string                          `position:"Query" name:"AttachmentKey"`
+	Comment         string                          `position:"Query" name:"Comment"`
 }
 
 // CreateFreeLockCorrectOrderParam is a repeated param struct in CreateFreeLockCorrectOrderRequest
@@ -86,6 +86,7 @@ type CreateFreeLockCorrectOrderParam struct {
 	RollbackSqlType        string                                           `name:"RollbackSqlType"`
 	DbItemList             *[]CreateFreeLockCorrectOrderParamDbItemListItem `name:"DbItemList" type:"Repeated"`
 	ExecSQL                string                                           `name:"ExecSQL"`
+	ExecMode               string                                           `name:"ExecMode"`
 	RollbackAttachmentName string                                           `name:"RollbackAttachmentName"`
 	AttachmentName         string                                           `name:"AttachmentName"`
 }

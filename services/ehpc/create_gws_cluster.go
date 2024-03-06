@@ -80,8 +80,8 @@ type CreateGWSClusterRequest struct {
 // CreateGWSClusterResponse is the response struct for api CreateGWSCluster
 type CreateGWSClusterResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	ClusterId string `json:"ClusterId" xml:"ClusterId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateGWSClusterRequest creates a request to invoke CreateGWSCluster API
@@ -89,7 +89,7 @@ func CreateCreateGWSClusterRequest() (request *CreateGWSClusterRequest) {
 	request = &CreateGWSClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "CreateGWSCluster", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "CreateGWSCluster", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

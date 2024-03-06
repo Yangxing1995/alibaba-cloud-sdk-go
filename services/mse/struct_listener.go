@@ -21,4 +21,5 @@ type Listener struct {
 	Group  string `json:"Group" xml:"Group"`
 	Ip     string `json:"Ip" xml:"Ip"`
 	Md5    string `json:"Md5" xml:"Md5"`
+	Status string `json:"Status" xml:"Status"`
 }

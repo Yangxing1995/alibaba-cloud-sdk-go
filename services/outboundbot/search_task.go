@@ -79,6 +79,7 @@ type SearchTaskRequest struct {
 	CalledNumber         string           `position:"Query" name:"CalledNumber"`
 	UserIdMatch          string           `position:"Query" name:"UserIdMatch"`
 	PageSize             requests.Integer `position:"Query" name:"PageSize"`
+	ScriptNameQuery      string           `position:"Query" name:"ScriptNameQuery"`
 	PageIndex            requests.Integer `position:"Query" name:"PageIndex"`
 	SortOrder            string           `position:"Query" name:"SortOrder"`
 	TaskStatusStringList string           `position:"Query" name:"TaskStatusStringList"`
@@ -114,7 +115,7 @@ func CreateSearchTaskRequest() (request *SearchTaskRequest) {
 	request = &SearchTaskRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SearchTask", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SearchTask", "", "")
 	request.Method = requests.GET
 	return
 }

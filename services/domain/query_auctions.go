@@ -79,11 +79,11 @@ type QueryAuctionsRequest struct {
 // QueryAuctionsResponse is the response struct for api QueryAuctions
 type QueryAuctionsResponse struct {
 	*responses.BaseResponse
+	CurrentPageNum int             `json:"CurrentPageNum" xml:"CurrentPageNum"`
+	TotalPageNum   int             `json:"TotalPageNum" xml:"TotalPageNum"`
+	PageSize       int             `json:"PageSize" xml:"PageSize"`
 	RequestId      string          `json:"RequestId" xml:"RequestId"`
 	TotalItemNum   int             `json:"TotalItemNum" xml:"TotalItemNum"`
-	CurrentPageNum int             `json:"CurrentPageNum" xml:"CurrentPageNum"`
-	PageSize       int             `json:"PageSize" xml:"PageSize"`
-	TotalPageNum   int             `json:"TotalPageNum" xml:"TotalPageNum"`
 	Data           []AuctionDetail `json:"Data" xml:"Data"`
 }
 

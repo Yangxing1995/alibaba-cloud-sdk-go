@@ -18,12 +18,11 @@ package dts
 // DataInitializationDetail is a nested struct in dts response
 type DataInitializationDetail struct {
 	SourceOwnerDBName      string `json:"SourceOwnerDBName" xml:"SourceOwnerDBName"`
-	FinishRowNum           string `json:"FinishRowNum" xml:"FinishRowNum"`
-	ErrorMessage           string `json:"ErrorMessage" xml:"ErrorMessage"`
-	TotalRowNum            string `json:"TotalRowNum" xml:"TotalRowNum"`
-	MigrationTime          string `json:"MigrationTime" xml:"MigrationTime"`
-	DestinationOwnerDBName string `json:"DestinationOwnerDBName" xml:"DestinationOwnerDBName"`
 	Status                 string `json:"Status" xml:"Status"`
 	TableName              string `json:"TableName" xml:"TableName"`
-	UsedTime               string `json:"UsedTime" xml:"UsedTime"`
+	FinishRowNum           string `json:"FinishRowNum" xml:"FinishRowNum"`
+	ErrorMessage           string `json:"ErrorMessage" xml:"ErrorMessage"`
+	MigrationTime          string `json:"MigrationTime" xml:"MigrationTime"`
+	DestinationOwnerDBName string `json:"DestinationOwnerDBName" xml:"DestinationOwnerDBName"`
+	TotalRowNum            string `json:"TotalRowNum" xml:"TotalRowNum"`
 }

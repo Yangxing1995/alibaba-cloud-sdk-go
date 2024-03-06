@@ -82,10 +82,10 @@ type ListK8sSecretsRequest struct {
 // ListK8sSecretsResponse is the response struct for api ListK8sSecrets
 type ListK8sSecretsResponse struct {
 	*responses.BaseResponse
-	Code      int          `json:"Code" xml:"Code"`
-	Message   string       `json:"Message" xml:"Message"`
-	RequestId string       `json:"RequestId" xml:"RequestId"`
-	Result    []ResultItem `json:"Result" xml:"Result"`
+	Code      int    `json:"Code" xml:"Code"`
+	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Result    Result `json:"Result" xml:"Result"`
 }
 
 // CreateListK8sSecretsRequest creates a request to invoke ListK8sSecrets API
@@ -93,7 +93,7 @@ func CreateListK8sSecretsRequest() (request *ListK8sSecretsRequest) {
 	request = &ListK8sSecretsRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "ListK8sSecrets", "/pop/v5/k8s/acs/k8s_secret", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "ListK8sSecrets", "/pop/v5/k8s/acs/k8s_secret", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -21,7 +21,6 @@ import (
 )
 
 // DeleteService invokes the eas.DeleteService API synchronously
-// api document: https://help.aliyun.com/api/eas/deleteservice.html
 func (client *Client) DeleteService(request *DeleteServiceRequest) (response *DeleteServiceResponse, err error) {
 	response = CreateDeleteServiceResponse()
 	err = client.DoAction(request, response)
@@ -29,8 +28,6 @@ func (client *Client) DeleteService(request *DeleteServiceRequest) (response *De
 }
 
 // DeleteServiceWithChan invokes the eas.DeleteService API asynchronously
-// api document: https://help.aliyun.com/api/eas/deleteservice.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) DeleteServiceWithChan(request *DeleteServiceRequest) (<-chan *DeleteServiceResponse, <-chan error) {
 	responseChan := make(chan *DeleteServiceResponse, 1)
 	errChan := make(chan error, 1)
@@ -53,8 +50,6 @@ func (client *Client) DeleteServiceWithChan(request *DeleteServiceRequest) (<-ch
 }
 
 // DeleteServiceWithCallback invokes the eas.DeleteService API asynchronously
-// api document: https://help.aliyun.com/api/eas/deleteservice.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) DeleteServiceWithCallback(request *DeleteServiceRequest, callback func(response *DeleteServiceResponse, err error)) <-chan int {
 	result := make(chan int, 1)
 	err := client.AddAsyncTask(func() {
@@ -76,13 +71,15 @@ func (client *Client) DeleteServiceWithCallback(request *DeleteServiceRequest, c
 // DeleteServiceRequest is the request struct for api DeleteService
 type DeleteServiceRequest struct {
 	*requests.RoaRequest
-	ServiceName string `position:"Path" name:"service_name"`
-	Region      string `position:"Path" name:"region"`
+	ServiceName string `position:"Path" name:"ServiceName"`
+	ClusterId   string `position:"Path" name:"ClusterId"`
 }
 
 // DeleteServiceResponse is the response struct for api DeleteService
 type DeleteServiceResponse struct {
 	*responses.BaseResponse
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Message   string `json:"Message" xml:"Message"`
 }
 
 // CreateDeleteServiceRequest creates a request to invoke DeleteService API
@@ -90,7 +87,7 @@ func CreateDeleteServiceRequest() (request *DeleteServiceRequest) {
 	request = &DeleteServiceRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("eas", "2018-05-22", "DeleteService", "/api/services/[region]/[service_name]", "", "")
+	request.InitWithApiInfo("eas", "2021-07-01", "DeleteService", "/api/v2/services/[ClusterId]/[ServiceName]", "eas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

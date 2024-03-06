@@ -80,9 +80,9 @@ type ModifyActionEventPolicyRequest struct {
 // ModifyActionEventPolicyResponse is the response struct for api ModifyActionEventPolicy
 type ModifyActionEventPolicyResponse struct {
 	*responses.BaseResponse
+	EnableEventLog string `json:"EnableEventLog" xml:"EnableEventLog"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	RegionId       string `json:"RegionId" xml:"RegionId"`
-	EnableEventLog string `json:"EnableEventLog" xml:"EnableEventLog"`
 }
 
 // CreateModifyActionEventPolicyRequest creates a request to invoke ModifyActionEventPolicy API
@@ -90,7 +90,7 @@ func CreateModifyActionEventPolicyRequest() (request *ModifyActionEventPolicyReq
 	request = &ModifyActionEventPolicyRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyActionEventPolicy", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyActionEventPolicy", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -71,20 +71,21 @@ func (client *Client) GetQualityEntityWithCallback(request *GetQualityEntityRequ
 // GetQualityEntityRequest is the request struct for api GetQualityEntity
 type GetQualityEntityRequest struct {
 	*requests.RpcRequest
-	ProjectName     string `position:"Body" name:"ProjectName"`
-	MatchExpression string `position:"Body" name:"MatchExpression"`
-	EnvType         string `position:"Body" name:"EnvType"`
-	TableName       string `position:"Body" name:"TableName"`
+	ProjectName     string           `position:"Body" name:"ProjectName"`
+	MatchExpression string           `position:"Body" name:"MatchExpression"`
+	EnvType         string           `position:"Body" name:"EnvType"`
+	TableName       string           `position:"Body" name:"TableName"`
+	ProjectId       requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // GetQualityEntityResponse is the response struct for api GetQualityEntity
 type GetQualityEntityResponse struct {
 	*responses.BaseResponse
-	Success        bool        `json:"Success" xml:"Success"`
-	ErrorCode      string      `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string      `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int         `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string      `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string      `json:"ErrorMessage" xml:"ErrorMessage"`
+	ErrorCode      string      `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool        `json:"Success" xml:"Success"`
 	Data           []EntityDto `json:"Data" xml:"Data"`
 }
 

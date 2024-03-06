@@ -83,10 +83,10 @@ type DescribeReadDBInstanceDelayRequest struct {
 // DescribeReadDBInstanceDelayResponse is the response struct for api DescribeReadDBInstanceDelay
 type DescribeReadDBInstanceDelayResponse struct {
 	*responses.BaseResponse
-	RequestId        string                             `json:"RequestId" xml:"RequestId"`
 	DBInstanceId     string                             `json:"DBInstanceId" xml:"DBInstanceId"`
-	ReadDBInstanceId string                             `json:"ReadDBInstanceId" xml:"ReadDBInstanceId"`
+	RequestId        string                             `json:"RequestId" xml:"RequestId"`
 	DelayTime        int                                `json:"DelayTime" xml:"DelayTime"`
+	ReadDBInstanceId string                             `json:"ReadDBInstanceId" xml:"ReadDBInstanceId"`
 	Items            ItemsInDescribeReadDBInstanceDelay `json:"Items" xml:"Items"`
 }
 
@@ -95,7 +95,7 @@ func CreateDescribeReadDBInstanceDelayRequest() (request *DescribeReadDBInstance
 	request = &DescribeReadDBInstanceDelayRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeReadDBInstanceDelay", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeReadDBInstanceDelay", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -78,10 +78,10 @@ type ListContainerAppsRequest struct {
 // ListContainerAppsResponse is the response struct for api ListContainerApps
 type ListContainerAppsResponse struct {
 	*responses.BaseResponse
-	RequestId     string        `json:"RequestId" xml:"RequestId"`
-	TotalCount    int           `json:"TotalCount" xml:"TotalCount"`
-	PageNumber    int           `json:"PageNumber" xml:"PageNumber"`
 	PageSize      int           `json:"PageSize" xml:"PageSize"`
+	RequestId     string        `json:"RequestId" xml:"RequestId"`
+	PageNumber    int           `json:"PageNumber" xml:"PageNumber"`
+	TotalCount    int           `json:"TotalCount" xml:"TotalCount"`
 	ContainerApps ContainerApps `json:"ContainerApps" xml:"ContainerApps"`
 }
 
@@ -90,7 +90,7 @@ func CreateListContainerAppsRequest() (request *ListContainerAppsRequest) {
 	request = &ListContainerAppsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListContainerApps", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListContainerApps", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

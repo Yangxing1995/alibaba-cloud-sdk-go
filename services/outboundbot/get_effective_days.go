@@ -78,12 +78,12 @@ type GetEffectiveDaysRequest struct {
 // GetEffectiveDaysResponse is the response struct for api GetEffectiveDays
 type GetEffectiveDaysResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	EffectiveDays  int    `json:"EffectiveDays" xml:"EffectiveDays"`
 	Success        bool   `json:"Success" xml:"Success"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	EffectiveDays  int    `json:"EffectiveDays" xml:"EffectiveDays"`
 }
 
 // CreateGetEffectiveDaysRequest creates a request to invoke GetEffectiveDays API
@@ -91,7 +91,7 @@ func CreateGetEffectiveDaysRequest() (request *GetEffectiveDaysRequest) {
 	request = &GetEffectiveDaysRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetEffectiveDays", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetEffectiveDays", "", "")
 	request.Method = requests.POST
 	return
 }

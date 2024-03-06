@@ -79,11 +79,11 @@ type SuspendCallRequest struct {
 // SuspendCallResponse is the response struct for api SuspendCall
 type SuspendCallResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Success        bool   `json:"Success" xml:"Success"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateSuspendCallRequest creates a request to invoke SuspendCall API
@@ -91,7 +91,7 @@ func CreateSuspendCallRequest() (request *SuspendCallRequest) {
 	request = &SuspendCallRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SuspendCall", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SuspendCall", "", "")
 	request.Method = requests.POST
 	return
 }

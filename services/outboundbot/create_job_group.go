@@ -71,20 +71,24 @@ func (client *Client) CreateJobGroupWithCallback(request *CreateJobGroupRequest,
 // CreateJobGroupRequest is the request struct for api CreateJobGroup
 type CreateJobGroupRequest struct {
 	*requests.RpcRequest
-	JobGroupDescription string    `position:"Query" name:"JobGroupDescription"`
-	JobGroupName        string    `position:"Query" name:"JobGroupName"`
-	ScriptId            string    `position:"Query" name:"ScriptId"`
-	CallingNumber       *[]string `position:"Query" name:"CallingNumber"  type:"Repeated"`
-	InstanceId          string    `position:"Query" name:"InstanceId"`
-	StrategyJson        string    `position:"Query" name:"StrategyJson"`
-	ScenarioId          string    `position:"Query" name:"ScenarioId"`
+	RecallStrategyJson  string           `position:"Query" name:"RecallStrategyJson"`
+	JobGroupName        string           `position:"Query" name:"JobGroupName"`
+	ScriptId            string           `position:"Query" name:"ScriptId"`
+	StrategyJson        string           `position:"Query" name:"StrategyJson"`
+	RingingDuration     requests.Integer `position:"Query" name:"RingingDuration"`
+	ScenarioId          string           `position:"Query" name:"ScenarioId"`
+	Priority            string           `position:"Query" name:"Priority"`
+	JobGroupDescription string           `position:"Query" name:"JobGroupDescription"`
+	CallingNumber       *[]string        `position:"Query" name:"CallingNumber"  type:"Repeated"`
+	InstanceId          string           `position:"Query" name:"InstanceId"`
+	MinConcurrency      requests.Integer `position:"Query" name:"MinConcurrency"`
 }
 
 // CreateJobGroupResponse is the response struct for api CreateJobGroup
 type CreateJobGroupResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
 	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string   `json:"Code" xml:"Code"`
 	Message        string   `json:"Message" xml:"Message"`
 	RequestId      string   `json:"RequestId" xml:"RequestId"`
 	Success        bool     `json:"Success" xml:"Success"`
@@ -96,7 +100,7 @@ func CreateCreateJobGroupRequest() (request *CreateJobGroupRequest) {
 	request = &CreateJobGroupRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "CreateJobGroup", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "CreateJobGroup", "", "")
 	request.Method = requests.POST
 	return
 }

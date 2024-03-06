@@ -71,22 +71,36 @@ func (client *Client) CreateTransitRouterRouteTableWithCallback(request *CreateT
 // CreateTransitRouterRouteTableRequest is the request struct for api CreateTransitRouterRouteTable
 type CreateTransitRouterRouteTableRequest struct {
 	*requests.RpcRequest
-	ResourceOwnerId                    requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	ClientToken                        string           `position:"Query" name:"ClientToken"`
-	TransitRouterRouteTableDescription string           `position:"Query" name:"TransitRouterRouteTableDescription"`
-	DryRun                             requests.Boolean `position:"Query" name:"DryRun"`
-	TransitRouterRouteTableName        string           `position:"Query" name:"TransitRouterRouteTableName"`
-	ResourceOwnerAccount               string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerAccount                       string           `position:"Query" name:"OwnerAccount"`
-	OwnerId                            requests.Integer `position:"Query" name:"OwnerId"`
-	TransitRouterId                    string           `position:"Query" name:"TransitRouterId"`
+	ResourceOwnerId                    requests.Integer                               `position:"Query" name:"ResourceOwnerId"`
+	ClientToken                        string                                         `position:"Query" name:"ClientToken"`
+	RouteTableOptions                  CreateTransitRouterRouteTableRouteTableOptions `position:"Query" name:"RouteTableOptions"  type:"Struct"`
+	TransitRouterRouteTableDescription string                                         `position:"Query" name:"TransitRouterRouteTableDescription"`
+	Tag                                *[]CreateTransitRouterRouteTableTag            `position:"Query" name:"Tag"  type:"Repeated"`
+	DryRun                             requests.Boolean                               `position:"Query" name:"DryRun"`
+	TransitRouterRouteTableName        string                                         `position:"Query" name:"TransitRouterRouteTableName"`
+	ResourceOwnerAccount               string                                         `position:"Query" name:"ResourceOwnerAccount"`
+	OwnerAccount                       string                                         `position:"Query" name:"OwnerAccount"`
+	OwnerId                            requests.Integer                               `position:"Query" name:"OwnerId"`
+	TransitRouterId                    string                                         `position:"Query" name:"TransitRouterId"`
+	Version                            string                                         `position:"Query" name:"Version"`
+}
+
+// CreateTransitRouterRouteTableRouteTableOptions is a repeated param struct in CreateTransitRouterRouteTableRequest
+type CreateTransitRouterRouteTableRouteTableOptions struct {
+	MultiRegionECMP string `name:"MultiRegionECMP"`
+}
+
+// CreateTransitRouterRouteTableTag is a repeated param struct in CreateTransitRouterRouteTableRequest
+type CreateTransitRouterRouteTableTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // CreateTransitRouterRouteTableResponse is the response struct for api CreateTransitRouterRouteTable
 type CreateTransitRouterRouteTableResponse struct {
 	*responses.BaseResponse
-	RequestId                 string `json:"RequestId" xml:"RequestId"`
 	TransitRouterRouteTableId string `json:"TransitRouterRouteTableId" xml:"TransitRouterRouteTableId"`
+	RequestId                 string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateTransitRouterRouteTableRequest creates a request to invoke CreateTransitRouterRouteTable API
@@ -94,7 +108,7 @@ func CreateCreateTransitRouterRouteTableRequest() (request *CreateTransitRouterR
 	request = &CreateTransitRouterRouteTableRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "CreateTransitRouterRouteTable", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "CreateTransitRouterRouteTable", "", "")
 	request.Method = requests.POST
 	return
 }

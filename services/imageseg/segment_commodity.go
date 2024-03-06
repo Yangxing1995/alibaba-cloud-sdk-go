@@ -71,8 +71,10 @@ func (client *Client) SegmentCommodityWithCallback(request *SegmentCommodityRequ
 // SegmentCommodityRequest is the request struct for api SegmentCommodity
 type SegmentCommodityRequest struct {
 	*requests.RpcRequest
-	ReturnForm string `position:"Query" name:"ReturnForm"`
-	ImageURL   string `position:"Query" name:"ImageURL"`
+	ReturnForm     string `position:"Query" name:"ReturnForm"`
+	OssFile        string `position:"Query" name:"OssFile"`
+	RequestProxyBy string `position:"Query" name:"RequestProxyBy"`
+	ImageURL       string `position:"Query" name:"ImageURL"`
 }
 
 // SegmentCommodityResponse is the response struct for api SegmentCommodity

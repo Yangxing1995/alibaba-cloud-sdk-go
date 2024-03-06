@@ -80,8 +80,8 @@ type DescribeHADiagnoseConfigRequest struct {
 // DescribeHADiagnoseConfigResponse is the response struct for api DescribeHADiagnoseConfig
 type DescribeHADiagnoseConfigResponse struct {
 	*responses.BaseResponse
-	RequestId         string `json:"RequestId" xml:"RequestId"`
 	TcpConnectionType string `json:"TcpConnectionType" xml:"TcpConnectionType"`
+	RequestId         string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDescribeHADiagnoseConfigRequest creates a request to invoke DescribeHADiagnoseConfig API
@@ -89,7 +89,7 @@ func CreateDescribeHADiagnoseConfigRequest() (request *DescribeHADiagnoseConfigR
 	request = &DescribeHADiagnoseConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeHADiagnoseConfig", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeHADiagnoseConfig", "", "")
 	request.Method = requests.POST
 	return
 }

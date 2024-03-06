@@ -80,8 +80,8 @@ type CheckInstanceExistRequest struct {
 // CheckInstanceExistResponse is the response struct for api CheckInstanceExist
 type CheckInstanceExistResponse struct {
 	*responses.BaseResponse
-	RequestId       string `json:"RequestId" xml:"RequestId"`
 	IsExistInstance bool   `json:"IsExistInstance" xml:"IsExistInstance"`
+	RequestId       string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCheckInstanceExistRequest creates a request to invoke CheckInstanceExist API
@@ -89,7 +89,7 @@ func CreateCheckInstanceExistRequest() (request *CheckInstanceExistRequest) {
 	request = &CheckInstanceExistRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CheckInstanceExist", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CheckInstanceExist", "", "")
 	request.Method = requests.POST
 	return
 }

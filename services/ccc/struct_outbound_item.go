@@ -17,7 +17,7 @@ package ccc
 
 // OutboundItem is a nested struct in ccc response
 type OutboundItem struct {
-	CallsAnswered int64 `json:"CallsAnswered" xml:"CallsAnswered"`
 	StatsTime     int64 `json:"StatsTime" xml:"StatsTime"`
+	CallsAnswered int64 `json:"CallsAnswered" xml:"CallsAnswered"`
 	TotalCalls    int64 `json:"TotalCalls" xml:"TotalCalls"`
 }

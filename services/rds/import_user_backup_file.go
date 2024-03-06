@@ -73,6 +73,7 @@ type ImportUserBackupFileRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	EngineVersion        string           `position:"Query" name:"EngineVersion"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	Retention            requests.Integer `position:"Query" name:"Retention"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	BackupFile           string           `position:"Query" name:"BackupFile"`
@@ -86,9 +87,9 @@ type ImportUserBackupFileRequest struct {
 // ImportUserBackupFileResponse is the response struct for api ImportUserBackupFile
 type ImportUserBackupFileResponse struct {
 	*responses.BaseResponse
-	BackupId  string `json:"BackupId" xml:"BackupId"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Status    bool   `json:"Status" xml:"Status"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	BackupId  string `json:"BackupId" xml:"BackupId"`
 }
 
 // CreateImportUserBackupFileRequest creates a request to invoke ImportUserBackupFile API
@@ -96,7 +97,7 @@ func CreateImportUserBackupFileRequest() (request *ImportUserBackupFileRequest) 
 	request = &ImportUserBackupFileRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ImportUserBackupFile", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ImportUserBackupFile", "", "")
 	request.Method = requests.POST
 	return
 }

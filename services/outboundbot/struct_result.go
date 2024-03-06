@@ -17,9 +17,9 @@ package outboundbot
 
 // Result is a nested struct in outboundbot response
 type Result struct {
-	NoInteractNum    int `json:"NoInteractNum" xml:"NoInteractNum"`
-	FinishedNum      int `json:"FinishedNum" xml:"FinishedNum"`
-	ClientHangupNum  int `json:"ClientHangupNum" xml:"ClientHangupNum"`
 	TimeoutHangupNum int `json:"TimeoutHangupNum" xml:"TimeoutHangupNum"`
+	FinishedNum      int `json:"FinishedNum" xml:"FinishedNum"`
+	NoInteractNum    int `json:"NoInteractNum" xml:"NoInteractNum"`
+	ClientHangupNum  int `json:"ClientHangupNum" xml:"ClientHangupNum"`
 	UnrecognizedNum  int `json:"UnrecognizedNum" xml:"UnrecognizedNum"`
 }

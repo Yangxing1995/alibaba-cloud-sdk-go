@@ -71,7 +71,10 @@ func (client *Client) ListClusterVersionsWithCallback(request *ListClusterVersio
 // ListClusterVersionsRequest is the request struct for api ListClusterVersions
 type ListClusterVersionsRequest struct {
 	*requests.RpcRequest
-	ClusterType string `position:"Query" name:"ClusterType"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	ClusterType    string `position:"Query" name:"ClusterType"`
+	MseVersion     string `position:"Query" name:"MseVersion"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // ListClusterVersionsResponse is the response struct for api ListClusterVersions
@@ -92,7 +95,7 @@ func CreateListClusterVersionsRequest() (request *ListClusterVersionsRequest) {
 	request = &ListClusterVersionsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ListClusterVersions", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "ListClusterVersions", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

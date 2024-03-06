@@ -71,31 +71,34 @@ func (client *Client) QueryDomainListWithCallback(request *QueryDomainListReques
 // QueryDomainListRequest is the request struct for api QueryDomainList
 type QueryDomainListRequest struct {
 	*requests.RpcRequest
-	ProductDomainType     string           `position:"Query" name:"ProductDomainType"`
-	OrderKeyType          string           `position:"Query" name:"OrderKeyType"`
-	PageNum               requests.Integer `position:"Query" name:"PageNum"`
-	OrderByType           string           `position:"Query" name:"OrderByType"`
-	PageSize              requests.Integer `position:"Query" name:"PageSize"`
-	Lang                  string           `position:"Query" name:"Lang"`
-	QueryType             string           `position:"Query" name:"QueryType"`
-	EndExpirationDate     requests.Integer `position:"Query" name:"EndExpirationDate"`
-	DomainName            string           `position:"Query" name:"DomainName"`
-	StartExpirationDate   requests.Integer `position:"Query" name:"StartExpirationDate"`
-	DomainGroupId         string           `position:"Query" name:"DomainGroupId"`
-	EndRegistrationDate   requests.Integer `position:"Query" name:"EndRegistrationDate"`
-	UserClientIp          string           `position:"Query" name:"UserClientIp"`
-	StartRegistrationDate requests.Integer `position:"Query" name:"StartRegistrationDate"`
+	ProductDomainType string           `position:"Query" name:"ProductDomainType"`
+	RegStartDate      requests.Integer `position:"Query" name:"RegStartDate"`
+	OrderKeyType      string           `position:"Query" name:"OrderKeyType"`
+	DeadEndDate       requests.Integer `position:"Query" name:"DeadEndDate"`
+	StartDate         string           `position:"Query" name:"StartDate"`
+	PageNum           requests.Integer `position:"Query" name:"PageNum"`
+	OrderByType       string           `position:"Query" name:"OrderByType"`
+	DomainType        string           `position:"Query" name:"DomainType"`
+	DeadStartDate     requests.Integer `position:"Query" name:"DeadStartDate"`
+	PageSize          requests.Integer `position:"Query" name:"PageSize"`
+	Lang              string           `position:"Query" name:"Lang"`
+	QueryType         string           `position:"Query" name:"QueryType"`
+	GroupId           string           `position:"Query" name:"GroupId"`
+	DomainName        string           `position:"Query" name:"DomainName"`
+	RegEndDate        requests.Integer `position:"Query" name:"RegEndDate"`
+	EndDate           string           `position:"Query" name:"EndDate"`
+	UserClientIp      string           `position:"Query" name:"UserClientIp"`
 }
 
 // QueryDomainListResponse is the response struct for api QueryDomainList
 type QueryDomainListResponse struct {
 	*responses.BaseResponse
-	RequestId      string                `json:"RequestId" xml:"RequestId"`
-	TotalItemNum   int                   `json:"TotalItemNum" xml:"TotalItemNum"`
-	CurrentPageNum int                   `json:"CurrentPageNum" xml:"CurrentPageNum"`
-	TotalPageNum   int                   `json:"TotalPageNum" xml:"TotalPageNum"`
-	PageSize       int                   `json:"PageSize" xml:"PageSize"`
 	PrePage        bool                  `json:"PrePage" xml:"PrePage"`
+	CurrentPageNum int                   `json:"CurrentPageNum" xml:"CurrentPageNum"`
+	RequestId      string                `json:"RequestId" xml:"RequestId"`
+	PageSize       int                   `json:"PageSize" xml:"PageSize"`
+	TotalPageNum   int                   `json:"TotalPageNum" xml:"TotalPageNum"`
+	TotalItemNum   int                   `json:"TotalItemNum" xml:"TotalItemNum"`
 	NextPage       bool                  `json:"NextPage" xml:"NextPage"`
 	Data           DataInQueryDomainList `json:"Data" xml:"Data"`
 }
@@ -105,7 +108,7 @@ func CreateQueryDomainListRequest() (request *QueryDomainListRequest) {
 	request = &QueryDomainListRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Domain", "2018-01-29", "QueryDomainList", "domain", "openAPI")
+	request.InitWithApiInfo("Domain", "2016-05-11", "QueryDomainList", "domain", "openAPI")
 	request.Method = requests.POST
 	return
 }

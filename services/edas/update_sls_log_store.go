@@ -78,9 +78,9 @@ type UpdateSlsLogStoreRequest struct {
 // UpdateSlsLogStoreResponse is the response struct for api UpdateSlsLogStore
 type UpdateSlsLogStoreResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Message   string `json:"Message" xml:"Message"`
 	Code      int    `json:"Code" xml:"Code"`
+	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpdateSlsLogStoreRequest creates a request to invoke UpdateSlsLogStore API
@@ -88,7 +88,7 @@ func CreateUpdateSlsLogStoreRequest() (request *UpdateSlsLogStoreRequest) {
 	request = &UpdateSlsLogStoreRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateSlsLogStore", "/pop/v5/k8s/sls/update_sls_log_store", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateSlsLogStore", "/pop/v5/k8s/sls/update_sls_log_store", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

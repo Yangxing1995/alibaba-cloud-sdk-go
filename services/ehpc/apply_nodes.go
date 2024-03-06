@@ -78,11 +78,14 @@ type ApplyNodesRequest struct {
 	InternetMaxBandWidthOut       requests.Integer               `position:"Query" name:"InternetMaxBandWidthOut"`
 	ResourceAmountType            string                         `position:"Query" name:"ResourceAmountType"`
 	StrictResourceProvision       requests.Boolean               `position:"Query" name:"StrictResourceProvision"`
+	JobQueue                      string                         `position:"Query" name:"JobQueue"`
 	SystemDiskType                string                         `position:"Query" name:"SystemDiskType"`
+	UserData                      string                         `position:"Query" name:"UserData"`
 	Cores                         requests.Integer               `position:"Query" name:"Cores"`
 	SystemDiskSize                requests.Integer               `position:"Query" name:"SystemDiskSize"`
 	ZoneInfos                     *[]ApplyNodesZoneInfos         `position:"Query" name:"ZoneInfos"  type:"Repeated"`
 	HostNamePrefix                string                         `position:"Query" name:"HostNamePrefix"`
+	Tag                           *[]ApplyNodesTag               `position:"Query" name:"Tag"  type:"Repeated"`
 	ComputeSpotPriceLimit         requests.Float                 `position:"Query" name:"ComputeSpotPriceLimit"`
 	ClusterId                     string                         `position:"Query" name:"ClusterId"`
 	ComputeSpotStrategy           string                         `position:"Query" name:"ComputeSpotStrategy"`
@@ -104,6 +107,12 @@ type ApplyNodesZoneInfos struct {
 	ZoneId    string `name:"ZoneId"`
 }
 
+// ApplyNodesTag is a repeated param struct in ApplyNodesRequest
+type ApplyNodesTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
+}
+
 // ApplyNodesInstanceTypeModel is a repeated param struct in ApplyNodesRequest
 type ApplyNodesInstanceTypeModel struct {
 	MaxPrice      string `name:"MaxPrice"`
@@ -115,9 +124,9 @@ type ApplyNodesInstanceTypeModel struct {
 type ApplyNodesResponse struct {
 	*responses.BaseResponse
 	RequestId       string                  `json:"RequestId" xml:"RequestId"`
-	Detail          string                  `json:"Detail" xml:"Detail"`
 	SatisfiedAmount int                     `json:"SatisfiedAmount" xml:"SatisfiedAmount"`
 	TaskId          string                  `json:"TaskId" xml:"TaskId"`
+	Detail          string                  `json:"Detail" xml:"Detail"`
 	InstanceIds     InstanceIdsInApplyNodes `json:"InstanceIds" xml:"InstanceIds"`
 }
 
@@ -126,7 +135,7 @@ func CreateApplyNodesRequest() (request *ApplyNodesRequest) {
 	request = &ApplyNodesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ApplyNodes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ApplyNodes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

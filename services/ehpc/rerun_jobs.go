@@ -71,8 +71,9 @@ func (client *Client) RerunJobsWithCallback(request *RerunJobsRequest, callback 
 // RerunJobsRequest is the request struct for api RerunJobs
 type RerunJobsRequest struct {
 	*requests.RpcRequest
-	Jobs      string `position:"Query" name:"Jobs"`
-	ClusterId string `position:"Query" name:"ClusterId"`
+	Jobs      string           `position:"Query" name:"Jobs"`
+	ClusterId string           `position:"Query" name:"ClusterId"`
+	Async     requests.Boolean `position:"Query" name:"Async"`
 }
 
 // RerunJobsResponse is the response struct for api RerunJobs
@@ -86,7 +87,7 @@ func CreateRerunJobsRequest() (request *RerunJobsRequest) {
 	request = &RerunJobsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "RerunJobs", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "RerunJobs", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

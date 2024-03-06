@@ -71,16 +71,22 @@ func (client *Client) PubWithCallback(request *PubRequest, callback func(respons
 // PubRequest is the request struct for api Pub
 type PubRequest struct {
 	*requests.RpcRequest
-	UserProp        *[]PubUserProp   `position:"Query" name:"UserProp"  type:"Repeated"`
-	MessageContent  string           `position:"Query" name:"MessageContent"`
-	Qos             requests.Integer `position:"Query" name:"Qos"`
-	CorrelationData string           `position:"Query" name:"CorrelationData"`
-	IotInstanceId   string           `position:"Query" name:"IotInstanceId"`
-	ResponseTopic   string           `position:"Query" name:"ResponseTopic"`
-	TopicFullName   string           `position:"Query" name:"TopicFullName"`
-	ProductKey      string           `position:"Query" name:"ProductKey"`
-	ApiProduct      string           `position:"Body" name:"ApiProduct"`
-	ApiRevision     string           `position:"Body" name:"ApiRevision"`
+	UserProp               *[]PubUserProp   `position:"Query" name:"UserProp"  type:"Repeated"`
+	MessageContent         string           `position:"Body" name:"MessageContent"`
+	Qos                    requests.Integer `position:"Query" name:"Qos"`
+	CorrelationData        string           `position:"Query" name:"CorrelationData"`
+	IotInstanceId          string           `position:"Query" name:"IotInstanceId"`
+	MessageExpiryInterval  requests.Integer `position:"Query" name:"MessageExpiryInterval"`
+	ResponseTopic          string           `position:"Query" name:"ResponseTopic"`
+	TopicAlias             requests.Integer `position:"Query" name:"TopicAlias"`
+	TopicFullName          string           `position:"Query" name:"TopicFullName"`
+	PayloadFormatIndicator requests.Integer `position:"Query" name:"PayloadFormatIndicator"`
+	ProductKey             string           `position:"Query" name:"ProductKey"`
+	ContentType            string           `position:"Query" name:"ContentType"`
+	Retained               requests.Boolean `position:"Query" name:"Retained"`
+	ApiProduct             string           `position:"Body" name:"ApiProduct"`
+	ApiRevision            string           `position:"Body" name:"ApiRevision"`
+	DeviceName             string           `position:"Query" name:"DeviceName"`
 }
 
 // PubUserProp is a repeated param struct in PubRequest

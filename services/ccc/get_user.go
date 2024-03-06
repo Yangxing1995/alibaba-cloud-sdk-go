@@ -79,12 +79,11 @@ type GetUserRequest struct {
 // GetUserResponse is the response struct for api GetUser
 type GetUserResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
-	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string   `json:"Message" xml:"Message"`
-	RequestId      string   `json:"RequestId" xml:"RequestId"`
-	Params         []string `json:"Params" xml:"Params"`
-	Data           Data     `json:"Data" xml:"Data"`
+	Code           string `json:"Code" xml:"Code"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Message        string `json:"Message" xml:"Message"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Data           Data   `json:"Data" xml:"Data"`
 }
 
 // CreateGetUserRequest creates a request to invoke GetUser API

@@ -71,15 +71,16 @@ func (client *Client) SetRetcodeShareStatusWithCallback(request *SetRetcodeShare
 // SetRetcodeShareStatusRequest is the request struct for api SetRetcodeShareStatus
 type SetRetcodeShareStatusRequest struct {
 	*requests.RpcRequest
-	Pid    string           `position:"Query" name:"Pid"`
-	Status requests.Boolean `position:"Query" name:"Status"`
+	AppName string           `position:"Query" name:"AppName"`
+	Pid     string           `position:"Query" name:"Pid"`
+	Status  requests.Boolean `position:"Query" name:"Status"`
 }
 
 // SetRetcodeShareStatusResponse is the response struct for api SetRetcodeShareStatus
 type SetRetcodeShareStatusResponse struct {
 	*responses.BaseResponse
-	RequestId                      string `json:"RequestId" xml:"RequestId"`
 	SetRetcodeShareStatusIsSuccess bool   `json:"IsSuccess" xml:"IsSuccess"`
+	RequestId                      string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateSetRetcodeShareStatusRequest creates a request to invoke SetRetcodeShareStatus API

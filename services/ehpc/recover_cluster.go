@@ -83,8 +83,8 @@ type RecoverClusterRequest struct {
 // RecoverClusterResponse is the response struct for api RecoverCluster
 type RecoverClusterResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateRecoverClusterRequest creates a request to invoke RecoverCluster API
@@ -92,7 +92,7 @@ func CreateRecoverClusterRequest() (request *RecoverClusterRequest) {
 	request = &RecoverClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "RecoverCluster", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "RecoverCluster", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

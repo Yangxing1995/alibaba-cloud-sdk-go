@@ -72,6 +72,7 @@ func (client *Client) AddLiveAppRecordConfigWithCallback(request *AddLiveAppReco
 type AddLiveAppRecordConfigRequest struct {
 	*requests.RpcRequest
 	OssEndpoint           string                                         `position:"Query" name:"OssEndpoint"`
+	DelayTime             requests.Integer                               `position:"Query" name:"DelayTime"`
 	TranscodeTemplates    *[]string                                      `position:"Query" name:"TranscodeTemplates"  type:"Repeated"`
 	StartTime             string                                         `position:"Query" name:"StartTime"`
 	AppName               string                                         `position:"Query" name:"AppName"`
@@ -90,8 +91,8 @@ type AddLiveAppRecordConfigRequest struct {
 type AddLiveAppRecordConfigTranscodeRecordFormat struct {
 	SliceOssObjectPrefix string `name:"SliceOssObjectPrefix"`
 	SliceDuration        string `name:"SliceDuration"`
-	Format               string `name:"Format"`
 	OssObjectPrefix      string `name:"OssObjectPrefix"`
+	Format               string `name:"Format"`
 	CycleDuration        string `name:"CycleDuration"`
 }
 
@@ -99,8 +100,8 @@ type AddLiveAppRecordConfigTranscodeRecordFormat struct {
 type AddLiveAppRecordConfigRecordFormat struct {
 	SliceOssObjectPrefix string `name:"SliceOssObjectPrefix"`
 	SliceDuration        string `name:"SliceDuration"`
-	Format               string `name:"Format"`
 	OssObjectPrefix      string `name:"OssObjectPrefix"`
+	Format               string `name:"Format"`
 	CycleDuration        string `name:"CycleDuration"`
 }
 

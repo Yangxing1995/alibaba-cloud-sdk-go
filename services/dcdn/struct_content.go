@@ -18,14 +18,15 @@ package dcdn
 // Content is a nested struct in dcdn response
 type Content struct {
 	BusinessType string `json:"BusinessType" xml:"BusinessType"`
-	SLSProject   string `json:"SLSProject" xml:"SLSProject"`
 	SLSLogStore  string `json:"SLSLogStore" xml:"SLSLogStore"`
+	SLSProject   string `json:"SLSProject" xml:"SLSProject"`
 	ProjectName  string `json:"ProjectName" xml:"ProjectName"`
 	DomainName   string `json:"DomainName" xml:"DomainName"`
 	SLSRegion    string `json:"SLSRegion" xml:"SLSRegion"`
 	DataCenter   string `json:"DataCenter" xml:"DataCenter"`
 	FieldName    string `json:"FieldName" xml:"FieldName"`
+	Status       string `json:"Status" xml:"Status"`
 	Exist        string `json:"Exist" xml:"Exist"`
-	SamplingRate string `json:"SamplingRate" xml:"SamplingRate"`
 	Type         string `json:"Type" xml:"Type"`
+	SamplingRate string `json:"SamplingRate" xml:"SamplingRate"`
 }

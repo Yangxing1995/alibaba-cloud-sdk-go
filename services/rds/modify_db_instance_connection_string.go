@@ -73,11 +73,13 @@ type ModifyDBInstanceConnectionStringRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId         requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ConnectionStringPrefix  string           `position:"Query" name:"ConnectionStringPrefix"`
+	PGBouncerPort           string           `position:"Query" name:"PGBouncerPort"`
 	GeneralGroupName        string           `position:"Query" name:"GeneralGroupName"`
 	DBInstanceId            string           `position:"Query" name:"DBInstanceId"`
 	ResourceOwnerAccount    string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount            string           `position:"Query" name:"OwnerAccount"`
 	OwnerId                 requests.Integer `position:"Query" name:"OwnerId"`
+	BabelfishPort           string           `position:"Query" name:"BabelfishPort"`
 	CurrentConnectionString string           `position:"Query" name:"CurrentConnectionString"`
 	Port                    string           `position:"Query" name:"Port"`
 }
@@ -93,7 +95,7 @@ func CreateModifyDBInstanceConnectionStringRequest() (request *ModifyDBInstanceC
 	request = &ModifyDBInstanceConnectionStringRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDBInstanceConnectionString", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDBInstanceConnectionString", "", "")
 	request.Method = requests.POST
 	return
 }

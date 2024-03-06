@@ -79,10 +79,10 @@ type ListCpfsFileSystemsRequest struct {
 // ListCpfsFileSystemsResponse is the response struct for api ListCpfsFileSystems
 type ListCpfsFileSystemsResponse struct {
 	*responses.BaseResponse
-	RequestId      string                              `json:"RequestId" xml:"RequestId"`
-	TotalCount     int                                 `json:"TotalCount" xml:"TotalCount"`
-	PageNumber     int                                 `json:"PageNumber" xml:"PageNumber"`
 	PageSize       int                                 `json:"PageSize" xml:"PageSize"`
+	RequestId      string                              `json:"RequestId" xml:"RequestId"`
+	PageNumber     int                                 `json:"PageNumber" xml:"PageNumber"`
+	TotalCount     int                                 `json:"TotalCount" xml:"TotalCount"`
 	FileSystemList FileSystemListInListCpfsFileSystems `json:"FileSystemList" xml:"FileSystemList"`
 }
 
@@ -91,7 +91,7 @@ func CreateListCpfsFileSystemsRequest() (request *ListCpfsFileSystemsRequest) {
 	request = &ListCpfsFileSystemsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListCpfsFileSystems", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListCpfsFileSystems", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

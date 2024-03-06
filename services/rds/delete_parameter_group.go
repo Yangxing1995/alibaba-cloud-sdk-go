@@ -72,16 +72,17 @@ func (client *Client) DeleteParameterGroupWithCallback(request *DeleteParameterG
 type DeleteParameterGroupRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
+	ParameterGroupId     string           `position:"Query" name:"ParameterGroupId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
-	ParameterGroupId     string           `position:"Query" name:"ParameterGroupId"`
 }
 
 // DeleteParameterGroupResponse is the response struct for api DeleteParameterGroup
 type DeleteParameterGroupResponse struct {
 	*responses.BaseResponse
-	RequestId        string `json:"RequestId" xml:"RequestId"`
 	ParameterGroupId string `json:"ParameterGroupId" xml:"ParameterGroupId"`
+	RequestId        string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteParameterGroupRequest creates a request to invoke DeleteParameterGroup API
@@ -89,7 +90,7 @@ func CreateDeleteParameterGroupRequest() (request *DeleteParameterGroupRequest) 
 	request = &DeleteParameterGroupRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DeleteParameterGroup", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DeleteParameterGroup", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -85,11 +85,11 @@ type DescribeCrossRegionBackupDBInstanceRequest struct {
 type DescribeCrossRegionBackupDBInstanceResponse struct {
 	*responses.BaseResponse
 	RequestId    string                                     `json:"RequestId" xml:"RequestId"`
-	RegionId     string                                     `json:"RegionId" xml:"RegionId"`
 	TotalRecords int                                        `json:"TotalRecords" xml:"TotalRecords"`
+	ItemsNumbers int                                        `json:"ItemsNumbers" xml:"ItemsNumbers"`
 	PageSize     int                                        `json:"PageSize" xml:"PageSize"`
 	PageNumber   int                                        `json:"PageNumber" xml:"PageNumber"`
-	ItemsNumbers int                                        `json:"ItemsNumbers" xml:"ItemsNumbers"`
+	RegionId     string                                     `json:"RegionId" xml:"RegionId"`
 	Items        ItemsInDescribeCrossRegionBackupDBInstance `json:"Items" xml:"Items"`
 }
 
@@ -98,7 +98,7 @@ func CreateDescribeCrossRegionBackupDBInstanceRequest() (request *DescribeCrossR
 	request = &DescribeCrossRegionBackupDBInstanceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeCrossRegionBackupDBInstance", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeCrossRegionBackupDBInstance", "", "")
 	request.Method = requests.POST
 	return
 }

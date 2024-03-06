@@ -81,8 +81,8 @@ type DescribeInstanceKeywordsRequest struct {
 // DescribeInstanceKeywordsResponse is the response struct for api DescribeInstanceKeywords
 type DescribeInstanceKeywordsResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Key       string `json:"Key" xml:"Key"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	Words     Words  `json:"Words" xml:"Words"`
 }
 
@@ -91,7 +91,7 @@ func CreateDescribeInstanceKeywordsRequest() (request *DescribeInstanceKeywordsR
 	request = &DescribeInstanceKeywordsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeInstanceKeywords", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeInstanceKeywords", "", "")
 	request.Method = requests.POST
 	return
 }

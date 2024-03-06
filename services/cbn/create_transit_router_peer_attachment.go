@@ -71,32 +71,40 @@ func (client *Client) CreateTransitRouterPeerAttachmentWithCallback(request *Cre
 // CreateTransitRouterPeerAttachmentRequest is the request struct for api CreateTransitRouterPeerAttachment
 type CreateTransitRouterPeerAttachmentRequest struct {
 	*requests.RpcRequest
-	ResourceOwnerId                    requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	BandwidthType                      string           `position:"Query" name:"BandwidthType"`
-	ClientToken                        string           `position:"Query" name:"ClientToken"`
-	CenId                              string           `position:"Query" name:"CenId"`
-	RouteTableAssociationEnabled       requests.Boolean `position:"Query" name:"RouteTableAssociationEnabled"`
-	TransitRouterAttachmentName        string           `position:"Query" name:"TransitRouterAttachmentName"`
-	AutoPublishRouteEnabled            requests.Boolean `position:"Query" name:"AutoPublishRouteEnabled"`
-	RouteTablePropagationEnabled       requests.Boolean `position:"Query" name:"RouteTablePropagationEnabled"`
-	DryRun                             requests.Boolean `position:"Query" name:"DryRun"`
-	ResourceOwnerAccount               string           `position:"Query" name:"ResourceOwnerAccount"`
-	Bandwidth                          requests.Integer `position:"Query" name:"Bandwidth"`
-	OwnerAccount                       string           `position:"Query" name:"OwnerAccount"`
-	OwnerId                            requests.Integer `position:"Query" name:"OwnerId"`
-	TransitRouterId                    string           `position:"Query" name:"TransitRouterId"`
-	ResourceType                       string           `position:"Query" name:"ResourceType"`
-	TransitRouterAttachmentDescription string           `position:"Query" name:"TransitRouterAttachmentDescription"`
-	PeerTransitRouterRegionId          string           `position:"Query" name:"PeerTransitRouterRegionId"`
-	CenBandwidthPackageId              string           `position:"Query" name:"CenBandwidthPackageId"`
-	PeerTransitRouterId                string           `position:"Query" name:"PeerTransitRouterId"`
+	ResourceOwnerId                    requests.Integer                        `position:"Query" name:"ResourceOwnerId"`
+	BandwidthType                      string                                  `position:"Query" name:"BandwidthType"`
+	ClientToken                        string                                  `position:"Query" name:"ClientToken"`
+	CenId                              string                                  `position:"Query" name:"CenId"`
+	RouteTableAssociationEnabled       requests.Boolean                        `position:"Query" name:"RouteTableAssociationEnabled"`
+	TransitRouterAttachmentName        string                                  `position:"Query" name:"TransitRouterAttachmentName"`
+	Tag                                *[]CreateTransitRouterPeerAttachmentTag `position:"Query" name:"Tag"  type:"Repeated"`
+	AutoPublishRouteEnabled            requests.Boolean                        `position:"Query" name:"AutoPublishRouteEnabled"`
+	RouteTablePropagationEnabled       requests.Boolean                        `position:"Query" name:"RouteTablePropagationEnabled"`
+	DryRun                             requests.Boolean                        `position:"Query" name:"DryRun"`
+	ResourceOwnerAccount               string                                  `position:"Query" name:"ResourceOwnerAccount"`
+	Bandwidth                          requests.Integer                        `position:"Query" name:"Bandwidth"`
+	OwnerAccount                       string                                  `position:"Query" name:"OwnerAccount"`
+	OwnerId                            requests.Integer                        `position:"Query" name:"OwnerId"`
+	TransitRouterId                    string                                  `position:"Query" name:"TransitRouterId"`
+	ResourceType                       string                                  `position:"Query" name:"ResourceType"`
+	Version                            string                                  `position:"Query" name:"Version"`
+	TransitRouterAttachmentDescription string                                  `position:"Query" name:"TransitRouterAttachmentDescription"`
+	PeerTransitRouterRegionId          string                                  `position:"Query" name:"PeerTransitRouterRegionId"`
+	CenBandwidthPackageId              string                                  `position:"Query" name:"CenBandwidthPackageId"`
+	PeerTransitRouterId                string                                  `position:"Query" name:"PeerTransitRouterId"`
+}
+
+// CreateTransitRouterPeerAttachmentTag is a repeated param struct in CreateTransitRouterPeerAttachmentRequest
+type CreateTransitRouterPeerAttachmentTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // CreateTransitRouterPeerAttachmentResponse is the response struct for api CreateTransitRouterPeerAttachment
 type CreateTransitRouterPeerAttachmentResponse struct {
 	*responses.BaseResponse
-	RequestId                 string `json:"RequestId" xml:"RequestId"`
 	TransitRouterAttachmentId string `json:"TransitRouterAttachmentId" xml:"TransitRouterAttachmentId"`
+	RequestId                 string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateTransitRouterPeerAttachmentRequest creates a request to invoke CreateTransitRouterPeerAttachment API
@@ -104,7 +112,7 @@ func CreateCreateTransitRouterPeerAttachmentRequest() (request *CreateTransitRou
 	request = &CreateTransitRouterPeerAttachmentRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "CreateTransitRouterPeerAttachment", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "CreateTransitRouterPeerAttachment", "", "")
 	request.Method = requests.POST
 	return
 }

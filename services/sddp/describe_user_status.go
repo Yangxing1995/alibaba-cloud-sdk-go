@@ -71,8 +71,9 @@ func (client *Client) DescribeUserStatusWithCallback(request *DescribeUserStatus
 // DescribeUserStatusRequest is the request struct for api DescribeUserStatus
 type DescribeUserStatusRequest struct {
 	*requests.RpcRequest
-	SourceIp string `position:"Query" name:"SourceIp"`
-	Lang     string `position:"Query" name:"Lang"`
+	FeatureType requests.Integer `position:"Query" name:"FeatureType"`
+	SourceIp    string           `position:"Query" name:"SourceIp"`
+	Lang        string           `position:"Query" name:"Lang"`
 }
 
 // DescribeUserStatusResponse is the response struct for api DescribeUserStatus
@@ -87,7 +88,7 @@ func CreateDescribeUserStatusRequest() (request *DescribeUserStatusRequest) {
 	request = &DescribeUserStatusRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeUserStatus", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeUserStatus", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

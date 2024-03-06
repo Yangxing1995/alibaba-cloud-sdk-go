@@ -71,9 +71,9 @@ func (client *Client) StartConfigRuleEvaluationWithCallback(request *StartConfig
 // StartConfigRuleEvaluationRequest is the request struct for api StartConfigRuleEvaluation
 type StartConfigRuleEvaluationRequest struct {
 	*requests.RpcRequest
-	ConfigRuleId string           `position:"Query" name:"ConfigRuleId"`
-	MultiAccount requests.Boolean `position:"Query" name:"MultiAccount"`
-	MemberId     requests.Integer `position:"Query" name:"MemberId"`
+	ConfigRuleId     string           `position:"Query" name:"ConfigRuleId"`
+	CompliancePackId string           `position:"Query" name:"CompliancePackId"`
+	RevertEvaluation requests.Boolean `position:"Query" name:"RevertEvaluation"`
 }
 
 // StartConfigRuleEvaluationResponse is the response struct for api StartConfigRuleEvaluation
@@ -88,7 +88,7 @@ func CreateStartConfigRuleEvaluationRequest() (request *StartConfigRuleEvaluatio
 	request = &StartConfigRuleEvaluationRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Config", "2019-01-08", "StartConfigRuleEvaluation", "Config", "openAPI")
+	request.InitWithApiInfo("Config", "2020-09-07", "StartConfigRuleEvaluation", "", "")
 	request.Method = requests.POST
 	return
 }

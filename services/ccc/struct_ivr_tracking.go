@@ -17,20 +17,20 @@ package ccc
 
 // IvrTracking is a nested struct in ccc response
 type IvrTracking struct {
-	Callee           string                 `json:"Callee" xml:"Callee"`
-	Caller           string                 `json:"Caller" xml:"Caller"`
-	ChannelId        string                 `json:"ChannelId" xml:"ChannelId"`
-	ChannelVariables string                 `json:"ChannelVariables" xml:"ChannelVariables"`
-	ContactId        string                 `json:"ContactId" xml:"ContactId"`
-	EnterTime        int64                  `json:"EnterTime" xml:"EnterTime"`
-	FlowId           string                 `json:"FlowId" xml:"FlowId"`
-	FlowName         string                 `json:"FlowName" xml:"FlowName"`
 	Instance         string                 `json:"Instance" xml:"Instance"`
-	LeaveTime        int64                  `json:"LeaveTime" xml:"LeaveTime"`
+	Callee           string                 `json:"Callee" xml:"Callee"`
+	EnterTime        int64                  `json:"EnterTime" xml:"EnterTime"`
+	NodeVariables    map[string]interface{} `json:"NodeVariables" xml:"NodeVariables"`
 	NodeExitCode     string                 `json:"NodeExitCode" xml:"NodeExitCode"`
-	NodeId           string                 `json:"NodeId" xml:"NodeId"`
-	NodeName         string                 `json:"NodeName" xml:"NodeName"`
+	FlowName         string                 `json:"FlowName" xml:"FlowName"`
+	FlowId           string                 `json:"FlowId" xml:"FlowId"`
 	NodeProperties   map[string]interface{} `json:"NodeProperties" xml:"NodeProperties"`
 	NodeType         string                 `json:"NodeType" xml:"NodeType"`
-	NodeVariables    map[string]interface{} `json:"NodeVariables" xml:"NodeVariables"`
+	Caller           string                 `json:"Caller" xml:"Caller"`
+	NodeName         string                 `json:"NodeName" xml:"NodeName"`
+	ContactId        string                 `json:"ContactId" xml:"ContactId"`
+	LeaveTime        int64                  `json:"LeaveTime" xml:"LeaveTime"`
+	ChannelVariables string                 `json:"ChannelVariables" xml:"ChannelVariables"`
+	ChannelId        string                 `json:"ChannelId" xml:"ChannelId"`
+	NodeId           string                 `json:"NodeId" xml:"NodeId"`
 }

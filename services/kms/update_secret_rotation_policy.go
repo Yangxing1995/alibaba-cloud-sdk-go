@@ -72,15 +72,15 @@ func (client *Client) UpdateSecretRotationPolicyWithCallback(request *UpdateSecr
 type UpdateSecretRotationPolicyRequest struct {
 	*requests.RpcRequest
 	RotationInterval        string           `position:"Query" name:"RotationInterval"`
-	SecretName              string           `position:"Query" name:"SecretName"`
 	EnableAutomaticRotation requests.Boolean `position:"Query" name:"EnableAutomaticRotation"`
+	SecretName              string           `position:"Query" name:"SecretName"`
 }
 
 // UpdateSecretRotationPolicyResponse is the response struct for api UpdateSecretRotationPolicy
 type UpdateSecretRotationPolicyResponse struct {
 	*responses.BaseResponse
-	RequestId  string `json:"RequestId" xml:"RequestId"`
 	SecretName string `json:"SecretName" xml:"SecretName"`
+	RequestId  string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpdateSecretRotationPolicyRequest creates a request to invoke UpdateSecretRotationPolicy API

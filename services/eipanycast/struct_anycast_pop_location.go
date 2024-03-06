@@ -17,6 +17,6 @@ package eipanycast
 
 // AnycastPopLocation is a nested struct in eipanycast response
 type AnycastPopLocation struct {
-	RegionId   string `json:"RegionId" xml:"RegionId"`
 	RegionName string `json:"RegionName" xml:"RegionName"`
+	RegionId   string `json:"RegionId" xml:"RegionId"`
 }

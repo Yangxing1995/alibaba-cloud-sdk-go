@@ -80,10 +80,10 @@ type QuerySlsLogStoreListRequest struct {
 // QuerySlsLogStoreListResponse is the response struct for api QuerySlsLogStoreList
 type QuerySlsLogStoreListResponse struct {
 	*responses.BaseResponse
-	TotalSize int      `json:"TotalSize" xml:"TotalSize"`
-	RequestId string   `json:"RequestId" xml:"RequestId"`
 	Code      int      `json:"Code" xml:"Code"`
 	Message   string   `json:"Message" xml:"Message"`
+	RequestId string   `json:"RequestId" xml:"RequestId"`
+	TotalSize int      `json:"TotalSize" xml:"TotalSize"`
 	Result    []SlsLog `json:"Result" xml:"Result"`
 }
 
@@ -92,7 +92,7 @@ func CreateQuerySlsLogStoreListRequest() (request *QuerySlsLogStoreListRequest) 
 	request = &QuerySlsLogStoreListRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "QuerySlsLogStoreList", "/pop/v5/k8s/sls/query_sls_log_store_list", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "QuerySlsLogStoreList", "/pop/v5/k8s/sls/query_sls_log_store_list", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

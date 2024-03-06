@@ -77,8 +77,8 @@ type StartClusterRequest struct {
 // StartClusterResponse is the response struct for api StartCluster
 type StartClusterResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateStartClusterRequest creates a request to invoke StartCluster API
@@ -86,7 +86,7 @@ func CreateStartClusterRequest() (request *StartClusterRequest) {
 	request = &StartClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "StartCluster", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "StartCluster", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

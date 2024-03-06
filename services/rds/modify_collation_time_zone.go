@@ -82,11 +82,11 @@ type ModifyCollationTimeZoneRequest struct {
 // ModifyCollationTimeZoneResponse is the response struct for api ModifyCollationTimeZone
 type ModifyCollationTimeZoneResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
-	DBInstanceId string `json:"DBInstanceId" xml:"DBInstanceId"`
-	TaskId       string `json:"TaskId" xml:"TaskId"`
-	Timezone     string `json:"Timezone" xml:"Timezone"`
 	Collation    string `json:"Collation" xml:"Collation"`
+	DBInstanceId string `json:"DBInstanceId" xml:"DBInstanceId"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
+	Timezone     string `json:"Timezone" xml:"Timezone"`
+	TaskId       string `json:"TaskId" xml:"TaskId"`
 }
 
 // CreateModifyCollationTimeZoneRequest creates a request to invoke ModifyCollationTimeZone API
@@ -94,7 +94,7 @@ func CreateModifyCollationTimeZoneRequest() (request *ModifyCollationTimeZoneReq
 	request = &ModifyCollationTimeZoneRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyCollationTimeZone", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyCollationTimeZone", "", "")
 	request.Method = requests.POST
 	return
 }

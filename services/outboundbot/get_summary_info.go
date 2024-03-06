@@ -77,11 +77,11 @@ type GetSummaryInfoRequest struct {
 // GetSummaryInfoResponse is the response struct for api GetSummaryInfo
 type GetSummaryInfoResponse struct {
 	*responses.BaseResponse
-	RequestId                   string                    `json:"RequestId" xml:"RequestId"`
-	Success                     bool                      `json:"Success" xml:"Success"`
+	HttpStatusCode              int                       `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code                        string                    `json:"Code" xml:"Code"`
 	Message                     string                    `json:"Message" xml:"Message"`
-	HttpStatusCode              int                       `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId                   string                    `json:"RequestId" xml:"RequestId"`
+	Success                     bool                      `json:"Success" xml:"Success"`
 	AgentBotInstanceSummaryList []AgentBotInstanceSummary `json:"AgentBotInstanceSummaryList" xml:"AgentBotInstanceSummaryList"`
 }
 
@@ -90,7 +90,7 @@ func CreateGetSummaryInfoRequest() (request *GetSummaryInfoRequest) {
 	request = &GetSummaryInfoRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetSummaryInfo", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetSummaryInfo", "", "")
 	request.Method = requests.POST
 	return
 }

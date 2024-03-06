@@ -72,18 +72,18 @@ func (client *Client) GetMetaCategoryWithCallback(request *GetMetaCategoryReques
 type GetMetaCategoryRequest struct {
 	*requests.RpcRequest
 	ParentCategoryId requests.Integer `position:"Query" name:"ParentCategoryId"`
-	PageSize         requests.Integer `position:"Query" name:"PageSize"`
 	PageNum          requests.Integer `position:"Query" name:"PageNum"`
+	PageSize         requests.Integer `position:"Query" name:"PageSize"`
 }
 
 // GetMetaCategoryResponse is the response struct for api GetMetaCategory
 type GetMetaCategoryResponse struct {
 	*responses.BaseResponse
-	RequestId      string                `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string                `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                   `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string                `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string                `json:"RequestId" xml:"RequestId"`
 	Success        bool                  `json:"Success" xml:"Success"`
+	ErrorCode      string                `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInGetMetaCategory `json:"Data" xml:"Data"`
 }
 

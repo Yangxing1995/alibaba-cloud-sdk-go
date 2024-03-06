@@ -17,5 +17,6 @@ package live
 
 // StreamCountInfos is a nested struct in live response
 type StreamCountInfos struct {
-	StreamCountInfo []StreamCountInfo `json:"StreamCountInfo" xml:"StreamCountInfo"`
+	Count     int    `json:"Count" xml:"Count"`
+	Timestamp string `json:"Timestamp" xml:"Timestamp"`
 }

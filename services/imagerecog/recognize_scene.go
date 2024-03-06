@@ -71,8 +71,11 @@ func (client *Client) RecognizeSceneWithCallback(request *RecognizeSceneRequest,
 // RecognizeSceneRequest is the request struct for api RecognizeScene
 type RecognizeSceneRequest struct {
 	*requests.RpcRequest
-	ImageType requests.Integer `position:"Body" name:"ImageType"`
-	ImageURL  string           `position:"Body" name:"ImageURL"`
+	FormatResultToJson requests.Boolean `position:"Query" name:"FormatResultToJson"`
+	OssFile            string           `position:"Query" name:"OssFile"`
+	ImageType          requests.Integer `position:"Body" name:"ImageType"`
+	RequestProxyBy     string           `position:"Query" name:"RequestProxyBy"`
+	ImageURL           string           `position:"Body" name:"ImageURL"`
 }
 
 // RecognizeSceneResponse is the response struct for api RecognizeScene
@@ -87,7 +90,7 @@ func CreateRecognizeSceneRequest() (request *RecognizeSceneRequest) {
 	request = &RecognizeSceneRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("imagerecog", "2019-09-30", "RecognizeScene", "imagerecog", "openAPI")
+	request.InitWithApiInfo("imagerecog", "2019-09-30", "RecognizeScene", "", "")
 	request.Method = requests.POST
 	return
 }

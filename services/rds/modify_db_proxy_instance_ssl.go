@@ -74,6 +74,7 @@ type ModifyDbProxyInstanceSslRequest struct {
 	DbProxySslEnabled    string `position:"Query" name:"DbProxySslEnabled"`
 	DbProxyConnectString string `position:"Query" name:"DbProxyConnectString"`
 	DbInstanceId         string `position:"Query" name:"DbInstanceId"`
+	DBProxyEngineType    string `position:"Query" name:"DBProxyEngineType"`
 	DbProxyEndpointId    string `position:"Query" name:"DbProxyEndpointId"`
 }
 
@@ -88,7 +89,7 @@ func CreateModifyDbProxyInstanceSslRequest() (request *ModifyDbProxyInstanceSslR
 	request = &ModifyDbProxyInstanceSslRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDbProxyInstanceSsl", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDbProxyInstanceSsl", "", "")
 	request.Method = requests.POST
 	return
 }

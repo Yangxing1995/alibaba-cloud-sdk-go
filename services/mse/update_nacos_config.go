@@ -71,17 +71,19 @@ func (client *Client) UpdateNacosConfigWithCallback(request *UpdateNacosConfigRe
 // UpdateNacosConfigRequest is the request struct for api UpdateNacosConfig
 type UpdateNacosConfigRequest struct {
 	*requests.RpcRequest
+	MseSessionId     string `position:"Query" name:"MseSessionId"`
 	EncryptedDataKey string `position:"Query" name:"EncryptedDataKey"`
 	Type             string `position:"Query" name:"Type"`
-	Content          string `position:"Query" name:"Content"`
 	AppName          string `position:"Query" name:"AppName"`
 	NamespaceId      string `position:"Query" name:"NamespaceId"`
 	Group            string `position:"Query" name:"Group"`
 	Tags             string `position:"Query" name:"Tags"`
 	BetaIps          string `position:"Query" name:"BetaIps"`
 	InstanceId       string `position:"Query" name:"InstanceId"`
-	DataId           string `position:"Query" name:"DataId"`
 	Desc             string `position:"Query" name:"Desc"`
+	Content          string `position:"Query" name:"Content"`
+	DataId           string `position:"Query" name:"DataId"`
+	AcceptLanguage   string `position:"Query" name:"AcceptLanguage"`
 	Md5              string `position:"Query" name:"Md5"`
 }
 
@@ -100,7 +102,7 @@ func CreateUpdateNacosConfigRequest() (request *UpdateNacosConfigRequest) {
 	request = &UpdateNacosConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "UpdateNacosConfig", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "UpdateNacosConfig", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

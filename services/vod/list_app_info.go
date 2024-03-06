@@ -72,16 +72,23 @@ func (client *Client) ListAppInfoWithCallback(request *ListAppInfoRequest, callb
 type ListAppInfoRequest struct {
 	*requests.RpcRequest
 	ResourceRealOwnerId requests.Integer `position:"Query" name:"ResourceRealOwnerId"`
-	PageNo              requests.Integer `position:"Query" name:"PageNo"`
 	PageSize            requests.Integer `position:"Query" name:"PageSize"`
+	Tag                 ListAppInfoTag   `position:"Query" name:"Tag"  type:"Struct"`
+	PageNo              requests.Integer `position:"Query" name:"PageNo"`
 	Status              string           `position:"Query" name:"Status"`
+}
+
+// ListAppInfoTag is a repeated param struct in ListAppInfoRequest
+type ListAppInfoTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // ListAppInfoResponse is the response struct for api ListAppInfo
 type ListAppInfoResponse struct {
 	*responses.BaseResponse
-	RequestId   string    `json:"RequestId" xml:"RequestId"`
 	Total       int       `json:"Total" xml:"Total"`
+	RequestId   string    `json:"RequestId" xml:"RequestId"`
 	AppInfoList []AppInfo `json:"AppInfoList" xml:"AppInfoList"`
 }
 

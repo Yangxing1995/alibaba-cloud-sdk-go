@@ -85,6 +85,8 @@ type MassPushPushTask struct {
 	AndroidNotificationHuaweiChannel string `name:"AndroidNotificationHuaweiChannel"`
 	AndroidPopupActivity             string `name:"AndroidPopupActivity"`
 	IOSRemindBody                    string `name:"iOSRemindBody"`
+	Trim                             string `name:"Trim"`
+	AndroidMessageVivoCategory       string `name:"AndroidMessageVivoCategory"`
 	AndroidNotifyType                string `name:"AndroidNotifyType"`
 	AndroidPopupTitle                string `name:"AndroidPopupTitle"`
 	AndroidMessageHuaweiCategory     string `name:"AndroidMessageHuaweiCategory"`
@@ -94,10 +96,14 @@ type MassPushPushTask struct {
 	AndroidNotificationBarPriority   string `name:"AndroidNotificationBarPriority"`
 	ExpireTime                       string `name:"ExpireTime"`
 	AndroidImageUrl                  string `name:"AndroidImageUrl"`
+	AndroidHonorTargetUserType       string `name:"AndroidHonorTargetUserType"`
 	AndroidNotificationVivoChannel   string `name:"AndroidNotificationVivoChannel"`
+	AndroidVivoReceiptId             string `name:"AndroidVivoReceiptId"`
 	IOSNotificationCategory          string `name:"iOSNotificationCategory"`
 	AndroidNotificationXiaomiChannel string `name:"AndroidNotificationXiaomiChannel"`
 	StoreOffline                     string `name:"StoreOffline"`
+	IOSRelevanceScore                string `name:"iOSRelevanceScore"`
+	AndroidVivoPushMode              string `name:"AndroidVivoPushMode"`
 	AndroidInboxBody                 string `name:"AndroidInboxBody"`
 	JobKey                           string `name:"JobKey"`
 	AndroidOpenUrl                   string `name:"AndroidOpenUrl"`
@@ -106,10 +112,12 @@ type MassPushPushTask struct {
 	AndroidXiaomiBigPictureUrl       string `name:"AndroidXiaomiBigPictureUrl"`
 	IOSRemind                        string `name:"iOSRemind"`
 	IOSNotificationThreadId          string `name:"iOSNotificationThreadId"`
+	AndroidHuaweiTargetUserType      string `name:"AndroidHuaweiTargetUserType"`
 	AndroidMusic                     string `name:"AndroidMusic"`
 	IOSNotificationCollapseId        string `name:"iOSNotificationCollapseId"`
 	AndroidMessageHuaweiUrgency      string `name:"AndroidMessageHuaweiUrgency"`
 	PushType                         string `name:"PushType"`
+	IOSInterruptionLevel             string `name:"iOSInterruptionLevel"`
 	AndroidExtParameters             string `name:"AndroidExtParameters"`
 	IOSBadge                         string `name:"iOSBadge"`
 	AndroidBigBody                   string `name:"AndroidBigBody"`
@@ -118,10 +126,14 @@ type MassPushPushTask struct {
 	Title                            string `name:"Title"`
 	AndroidRenderStyle               string `name:"AndroidRenderStyle"`
 	IOSExtParameters                 string `name:"iOSExtParameters"`
+	AndroidHuaweiReceiptId           string `name:"AndroidHuaweiReceiptId"`
+	AndroidNotificationHonorChannel  string `name:"AndroidNotificationHonorChannel"`
 	AndroidXiaomiImageUrl            string `name:"AndroidXiaomiImageUrl"`
+	AndroidTargetUserType            string `name:"AndroidTargetUserType"`
 	AndroidPopupBody                 string `name:"AndroidPopupBody"`
 	AndroidBigPictureUrl             string `name:"AndroidBigPictureUrl"`
 	IOSSilentNotification            string `name:"iOSSilentNotification"`
+	AndroidNotificationGroup         string `name:"AndroidNotificationGroup"`
 	SendChannels                     string `name:"SendChannels"`
 	Target                           string `name:"Target"`
 	AndroidBigTitle                  string `name:"AndroidBigTitle"`

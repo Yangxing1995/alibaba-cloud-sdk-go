@@ -71,10 +71,12 @@ func (client *Client) RestartClusterWithCallback(request *RestartClusterRequest,
 // RestartClusterRequest is the request struct for api RestartCluster
 type RestartClusterRequest struct {
 	*requests.RpcRequest
-	ClusterId   string `position:"Query" name:"ClusterId"`
-	PodNameList string `position:"Query" name:"PodNameList"`
-	InstanceId  string `position:"Query" name:"InstanceId"`
-	RequestPars string `position:"Query" name:"RequestPars"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	PodNameList    string `position:"Query" name:"PodNameList"`
+	RequestPars    string `position:"Query" name:"RequestPars"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
+	InstanceId     string `position:"Query" name:"InstanceId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // RestartClusterResponse is the response struct for api RestartCluster
@@ -91,7 +93,7 @@ func CreateRestartClusterRequest() (request *RestartClusterRequest) {
 	request = &RestartClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "RestartCluster", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "RestartCluster", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

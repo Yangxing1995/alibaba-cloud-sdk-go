@@ -71,24 +71,28 @@ func (client *Client) ListTransitRouterRouteTablePropagationsWithCallback(reques
 // ListTransitRouterRouteTablePropagationsRequest is the request struct for api ListTransitRouterRouteTablePropagations
 type ListTransitRouterRouteTablePropagationsRequest struct {
 	*requests.RpcRequest
-	ResourceOwnerId            requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	TransitRouterRouteTableId  string           `position:"Query" name:"TransitRouterRouteTableId"`
-	NextToken                  string           `position:"Query" name:"NextToken"`
-	ResourceOwnerAccount       string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerAccount               string           `position:"Query" name:"OwnerAccount"`
-	OwnerId                    requests.Integer `position:"Query" name:"OwnerId"`
-	TransitRouterAttachmentId  string           `position:"Query" name:"TransitRouterAttachmentId"`
-	MaxResults                 requests.Integer `position:"Query" name:"MaxResults"`
-	TransitRouterAttachmentIds *[]string        `position:"Query" name:"TransitRouterAttachmentIds"  type:"Repeated"`
+	ResourceOwnerId                     requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	TransitRouterRouteTableId           string           `position:"Query" name:"TransitRouterRouteTableId"`
+	NextToken                           string           `position:"Query" name:"NextToken"`
+	TransitRouterAttachmentResourceId   string           `position:"Query" name:"TransitRouterAttachmentResourceId"`
+	TransitRouterAttachmentResourceType string           `position:"Query" name:"TransitRouterAttachmentResourceType"`
+	ResourceOwnerAccount                string           `position:"Query" name:"ResourceOwnerAccount"`
+	OwnerAccount                        string           `position:"Query" name:"OwnerAccount"`
+	OwnerId                             requests.Integer `position:"Query" name:"OwnerId"`
+	Version                             string           `position:"Query" name:"Version"`
+	TransitRouterAttachmentId           string           `position:"Query" name:"TransitRouterAttachmentId"`
+	MaxResults                          requests.Integer `position:"Query" name:"MaxResults"`
+	TransitRouterAttachmentIds          *[]string        `position:"Query" name:"TransitRouterAttachmentIds"  type:"Repeated"`
+	Status                              string           `position:"Query" name:"Status"`
 }
 
 // ListTransitRouterRouteTablePropagationsResponse is the response struct for api ListTransitRouterRouteTablePropagations
 type ListTransitRouterRouteTablePropagationsResponse struct {
 	*responses.BaseResponse
+	NextToken                 string                     `json:"NextToken" xml:"NextToken"`
 	RequestId                 string                     `json:"RequestId" xml:"RequestId"`
 	TotalCount                int                        `json:"TotalCount" xml:"TotalCount"`
 	MaxResults                int                        `json:"MaxResults" xml:"MaxResults"`
-	NextToken                 string                     `json:"NextToken" xml:"NextToken"`
 	TransitRouterPropagations []TransitRouterPropagation `json:"TransitRouterPropagations" xml:"TransitRouterPropagations"`
 }
 
@@ -97,7 +101,7 @@ func CreateListTransitRouterRouteTablePropagationsRequest() (request *ListTransi
 	request = &ListTransitRouterRouteTablePropagationsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "ListTransitRouterRouteTablePropagations", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "ListTransitRouterRouteTablePropagations", "", "")
 	request.Method = requests.POST
 	return
 }

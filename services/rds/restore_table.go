@@ -74,6 +74,7 @@ type RestoreTableRequest struct {
 	RestoreTableMode     string           `position:"Query" name:"RestoreTableMode"`
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
+	InstantRecovery      requests.Boolean `position:"Query" name:"InstantRecovery"`
 	TableMeta            string           `position:"Query" name:"TableMeta"`
 	DBInstanceId         string           `position:"Query" name:"DBInstanceId"`
 	RestoreTime          string           `position:"Query" name:"RestoreTime"`
@@ -94,7 +95,7 @@ func CreateRestoreTableRequest() (request *RestoreTableRequest) {
 	request = &RestoreTableRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "RestoreTable", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "RestoreTable", "", "")
 	request.Method = requests.POST
 	return
 }

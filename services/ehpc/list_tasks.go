@@ -81,10 +81,10 @@ type ListTasksRequest struct {
 // ListTasksResponse is the response struct for api ListTasks
 type ListTasksResponse struct {
 	*responses.BaseResponse
-	RequestId  string     `json:"RequestId" xml:"RequestId"`
-	TotalCount int        `json:"TotalCount" xml:"TotalCount"`
-	PageNumber int        `json:"PageNumber" xml:"PageNumber"`
 	PageSize   int        `json:"PageSize" xml:"PageSize"`
+	RequestId  string     `json:"RequestId" xml:"RequestId"`
+	PageNumber int        `json:"PageNumber" xml:"PageNumber"`
+	TotalCount int        `json:"TotalCount" xml:"TotalCount"`
 	Tasks      []TaskInfo `json:"Tasks" xml:"Tasks"`
 }
 
@@ -93,7 +93,7 @@ func CreateListTasksRequest() (request *ListTasksRequest) {
 	request = &ListTasksRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListTasks", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListTasks", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

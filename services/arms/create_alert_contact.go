@@ -74,6 +74,7 @@ type CreateAlertContactRequest struct {
 	PhoneNum            string           `position:"Query" name:"PhoneNum"`
 	ProxyUserId         string           `position:"Query" name:"ProxyUserId"`
 	ContactName         string           `position:"Query" name:"ContactName"`
+	ResourceGroupId     string           `position:"Query" name:"ResourceGroupId"`
 	DingRobotWebhookUrl string           `position:"Query" name:"DingRobotWebhookUrl"`
 	Email               string           `position:"Query" name:"Email"`
 	SystemNoc           requests.Boolean `position:"Query" name:"SystemNoc"`
@@ -82,8 +83,8 @@ type CreateAlertContactRequest struct {
 // CreateAlertContactResponse is the response struct for api CreateAlertContact
 type CreateAlertContactResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	ContactId string `json:"ContactId" xml:"ContactId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateAlertContactRequest creates a request to invoke CreateAlertContact API

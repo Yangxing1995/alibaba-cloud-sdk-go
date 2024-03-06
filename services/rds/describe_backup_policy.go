@@ -84,31 +84,34 @@ type DescribeBackupPolicyRequest struct {
 // DescribeBackupPolicyResponse is the response struct for api DescribeBackupPolicy
 type DescribeBackupPolicyResponse struct {
 	*responses.BaseResponse
-	RequestId                     string              `json:"RequestId" xml:"RequestId"`
-	BackupRetentionPeriod         int                 `json:"BackupRetentionPeriod" xml:"BackupRetentionPeriod"`
-	PreferredNextBackupTime       string              `json:"PreferredNextBackupTime" xml:"PreferredNextBackupTime"`
-	PreferredBackupTime           string              `json:"PreferredBackupTime" xml:"PreferredBackupTime"`
-	PreferredBackupPeriod         string              `json:"PreferredBackupPeriod" xml:"PreferredBackupPeriod"`
-	BackupLog                     string              `json:"BackupLog" xml:"BackupLog"`
 	LogBackupRetentionPeriod      int                 `json:"LogBackupRetentionPeriod" xml:"LogBackupRetentionPeriod"`
-	EnableBackupLog               string              `json:"EnableBackupLog" xml:"EnableBackupLog"`
-	LocalLogRetentionHours        int                 `json:"LocalLogRetentionHours" xml:"LocalLogRetentionHours"`
-	LocalLogRetentionSpace        string              `json:"LocalLogRetentionSpace" xml:"LocalLogRetentionSpace"`
-	Duplication                   string              `json:"Duplication" xml:"Duplication"`
-	DuplicationContent            string              `json:"DuplicationContent" xml:"DuplicationContent"`
-	HighSpaceUsageProtection      string              `json:"HighSpaceUsageProtection" xml:"HighSpaceUsageProtection"`
-	LogBackupFrequency            string              `json:"LogBackupFrequency" xml:"LogBackupFrequency"`
-	CompressType                  string              `json:"CompressType" xml:"CompressType"`
-	ArchiveBackupRetentionPeriod  string              `json:"ArchiveBackupRetentionPeriod" xml:"ArchiveBackupRetentionPeriod"`
 	ArchiveBackupKeepPolicy       string              `json:"ArchiveBackupKeepPolicy" xml:"ArchiveBackupKeepPolicy"`
 	ArchiveBackupKeepCount        string              `json:"ArchiveBackupKeepCount" xml:"ArchiveBackupKeepCount"`
-	ReleasedKeepPolicy            string              `json:"ReleasedKeepPolicy" xml:"ReleasedKeepPolicy"`
-	LogBackupLocalRetentionNumber int                 `json:"LogBackupLocalRetentionNumber" xml:"LogBackupLocalRetentionNumber"`
-	Category                      string              `json:"Category" xml:"Category"`
+	LocalLogRetentionHours        int                 `json:"LocalLogRetentionHours" xml:"LocalLogRetentionHours"`
+	BackupRetentionPeriod         int                 `json:"BackupRetentionPeriod" xml:"BackupRetentionPeriod"`
+	RequestId                     string              `json:"RequestId" xml:"RequestId"`
+	PreferredBackupPeriod         string              `json:"PreferredBackupPeriod" xml:"PreferredBackupPeriod"`
+	CompressType                  string              `json:"CompressType" xml:"CompressType"`
 	SupportReleasedKeep           int                 `json:"SupportReleasedKeep" xml:"SupportReleasedKeep"`
-	BackupInterval                string              `json:"BackupInterval" xml:"BackupInterval"`
+	LocalLogRetentionSpace        string              `json:"LocalLogRetentionSpace" xml:"LocalLogRetentionSpace"`
 	SupportVolumeShadowCopy       int                 `json:"SupportVolumeShadowCopy" xml:"SupportVolumeShadowCopy"`
 	BackupMethod                  string              `json:"BackupMethod" xml:"BackupMethod"`
+	LogBackupFrequency            string              `json:"LogBackupFrequency" xml:"LogBackupFrequency"`
+	PreferredNextBackupTime       string              `json:"PreferredNextBackupTime" xml:"PreferredNextBackupTime"`
+	HighSpaceUsageProtection      string              `json:"HighSpaceUsageProtection" xml:"HighSpaceUsageProtection"`
+	DuplicationContent            string              `json:"DuplicationContent" xml:"DuplicationContent"`
+	ArchiveBackupRetentionPeriod  string              `json:"ArchiveBackupRetentionPeriod" xml:"ArchiveBackupRetentionPeriod"`
+	BackupInterval                string              `json:"BackupInterval" xml:"BackupInterval"`
+	ReleasedKeepPolicy            string              `json:"ReleasedKeepPolicy" xml:"ReleasedKeepPolicy"`
+	PreferredBackupTime           string              `json:"PreferredBackupTime" xml:"PreferredBackupTime"`
+	Duplication                   string              `json:"Duplication" xml:"Duplication"`
+	LogBackupLocalRetentionNumber int                 `json:"LogBackupLocalRetentionNumber" xml:"LogBackupLocalRetentionNumber"`
+	Category                      string              `json:"Category" xml:"Category"`
+	EnableBackupLog               string              `json:"EnableBackupLog" xml:"EnableBackupLog"`
+	BackupLog                     string              `json:"BackupLog" xml:"BackupLog"`
+	EnableIncrementDataBackup     bool                `json:"EnableIncrementDataBackup" xml:"EnableIncrementDataBackup"`
+	SupportModifyBackupPriority   bool                `json:"SupportModifyBackupPriority" xml:"SupportModifyBackupPriority"`
+	BackupPriority                int                 `json:"BackupPriority" xml:"BackupPriority"`
 	DuplicationLocation           DuplicationLocation `json:"DuplicationLocation" xml:"DuplicationLocation"`
 }
 
@@ -117,7 +120,7 @@ func CreateDescribeBackupPolicyRequest() (request *DescribeBackupPolicyRequest) 
 	request = &DescribeBackupPolicyRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeBackupPolicy", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeBackupPolicy", "", "")
 	request.Method = requests.POST
 	return
 }

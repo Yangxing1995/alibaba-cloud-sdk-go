@@ -72,21 +72,22 @@ func (client *Client) ListQualityResultsByEntityWithCallback(request *ListQualit
 type ListQualityResultsByEntityRequest struct {
 	*requests.RpcRequest
 	ProjectName string           `position:"Body" name:"ProjectName"`
-	EndDate     string           `position:"Body" name:"EndDate"`
-	PageSize    requests.Integer `position:"Body" name:"PageSize"`
 	EntityId    requests.Integer `position:"Body" name:"EntityId"`
 	StartDate   string           `position:"Body" name:"StartDate"`
 	PageNumber  requests.Integer `position:"Body" name:"PageNumber"`
+	EndDate     string           `position:"Body" name:"EndDate"`
+	PageSize    requests.Integer `position:"Body" name:"PageSize"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // ListQualityResultsByEntityResponse is the response struct for api ListQualityResultsByEntity
 type ListQualityResultsByEntityResponse struct {
 	*responses.BaseResponse
-	RequestId      string                           `json:"RequestId" xml:"RequestId"`
 	HttpStatusCode int                              `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	ErrorMessage   string                           `json:"ErrorMessage" xml:"ErrorMessage"`
-	ErrorCode      string                           `json:"ErrorCode" xml:"ErrorCode"`
+	RequestId      string                           `json:"RequestId" xml:"RequestId"`
 	Success        bool                             `json:"Success" xml:"Success"`
+	ErrorCode      string                           `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInListQualityResultsByEntity `json:"Data" xml:"Data"`
 }
 

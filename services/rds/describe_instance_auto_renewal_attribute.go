@@ -87,8 +87,8 @@ type DescribeInstanceAutoRenewalAttributeResponse struct {
 	*responses.BaseResponse
 	RequestId        string                                      `json:"RequestId" xml:"RequestId"`
 	PageNumber       int                                         `json:"PageNumber" xml:"PageNumber"`
-	TotalRecordCount int                                         `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	PageRecordCount  int                                         `json:"PageRecordCount" xml:"PageRecordCount"`
+	TotalRecordCount int                                         `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	Items            ItemsInDescribeInstanceAutoRenewalAttribute `json:"Items" xml:"Items"`
 }
 
@@ -97,7 +97,7 @@ func CreateDescribeInstanceAutoRenewalAttributeRequest() (request *DescribeInsta
 	request = &DescribeInstanceAutoRenewalAttributeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeInstanceAutoRenewalAttribute", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeInstanceAutoRenewalAttribute", "", "")
 	request.Method = requests.POST
 	return
 }

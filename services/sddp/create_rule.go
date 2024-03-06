@@ -78,7 +78,9 @@ type CreateRuleRequest struct {
 	RiskLevelId     requests.Integer `position:"Query" name:"RiskLevelId"`
 	Content         string           `position:"Query" name:"Content"`
 	SourceIp        string           `position:"Query" name:"SourceIp"`
+	MatchType       requests.Integer `position:"Query" name:"MatchType"`
 	Lang            string           `position:"Query" name:"Lang"`
+	SupportForm     requests.Integer `position:"Query" name:"SupportForm"`
 	FeatureType     requests.Integer `position:"Query" name:"FeatureType"`
 	RuleType        requests.Integer `position:"Query" name:"RuleType"`
 	StatExpress     string           `position:"Query" name:"StatExpress"`
@@ -93,8 +95,8 @@ type CreateRuleRequest struct {
 // CreateRuleResponse is the response struct for api CreateRule
 type CreateRuleResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Id        int    `json:"Id" xml:"Id"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateRuleRequest creates a request to invoke CreateRule API
@@ -102,7 +104,7 @@ func CreateCreateRuleRequest() (request *CreateRuleRequest) {
 	request = &CreateRuleRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "CreateRule", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "CreateRule", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

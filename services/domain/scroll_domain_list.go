@@ -74,6 +74,7 @@ type ScrollDomainListRequest struct {
 	ProductDomainType     string           `position:"Query" name:"ProductDomainType"`
 	Excluded              string           `position:"Query" name:"Excluded"`
 	StartLength           requests.Integer `position:"Query" name:"StartLength"`
+	ResourceGroupId       string           `position:"Query" name:"ResourceGroupId"`
 	ExcludedSuffix        requests.Boolean `position:"Query" name:"ExcludedSuffix"`
 	PageSize              requests.Integer `position:"Query" name:"PageSize"`
 	Lang                  string           `position:"Query" name:"Lang"`
@@ -99,9 +100,9 @@ type ScrollDomainListRequest struct {
 type ScrollDomainListResponse struct {
 	*responses.BaseResponse
 	RequestId    string                 `json:"RequestId" xml:"RequestId"`
-	TotalItemNum int                    `json:"TotalItemNum" xml:"TotalItemNum"`
 	PageSize     int                    `json:"PageSize" xml:"PageSize"`
 	ScrollId     string                 `json:"ScrollId" xml:"ScrollId"`
+	TotalItemNum int                    `json:"TotalItemNum" xml:"TotalItemNum"`
 	Data         DataInScrollDomainList `json:"Data" xml:"Data"`
 }
 

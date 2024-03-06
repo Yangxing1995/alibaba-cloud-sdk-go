@@ -71,12 +71,14 @@ func (client *Client) CreateApplicationScalingRuleWithCallback(request *CreateAp
 // CreateApplicationScalingRuleRequest is the request struct for api CreateApplicationScalingRule
 type CreateApplicationScalingRuleRequest struct {
 	*requests.RoaRequest
-	ScalingRuleName   string `position:"Query" name:"ScalingRuleName"`
-	MinReadyInstances string `position:"Query" name:"MinReadyInstances"`
-	ScalingRuleTimer  string `position:"Query" name:"ScalingRuleTimer"`
-	ScalingRuleMetric string `position:"Query" name:"ScalingRuleMetric"`
-	AppId             string `position:"Query" name:"AppId"`
-	ScalingRuleType   string `position:"Query" name:"ScalingRuleType"`
+	ScalingRuleName       string           `position:"Query" name:"ScalingRuleName"`
+	MinReadyInstances     requests.Integer `position:"Query" name:"MinReadyInstances"`
+	ScalingRuleEnable     requests.Boolean `position:"Query" name:"ScalingRuleEnable"`
+	ScalingRuleTimer      string           `position:"Query" name:"ScalingRuleTimer"`
+	ScalingRuleMetric     string           `position:"Query" name:"ScalingRuleMetric"`
+	AppId                 string           `position:"Query" name:"AppId"`
+	MinReadyInstanceRatio requests.Integer `position:"Query" name:"MinReadyInstanceRatio"`
+	ScalingRuleType       string           `position:"Query" name:"ScalingRuleType"`
 }
 
 // CreateApplicationScalingRuleResponse is the response struct for api CreateApplicationScalingRule
@@ -84,6 +86,10 @@ type CreateApplicationScalingRuleResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
+	Message   string `json:"Message" xml:"Message"`
+	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
+	Code      string `json:"Code" xml:"Code"`
+	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 

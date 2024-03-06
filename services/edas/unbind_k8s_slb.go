@@ -81,8 +81,8 @@ type UnbindK8sSlbRequest struct {
 type UnbindK8sSlbResponse struct {
 	*responses.BaseResponse
 	Code          int    `json:"Code" xml:"Code"`
-	Message       string `json:"Message" xml:"Message"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Message       string `json:"Message" xml:"Message"`
 	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
@@ -91,7 +91,7 @@ func CreateUnbindK8sSlbRequest() (request *UnbindK8sSlbRequest) {
 	request = &UnbindK8sSlbRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UnbindK8sSlb", "/pop/v5/k8s/acs/k8s_slb_binding", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UnbindK8sSlb", "/pop/v5/k8s/acs/k8s_slb_binding", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

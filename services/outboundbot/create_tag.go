@@ -80,11 +80,11 @@ type CreateTagRequest struct {
 // CreateTagResponse is the response struct for api CreateTag
 type CreateTagResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
+	Code           string `json:"Code" xml:"Code"`
+	Message        string `json:"Message" xml:"Message"`
 	TagId          string `json:"TagId" xml:"TagId"`
 }
 
@@ -93,7 +93,7 @@ func CreateCreateTagRequest() (request *CreateTagRequest) {
 	request = &CreateTagRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "CreateTag", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "CreateTag", "", "")
 	request.Method = requests.POST
 	return
 }

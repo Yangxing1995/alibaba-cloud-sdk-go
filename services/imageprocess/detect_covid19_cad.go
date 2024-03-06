@@ -71,11 +71,11 @@ func (client *Client) DetectCovid19CadWithCallback(request *DetectCovid19CadRequ
 // DetectCovid19CadRequest is the request struct for api DetectCovid19Cad
 type DetectCovid19CadRequest struct {
 	*requests.RpcRequest
+	OrgName    string                     `position:"Body" name:"OrgName"`
 	DataFormat string                     `position:"Body" name:"DataFormat"`
 	URLList    *[]DetectCovid19CadURLList `position:"Body" name:"URLList"  type:"Repeated"`
 	OrgId      string                     `position:"Body" name:"OrgId"`
 	Async      requests.Boolean           `position:"Body" name:"Async"`
-	OrgName    string                     `position:"Body" name:"OrgName"`
 }
 
 // DetectCovid19CadURLList is a repeated param struct in DetectCovid19CadRequest
@@ -87,6 +87,8 @@ type DetectCovid19CadURLList struct {
 type DetectCovid19CadResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
+	Code      string `json:"Code" xml:"Code"`
+	Message   string `json:"Message" xml:"Message"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 

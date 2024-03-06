@@ -71,9 +71,11 @@ func (client *Client) CreateEaiWithCallback(request *CreateEaiRequest, callback 
 // CreateEaiRequest is the request struct for api CreateEai
 type CreateEaiRequest struct {
 	*requests.RpcRequest
+	Image           string `position:"Query" name:"Image"`
 	ClientToken     string `position:"Query" name:"ClientToken"`
 	SecurityGroupId string `position:"Query" name:"SecurityGroupId"`
 	VSwitchId       string `position:"Query" name:"VSwitchId"`
+	ResourceGroupId string `position:"Query" name:"ResourceGroupId"`
 	InstanceName    string `position:"Query" name:"InstanceName"`
 	InstanceType    string `position:"Query" name:"InstanceType"`
 }
@@ -81,8 +83,8 @@ type CreateEaiRequest struct {
 // CreateEaiResponse is the response struct for api CreateEai
 type CreateEaiResponse struct {
 	*responses.BaseResponse
-	RequestId                    string `json:"RequestId" xml:"RequestId"`
 	ElasticAcceleratedInstanceId string `json:"ElasticAcceleratedInstanceId" xml:"ElasticAcceleratedInstanceId"`
+	RequestId                    string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateEaiRequest creates a request to invoke CreateEai API

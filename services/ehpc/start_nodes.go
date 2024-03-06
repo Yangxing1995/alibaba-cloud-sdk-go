@@ -84,8 +84,8 @@ type StartNodesInstance struct {
 // StartNodesResponse is the response struct for api StartNodes
 type StartNodesResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateStartNodesRequest creates a request to invoke StartNodes API
@@ -93,7 +93,7 @@ func CreateStartNodesRequest() (request *StartNodesRequest) {
 	request = &StartNodesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "StartNodes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "StartNodes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

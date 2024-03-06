@@ -79,9 +79,9 @@ type UpdateK8sResourceRequest struct {
 // UpdateK8sResourceResponse is the response struct for api UpdateK8sResource
 type UpdateK8sResourceResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpdateK8sResourceRequest creates a request to invoke UpdateK8sResource API
@@ -89,7 +89,7 @@ func CreateUpdateK8sResourceRequest() (request *UpdateK8sResourceRequest) {
 	request = &UpdateK8sResourceRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateK8sResource", "/pop/v5/oam/update_k8s_resource_config", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateK8sResource", "/pop/v5/oam/update_k8s_resource_config", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

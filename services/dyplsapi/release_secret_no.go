@@ -72,10 +72,10 @@ func (client *Client) ReleaseSecretNoWithCallback(request *ReleaseSecretNoReques
 type ReleaseSecretNoRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	SecretNo             string           `position:"Query" name:"SecretNo"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 	PoolKey              string           `position:"Query" name:"PoolKey"`
-	SecretNo             string           `position:"Query" name:"SecretNo"`
 }
 
 // ReleaseSecretNoResponse is the response struct for api ReleaseSecretNo

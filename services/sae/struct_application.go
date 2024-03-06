@@ -17,15 +17,27 @@ package sae
 
 // Application is a nested struct in sae response
 type Application struct {
-	Instances         int        `json:"Instances" xml:"Instances"`
-	ScaleRuleEnabled  bool       `json:"ScaleRuleEnabled" xml:"ScaleRuleEnabled"`
-	AppDescription    string     `json:"AppDescription" xml:"AppDescription"`
-	AppId             string     `json:"AppId" xml:"AppId"`
-	RunningInstances  int        `json:"RunningInstances" xml:"RunningInstances"`
-	RegionId          string     `json:"RegionId" xml:"RegionId"`
-	NamespaceId       string     `json:"NamespaceId" xml:"NamespaceId"`
-	ScaleRuleType     string     `json:"ScaleRuleType" xml:"ScaleRuleType"`
-	AppDeletingStatus bool       `json:"AppDeletingStatus" xml:"AppDeletingStatus"`
-	AppName           string     `json:"AppName" xml:"AppName"`
-	Tags              []TagsItem `json:"Tags" xml:"Tags"`
+	LastStartTime        int64      `json:"LastStartTime" xml:"LastStartTime"`
+	Message              string     `json:"Message" xml:"Message"`
+	ScaleRuleEnabled     bool       `json:"ScaleRuleEnabled" xml:"ScaleRuleEnabled"`
+	Instances            int        `json:"Instances" xml:"Instances"`
+	Failed               int64      `json:"Failed" xml:"Failed"`
+	RunningInstances     int        `json:"RunningInstances" xml:"RunningInstances"`
+	Mem                  int        `json:"Mem" xml:"Mem"`
+	LastChangeorderState string     `json:"LastChangeorderState" xml:"LastChangeorderState"`
+	LastJobState         string     `json:"LastJobState" xml:"LastJobState"`
+	AppDeletingStatus    bool       `json:"AppDeletingStatus" xml:"AppDeletingStatus"`
+	AppDescription       string     `json:"AppDescription" xml:"AppDescription"`
+	AppId                string     `json:"AppId" xml:"AppId"`
+	ScaleRuleType        string     `json:"ScaleRuleType" xml:"ScaleRuleType"`
+	RegionId             string     `json:"RegionId" xml:"RegionId"`
+	TriggerConfig        string     `json:"TriggerConfig" xml:"TriggerConfig"`
+	NamespaceId          string     `json:"NamespaceId" xml:"NamespaceId"`
+	CompletionTime       int64      `json:"CompletionTime" xml:"CompletionTime"`
+	Suspend              bool       `json:"Suspend" xml:"Suspend"`
+	Cpu                  int        `json:"Cpu" xml:"Cpu"`
+	Active               int64      `json:"Active" xml:"Active"`
+	AppName              string     `json:"AppName" xml:"AppName"`
+	Succeeded            int64      `json:"Succeeded" xml:"Succeeded"`
+	Tags                 []TagsItem `json:"Tags" xml:"Tags"`
 }

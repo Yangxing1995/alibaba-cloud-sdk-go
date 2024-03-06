@@ -76,9 +76,9 @@ type GetPackageStorageCredentialRequest struct {
 // GetPackageStorageCredentialResponse is the response struct for api GetPackageStorageCredential
 type GetPackageStorageCredentialResponse struct {
 	*responses.BaseResponse
-	RequestId  string     `json:"RequestId" xml:"RequestId"`
 	Code       int        `json:"Code" xml:"Code"`
 	Message    string     `json:"Message" xml:"Message"`
+	RequestId  string     `json:"RequestId" xml:"RequestId"`
 	Credential Credential `json:"Credential" xml:"Credential"`
 }
 
@@ -87,7 +87,7 @@ func CreateGetPackageStorageCredentialRequest() (request *GetPackageStorageCrede
 	request = &GetPackageStorageCredentialRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "GetPackageStorageCredential", "/pop/v5/package_storage_credential", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "GetPackageStorageCredential", "/pop/v5/package_storage_credential", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

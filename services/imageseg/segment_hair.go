@@ -71,7 +71,9 @@ func (client *Client) SegmentHairWithCallback(request *SegmentHairRequest, callb
 // SegmentHairRequest is the request struct for api SegmentHair
 type SegmentHairRequest struct {
 	*requests.RpcRequest
-	ImageURL string `position:"Query" name:"ImageURL"`
+	OssFile        string `position:"Query" name:"OssFile"`
+	RequestProxyBy string `position:"Query" name:"RequestProxyBy"`
+	ImageURL       string `position:"Query" name:"ImageURL"`
 }
 
 // SegmentHairResponse is the response struct for api SegmentHair

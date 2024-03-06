@@ -71,18 +71,18 @@ func (client *Client) CreateCertificateByCertificateIdWithCallback(request *Crea
 // CreateCertificateByCertificateIdRequest is the request struct for api CreateCertificateByCertificateId
 type CreateCertificateByCertificateIdRequest struct {
 	*requests.RpcRequest
+	SourceIp      string           `position:"Query" name:"SourceIp"`
+	Lang          string           `position:"Query" name:"Lang"`
 	CertificateId requests.Integer `position:"Query" name:"CertificateId"`
 	InstanceId    string           `position:"Query" name:"InstanceId"`
-	SourceIp      string           `position:"Query" name:"SourceIp"`
 	Domain        string           `position:"Query" name:"Domain"`
-	Lang          string           `position:"Query" name:"Lang"`
 }
 
 // CreateCertificateByCertificateIdResponse is the response struct for api CreateCertificateByCertificateId
 type CreateCertificateByCertificateIdResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
 	CertificateId int64  `json:"CertificateId" xml:"CertificateId"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateCertificateByCertificateIdRequest creates a request to invoke CreateCertificateByCertificateId API

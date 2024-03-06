@@ -75,11 +75,13 @@ type ListServerLockRequest struct {
 	EndExpireDate    requests.Integer `position:"Query" name:"EndExpireDate"`
 	PageNum          requests.Integer `position:"Query" name:"PageNum"`
 	BeginStartDate   requests.Integer `position:"Query" name:"BeginStartDate"`
+	OrderByType      string           `position:"Query" name:"OrderByType"`
 	ServerLockStatus requests.Integer `position:"Query" name:"ServerLockStatus"`
 	StartExpireDate  requests.Integer `position:"Query" name:"StartExpireDate"`
 	PageSize         requests.Integer `position:"Query" name:"PageSize"`
 	Lang             string           `position:"Query" name:"Lang"`
 	DomainName       string           `position:"Query" name:"DomainName"`
+	OrderBy          string           `position:"Query" name:"OrderBy"`
 	EndStartDate     requests.Integer `position:"Query" name:"EndStartDate"`
 	UserClientIp     string           `position:"Query" name:"UserClientIp"`
 }
@@ -87,12 +89,12 @@ type ListServerLockRequest struct {
 // ListServerLockResponse is the response struct for api ListServerLock
 type ListServerLockResponse struct {
 	*responses.BaseResponse
-	RequestId      string                    `json:"RequestId" xml:"RequestId"`
-	TotalItemNum   int                       `json:"TotalItemNum" xml:"TotalItemNum"`
-	CurrentPageNum int                       `json:"CurrentPageNum" xml:"CurrentPageNum"`
-	TotalPageNum   int                       `json:"TotalPageNum" xml:"TotalPageNum"`
-	PageSize       int                       `json:"PageSize" xml:"PageSize"`
 	PrePage        bool                      `json:"PrePage" xml:"PrePage"`
+	CurrentPageNum int                       `json:"CurrentPageNum" xml:"CurrentPageNum"`
+	RequestId      string                    `json:"RequestId" xml:"RequestId"`
+	PageSize       int                       `json:"PageSize" xml:"PageSize"`
+	TotalPageNum   int                       `json:"TotalPageNum" xml:"TotalPageNum"`
+	TotalItemNum   int                       `json:"TotalItemNum" xml:"TotalItemNum"`
 	NextPage       bool                      `json:"NextPage" xml:"NextPage"`
 	Data           []QueryTransferInResponse `json:"Data" xml:"Data"`
 }

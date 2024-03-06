@@ -72,8 +72,8 @@ func (client *Client) AsymmetricVerifyWithCallback(request *AsymmetricVerifyRequ
 type AsymmetricVerifyRequest struct {
 	*requests.RpcRequest
 	KeyVersionId string `position:"Query" name:"KeyVersionId"`
-	Digest       string `position:"Query" name:"Digest"`
 	KeyId        string `position:"Query" name:"KeyId"`
+	Digest       string `position:"Query" name:"Digest"`
 	Value        string `position:"Query" name:"Value"`
 	Algorithm    string `position:"Query" name:"Algorithm"`
 }
@@ -81,10 +81,10 @@ type AsymmetricVerifyRequest struct {
 // AsymmetricVerifyResponse is the response struct for api AsymmetricVerify
 type AsymmetricVerifyResponse struct {
 	*responses.BaseResponse
-	Value        bool   `json:"Value" xml:"Value"`
-	KeyId        string `json:"KeyId" xml:"KeyId"`
-	RequestId    string `json:"RequestId" xml:"RequestId"`
 	KeyVersionId string `json:"KeyVersionId" xml:"KeyVersionId"`
+	KeyId        string `json:"KeyId" xml:"KeyId"`
+	Value        bool   `json:"Value" xml:"Value"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateAsymmetricVerifyRequest creates a request to invoke AsymmetricVerify API

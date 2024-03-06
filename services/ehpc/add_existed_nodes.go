@@ -73,7 +73,6 @@ type AddExistedNodesRequest struct {
 	*requests.RpcRequest
 	ImageId         string                     `position:"Query" name:"ImageId"`
 	Instance        *[]AddExistedNodesInstance `position:"Query" name:"Instance"  type:"Repeated"`
-	ClientToken     string                     `position:"Query" name:"ClientToken"`
 	ClusterId       string                     `position:"Query" name:"ClusterId"`
 	JobQueue        string                     `position:"Query" name:"JobQueue"`
 	ImageOwnerAlias string                     `position:"Query" name:"ImageOwnerAlias"`
@@ -87,8 +86,8 @@ type AddExistedNodesInstance struct {
 // AddExistedNodesResponse is the response struct for api AddExistedNodes
 type AddExistedNodesResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateAddExistedNodesRequest creates a request to invoke AddExistedNodes API
@@ -96,7 +95,7 @@ func CreateAddExistedNodesRequest() (request *AddExistedNodesRequest) {
 	request = &AddExistedNodesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "AddExistedNodes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "AddExistedNodes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -84,8 +84,8 @@ type UpgradeDBInstanceEngineVersionRequest struct {
 // UpgradeDBInstanceEngineVersionResponse is the response struct for api UpgradeDBInstanceEngineVersion
 type UpgradeDBInstanceEngineVersionResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpgradeDBInstanceEngineVersionRequest creates a request to invoke UpgradeDBInstanceEngineVersion API
@@ -93,7 +93,7 @@ func CreateUpgradeDBInstanceEngineVersionRequest() (request *UpgradeDBInstanceEn
 	request = &UpgradeDBInstanceEngineVersionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "UpgradeDBInstanceEngineVersion", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "UpgradeDBInstanceEngineVersion", "", "")
 	request.Method = requests.POST
 	return
 }

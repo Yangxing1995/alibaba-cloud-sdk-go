@@ -71,20 +71,20 @@ func (client *Client) UpdateConnectionWithCallback(request *UpdateConnectionRequ
 // UpdateConnectionRequest is the request struct for api UpdateConnection
 type UpdateConnectionRequest struct {
 	*requests.RpcRequest
-	EnvType      requests.Integer `position:"Query" name:"EnvType"`
 	Description  string           `position:"Query" name:"Description"`
-	ConnectionId requests.Integer `position:"Query" name:"ConnectionId"`
 	Content      string           `position:"Query" name:"Content"`
+	EnvType      requests.Integer `position:"Query" name:"EnvType"`
+	ConnectionId requests.Integer `position:"Query" name:"ConnectionId"`
 	Status       string           `position:"Query" name:"Status"`
 }
 
 // UpdateConnectionResponse is the response struct for api UpdateConnection
 type UpdateConnectionResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
 	HttpStatusCode string `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Data           bool   `json:"Data" xml:"Data"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateUpdateConnectionRequest creates a request to invoke UpdateConnection API

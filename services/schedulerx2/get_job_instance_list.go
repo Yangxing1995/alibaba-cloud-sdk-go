@@ -71,18 +71,21 @@ func (client *Client) GetJobInstanceListWithCallback(request *GetJobInstanceList
 // GetJobInstanceListRequest is the request struct for api GetJobInstanceList
 type GetJobInstanceListRequest struct {
 	*requests.RpcRequest
-	JobId           requests.Integer `position:"Query" name:"JobId"`
 	NamespaceSource string           `position:"Query" name:"NamespaceSource"`
 	GroupId         string           `position:"Query" name:"GroupId"`
+	StartTimestamp  requests.Integer `position:"Query" name:"StartTimestamp"`
+	EndTimestamp    requests.Integer `position:"Query" name:"EndTimestamp"`
+	JobId           requests.Integer `position:"Query" name:"JobId"`
 	Namespace       string           `position:"Query" name:"Namespace"`
+	Status          requests.Integer `position:"Query" name:"Status"`
 }
 
 // GetJobInstanceListResponse is the response struct for api GetJobInstanceList
 type GetJobInstanceListResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }

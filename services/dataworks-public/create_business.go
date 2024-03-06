@@ -72,21 +72,21 @@ func (client *Client) CreateBusinessWithCallback(request *CreateBusinessRequest,
 type CreateBusinessRequest struct {
 	*requests.RpcRequest
 	Owner             string           `position:"Body" name:"Owner"`
-	BusinessName      string           `position:"Body" name:"BusinessName"`
 	Description       string           `position:"Body" name:"Description"`
+	ProjectIdentifier string           `position:"Body" name:"ProjectIdentifier"`
+	BusinessName      string           `position:"Body" name:"BusinessName"`
 	ProjectId         requests.Integer `position:"Body" name:"ProjectId"`
 	UseType           string           `position:"Body" name:"UseType"`
-	ProjectIdentifier string           `position:"Body" name:"ProjectIdentifier"`
 }
 
 // CreateBusinessResponse is the response struct for api CreateBusiness
 type CreateBusinessResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	Success        bool   `json:"Success" xml:"Success"`
 	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	BusinessId     int64  `json:"BusinessId" xml:"BusinessId"`
 }
 

@@ -72,18 +72,18 @@ func (client *Client) CreateTableLevelWithCallback(request *CreateTableLevelRequ
 type CreateTableLevelRequest struct {
 	*requests.RpcRequest
 	LevelType   requests.Integer `position:"Query" name:"LevelType"`
-	Name        string           `position:"Query" name:"Name"`
 	Description string           `position:"Query" name:"Description"`
+	Name        string           `position:"Query" name:"Name"`
 	ProjectId   requests.Integer `position:"Query" name:"ProjectId"`
 }
 
 // CreateTableLevelResponse is the response struct for api CreateTableLevel
 type CreateTableLevelResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
 	Success        bool   `json:"Success" xml:"Success"`
 	LevelId        int64  `json:"LevelId" xml:"LevelId"`
 }

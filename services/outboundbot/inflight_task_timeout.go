@@ -79,11 +79,11 @@ type InflightTaskTimeoutRequest struct {
 // InflightTaskTimeoutResponse is the response struct for api InflightTaskTimeout
 type InflightTaskTimeoutResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Success        bool   `json:"Success" xml:"Success"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateInflightTaskTimeoutRequest creates a request to invoke InflightTaskTimeout API
@@ -91,7 +91,7 @@ func CreateInflightTaskTimeoutRequest() (request *InflightTaskTimeoutRequest) {
 	request = &InflightTaskTimeoutRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "InflightTaskTimeout", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "InflightTaskTimeout", "", "")
 	request.Method = requests.POST
 	return
 }

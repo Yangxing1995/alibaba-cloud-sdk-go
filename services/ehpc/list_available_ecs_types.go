@@ -80,8 +80,8 @@ type ListAvailableEcsTypesRequest struct {
 // ListAvailableEcsTypesResponse is the response struct for api ListAvailableEcsTypes
 type ListAvailableEcsTypesResponse struct {
 	*responses.BaseResponse
-	RequestId            string               `json:"RequestId" xml:"RequestId"`
 	SupportSpotInstance  bool                 `json:"SupportSpotInstance" xml:"SupportSpotInstance"`
+	RequestId            string               `json:"RequestId" xml:"RequestId"`
 	InstanceTypeFamilies InstanceTypeFamilies `json:"InstanceTypeFamilies" xml:"InstanceTypeFamilies"`
 }
 
@@ -90,7 +90,7 @@ func CreateListAvailableEcsTypesRequest() (request *ListAvailableEcsTypesRequest
 	request = &ListAvailableEcsTypesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListAvailableEcsTypes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListAvailableEcsTypes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

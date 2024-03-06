@@ -76,12 +76,12 @@ type GetVersionRequest struct {
 // GetVersionResponse is the response struct for api GetVersion
 type GetVersionResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
+	Version        string `json:"Version" xml:"Version"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Version        string `json:"Version" xml:"Version"`
 }
 
 // CreateGetVersionRequest creates a request to invoke GetVersion API
@@ -89,7 +89,7 @@ func CreateGetVersionRequest() (request *GetVersionRequest) {
 	request = &GetVersionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetVersion", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetVersion", "", "")
 	request.Method = requests.POST
 	return
 }

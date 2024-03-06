@@ -78,10 +78,10 @@ type ListClustersMetaRequest struct {
 // ListClustersMetaResponse is the response struct for api ListClustersMeta
 type ListClustersMetaResponse struct {
 	*responses.BaseResponse
-	RequestId  string                     `json:"RequestId" xml:"RequestId"`
-	TotalCount int                        `json:"TotalCount" xml:"TotalCount"`
-	PageNumber int                        `json:"PageNumber" xml:"PageNumber"`
 	PageSize   int                        `json:"PageSize" xml:"PageSize"`
+	RequestId  string                     `json:"RequestId" xml:"RequestId"`
+	PageNumber int                        `json:"PageNumber" xml:"PageNumber"`
+	TotalCount int                        `json:"TotalCount" xml:"TotalCount"`
 	Clusters   ClustersInListClustersMeta `json:"Clusters" xml:"Clusters"`
 }
 
@@ -90,7 +90,7 @@ func CreateListClustersMetaRequest() (request *ListClustersMetaRequest) {
 	request = &ListClustersMetaRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListClustersMeta", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListClustersMeta", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -79,12 +79,12 @@ type DuplicateScriptRequest struct {
 // DuplicateScriptResponse is the response struct for api DuplicateScript
 type DuplicateScriptResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
-	ScriptId       string `json:"ScriptId" xml:"ScriptId"`
 	Success        bool   `json:"Success" xml:"Success"`
+	Code           string `json:"Code" xml:"Code"`
+	Message        string `json:"Message" xml:"Message"`
+	ScriptId       string `json:"ScriptId" xml:"ScriptId"`
 }
 
 // CreateDuplicateScriptRequest creates a request to invoke DuplicateScript API
@@ -92,7 +92,7 @@ func CreateDuplicateScriptRequest() (request *DuplicateScriptRequest) {
 	request = &DuplicateScriptRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DuplicateScript", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DuplicateScript", "", "")
 	request.Method = requests.POST
 	return
 }

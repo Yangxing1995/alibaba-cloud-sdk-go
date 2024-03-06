@@ -73,18 +73,18 @@ type UpgradeBackupPlanRequest struct {
 	*requests.RpcRequest
 	ClientToken   string `position:"Query" name:"ClientToken"`
 	BackupPlanId  string `position:"Query" name:"BackupPlanId"`
-	OwnerId       string `position:"Query" name:"OwnerId"`
 	InstanceClass string `position:"Query" name:"InstanceClass"`
+	OwnerId       string `position:"Query" name:"OwnerId"`
 }
 
 // UpgradeBackupPlanResponse is the response struct for api UpgradeBackupPlan
 type UpgradeBackupPlanResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	BackupPlanId   string `json:"BackupPlanId" xml:"BackupPlanId"`
 	OrderId        string `json:"OrderId" xml:"OrderId"`
 }

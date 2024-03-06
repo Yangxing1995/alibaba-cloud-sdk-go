@@ -71,8 +71,10 @@ func (client *Client) RefineMaskWithCallback(request *RefineMaskRequest, callbac
 // RefineMaskRequest is the request struct for api RefineMask
 type RefineMaskRequest struct {
 	*requests.RpcRequest
-	MaskImageURL string `position:"Body" name:"MaskImageURL"`
-	ImageURL     string `position:"Body" name:"ImageURL"`
+	MaskImageURL   string `position:"Body" name:"MaskImageURL"`
+	OssFile        string `position:"Query" name:"OssFile"`
+	RequestProxyBy string `position:"Query" name:"RequestProxyBy"`
+	ImageURL       string `position:"Body" name:"ImageURL"`
 }
 
 // RefineMaskResponse is the response struct for api RefineMask

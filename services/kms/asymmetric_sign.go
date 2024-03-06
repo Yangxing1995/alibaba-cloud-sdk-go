@@ -72,18 +72,18 @@ func (client *Client) AsymmetricSignWithCallback(request *AsymmetricSignRequest,
 type AsymmetricSignRequest struct {
 	*requests.RpcRequest
 	KeyVersionId string `position:"Query" name:"KeyVersionId"`
-	Digest       string `position:"Query" name:"Digest"`
 	KeyId        string `position:"Query" name:"KeyId"`
+	Digest       string `position:"Query" name:"Digest"`
 	Algorithm    string `position:"Query" name:"Algorithm"`
 }
 
 // AsymmetricSignResponse is the response struct for api AsymmetricSign
 type AsymmetricSignResponse struct {
 	*responses.BaseResponse
-	Value        string `json:"Value" xml:"Value"`
-	KeyId        string `json:"KeyId" xml:"KeyId"`
-	RequestId    string `json:"RequestId" xml:"RequestId"`
 	KeyVersionId string `json:"KeyVersionId" xml:"KeyVersionId"`
+	KeyId        string `json:"KeyId" xml:"KeyId"`
+	Value        string `json:"Value" xml:"Value"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateAsymmetricSignRequest creates a request to invoke AsymmetricSign API

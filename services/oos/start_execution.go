@@ -73,7 +73,9 @@ type StartExecutionRequest struct {
 	*requests.RpcRequest
 	ClientToken       string                 `position:"Query" name:"ClientToken"`
 	Description       string                 `position:"Query" name:"Description"`
+	TemplateURL       string                 `position:"Query" name:"TemplateURL"`
 	Mode              string                 `position:"Query" name:"Mode"`
+	ResourceGroupId   string                 `position:"Query" name:"ResourceGroupId"`
 	TemplateVersion   string                 `position:"Query" name:"TemplateVersion"`
 	TemplateName      string                 `position:"Query" name:"TemplateName"`
 	LoopMode          string                 `position:"Query" name:"LoopMode"`
@@ -96,7 +98,7 @@ func CreateStartExecutionRequest() (request *StartExecutionRequest) {
 	request = &StartExecutionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("oos", "2019-06-01", "StartExecution", "", "")
+	request.InitWithApiInfo("oos", "2019-06-01", "StartExecution", "oos", "openAPI")
 	request.Method = requests.POST
 	return
 }

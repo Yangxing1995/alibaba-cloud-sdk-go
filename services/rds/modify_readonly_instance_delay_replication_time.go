@@ -72,19 +72,20 @@ func (client *Client) ModifyReadonlyInstanceDelayReplicationTimeWithCallback(req
 type ModifyReadonlyInstanceDelayReplicationTimeRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId        requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId        string           `position:"Query" name:"ResourceGroupId"`
+	DBInstanceId           string           `position:"Query" name:"DBInstanceId"`
 	ResourceOwnerAccount   string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId                requests.Integer `position:"Query" name:"OwnerId"`
 	ReadSQLReplicationTime string           `position:"Query" name:"ReadSQLReplicationTime"`
-	DBInstanceId           string           `position:"Query" name:"DBInstanceId"`
 }
 
 // ModifyReadonlyInstanceDelayReplicationTimeResponse is the response struct for api ModifyReadonlyInstanceDelayReplicationTime
 type ModifyReadonlyInstanceDelayReplicationTimeResponse struct {
 	*responses.BaseResponse
-	RequestId              string `json:"RequestId" xml:"RequestId"`
 	DBInstanceId           string `json:"DBInstanceId" xml:"DBInstanceId"`
-	ReadSQLReplicationTime string `json:"ReadSQLReplicationTime" xml:"ReadSQLReplicationTime"`
+	RequestId              string `json:"RequestId" xml:"RequestId"`
 	TaskId                 string `json:"TaskId" xml:"TaskId"`
+	ReadSQLReplicationTime string `json:"ReadSQLReplicationTime" xml:"ReadSQLReplicationTime"`
 }
 
 // CreateModifyReadonlyInstanceDelayReplicationTimeRequest creates a request to invoke ModifyReadonlyInstanceDelayReplicationTime API
@@ -92,7 +93,7 @@ func CreateModifyReadonlyInstanceDelayReplicationTimeRequest() (request *ModifyR
 	request = &ModifyReadonlyInstanceDelayReplicationTimeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyReadonlyInstanceDelayReplicationTime", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyReadonlyInstanceDelayReplicationTime", "", "")
 	request.Method = requests.POST
 	return
 }

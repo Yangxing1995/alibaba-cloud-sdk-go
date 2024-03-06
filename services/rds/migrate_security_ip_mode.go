@@ -80,9 +80,9 @@ type MigrateSecurityIPModeRequest struct {
 // MigrateSecurityIPModeResponse is the response struct for api MigrateSecurityIPMode
 type MigrateSecurityIPModeResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	DBInstanceId   string `json:"DBInstanceId" xml:"DBInstanceId"`
 	SecurityIPMode string `json:"SecurityIPMode" xml:"SecurityIPMode"`
+	DBInstanceId   string `json:"DBInstanceId" xml:"DBInstanceId"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateMigrateSecurityIPModeRequest creates a request to invoke MigrateSecurityIPMode API
@@ -90,7 +90,7 @@ func CreateMigrateSecurityIPModeRequest() (request *MigrateSecurityIPModeRequest
 	request = &MigrateSecurityIPModeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "MigrateSecurityIPMode", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "MigrateSecurityIPMode", "", "")
 	request.Method = requests.POST
 	return
 }

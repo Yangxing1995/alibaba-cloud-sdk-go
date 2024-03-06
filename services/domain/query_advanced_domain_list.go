@@ -71,43 +71,51 @@ func (client *Client) QueryAdvancedDomainListWithCallback(request *QueryAdvanced
 // QueryAdvancedDomainListRequest is the request struct for api QueryAdvancedDomainList
 type QueryAdvancedDomainListRequest struct {
 	*requests.RpcRequest
-	ProductDomainType     string           `position:"Query" name:"ProductDomainType"`
-	PageNum               requests.Integer `position:"Query" name:"PageNum"`
-	Excluded              string           `position:"Query" name:"Excluded"`
-	StartLength           requests.Integer `position:"Query" name:"StartLength"`
-	ExcludedSuffix        requests.Boolean `position:"Query" name:"ExcludedSuffix"`
-	PageSize              requests.Integer `position:"Query" name:"PageSize"`
-	Lang                  string           `position:"Query" name:"Lang"`
-	ExcludedPrefix        requests.Boolean `position:"Query" name:"ExcludedPrefix"`
-	KeyWord               string           `position:"Query" name:"KeyWord"`
-	ProductDomainTypeSort requests.Boolean `position:"Query" name:"ProductDomainTypeSort"`
-	EndExpirationDate     requests.Integer `position:"Query" name:"EndExpirationDate"`
-	Suffixs               string           `position:"Query" name:"Suffixs"`
-	DomainNameSort        requests.Boolean `position:"Query" name:"DomainNameSort"`
-	ExpirationDateSort    requests.Boolean `position:"Query" name:"ExpirationDateSort"`
-	StartExpirationDate   requests.Integer `position:"Query" name:"StartExpirationDate"`
-	DomainStatus          requests.Integer `position:"Query" name:"DomainStatus"`
-	DomainGroupId         requests.Integer `position:"Query" name:"DomainGroupId"`
-	KeyWordSuffix         requests.Boolean `position:"Query" name:"KeyWordSuffix"`
-	KeyWordPrefix         requests.Boolean `position:"Query" name:"KeyWordPrefix"`
-	TradeType             requests.Integer `position:"Query" name:"TradeType"`
-	EndRegistrationDate   requests.Integer `position:"Query" name:"EndRegistrationDate"`
-	Form                  requests.Integer `position:"Query" name:"Form"`
-	UserClientIp          string           `position:"Query" name:"UserClientIp"`
-	RegistrationDateSort  requests.Boolean `position:"Query" name:"RegistrationDateSort"`
-	StartRegistrationDate requests.Integer `position:"Query" name:"StartRegistrationDate"`
-	EndLength             requests.Integer `position:"Query" name:"EndLength"`
+	ProductDomainType     string                        `position:"Query" name:"ProductDomainType"`
+	PageNum               requests.Integer              `position:"Query" name:"PageNum"`
+	Excluded              string                        `position:"Query" name:"Excluded"`
+	StartLength           requests.Integer              `position:"Query" name:"StartLength"`
+	ResourceGroupId       string                        `position:"Query" name:"ResourceGroupId"`
+	ExcludedSuffix        requests.Boolean              `position:"Query" name:"ExcludedSuffix"`
+	PageSize              requests.Integer              `position:"Query" name:"PageSize"`
+	Tag                   *[]QueryAdvancedDomainListTag `position:"Query" name:"Tag"  type:"Repeated"`
+	Lang                  string                        `position:"Query" name:"Lang"`
+	ExcludedPrefix        requests.Boolean              `position:"Query" name:"ExcludedPrefix"`
+	KeyWord               string                        `position:"Query" name:"KeyWord"`
+	ProductDomainTypeSort requests.Boolean              `position:"Query" name:"ProductDomainTypeSort"`
+	EndExpirationDate     requests.Integer              `position:"Query" name:"EndExpirationDate"`
+	Suffixs               string                        `position:"Query" name:"Suffixs"`
+	DomainNameSort        requests.Boolean              `position:"Query" name:"DomainNameSort"`
+	ExpirationDateSort    requests.Boolean              `position:"Query" name:"ExpirationDateSort"`
+	StartExpirationDate   requests.Integer              `position:"Query" name:"StartExpirationDate"`
+	DomainStatus          requests.Integer              `position:"Query" name:"DomainStatus"`
+	DomainGroupId         requests.Integer              `position:"Query" name:"DomainGroupId"`
+	KeyWordSuffix         requests.Boolean              `position:"Query" name:"KeyWordSuffix"`
+	KeyWordPrefix         requests.Boolean              `position:"Query" name:"KeyWordPrefix"`
+	TradeType             requests.Integer              `position:"Query" name:"TradeType"`
+	EndRegistrationDate   requests.Integer              `position:"Query" name:"EndRegistrationDate"`
+	Form                  requests.Integer              `position:"Query" name:"Form"`
+	UserClientIp          string                        `position:"Query" name:"UserClientIp"`
+	RegistrationDateSort  requests.Boolean              `position:"Query" name:"RegistrationDateSort"`
+	StartRegistrationDate requests.Integer              `position:"Query" name:"StartRegistrationDate"`
+	EndLength             requests.Integer              `position:"Query" name:"EndLength"`
+}
+
+// QueryAdvancedDomainListTag is a repeated param struct in QueryAdvancedDomainListRequest
+type QueryAdvancedDomainListTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // QueryAdvancedDomainListResponse is the response struct for api QueryAdvancedDomainList
 type QueryAdvancedDomainListResponse struct {
 	*responses.BaseResponse
-	RequestId      string                        `json:"RequestId" xml:"RequestId"`
-	TotalItemNum   int                           `json:"TotalItemNum" xml:"TotalItemNum"`
-	CurrentPageNum int                           `json:"CurrentPageNum" xml:"CurrentPageNum"`
-	TotalPageNum   int                           `json:"TotalPageNum" xml:"TotalPageNum"`
-	PageSize       int                           `json:"PageSize" xml:"PageSize"`
 	PrePage        bool                          `json:"PrePage" xml:"PrePage"`
+	CurrentPageNum int                           `json:"CurrentPageNum" xml:"CurrentPageNum"`
+	RequestId      string                        `json:"RequestId" xml:"RequestId"`
+	PageSize       int                           `json:"PageSize" xml:"PageSize"`
+	TotalPageNum   int                           `json:"TotalPageNum" xml:"TotalPageNum"`
+	TotalItemNum   int                           `json:"TotalItemNum" xml:"TotalItemNum"`
 	NextPage       bool                          `json:"NextPage" xml:"NextPage"`
 	Data           DataInQueryAdvancedDomainList `json:"Data" xml:"Data"`
 }

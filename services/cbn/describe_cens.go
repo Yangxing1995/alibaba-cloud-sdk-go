@@ -79,6 +79,7 @@ type DescribeCensRequest struct {
 	ResourceOwnerAccount string                `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount         string                `position:"Query" name:"OwnerAccount"`
 	OwnerId              requests.Integer      `position:"Query" name:"OwnerId"`
+	Version              string                `position:"Query" name:"Version"`
 	Filter               *[]DescribeCensFilter `position:"Query" name:"Filter"  type:"Repeated"`
 }
 
@@ -97,10 +98,10 @@ type DescribeCensFilter struct {
 // DescribeCensResponse is the response struct for api DescribeCens
 type DescribeCensResponse struct {
 	*responses.BaseResponse
-	RequestId  string `json:"RequestId" xml:"RequestId"`
-	TotalCount int    `json:"TotalCount" xml:"TotalCount"`
-	PageNumber int    `json:"PageNumber" xml:"PageNumber"`
 	PageSize   int    `json:"PageSize" xml:"PageSize"`
+	RequestId  string `json:"RequestId" xml:"RequestId"`
+	PageNumber int    `json:"PageNumber" xml:"PageNumber"`
+	TotalCount int    `json:"TotalCount" xml:"TotalCount"`
 	Cens       Cens   `json:"Cens" xml:"Cens"`
 }
 
@@ -109,7 +110,7 @@ func CreateDescribeCensRequest() (request *DescribeCensRequest) {
 	request = &DescribeCensRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "DescribeCens", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "DescribeCens", "", "")
 	request.Method = requests.POST
 	return
 }

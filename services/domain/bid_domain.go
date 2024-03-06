@@ -79,8 +79,8 @@ type BidDomainRequest struct {
 // BidDomainResponse is the response struct for api BidDomain
 type BidDomainResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	AuctionId string `json:"AuctionId" xml:"AuctionId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateBidDomainRequest creates a request to invoke BidDomain API

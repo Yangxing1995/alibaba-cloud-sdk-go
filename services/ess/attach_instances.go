@@ -72,6 +72,7 @@ func (client *Client) AttachInstancesWithCallback(request *AttachInstancesReques
 type AttachInstancesRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ClientToken          string           `position:"Query" name:"ClientToken"`
 	ScalingGroupId       string           `position:"Query" name:"ScalingGroupId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
@@ -79,6 +80,7 @@ type AttachInstancesRequest struct {
 	Entrusted            requests.Boolean `position:"Query" name:"Entrusted"`
 	InstanceId           *[]string        `position:"Query" name:"InstanceId"  type:"Repeated"`
 	LoadBalancerWeight   *[]string        `position:"Query" name:"LoadBalancerWeight"  type:"Repeated"`
+	LifecycleHook        requests.Boolean `position:"Query" name:"LifecycleHook"`
 }
 
 // AttachInstancesResponse is the response struct for api AttachInstances

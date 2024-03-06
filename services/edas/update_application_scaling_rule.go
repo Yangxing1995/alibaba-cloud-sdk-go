@@ -72,6 +72,7 @@ func (client *Client) UpdateApplicationScalingRuleWithCallback(request *UpdateAp
 type UpdateApplicationScalingRuleRequest struct {
 	*requests.RoaRequest
 	ScalingRuleName    string           `position:"Query" name:"ScalingRuleName"`
+	ScalingBehaviour   string           `position:"Query" name:"ScalingBehaviour"`
 	ScalingRuleEnable  requests.Boolean `position:"Query" name:"ScalingRuleEnable"`
 	ScalingRuleTimer   string           `position:"Query" name:"ScalingRuleTimer"`
 	ScalingRuleMetric  string           `position:"Query" name:"ScalingRuleMetric"`
@@ -83,9 +84,9 @@ type UpdateApplicationScalingRuleRequest struct {
 // UpdateApplicationScalingRuleResponse is the response struct for api UpdateApplicationScalingRule
 type UpdateApplicationScalingRuleResponse struct {
 	*responses.BaseResponse
-	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	Code           int            `json:"Code" xml:"Code"`
 	Message        string         `json:"Message" xml:"Message"`
+	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	AppScalingRule AppScalingRule `json:"AppScalingRule" xml:"AppScalingRule"`
 }
 
@@ -94,7 +95,7 @@ func CreateUpdateApplicationScalingRuleRequest() (request *UpdateApplicationScal
 	request = &UpdateApplicationScalingRuleRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateApplicationScalingRule", "/pop/v1/eam/scale/application_scaling_rule", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateApplicationScalingRule", "/pop/v1/eam/scale/application_scaling_rule", "Edas", "openAPI")
 	request.Method = requests.PUT
 	return
 }

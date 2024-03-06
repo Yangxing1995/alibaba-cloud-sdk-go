@@ -71,38 +71,39 @@ func (client *Client) StartMPUTaskWithCallback(request *StartMPUTaskRequest, cal
 // StartMPUTaskRequest is the request struct for api StartMPUTask
 type StartMPUTaskRequest struct {
 	*requests.RpcRequest
-	PayloadType               requests.Integer            `position:"Query" name:"PayloadType"`
-	UserPanes                 *[]StartMPUTaskUserPanes    `position:"Query" name:"UserPanes"  type:"Repeated"`
-	BackgroundColor           requests.Integer            `position:"Query" name:"BackgroundColor"`
-	ReportVad                 requests.Integer            `position:"Query" name:"ReportVad"`
-	SourceType                string                      `position:"Query" name:"SourceType"`
-	TaskId                    string                      `position:"Query" name:"TaskId"`
-	ClockWidgets              *[]StartMPUTaskClockWidgets `position:"Query" name:"ClockWidgets"  type:"Repeated"`
-	ShowLog                   string                      `position:"Query" name:"ShowLog"`
-	UnsubSpecCameraUsers      *[]string                   `position:"Query" name:"UnsubSpecCameraUsers"  type:"Repeated"`
-	TaskType                  requests.Integer            `position:"Query" name:"TaskType"`
-	UnsubSpecAudioUsers       *[]string                   `position:"Query" name:"UnsubSpecAudioUsers"  type:"Repeated"`
-	VadInterval               requests.Integer            `position:"Query" name:"VadInterval"`
-	Watermarks                *[]StartMPUTaskWatermarks   `position:"Query" name:"Watermarks"  type:"Repeated"`
-	OwnerId                   requests.Integer            `position:"Query" name:"OwnerId"`
-	SubSpecAudioUsers         *[]string                   `position:"Query" name:"SubSpecAudioUsers"  type:"Repeated"`
-	MediaEncode               requests.Integer            `position:"Query" name:"MediaEncode"`
-	EnhancedParam             StartMPUTaskEnhancedParam   `position:"Body" name:"EnhancedParam"  type:"Struct"`
-	RtpExtInfo                requests.Integer            `position:"Query" name:"RtpExtInfo"`
-	CropMode                  requests.Integer            `position:"Query" name:"CropMode"`
-	SubSpecCameraUsers        *[]string                   `position:"Query" name:"SubSpecCameraUsers"  type:"Repeated"`
-	TaskProfile               string                      `position:"Query" name:"TaskProfile"`
-	LayoutIds                 *[]string                   `position:"Query" name:"LayoutIds"  type:"Repeated"`
-	StreamURL                 string                      `position:"Query" name:"StreamURL"`
-	StreamType                requests.Integer            `position:"Query" name:"StreamType"`
-	UnsubSpecShareScreenUsers *[]string                   `position:"Query" name:"UnsubSpecShareScreenUsers"  type:"Repeated"`
-	SubSpecShareScreenUsers   *[]string                   `position:"Query" name:"SubSpecShareScreenUsers"  type:"Repeated"`
-	SubSpecUsers              *[]string                   `position:"Query" name:"SubSpecUsers"  type:"Repeated"`
-	AppId                     string                      `position:"Query" name:"AppId"`
-	Backgrounds               *[]StartMPUTaskBackgrounds  `position:"Query" name:"Backgrounds"  type:"Repeated"`
-	TimeStampRef              requests.Integer            `position:"Query" name:"TimeStampRef"`
-	MixMode                   requests.Integer            `position:"Query" name:"MixMode"`
-	ChannelId                 string                      `position:"Query" name:"ChannelId"`
+	PayloadType               requests.Integer                  `position:"Query" name:"PayloadType"`
+	UserPanes                 *[]StartMPUTaskUserPanes          `position:"Query" name:"UserPanes"  type:"Repeated"`
+	BackgroundColor           requests.Integer                  `position:"Query" name:"BackgroundColor"`
+	ReportVad                 requests.Integer                  `position:"Query" name:"ReportVad"`
+	SourceType                string                            `position:"Query" name:"SourceType"`
+	TaskId                    string                            `position:"Query" name:"TaskId"`
+	ClockWidgets              *[]StartMPUTaskClockWidgets       `position:"Query" name:"ClockWidgets"  type:"Repeated"`
+	ShowLog                   string                            `position:"Query" name:"ShowLog"`
+	UnsubSpecCameraUsers      *[]string                         `position:"Query" name:"UnsubSpecCameraUsers"  type:"Repeated"`
+	TaskType                  requests.Integer                  `position:"Query" name:"TaskType"`
+	UnsubSpecAudioUsers       *[]string                         `position:"Query" name:"UnsubSpecAudioUsers"  type:"Repeated"`
+	VadInterval               requests.Integer                  `position:"Query" name:"VadInterval"`
+	Watermarks                *[]StartMPUTaskWatermarks         `position:"Query" name:"Watermarks"  type:"Repeated"`
+	OwnerId                   requests.Integer                  `position:"Query" name:"OwnerId"`
+	SubSpecAudioUsers         *[]string                         `position:"Query" name:"SubSpecAudioUsers"  type:"Repeated"`
+	MediaEncode               requests.Integer                  `position:"Query" name:"MediaEncode"`
+	EnhancedParam             StartMPUTaskEnhancedParam         `position:"Body" name:"EnhancedParam"  type:"Struct"`
+	RtpExtInfo                requests.Integer                  `position:"Query" name:"RtpExtInfo"`
+	CropMode                  requests.Integer                  `position:"Query" name:"CropMode"`
+	SubSpecCameraUsers        *[]string                         `position:"Query" name:"SubSpecCameraUsers"  type:"Repeated"`
+	OutputStreamParams        *[]StartMPUTaskOutputStreamParams `position:"Query" name:"OutputStreamParams"  type:"Repeated"`
+	TaskProfile               string                            `position:"Query" name:"TaskProfile"`
+	LayoutIds                 *[]string                         `position:"Query" name:"LayoutIds"  type:"Repeated"`
+	StreamURL                 string                            `position:"Query" name:"StreamURL"`
+	StreamType                requests.Integer                  `position:"Query" name:"StreamType"`
+	UnsubSpecShareScreenUsers *[]string                         `position:"Query" name:"UnsubSpecShareScreenUsers"  type:"Repeated"`
+	SubSpecShareScreenUsers   *[]string                         `position:"Query" name:"SubSpecShareScreenUsers"  type:"Repeated"`
+	SubSpecUsers              *[]string                         `position:"Query" name:"SubSpecUsers"  type:"Repeated"`
+	AppId                     string                            `position:"Query" name:"AppId"`
+	Backgrounds               *[]StartMPUTaskBackgrounds        `position:"Query" name:"Backgrounds"  type:"Repeated"`
+	TimeStampRef              requests.Integer                  `position:"Query" name:"TimeStampRef"`
+	MixMode                   requests.Integer                  `position:"Query" name:"MixMode"`
+	ChannelId                 string                            `position:"Query" name:"ChannelId"`
 }
 
 // StartMPUTaskUserPanes is a repeated param struct in StartMPUTaskRequest
@@ -117,12 +118,18 @@ type StartMPUTaskUserPanes struct {
 
 // StartMPUTaskClockWidgets is a repeated param struct in StartMPUTaskRequest
 type StartMPUTaskClockWidgets struct {
-	FontType  string `name:"FontType"`
-	FontColor string `name:"FontColor"`
-	Y         string `name:"Y"`
-	ZOrder    string `name:"ZOrder"`
-	X         string `name:"X"`
-	FontSize  string `name:"FontSize"`
+	FontType       string `name:"FontType"`
+	FontColor      string `name:"FontColor"`
+	Y              string `name:"Y"`
+	ZOrder         string `name:"ZOrder"`
+	X              string `name:"X"`
+	FontSize       string `name:"FontSize"`
+	BorderWidth    string `name:"BorderWidth"`
+	BorderColor    string `name:"BorderColor"`
+	Box            string `name:"Box"`
+	BoxColor       string `name:"BoxColor"`
+	BoxBorderWidth string `name:"BoxBorderWidth"`
+	Alpha          string `name:"Alpha"`
 }
 
 // StartMPUTaskWatermarks is a repeated param struct in StartMPUTaskRequest
@@ -145,6 +152,11 @@ type StartMPUTaskEnhancedParam struct {
 	EnableVoiceChanger         string `name:"EnableVoiceChanger"`
 	EnableUserPaneBackground   string `name:"EnableUserPaneBackground"`
 	BackgroundPath             string `name:"BackgroundPath"`
+}
+
+// StartMPUTaskOutputStreamParams is a repeated param struct in StartMPUTaskRequest
+type StartMPUTaskOutputStreamParams struct {
+	StreamURL string `name:"StreamURL"`
 }
 
 // StartMPUTaskBackgrounds is a repeated param struct in StartMPUTaskRequest
@@ -171,13 +183,19 @@ type StartMPUTaskUserPanesImages struct {
 
 // StartMPUTaskUserPanesTexts is a repeated param struct in StartMPUTaskRequest
 type StartMPUTaskUserPanesTexts struct {
-	FontType  string `name:"FontType"`
-	FontColor string `name:"FontColor"`
-	Y         string `name:"Y"`
-	Text      string `name:"Text"`
-	ZOrder    string `name:"ZOrder"`
-	X         string `name:"X"`
-	FontSize  string `name:"FontSize"`
+	FontType       string `name:"FontType"`
+	FontColor      string `name:"FontColor"`
+	Y              string `name:"Y"`
+	Text           string `name:"Text"`
+	ZOrder         string `name:"ZOrder"`
+	X              string `name:"X"`
+	FontSize       string `name:"FontSize"`
+	BorderWidth    string `name:"BorderWidth"`
+	BorderColor    string `name:"BorderColor"`
+	Box            string `name:"Box"`
+	BoxColor       string `name:"BoxColor"`
+	BoxBorderWidth string `name:"BoxBorderWidth"`
+	Alpha          string `name:"Alpha"`
 }
 
 // StartMPUTaskResponse is the response struct for api StartMPUTask

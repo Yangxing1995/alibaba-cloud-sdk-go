@@ -85,10 +85,10 @@ type BindEcsSlbRequest struct {
 // BindEcsSlbResponse is the response struct for api BindEcsSlb
 type BindEcsSlbResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
-	Message       string `json:"Message" xml:"Message"`
-	Code          int    `json:"Code" xml:"Code"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Code          int    `json:"Code" xml:"Code"`
+	Message       string `json:"Message" xml:"Message"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateBindEcsSlbRequest creates a request to invoke BindEcsSlb API
@@ -96,7 +96,7 @@ func CreateBindEcsSlbRequest() (request *BindEcsSlbRequest) {
 	request = &BindEcsSlbRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "BindEcsSlb", "/pop/v5/app/slb/bind_slb", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "BindEcsSlb", "/pop/v5/app/slb/bind_slb", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

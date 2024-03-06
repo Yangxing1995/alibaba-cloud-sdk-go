@@ -71,6 +71,7 @@ func (client *Client) UpdateQualityRuleWithCallback(request *UpdateQualityRuleRe
 // UpdateQualityRuleRequest is the request struct for api UpdateQualityRule
 type UpdateQualityRuleRequest struct {
 	*requests.RpcRequest
+	TaskSetting       string           `position:"Body" name:"TaskSetting"`
 	Trend             string           `position:"Body" name:"Trend"`
 	BlockType         requests.Integer `position:"Body" name:"BlockType"`
 	PropertyType      string           `position:"Body" name:"PropertyType"`
@@ -81,6 +82,7 @@ type UpdateQualityRuleRequest struct {
 	Property          string           `position:"Body" name:"Property"`
 	Id                requests.Integer `position:"Body" name:"Id"`
 	WarningThreshold  string           `position:"Body" name:"WarningThreshold"`
+	ProjectId         requests.Integer `position:"Body" name:"ProjectId"`
 	MethodName        string           `position:"Body" name:"MethodName"`
 	ProjectName       string           `position:"Body" name:"ProjectName"`
 	RuleType          requests.Integer `position:"Body" name:"RuleType"`
@@ -88,6 +90,7 @@ type UpdateQualityRuleRequest struct {
 	ExpectValue       string           `position:"Body" name:"ExpectValue"`
 	WhereCondition    string           `position:"Body" name:"WhereCondition"`
 	CriticalThreshold string           `position:"Body" name:"CriticalThreshold"`
+	OpenSwitch        requests.Boolean `position:"Body" name:"OpenSwitch"`
 	Comment           string           `position:"Body" name:"Comment"`
 	PredictType       requests.Integer `position:"Body" name:"PredictType"`
 }
@@ -95,12 +98,12 @@ type UpdateQualityRuleRequest struct {
 // UpdateQualityRuleResponse is the response struct for api UpdateQualityRule
 type UpdateQualityRuleResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	Data           bool   `json:"Data" xml:"Data"`
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Data           bool   `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateUpdateQualityRuleRequest creates a request to invoke UpdateQualityRule API

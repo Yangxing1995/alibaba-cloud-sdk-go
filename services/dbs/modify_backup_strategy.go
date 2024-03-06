@@ -71,23 +71,23 @@ func (client *Client) ModifyBackupStrategyWithCallback(request *ModifyBackupStra
 // ModifyBackupStrategyRequest is the request struct for api ModifyBackupStrategy
 type ModifyBackupStrategyRequest struct {
 	*requests.RpcRequest
-	BackupLogIntervalSeconds requests.Integer `position:"Query" name:"BackupLogIntervalSeconds"`
 	ClientToken              string           `position:"Query" name:"ClientToken"`
 	BackupPlanId             string           `position:"Query" name:"BackupPlanId"`
+	BackupStartTime          string           `position:"Query" name:"BackupStartTime"`
+	BackupLogIntervalSeconds requests.Integer `position:"Query" name:"BackupLogIntervalSeconds"`
 	OwnerId                  string           `position:"Query" name:"OwnerId"`
 	BackupPeriod             string           `position:"Query" name:"BackupPeriod"`
-	BackupStartTime          string           `position:"Query" name:"BackupStartTime"`
 	BackupStrategyType       string           `position:"Query" name:"BackupStrategyType"`
 }
 
 // ModifyBackupStrategyResponse is the response struct for api ModifyBackupStrategy
 type ModifyBackupStrategyResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	BackupPlanId   string `json:"BackupPlanId" xml:"BackupPlanId"`
 	NeedPrecheck   bool   `json:"NeedPrecheck" xml:"NeedPrecheck"`
 }

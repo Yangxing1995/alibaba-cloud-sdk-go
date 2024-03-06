@@ -71,23 +71,23 @@ func (client *Client) GenerateAndExportDataKeyWithCallback(request *GenerateAndE
 // GenerateAndExportDataKeyRequest is the request struct for api GenerateAndExportDataKey
 type GenerateAndExportDataKeyRequest struct {
 	*requests.RpcRequest
-	EncryptionContext string           `position:"Query" name:"EncryptionContext"`
 	KeyId             string           `position:"Query" name:"KeyId"`
 	KeySpec           string           `position:"Query" name:"KeySpec"`
 	NumberOfBytes     requests.Integer `position:"Query" name:"NumberOfBytes"`
-	WrappingAlgorithm string           `position:"Query" name:"WrappingAlgorithm"`
 	PublicKeyBlob     string           `position:"Query" name:"PublicKeyBlob"`
+	EncryptionContext string           `position:"Query" name:"EncryptionContext"`
+	WrappingAlgorithm string           `position:"Query" name:"WrappingAlgorithm"`
 	WrappingKeySpec   string           `position:"Query" name:"WrappingKeySpec"`
 }
 
 // GenerateAndExportDataKeyResponse is the response struct for api GenerateAndExportDataKey
 type GenerateAndExportDataKeyResponse struct {
 	*responses.BaseResponse
-	CiphertextBlob  string `json:"CiphertextBlob" xml:"CiphertextBlob"`
-	KeyId           string `json:"KeyId" xml:"KeyId"`
-	ExportedDataKey string `json:"ExportedDataKey" xml:"ExportedDataKey"`
-	RequestId       string `json:"RequestId" xml:"RequestId"`
 	KeyVersionId    string `json:"KeyVersionId" xml:"KeyVersionId"`
+	KeyId           string `json:"KeyId" xml:"KeyId"`
+	CiphertextBlob  string `json:"CiphertextBlob" xml:"CiphertextBlob"`
+	RequestId       string `json:"RequestId" xml:"RequestId"`
+	ExportedDataKey string `json:"ExportedDataKey" xml:"ExportedDataKey"`
 }
 
 // CreateGenerateAndExportDataKeyRequest creates a request to invoke GenerateAndExportDataKey API

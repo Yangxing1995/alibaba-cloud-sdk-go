@@ -73,19 +73,23 @@ type ModifyInstanceSpecRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
+	SlaveReadOnlyCount   requests.Integer `position:"Query" name:"SlaveReadOnlyCount"`
 	CouponNo             string           `position:"Query" name:"CouponNo"`
 	InstanceClass        string           `position:"Query" name:"InstanceClass"`
 	SecurityToken        string           `position:"Query" name:"SecurityToken"`
 	EffectiveTime        string           `position:"Query" name:"EffectiveTime"`
 	SourceBiz            string           `position:"Query" name:"SourceBiz"`
 	BusinessInfo         string           `position:"Query" name:"BusinessInfo"`
+	ShardCount           requests.Integer `position:"Query" name:"ShardCount"`
 	AutoPay              requests.Boolean `position:"Query" name:"AutoPay"`
 	FromApp              string           `position:"Query" name:"FromApp"`
 	MajorVersion         string           `position:"Query" name:"MajorVersion"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	ForceTrans           requests.Boolean `position:"Query" name:"ForceTrans"`
 	InstanceId           string           `position:"Query" name:"InstanceId"`
+	ReadOnlyCount        requests.Integer `position:"Query" name:"ReadOnlyCount"`
 	ForceUpgrade         requests.Boolean `position:"Query" name:"ForceUpgrade"`
 	OrderType            string           `position:"Query" name:"OrderType"`
 }
@@ -93,8 +97,8 @@ type ModifyInstanceSpecRequest struct {
 // ModifyInstanceSpecResponse is the response struct for api ModifyInstanceSpec
 type ModifyInstanceSpecResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	OrderId   string `json:"OrderId" xml:"OrderId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateModifyInstanceSpecRequest creates a request to invoke ModifyInstanceSpec API

@@ -73,6 +73,7 @@ type CreateParameterGroupRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	EngineVersion        string           `position:"Query" name:"EngineVersion"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	Engine               string           `position:"Query" name:"Engine"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
@@ -84,8 +85,8 @@ type CreateParameterGroupRequest struct {
 // CreateParameterGroupResponse is the response struct for api CreateParameterGroup
 type CreateParameterGroupResponse struct {
 	*responses.BaseResponse
-	RequestId        string `json:"RequestId" xml:"RequestId"`
 	ParameterGroupId string `json:"ParameterGroupId" xml:"ParameterGroupId"`
+	RequestId        string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateParameterGroupRequest creates a request to invoke CreateParameterGroup API
@@ -93,7 +94,7 @@ func CreateCreateParameterGroupRequest() (request *CreateParameterGroupRequest) 
 	request = &CreateParameterGroupRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CreateParameterGroup", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CreateParameterGroup", "", "")
 	request.Method = requests.POST
 	return
 }

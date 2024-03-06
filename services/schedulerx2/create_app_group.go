@@ -71,24 +71,31 @@ func (client *Client) CreateAppGroupWithCallback(request *CreateAppGroupRequest,
 // CreateAppGroupRequest is the request struct for api CreateAppGroup
 type CreateAppGroupRequest struct {
 	*requests.RpcRequest
-	MaxJobs              requests.Integer `position:"Query" name:"MaxJobs"`
 	NamespaceName        string           `position:"Query" name:"NamespaceName"`
 	NamespaceSource      string           `position:"Query" name:"NamespaceSource"`
-	MetricsThresholdJson string           `position:"Query" name:"MetricsThresholdJson"`
-	GroupId              string           `position:"Query" name:"GroupId"`
+	ScheduleBusyWorkers  requests.Boolean `position:"Query" name:"ScheduleBusyWorkers"`
 	Description          string           `position:"Query" name:"Description"`
 	AppName              string           `position:"Query" name:"AppName"`
-	Namespace            string           `position:"Query" name:"Namespace"`
 	AlarmJson            string           `position:"Query" name:"AlarmJson"`
+	MonitorContactsJson  string           `position:"Query" name:"MonitorContactsJson"`
+	MaxJobs              requests.Integer `position:"Query" name:"MaxJobs"`
+	MetricsThresholdJson string           `position:"Query" name:"MetricsThresholdJson"`
+	GroupId              string           `position:"Query" name:"GroupId"`
+	AppType              requests.Integer `position:"Query" name:"AppType"`
+	MonitorConfigJson    string           `position:"Query" name:"MonitorConfigJson"`
+	Namespace            string           `position:"Query" name:"Namespace"`
+	Xattrs               string           `position:"Query" name:"Xattrs"`
+	EnableLog            requests.Boolean `position:"Query" name:"EnableLog"`
+	AppKey               string           `position:"Query" name:"AppKey"`
 }
 
 // CreateAppGroupResponse is the response struct for api CreateAppGroup
 type CreateAppGroupResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
-	Success   bool   `json:"Success" xml:"Success"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 

@@ -20,7 +20,7 @@ type MapTaskXAttrs struct {
 	DispatcherSize      int `json:"DispatcherSize" xml:"DispatcherSize"`
 	QueueSize           int `json:"QueueSize" xml:"QueueSize"`
 	TaskMaxAttempt      int `json:"TaskMaxAttempt" xml:"TaskMaxAttempt"`
-	ConsumerSize        int `json:"ConsumerSize" xml:"ConsumerSize"`
 	TaskAttemptInterval int `json:"TaskAttemptInterval" xml:"TaskAttemptInterval"`
+	ConsumerSize        int `json:"ConsumerSize" xml:"ConsumerSize"`
 	PageSize            int `json:"PageSize" xml:"PageSize"`
 }

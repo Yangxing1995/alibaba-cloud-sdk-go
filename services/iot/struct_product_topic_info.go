@@ -17,9 +17,11 @@ package iot
 
 // ProductTopicInfo is a nested struct in iot response
 type ProductTopicInfo struct {
-	ProductKey     string `json:"ProductKey" xml:"ProductKey"`
-	TopicShortName string `json:"TopicShortName" xml:"TopicShortName"`
-	Operation      string `json:"Operation" xml:"Operation"`
-	Desc           string `json:"Desc" xml:"Desc"`
-	Id             string `json:"Id" xml:"Id"`
+	ProductKey           string `json:"ProductKey" xml:"ProductKey"`
+	TopicShortName       string `json:"TopicShortName" xml:"TopicShortName"`
+	Operation            string `json:"Operation" xml:"Operation"`
+	Desc                 string `json:"Desc" xml:"Desc"`
+	Id                   string `json:"Id" xml:"Id"`
+	EnableProxySubscribe bool   `json:"EnableProxySubscribe" xml:"EnableProxySubscribe"`
+	Codec                string `json:"Codec" xml:"Codec"`
 }

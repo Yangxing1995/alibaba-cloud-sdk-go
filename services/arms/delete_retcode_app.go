@@ -71,14 +71,16 @@ func (client *Client) DeleteRetcodeAppWithCallback(request *DeleteRetcodeAppRequ
 // DeleteRetcodeAppRequest is the request struct for api DeleteRetcodeApp
 type DeleteRetcodeAppRequest struct {
 	*requests.RpcRequest
-	AppId string `position:"Query" name:"AppId"`
+	AppName string `position:"Query" name:"AppName"`
+	AppId   string `position:"Query" name:"AppId"`
+	Pid     string `position:"Query" name:"Pid"`
 }
 
 // DeleteRetcodeAppResponse is the response struct for api DeleteRetcodeApp
 type DeleteRetcodeAppResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Data      string `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteRetcodeAppRequest creates a request to invoke DeleteRetcodeApp API

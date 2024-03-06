@@ -72,22 +72,22 @@ func (client *Client) CheckMetaPartitionWithCallback(request *CheckMetaPartition
 type CheckMetaPartitionRequest struct {
 	*requests.RpcRequest
 	DataSourceType string `position:"Query" name:"DataSourceType"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
 	Partition      string `position:"Query" name:"Partition"`
 	TableGuid      string `position:"Query" name:"TableGuid"`
 	DatabaseName   string `position:"Query" name:"DatabaseName"`
-	ClusterId      string `position:"Query" name:"ClusterId"`
 	TableName      string `position:"Query" name:"TableName"`
 }
 
 // CheckMetaPartitionResponse is the response struct for api CheckMetaPartition
 type CheckMetaPartitionResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Success        bool   `json:"Success" xml:"Success"`
 	Data           bool   `json:"Data" xml:"Data"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateCheckMetaPartitionRequest creates a request to invoke CheckMetaPartition API

@@ -71,26 +71,29 @@ func (client *Client) RecognizeFaceWithCallback(request *RecognizeFaceRequest, c
 // RecognizeFaceRequest is the request struct for api RecognizeFace
 type RecognizeFaceRequest struct {
 	*requests.RpcRequest
-	Gender        requests.Boolean `position:"Body" name:"Gender"`
-	Beauty        requests.Boolean `position:"Body" name:"Beauty"`
-	MaxFaceNumber requests.Integer `position:"Body" name:"MaxFaceNumber"`
-	Hat           requests.Boolean `position:"Body" name:"Hat"`
-	Mask          requests.Boolean `position:"Body" name:"Mask"`
-	ImageType     requests.Integer `position:"Body" name:"ImageType"`
-	Glass         requests.Boolean `position:"Body" name:"Glass"`
-	Expression    requests.Boolean `position:"Body" name:"Expression"`
-	Quality       requests.Boolean `position:"Body" name:"Quality"`
-	ImageURL      string           `position:"Body" name:"ImageURL"`
-	Age           requests.Boolean `position:"Body" name:"Age"`
+	Gender             requests.Boolean `position:"Body" name:"Gender"`
+	Beauty             requests.Boolean `position:"Body" name:"Beauty"`
+	MaxFaceNumber      requests.Integer `position:"Body" name:"MaxFaceNumber"`
+	FormatResultToJson requests.Boolean `position:"Query" name:"FormatResultToJson"`
+	Hat                requests.Boolean `position:"Body" name:"Hat"`
+	OssFile            string           `position:"Query" name:"OssFile"`
+	Mask               requests.Boolean `position:"Body" name:"Mask"`
+	ImageType          requests.Integer `position:"Body" name:"ImageType"`
+	Glass              requests.Boolean `position:"Body" name:"Glass"`
+	Expression         requests.Boolean `position:"Body" name:"Expression"`
+	RequestProxyBy     string           `position:"Query" name:"RequestProxyBy"`
+	Quality            requests.Boolean `position:"Body" name:"Quality"`
+	ImageURL           string           `position:"Body" name:"ImageURL"`
+	Age                requests.Boolean `position:"Body" name:"Age"`
 }
 
 // RecognizeFaceResponse is the response struct for api RecognizeFace
 type RecognizeFaceResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
-	Message   string `json:"Message" xml:"Message"`
-	Data      Data   `json:"Data" xml:"Data"`
+	RequestId string              `json:"RequestId" xml:"RequestId"`
+	Code      string              `json:"Code" xml:"Code"`
+	Message   string              `json:"Message" xml:"Message"`
+	Data      DataInRecognizeFace `json:"Data" xml:"Data"`
 }
 
 // CreateRecognizeFaceRequest creates a request to invoke RecognizeFace API

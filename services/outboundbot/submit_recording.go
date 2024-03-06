@@ -81,8 +81,8 @@ type SubmitRecordingRequest struct {
 // SubmitRecordingResponse is the response struct for api SubmitRecording
 type SubmitRecordingResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -93,7 +93,7 @@ func CreateSubmitRecordingRequest() (request *SubmitRecordingRequest) {
 	request = &SubmitRecordingRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SubmitRecording", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SubmitRecording", "", "")
 	request.Method = requests.POST
 	return
 }

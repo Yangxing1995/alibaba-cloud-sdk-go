@@ -78,10 +78,10 @@ type RestartK8sApplicationRequest struct {
 // RestartK8sApplicationResponse is the response struct for api RestartK8sApplication
 type RestartK8sApplicationResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
+	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
 	Code          int    `json:"Code" xml:"Code"`
 	Message       string `json:"Message" xml:"Message"`
-	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateRestartK8sApplicationRequest creates a request to invoke RestartK8sApplication API
@@ -89,7 +89,7 @@ func CreateRestartK8sApplicationRequest() (request *RestartK8sApplicationRequest
 	request = &RestartK8sApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "RestartK8sApplication", "/pop/v5/k8s/acs/restart_k8s_app", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "RestartK8sApplication", "/pop/v5/k8s/acs/restart_k8s_app", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

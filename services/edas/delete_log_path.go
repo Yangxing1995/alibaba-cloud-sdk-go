@@ -78,9 +78,9 @@ type DeleteLogPathRequest struct {
 // DeleteLogPathResponse is the response struct for api DeleteLogPath
 type DeleteLogPathResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      string `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteLogPathRequest creates a request to invoke DeleteLogPath API
@@ -88,7 +88,7 @@ func CreateDeleteLogPathRequest() (request *DeleteLogPathRequest) {
 	request = &DeleteLogPathRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteLogPath", "/pop/v5/log/popListLogDirs", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteLogPath", "/pop/v5/log/popListLogDirs", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

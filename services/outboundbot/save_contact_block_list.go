@@ -79,12 +79,12 @@ type SaveContactBlockListRequest struct {
 // SaveContactBlockListResponse is the response struct for api SaveContactBlockList
 type SaveContactBlockListResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	AffectedRows   int    `json:"AffectedRows" xml:"AffectedRows"`
 	Success        bool   `json:"Success" xml:"Success"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	AffectedRows   int    `json:"AffectedRows" xml:"AffectedRows"`
 }
 
 // CreateSaveContactBlockListRequest creates a request to invoke SaveContactBlockList API
@@ -92,7 +92,7 @@ func CreateSaveContactBlockListRequest() (request *SaveContactBlockListRequest) 
 	request = &SaveContactBlockListRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SaveContactBlockList", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SaveContactBlockList", "", "")
 	request.Method = requests.POST
 	return
 }

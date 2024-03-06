@@ -17,6 +17,13 @@ package dms_enterprise
 
 // StandardGroup is a nested struct in dms_enterprise response
 type StandardGroup struct {
-	GroupMode string `json:"GroupMode" xml:"GroupMode"`
-	GroupName string `json:"GroupName" xml:"GroupName"`
+	LastMenderId int64  `json:"LastMenderId" xml:"LastMenderId"`
+	GmtCreate    string `json:"GmtCreate" xml:"GmtCreate"`
+	FreeOrStable bool   `json:"FreeOrStable" xml:"FreeOrStable"`
+	GroupMode    string `json:"GroupMode" xml:"GroupMode"`
+	GmtModified  string `json:"GmtModified" xml:"GmtModified"`
+	GroupName    string `json:"GroupName" xml:"GroupName"`
+	Id           int64  `json:"Id" xml:"Id"`
+	Description  string `json:"Description" xml:"Description"`
+	DbType       string `json:"DbType" xml:"DbType"`
 }

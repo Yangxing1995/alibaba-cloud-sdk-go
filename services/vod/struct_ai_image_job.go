@@ -17,14 +17,14 @@ package vod
 
 // AIImageJob is a nested struct in vod response
 type AIImageJob struct {
+	Status         string `json:"Status" xml:"Status"`
 	CreationTime   string `json:"CreationTime" xml:"CreationTime"`
-	JobId          string `json:"JobId" xml:"JobId"`
-	TemplateId     string `json:"TemplateId" xml:"TemplateId"`
-	VideoId        string `json:"VideoId" xml:"VideoId"`
 	AIImageResult  string `json:"AIImageResult" xml:"AIImageResult"`
+	VideoId        string `json:"VideoId" xml:"VideoId"`
+	JobId          string `json:"JobId" xml:"JobId"`
 	UserData       string `json:"UserData" xml:"UserData"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	Status         string `json:"Status" xml:"Status"`
 	TemplateConfig string `json:"TemplateConfig" xml:"TemplateConfig"`
+	TemplateId     string `json:"TemplateId" xml:"TemplateId"`
 }

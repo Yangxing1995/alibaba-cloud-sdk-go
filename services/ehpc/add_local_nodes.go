@@ -73,6 +73,7 @@ type AddLocalNodesRequest struct {
 	*requests.RpcRequest
 	ClusterId string `position:"Query" name:"ClusterId"`
 	Nodes     string `position:"Query" name:"Nodes"`
+	Queue     string `position:"Query" name:"Queue"`
 }
 
 // AddLocalNodesResponse is the response struct for api AddLocalNodes
@@ -87,7 +88,7 @@ func CreateAddLocalNodesRequest() (request *AddLocalNodesRequest) {
 	request = &AddLocalNodesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "AddLocalNodes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "AddLocalNodes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

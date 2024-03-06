@@ -79,8 +79,8 @@ type ListPreferredEcsTypesRequest struct {
 // ListPreferredEcsTypesResponse is the response struct for api ListPreferredEcsTypes
 type ListPreferredEcsTypesResponse struct {
 	*responses.BaseResponse
-	RequestId           string `json:"RequestId" xml:"RequestId"`
 	SupportSpotInstance bool   `json:"SupportSpotInstance" xml:"SupportSpotInstance"`
+	RequestId           string `json:"RequestId" xml:"RequestId"`
 	Series              Series `json:"Series" xml:"Series"`
 }
 
@@ -89,7 +89,7 @@ func CreateListPreferredEcsTypesRequest() (request *ListPreferredEcsTypesRequest
 	request = &ListPreferredEcsTypesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListPreferredEcsTypes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListPreferredEcsTypes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

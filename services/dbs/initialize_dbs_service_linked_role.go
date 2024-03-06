@@ -76,11 +76,11 @@ type InitializeDbsServiceLinkedRoleRequest struct {
 // InitializeDbsServiceLinkedRoleResponse is the response struct for api InitializeDbsServiceLinkedRole
 type InitializeDbsServiceLinkedRoleResponse struct {
 	*responses.BaseResponse
-	ErrorCode  string `json:"ErrorCode" xml:"ErrorCode"`
 	Data       string `json:"Data" xml:"Data"`
-	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 	RequestId  string `json:"RequestId" xml:"RequestId"`
 	Success    string `json:"Success" xml:"Success"`
+	ErrorCode  string `json:"ErrorCode" xml:"ErrorCode"`
+	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 }
 
 // CreateInitializeDbsServiceLinkedRoleRequest creates a request to invoke InitializeDbsServiceLinkedRole API

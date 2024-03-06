@@ -76,9 +76,9 @@ type QueryRegionConfigRequest struct {
 // QueryRegionConfigResponse is the response struct for api QueryRegionConfig
 type QueryRegionConfigResponse struct {
 	*responses.BaseResponse
-	RequestId    string       `json:"RequestId" xml:"RequestId"`
 	Code         int          `json:"Code" xml:"Code"`
 	Message      string       `json:"Message" xml:"Message"`
+	RequestId    string       `json:"RequestId" xml:"RequestId"`
 	RegionConfig RegionConfig `json:"RegionConfig" xml:"RegionConfig"`
 }
 
@@ -87,7 +87,7 @@ func CreateQueryRegionConfigRequest() (request *QueryRegionConfigRequest) {
 	request = &QueryRegionConfigRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "QueryRegionConfig", "/pop/v5/region_config", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "QueryRegionConfig", "/pop/v5/region_config", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

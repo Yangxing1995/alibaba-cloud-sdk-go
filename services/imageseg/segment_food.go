@@ -71,8 +71,10 @@ func (client *Client) SegmentFoodWithCallback(request *SegmentFoodRequest, callb
 // SegmentFoodRequest is the request struct for api SegmentFood
 type SegmentFoodRequest struct {
 	*requests.RpcRequest
-	ReturnForm string `position:"Query" name:"ReturnForm"`
-	ImageURL   string `position:"Query" name:"ImageURL"`
+	ReturnForm     string `position:"Query" name:"ReturnForm"`
+	OssFile        string `position:"Query" name:"OssFile"`
+	RequestProxyBy string `position:"Query" name:"RequestProxyBy"`
+	ImageURL       string `position:"Query" name:"ImageURL"`
 }
 
 // SegmentFoodResponse is the response struct for api SegmentFood

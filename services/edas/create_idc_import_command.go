@@ -77,10 +77,10 @@ type CreateIDCImportCommandRequest struct {
 // CreateIDCImportCommandResponse is the response struct for api CreateIDCImportCommand
 type CreateIDCImportCommandResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      string `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
 	Data      string `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateIDCImportCommandRequest creates a request to invoke CreateIDCImportCommand API
@@ -88,7 +88,7 @@ func CreateCreateIDCImportCommandRequest() (request *CreateIDCImportCommandReque
 	request = &CreateIDCImportCommandRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "CreateIDCImportCommand", "/pop/v5/create_idc_import_command", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "CreateIDCImportCommand", "/pop/v5/create_idc_import_command", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

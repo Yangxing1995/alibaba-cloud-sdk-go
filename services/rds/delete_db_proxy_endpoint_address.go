@@ -72,8 +72,9 @@ func (client *Client) DeleteDBProxyEndpointAddressWithCallback(request *DeleteDB
 type DeleteDBProxyEndpointAddressRequest struct {
 	*requests.RpcRequest
 	DBProxyConnectStringNetType string `position:"Query" name:"DBProxyConnectStringNetType"`
-	DBProxyEndpointId           string `position:"Query" name:"DBProxyEndpointId"`
 	DBInstanceId                string `position:"Query" name:"DBInstanceId"`
+	DBProxyEngineType           string `position:"Query" name:"DBProxyEngineType"`
+	DBProxyEndpointId           string `position:"Query" name:"DBProxyEndpointId"`
 }
 
 // DeleteDBProxyEndpointAddressResponse is the response struct for api DeleteDBProxyEndpointAddress
@@ -87,7 +88,7 @@ func CreateDeleteDBProxyEndpointAddressRequest() (request *DeleteDBProxyEndpoint
 	request = &DeleteDBProxyEndpointAddressRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DeleteDBProxyEndpointAddress", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DeleteDBProxyEndpointAddress", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -19,8 +19,10 @@ package sae
 type MetricsStatus struct {
 	DesiredReplicas     int64             `json:"DesiredReplicas" xml:"DesiredReplicas"`
 	CurrentReplicas     int64             `json:"CurrentReplicas" xml:"CurrentReplicas"`
+	MinReplicas         int64             `json:"MinReplicas" xml:"MinReplicas"`
 	NextScaleTimePeriod int               `json:"NextScaleTimePeriod" xml:"NextScaleTimePeriod"`
 	LastScaleTime       string            `json:"LastScaleTime" xml:"LastScaleTime"`
-	NextScaleMetrics    []NextScaleMetric `json:"NextScaleMetrics" xml:"NextScaleMetrics"`
+	MaxReplicas         int64             `json:"MaxReplicas" xml:"MaxReplicas"`
 	CurrentMetrics      []CurrentMetric   `json:"CurrentMetrics" xml:"CurrentMetrics"`
+	NextScaleMetrics    []NextScaleMetric `json:"NextScaleMetrics" xml:"NextScaleMetrics"`
 }

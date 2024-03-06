@@ -17,77 +17,51 @@ package edas
 
 // Data is a nested struct in edas response
 type Data struct {
-	ExtraJson                       string                                   `json:"ExtraJson" xml:"ExtraJson"`
-	Source                          string                                   `json:"Source" xml:"Source"`
-	ConsumerAppName                 string                                   `json:"ConsumerAppName" xml:"ConsumerAppName"`
+	Name                            string                                   `json:"Name" xml:"Name"`
+	ChangeOrderId                   string                                   `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Group                           string                                   `json:"Group" xml:"Group"`
+	TotalPages                      int                                      `json:"TotalPages" xml:"TotalPages"`
+	OversoldFactor                  int                                      `json:"OversoldFactor" xml:"OversoldFactor"`
+	EdasAppName                     string                                   `json:"EdasAppName" xml:"EdasAppName"`
+	PageSize                        int                                      `json:"PageSize" xml:"PageSize"`
+	Reason                          string                                   `json:"Reason" xml:"Reason"`
+	Size                            int                                      `json:"Size" xml:"Size"`
+	SlbPort                         int                                      `json:"SlbPort" xml:"SlbPort"`
+	Tag                             string                                   `json:"Tag" xml:"Tag"`
+	Metadata                        string                                   `json:"Metadata" xml:"Metadata"`
+	PageNumber                      int                                      `json:"PageNumber" xml:"PageNumber"`
 	VpcId                           string                                   `json:"VpcId" xml:"VpcId"`
-	ShowName                        string                                   `json:"ShowName" xml:"ShowName"`
-	Path                            string                                   `json:"Path" xml:"Path"`
+	ServiceType                     string                                   `json:"ServiceType" xml:"ServiceType"`
+	ServiceName                     string                                   `json:"ServiceName" xml:"ServiceName"`
 	ExtSlbIp                        string                                   `json:"ExtSlbIp" xml:"ExtSlbIp"`
 	UpdateTime                      int64                                    `json:"UpdateTime" xml:"UpdateTime"`
-	ProviderAppName                 string                                   `json:"ProviderAppName" xml:"ProviderAppName"`
+	Version                         string                                   `json:"Version" xml:"Version"`
+	ExtSlbId                        string                                   `json:"ExtSlbId" xml:"ExtSlbId"`
+	TotalElements                   int                                      `json:"TotalElements" xml:"TotalElements"`
 	Id                              int64                                    `json:"Id" xml:"Id"`
+	EntryRule                       string                                   `json:"EntryRule" xml:"EntryRule"`
 	ExtSlbName                      string                                   `json:"ExtSlbName" xml:"ExtSlbName"`
-	PointcutId                      int64                                    `json:"PointcutId" xml:"PointcutId"`
+	SlbName                         string                                   `json:"SlbName" xml:"SlbName"`
 	VServerGroupId                  string                                   `json:"VServerGroupId" xml:"VServerGroupId"`
-	AppId                           string                                   `json:"AppId" xml:"AppId"`
-	AccountId                       string                                   `json:"AccountId" xml:"AccountId"`
 	ExtVServerGroupId               string                                   `json:"ExtVServerGroupId" xml:"ExtVServerGroupId"`
-	PodName                         string                                   `json:"PodName" xml:"PodName"`
-	Total                           int                                      `json:"Total" xml:"Total"`
-	HttpHeaders                     map[string]interface{}                   `json:"HttpHeaders" xml:"HttpHeaders"`
+	RegistryType                    string                                   `json:"RegistryType" xml:"RegistryType"`
 	AppInfos                        string                                   `json:"AppInfos" xml:"AppInfos"`
-	Attributes                      map[string]interface{}                   `json:"Attributes" xml:"Attributes"`
-	Enabled                         bool                                     `json:"Enabled" xml:"Enabled"`
-	Enable                          bool                                     `json:"Enable" xml:"Enable"`
-	LabelType                       string                                   `json:"LabelType" xml:"LabelType"`
+	NamespaceId                     string                                   `json:"NamespaceId" xml:"NamespaceId"`
+	GroupId                         int64                                    `json:"GroupId" xml:"GroupId"`
+	SpringApplicationName           string                                   `json:"SpringApplicationName" xml:"SpringApplicationName"`
 	SlbId                           string                                   `json:"SlbId" xml:"SlbId"`
 	Status                          string                                   `json:"Status" xml:"Status"`
 	ClusterType                     int                                      `json:"ClusterType" xml:"ClusterType"`
 	TotalSize                       int                                      `json:"TotalSize" xml:"TotalSize"`
-	Region                          string                                   `json:"Region" xml:"Region"`
-	Name                            string                                   `json:"Name" xml:"Name"`
-	Timeout                         string                                   `json:"Timeout" xml:"Timeout"`
-	ChangeOrderId                   string                                   `json:"ChangeOrderId" xml:"ChangeOrderId"`
-	DubboMockItemJson               string                                   `json:"DubboMockItemJson" xml:"DubboMockItemJson"`
-	TotalPages                      int                                      `json:"TotalPages" xml:"TotalPages"`
-	PageSize                        int                                      `json:"PageSize" xml:"PageSize"`
-	OversoldFactor                  int                                      `json:"OversoldFactor" xml:"OversoldFactor"`
-	Threshold                       float64                                  `json:"Threshold" xml:"Threshold"`
-	ConsumerAppId                   string                                   `json:"ConsumerAppId" xml:"ConsumerAppId"`
-	Size                            int                                      `json:"Size" xml:"Size"`
-	RegionId                        string                                   `json:"RegionId" xml:"RegionId"`
-	SlbPort                         int                                      `json:"SlbPort" xml:"SlbPort"`
-	Tag                             string                                   `json:"Tag" xml:"Tag"`
-	PageNumber                      int                                      `json:"PageNumber" xml:"PageNumber"`
-	Description                     string                                   `json:"Description" xml:"Description"`
-	TenantId                        string                                   `json:"TenantId" xml:"TenantId"`
-	EnvName                         string                                   `json:"EnvName" xml:"EnvName"`
-	LabelAdviceId                   int64                                    `json:"LabelAdviceId" xml:"LabelAdviceId"`
-	Ip                              string                                   `json:"Ip" xml:"Ip"`
-	ExtSlbId                        string                                   `json:"ExtSlbId" xml:"ExtSlbId"`
-	TotalElements                   int                                      `json:"TotalElements" xml:"TotalElements"`
-	EntryRule                       string                                   `json:"EntryRule" xml:"EntryRule"`
-	SlbName                         string                                   `json:"SlbName" xml:"SlbName"`
-	Params                          map[string]interface{}                   `json:"Params" xml:"Params"`
-	ScMockItemJson                  string                                   `json:"ScMockItemJson" xml:"ScMockItemJson"`
-	NamespaceId                     string                                   `json:"NamespaceId" xml:"NamespaceId"`
-	GroupId                         int64                                    `json:"GroupId" xml:"GroupId"`
-	ProviderAppId                   string                                   `json:"ProviderAppId" xml:"ProviderAppId"`
-	Kind                            string                                   `json:"Kind" xml:"Kind"`
+	DubboApplicationName            string                                   `json:"DubboApplicationName" xml:"DubboApplicationName"`
 	SlbIp                           string                                   `json:"SlbIp" xml:"SlbIp"`
-	Urls                            []string                                 `json:"Urls" xml:"Urls"`
-	RequestMethods                  []string                                 `json:"RequestMethods" xml:"RequestMethods"`
+	Jobs                            []string                                 `json:"Jobs" xml:"Jobs"`
 	EntryApplication                EntryApplication                         `json:"EntryApplication" xml:"EntryApplication"`
-	Spec                            Spec                                     `json:"Spec" xml:"Spec"`
-	Metadata                        Metadata                                 `json:"Metadata" xml:"Metadata"`
-	SourceConfig                    SourceConfig                             `json:"SourceConfig" xml:"SourceConfig"`
-	Result                          []MseMockRules                           `json:"Result" xml:"Result"`
-	CertificateList                 []CertificateListItem                    `json:"CertificateList" xml:"CertificateList"`
-	DubboMockItems                  []DubboMockItemInGetMockRuleById         `json:"DubboMockItems" xml:"DubboMockItems"`
-	ApplicationList                 ApplicationListInInsertSwimmingLaneGroup `json:"ApplicationList" xml:"ApplicationList"`
-	RuleList                        RuleListInGetScalingRules                `json:"RuleList" xml:"RuleList"`
-	Content                         []Provider                               `json:"Content" xml:"Content"`
+	Result                          []Method                                 `json:"Result" xml:"Result"`
 	SwimmingLaneAppRelationShipList []SwimmingLaneAppRelationShip            `json:"SwimmingLaneAppRelationShipList" xml:"SwimmingLaneAppRelationShipList"`
-	ScMockItems                     []SpringCloudMockItem                    `json:"ScMockItems" xml:"ScMockItems"`
+	ApplicationList                 ApplicationListInInsertSwimmingLaneGroup `json:"ApplicationList" xml:"ApplicationList"`
+	Content                         []Provider                               `json:"Content" xml:"Content"`
+	JobResults                      []JobResultsItem                         `json:"JobResults" xml:"JobResults"`
+	RuleList                        RuleList                                 `json:"RuleList" xml:"RuleList"`
+	Methods                         []Method                                 `json:"Methods" xml:"Methods"`
 }

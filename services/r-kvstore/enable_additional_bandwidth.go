@@ -86,14 +86,15 @@ type EnableAdditionalBandwidthRequest struct {
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 	InstanceId           string           `position:"Query" name:"InstanceId"`
 	AutoRenew            requests.Boolean `position:"Query" name:"AutoRenew"`
+	ChargeType           string           `position:"Query" name:"ChargeType"`
 	Category             string           `position:"Query" name:"Category"`
 }
 
 // EnableAdditionalBandwidthResponse is the response struct for api EnableAdditionalBandwidth
 type EnableAdditionalBandwidthResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	OrderId   string `json:"OrderId" xml:"OrderId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateEnableAdditionalBandwidthRequest creates a request to invoke EnableAdditionalBandwidth API

@@ -71,20 +71,20 @@ func (client *Client) ListTableThemeWithCallback(request *ListTableThemeRequest,
 // ListTableThemeRequest is the request struct for api ListTableTheme
 type ListTableThemeRequest struct {
 	*requests.RpcRequest
-	PageSize  requests.Integer `position:"Query" name:"PageSize"`
 	PageNum   requests.Integer `position:"Query" name:"PageNum"`
-	ProjectId requests.Integer `position:"Query" name:"ProjectId"`
 	ParentId  requests.Integer `position:"Query" name:"ParentId"`
+	PageSize  requests.Integer `position:"Query" name:"PageSize"`
+	ProjectId requests.Integer `position:"Query" name:"ProjectId"`
 }
 
 // ListTableThemeResponse is the response struct for api ListTableTheme
 type ListTableThemeResponse struct {
 	*responses.BaseResponse
-	RequestId      string               `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string               `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string               `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                  `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string               `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string               `json:"RequestId" xml:"RequestId"`
 	Success        bool                 `json:"Success" xml:"Success"`
+	ErrorCode      string               `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInListTableTheme `json:"Data" xml:"Data"`
 }
 

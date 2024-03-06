@@ -79,12 +79,12 @@ type DeleteContactBlockListRequest struct {
 // DeleteContactBlockListResponse is the response struct for api DeleteContactBlockList
 type DeleteContactBlockListResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	AffectedRows   int    `json:"AffectedRows" xml:"AffectedRows"`
 	Success        bool   `json:"Success" xml:"Success"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	AffectedRows   int    `json:"AffectedRows" xml:"AffectedRows"`
 }
 
 // CreateDeleteContactBlockListRequest creates a request to invoke DeleteContactBlockList API
@@ -92,7 +92,7 @@ func CreateDeleteContactBlockListRequest() (request *DeleteContactBlockListReque
 	request = &DeleteContactBlockListRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DeleteContactBlockList", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DeleteContactBlockList", "", "")
 	request.Method = requests.POST
 	return
 }

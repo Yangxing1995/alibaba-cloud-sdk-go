@@ -71,13 +71,15 @@ func (client *Client) ListNacosHistoryConfigsWithCallback(request *ListNacosHist
 // ListNacosHistoryConfigsRequest is the request struct for api ListNacosHistoryConfigs
 type ListNacosHistoryConfigsRequest struct {
 	*requests.RpcRequest
-	PageNum     requests.Integer `position:"Query" name:"PageNum"`
-	InstanceId  string           `position:"Query" name:"InstanceId"`
-	DataId      string           `position:"Query" name:"DataId"`
-	NamespaceId string           `position:"Query" name:"NamespaceId"`
-	RequestPars string           `position:"Query" name:"RequestPars"`
-	PageSize    requests.Integer `position:"Query" name:"PageSize"`
-	Group       string           `position:"Query" name:"Group"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	PageNum        requests.Integer `position:"Query" name:"PageNum"`
+	NamespaceId    string           `position:"Query" name:"NamespaceId"`
+	RequestPars    string           `position:"Query" name:"RequestPars"`
+	PageSize       requests.Integer `position:"Query" name:"PageSize"`
+	Group          string           `position:"Query" name:"Group"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	DataId         string           `position:"Query" name:"DataId"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
 }
 
 // ListNacosHistoryConfigsResponse is the response struct for api ListNacosHistoryConfigs
@@ -99,7 +101,7 @@ func CreateListNacosHistoryConfigsRequest() (request *ListNacosHistoryConfigsReq
 	request = &ListNacosHistoryConfigsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ListNacosHistoryConfigs", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "ListNacosHistoryConfigs", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -75,6 +75,7 @@ type RollbackApplicationRequest struct {
 	VersionId                        string           `position:"Query" name:"VersionId"`
 	AppId                            string           `position:"Query" name:"AppId"`
 	BatchWaitTime                    requests.Integer `position:"Query" name:"BatchWaitTime"`
+	MinReadyInstanceRatio            requests.Integer `position:"Query" name:"MinReadyInstanceRatio"`
 	AutoEnableApplicationScalingRule string           `position:"Query" name:"AutoEnableApplicationScalingRule"`
 	UpdateStrategy                   string           `position:"Query" name:"UpdateStrategy"`
 }
@@ -82,8 +83,8 @@ type RollbackApplicationRequest struct {
 // RollbackApplicationResponse is the response struct for api RollbackApplication
 type RollbackApplicationResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
 	RequestId string `json:"RequestId" xml:"RequestId"`
+	Message   string `json:"Message" xml:"Message"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
 	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Code      string `json:"Code" xml:"Code"`

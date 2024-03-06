@@ -71,22 +71,23 @@ func (client *Client) DescribeAvailableClassesWithCallback(request *DescribeAvai
 // DescribeAvailableClassesRequest is the request struct for api DescribeAvailableClasses
 type DescribeAvailableClassesRequest struct {
 	*requests.RpcRequest
-	DBInstanceName        string           `position:"Query" name:"DBInstanceName"`
-	ResourceOwnerId       requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	EngineVersion         string           `position:"Query" name:"EngineVersion"`
-	Engine                string           `position:"Query" name:"Engine"`
-	DBInstanceId          string           `position:"Query" name:"DBInstanceId"`
-	DBInstanceStorageType string           `position:"Query" name:"DBInstanceStorageType"`
-	InstanceChargeType    string           `position:"Query" name:"InstanceChargeType"`
-	DispenseMode          string           `position:"Query" name:"DispenseMode"`
-	ResourceOwnerAccount  string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerAccount          string           `position:"Query" name:"OwnerAccount"`
-	CommodityCode         string           `position:"Query" name:"CommodityCode"`
-	OwnerId               requests.Integer `position:"Query" name:"OwnerId"`
-	EvaluateResource      requests.Boolean `position:"Query" name:"EvaluateResource"`
-	ZoneId                string           `position:"Query" name:"ZoneId"`
-	Category              string           `position:"Query" name:"Category"`
-	OrderType             string           `position:"Query" name:"OrderType"`
+	DBInstanceName                          string           `position:"Query" name:"DBInstanceName"`
+	ResourceOwnerId                         requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	EngineVersion                           string           `position:"Query" name:"EngineVersion"`
+	UseSpecifyRegionFilterCommodityResource requests.Boolean `position:"Query" name:"UseSpecifyRegionFilterCommodityResource"`
+	Engine                                  string           `position:"Query" name:"Engine"`
+	DBInstanceId                            string           `position:"Query" name:"DBInstanceId"`
+	DBInstanceStorageType                   string           `position:"Query" name:"DBInstanceStorageType"`
+	InstanceChargeType                      string           `position:"Query" name:"InstanceChargeType"`
+	DispenseMode                            string           `position:"Query" name:"DispenseMode"`
+	ResourceOwnerAccount                    string           `position:"Query" name:"ResourceOwnerAccount"`
+	OwnerAccount                            string           `position:"Query" name:"OwnerAccount"`
+	CommodityCode                           string           `position:"Query" name:"CommodityCode"`
+	OwnerId                                 requests.Integer `position:"Query" name:"OwnerId"`
+	EvaluateResource                        requests.Boolean `position:"Query" name:"EvaluateResource"`
+	ZoneId                                  string           `position:"Query" name:"ZoneId"`
+	Category                                string           `position:"Query" name:"Category"`
+	OrderType                               string           `position:"Query" name:"OrderType"`
 }
 
 // DescribeAvailableClassesResponse is the response struct for api DescribeAvailableClasses
@@ -101,7 +102,7 @@ func CreateDescribeAvailableClassesRequest() (request *DescribeAvailableClassesR
 	request = &DescribeAvailableClassesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeAvailableClasses", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeAvailableClasses", "", "")
 	request.Method = requests.POST
 	return
 }

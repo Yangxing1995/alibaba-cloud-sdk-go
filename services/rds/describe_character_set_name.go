@@ -72,17 +72,18 @@ func (client *Client) DescribeCharacterSetNameWithCallback(request *DescribeChar
 type DescribeCharacterSetNameRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
+	Engine               string           `position:"Query" name:"Engine"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
-	Engine               string           `position:"Query" name:"Engine"`
 }
 
 // DescribeCharacterSetNameResponse is the response struct for api DescribeCharacterSetName
 type DescribeCharacterSetNameResponse struct {
 	*responses.BaseResponse
-	RequestId             string                `json:"RequestId" xml:"RequestId"`
 	Engine                string                `json:"Engine" xml:"Engine"`
+	RequestId             string                `json:"RequestId" xml:"RequestId"`
 	CharacterSetNameItems CharacterSetNameItems `json:"CharacterSetNameItems" xml:"CharacterSetNameItems"`
 }
 
@@ -91,7 +92,7 @@ func CreateDescribeCharacterSetNameRequest() (request *DescribeCharacterSetNameR
 	request = &DescribeCharacterSetNameRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeCharacterSetName", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeCharacterSetName", "", "")
 	request.Method = requests.POST
 	return
 }

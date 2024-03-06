@@ -71,23 +71,25 @@ func (client *Client) QueryMonitorWithCallback(request *QueryMonitorRequest, cal
 // QueryMonitorRequest is the request struct for api QueryMonitor
 type QueryMonitorRequest struct {
 	*requests.RpcRequest
-	MonitorType string           `position:"Query" name:"MonitorType"`
-	EndTime     requests.Integer `position:"Query" name:"EndTime"`
-	ClusterId   string           `position:"Query" name:"ClusterId"`
-	StartTime   requests.Integer `position:"Query" name:"StartTime"`
-	InstanceId  string           `position:"Query" name:"InstanceId"`
-	RequestPars string           `position:"Query" name:"RequestPars"`
-	Step        requests.Integer `position:"Query" name:"Step"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	StartTime      requests.Integer `position:"Query" name:"StartTime"`
+	RequestPars    string           `position:"Query" name:"RequestPars"`
+	MonitorType    string           `position:"Query" name:"MonitorType"`
+	EndTime        requests.Integer `position:"Query" name:"EndTime"`
+	ClusterId      string           `position:"Query" name:"ClusterId"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
+	Step           requests.Integer `position:"Query" name:"Step"`
 }
 
 // QueryMonitorResponse is the response struct for api QueryMonitor
 type QueryMonitorResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Data      string `json:"Data" xml:"Data"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
-	Success   bool   `json:"Success" xml:"Success"`
+	Message   string     `json:"Message" xml:"Message"`
+	RequestId string     `json:"RequestId" xml:"RequestId"`
+	ErrorCode string     `json:"ErrorCode" xml:"ErrorCode"`
+	Success   bool       `json:"Success" xml:"Success"`
+	Data      []DataItem `json:"Data" xml:"Data"`
 }
 
 // CreateQueryMonitorRequest creates a request to invoke QueryMonitor API
@@ -95,8 +97,8 @@ func CreateQueryMonitorRequest() (request *QueryMonitorRequest) {
 	request = &QueryMonitorRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "QueryMonitor", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "QueryMonitor", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

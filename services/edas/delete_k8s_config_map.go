@@ -79,9 +79,9 @@ type DeleteK8sConfigMapRequest struct {
 // DeleteK8sConfigMapResponse is the response struct for api DeleteK8sConfigMap
 type DeleteK8sConfigMapResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteK8sConfigMapRequest creates a request to invoke DeleteK8sConfigMap API
@@ -89,7 +89,7 @@ func CreateDeleteK8sConfigMapRequest() (request *DeleteK8sConfigMapRequest) {
 	request = &DeleteK8sConfigMapRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteK8sConfigMap", "/pop/v5/k8s/acs/k8s_config_map", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteK8sConfigMap", "/pop/v5/k8s/acs/k8s_config_map", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

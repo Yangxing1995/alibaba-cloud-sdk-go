@@ -78,8 +78,8 @@ type DeleteOutboundCallNumberRequest struct {
 // DeleteOutboundCallNumberResponse is the response struct for api DeleteOutboundCallNumber
 type DeleteOutboundCallNumberResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -90,7 +90,7 @@ func CreateDeleteOutboundCallNumberRequest() (request *DeleteOutboundCallNumberR
 	request = &DeleteOutboundCallNumberRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DeleteOutboundCallNumber", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DeleteOutboundCallNumber", "", "")
 	request.Method = requests.POST
 	return
 }

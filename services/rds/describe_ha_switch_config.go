@@ -81,8 +81,8 @@ type DescribeHASwitchConfigRequest struct {
 type DescribeHASwitchConfigResponse struct {
 	*responses.BaseResponse
 	RequestId    string `json:"RequestId" xml:"RequestId"`
-	HAConfig     string `json:"HAConfig" xml:"HAConfig"`
 	ManualHATime string `json:"ManualHATime" xml:"ManualHATime"`
+	HAConfig     string `json:"HAConfig" xml:"HAConfig"`
 }
 
 // CreateDescribeHASwitchConfigRequest creates a request to invoke DescribeHASwitchConfig API
@@ -90,7 +90,7 @@ func CreateDescribeHASwitchConfigRequest() (request *DescribeHASwitchConfigReque
 	request = &DescribeHASwitchConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeHASwitchConfig", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeHASwitchConfig", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -73,31 +73,34 @@ type CreateDataServiceApiRequest struct {
 	*requests.RpcRequest
 	ScriptDetails       string           `position:"Body" name:"ScriptDetails"`
 	RequestMethod       requests.Integer `position:"Body" name:"RequestMethod"`
+	ApiDescription      string           `position:"Body" name:"ApiDescription"`
+	Timeout             requests.Integer `position:"Body" name:"Timeout"`
+	FolderId            requests.Integer `position:"Body" name:"FolderId"`
+	ResourceGroupId     requests.Integer `position:"Body" name:"ResourceGroupId"`
+	SqlMode             requests.Integer `position:"Body" name:"SqlMode"`
+	TenantId            requests.Integer `position:"Body" name:"TenantId"`
+	RequestContentType  requests.Integer `position:"Body" name:"RequestContentType"`
+	Protocols           string           `position:"Body" name:"Protocols"`
+	ProjectId           requests.Integer `position:"Body" name:"ProjectId"`
+	ResponseContentType requests.Integer `position:"Body" name:"ResponseContentType"`
 	GroupId             string           `position:"Body" name:"GroupId"`
 	ApiPath             string           `position:"Body" name:"ApiPath"`
 	WizardDetails       string           `position:"Body" name:"WizardDetails"`
 	ApiMode             requests.Integer `position:"Body" name:"ApiMode"`
 	VisibleRange        requests.Integer `position:"Body" name:"VisibleRange"`
-	ApiDescription      string           `position:"Body" name:"ApiDescription"`
-	Timeout             requests.Integer `position:"Body" name:"Timeout"`
-	FolderId            requests.Integer `position:"Body" name:"FolderId"`
 	RegistrationDetails string           `position:"Body" name:"RegistrationDetails"`
 	ApiName             string           `position:"Body" name:"ApiName"`
-	TenantId            requests.Integer `position:"Body" name:"TenantId"`
-	Protocols           string           `position:"Body" name:"Protocols"`
-	ProjectId           requests.Integer `position:"Body" name:"ProjectId"`
-	ResponseContentType requests.Integer `position:"Body" name:"ResponseContentType"`
 }
 
 // CreateDataServiceApiResponse is the response struct for api CreateDataServiceApi
 type CreateDataServiceApiResponse struct {
 	*responses.BaseResponse
-	Data           int64  `json:"Data" xml:"Data"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Success        bool   `json:"Success" xml:"Success"`
+	Data           int64  `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateCreateDataServiceApiRequest creates a request to invoke CreateDataServiceApi API

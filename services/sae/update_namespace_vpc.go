@@ -71,18 +71,19 @@ func (client *Client) UpdateNamespaceVpcWithCallback(request *UpdateNamespaceVpc
 // UpdateNamespaceVpcRequest is the request struct for api UpdateNamespaceVpc
 type UpdateNamespaceVpcRequest struct {
 	*requests.RoaRequest
-	NamespaceId string `position:"Query" name:"NamespaceId"`
-	VpcId       string `position:"Query" name:"VpcId"`
+	NamespaceId      string `position:"Query" name:"NamespaceId"`
+	VpcId            string `position:"Query" name:"VpcId"`
+	NameSpaceShortId string `position:"Query" name:"NameSpaceShortId"`
 }
 
 // UpdateNamespaceVpcResponse is the response struct for api UpdateNamespaceVpc
 type UpdateNamespaceVpcResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
+	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
+	Code      string `json:"Code" xml:"Code"`
 	Success   bool   `json:"Success" xml:"Success"`
 }
 

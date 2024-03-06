@@ -72,11 +72,11 @@ func (client *Client) CalcCACSWithCallback(request *CalcCACSRequest, callback fu
 type CalcCACSRequest struct {
 	*requests.RpcRequest
 	DataSourceType string             `position:"Body" name:"DataSourceType"`
+	OrgName        string             `position:"Body" name:"OrgName"`
 	DataFormat     string             `position:"Body" name:"DataFormat"`
 	URLList        *[]CalcCACSURLList `position:"Body" name:"URLList"  type:"Repeated"`
 	OrgId          string             `position:"Body" name:"OrgId"`
 	Async          requests.Boolean   `position:"Body" name:"Async"`
-	OrgName        string             `position:"Body" name:"OrgName"`
 }
 
 // CalcCACSURLList is a repeated param struct in CalcCACSRequest
@@ -87,8 +87,10 @@ type CalcCACSURLList struct {
 // CalcCACSResponse is the response struct for api CalcCACS
 type CalcCACSResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Data      Data   `json:"Data" xml:"Data"`
+	RequestId string         `json:"RequestId" xml:"RequestId"`
+	Code      string         `json:"Code" xml:"Code"`
+	Message   string         `json:"Message" xml:"Message"`
+	Data      DataInCalcCACS `json:"Data" xml:"Data"`
 }
 
 // CreateCalcCACSRequest creates a request to invoke CalcCACS API

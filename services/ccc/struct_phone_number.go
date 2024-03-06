@@ -25,8 +25,8 @@ type PhoneNumber struct {
 	Number          string       `json:"Number" xml:"Number"`
 	Province        string       `json:"Province" xml:"Province"`
 	Provider        string       `json:"Provider" xml:"Provider"`
-	InstanceId      string       `json:"InstanceId" xml:"InstanceId"`
 	UserId          string       `json:"UserId" xml:"UserId"`
+	InstanceId      string       `json:"InstanceId" xml:"InstanceId"`
 	ContactFlowName string       `json:"ContactFlowName" xml:"ContactFlowName"`
 	ContactFlowId   string       `json:"ContactFlowId" xml:"ContactFlowId"`
 	SkillGroups     []SkillGroup `json:"SkillGroups" xml:"SkillGroups"`

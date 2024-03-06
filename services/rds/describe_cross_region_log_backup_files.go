@@ -85,14 +85,14 @@ type DescribeCrossRegionLogBackupFilesRequest struct {
 // DescribeCrossRegionLogBackupFilesResponse is the response struct for api DescribeCrossRegionLogBackupFiles
 type DescribeCrossRegionLogBackupFilesResponse struct {
 	*responses.BaseResponse
-	RequestId        string                                   `json:"RequestId" xml:"RequestId"`
-	RegionId         string                                   `json:"RegionId" xml:"RegionId"`
-	DBInstanceId     string                                   `json:"DBInstanceId" xml:"DBInstanceId"`
-	StartTime        string                                   `json:"StartTime" xml:"StartTime"`
 	EndTime          string                                   `json:"EndTime" xml:"EndTime"`
-	TotalRecordCount int                                      `json:"TotalRecordCount" xml:"TotalRecordCount"`
+	StartTime        string                                   `json:"StartTime" xml:"StartTime"`
+	RequestId        string                                   `json:"RequestId" xml:"RequestId"`
 	PageRecordCount  int                                      `json:"PageRecordCount" xml:"PageRecordCount"`
+	TotalRecordCount int                                      `json:"TotalRecordCount" xml:"TotalRecordCount"`
+	DBInstanceId     string                                   `json:"DBInstanceId" xml:"DBInstanceId"`
 	PageNumber       int                                      `json:"PageNumber" xml:"PageNumber"`
+	RegionId         string                                   `json:"RegionId" xml:"RegionId"`
 	Items            ItemsInDescribeCrossRegionLogBackupFiles `json:"Items" xml:"Items"`
 }
 
@@ -101,7 +101,7 @@ func CreateDescribeCrossRegionLogBackupFilesRequest() (request *DescribeCrossReg
 	request = &DescribeCrossRegionLogBackupFilesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeCrossRegionLogBackupFiles", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeCrossRegionLogBackupFiles", "", "")
 	request.Method = requests.POST
 	return
 }

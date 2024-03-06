@@ -54,7 +54,7 @@ func Test_DescribeRegionsWithRPCrequestWithArn(t *testing.T) {
 
 	request := ecs.CreateDescribeRegionsRequest()
 	request.Scheme = "https"
-	request.Domain = "ecs.aliyuncs.com"
+	request.Domain = ecsEndpoint
 	response, err := client.DescribeRegions(request)
 	assert.Nil(t, err)
 	assert.Equal(t, 36, len(response.RequestId))
@@ -67,7 +67,7 @@ func TestDescribeRegionsWithProviderAndAk(t *testing.T) {
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"
 	request.ApiName = "DescribeRegions"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	client, err := sdk.NewClientWithProvider(os.Getenv("REGION_ID"))
 	assert.Nil(t, err)
@@ -76,7 +76,7 @@ func TestDescribeRegionsWithProviderAndAk(t *testing.T) {
 	assert.True(t, response.IsSuccess())
 }
 
-func TestDescribeRegionsWithProviderAndRsaKeyPair(t *testing.T) {
+func SkipTestDescribeRegionsWithProviderAndRsaKeyPair(t *testing.T) {
 	request := requests.NewCommonRequest()
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"

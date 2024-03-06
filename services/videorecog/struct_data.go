@@ -17,13 +17,18 @@ package videorecog
 
 // Data is a nested struct in videorecog response
 type Data struct {
-	JobId        string                 `json:"JobId" xml:"JobId"`
-	Result       string                 `json:"Result" xml:"Result"`
-	ErrorMessage string                 `json:"ErrorMessage" xml:"ErrorMessage"`
-	TagInfo      map[string]interface{} `json:"TagInfo" xml:"TagInfo"`
-	Status       string                 `json:"Status" xml:"Status"`
-	ErrorCode    string                 `json:"ErrorCode" xml:"ErrorCode"`
-	ShotFrameIds []int                  `json:"ShotFrameIds" xml:"ShotFrameIds"`
-	VideoInfo    VideoInfo              `json:"VideoInfo" xml:"VideoInfo"`
-	Outputs      []Output               `json:"Outputs" xml:"Outputs"`
+	JobId                 string                      `json:"JobId" xml:"JobId"`
+	Result                string                      `json:"Result" xml:"Result"`
+	ErrorMessage          string                      `json:"ErrorMessage" xml:"ErrorMessage"`
+	JsonUrl               string                      `json:"JsonUrl" xml:"JsonUrl"`
+	TagInfo               map[string]interface{}      `json:"TagInfo" xml:"TagInfo"`
+	PdfUrl                string                      `json:"PdfUrl" xml:"PdfUrl"`
+	Status                string                      `json:"Status" xml:"Status"`
+	ErrorCode             string                      `json:"ErrorCode" xml:"ErrorCode"`
+	ShotFrameIds          []int                       `json:"ShotFrameIds" xml:"ShotFrameIds"`
+	VideoQualityInfo      VideoQualityInfo            `json:"VideoQualityInfo" xml:"VideoQualityInfo"`
+	VideoInfo             VideoInfo                   `json:"VideoInfo" xml:"VideoInfo"`
+	SplitVideoPartResults []SplitVideoPartResultsItem `json:"SplitVideoPartResults" xml:"SplitVideoPartResults"`
+	Elements              []ElementsItem              `json:"Elements" xml:"Elements"`
+	Outputs               []Output                    `json:"Outputs" xml:"Outputs"`
 }

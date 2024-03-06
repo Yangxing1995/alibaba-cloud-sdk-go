@@ -81,8 +81,8 @@ type MountNFSRequest struct {
 // MountNFSResponse is the response struct for api MountNFS
 type MountNFSResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	InvokeId  string `json:"InvokeId" xml:"InvokeId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateMountNFSRequest creates a request to invoke MountNFS API
@@ -90,7 +90,7 @@ func CreateMountNFSRequest() (request *MountNFSRequest) {
 	request = &MountNFSRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "MountNFS", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "MountNFS", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

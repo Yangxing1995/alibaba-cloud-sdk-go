@@ -10,39 +10,44 @@ import (
 )
 
 var role_doc = `{
-		"Statement": [{
-		    "Action": "sts:AssumeRole",
-		    "Effect": "Allow",
-		    "Principal": {
-		     	"RAM": [
-				      "acs:ram::%s:root"
-		        ]
-            }
-	    }],
-	   "Version": "1"
+		"Statement": [
+			{
+				"Action": "sts:AssumeRole",
+				"Effect": "Allow",
+				"Principal": {
+					"RAM": [
+						"acs:ram::%s:root"
+					]
+				}
+			}
+		],
+		"Version": "1"
 	}`
 
 var (
-	travisValue = strings.Split(os.Getenv("TRAVIS_JOB_NUMBER"), ".")
-	username    = "test-user" + travisValue[len(travisValue)-1]
-	rolename    = "test-role" + travisValue[len(travisValue)-1]
-	rolearn     = fmt.Sprintf("acs:ram::%s:role/%s", os.Getenv("USER_ID"), rolename)
+	username = "test-user-" + os.Getenv("CONCURRENT_ID")
+	rolename = "test-role-" + os.Getenv("CONCURRENT_ID")
+	rolearn  = fmt.Sprintf("acs:ram::%s:role/%s", os.Getenv("USER_ID"), rolename)
 )
 
-func createRole(userid string) (string, string, error) {
+var ecsEndpoint = "ecs." + os.Getenv("REGION_ID") + ".aliyuncs.com"
+
+func createRole(userid string) (name string, arn string, err error) {
 	listRequest := ram.CreateListRolesRequest()
 	listRequest.Scheme = "HTTPS"
 	client, err := ram.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
 	if err != nil {
-		return "", "", err
+		return
 	}
 	listResponse, err := client.ListRoles(listRequest)
 	if err != nil {
-		return "", "", err
+		return
 	}
 	for _, role := range listResponse.Roles.Role {
 		if strings.ToLower(role.RoleName) == rolename {
-			return role.RoleName, role.Arn, nil
+			name = role.RoleName
+			arn = role.Arn
+			return
 		}
 	}
 	createRequest := ram.CreateCreateRoleRequest()
@@ -51,35 +56,34 @@ func createRole(userid string) (string, string, error) {
 	createRequest.AssumeRolePolicyDocument = fmt.Sprintf(role_doc, userid)
 	res, err := client.CreateRole(createRequest)
 	if err != nil {
-		return "", "", err
+		return
 	}
-	return res.Role.RoleName, res.Role.Arn, nil
+	name = res.Role.RoleName
+	arn = res.Role.Arn
+	return
 }
 
-func createUser() error {
+func createUser() (err error) {
 	listRequest := ram.CreateListUsersRequest()
 	listRequest.Scheme = "HTTPS"
 	client, err := ram.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
 	if err != nil {
-		return err
+		return
 	}
 	listResponse, err := client.ListUsers(listRequest)
 	if err != nil {
-		return err
+		return
 	}
 	for _, user := range listResponse.Users.User {
 		if user.UserName == username {
-			return nil
+			return
 		}
 	}
 	createRequest := ram.CreateCreateUserRequest()
 	createRequest.Scheme = "HTTPS"
 	createRequest.UserName = username
 	_, err = client.CreateUser(createRequest)
-	if err != nil {
-		return err
-	}
-	return nil
+	return
 }
 
 func createAttachPolicyToUser() error {
@@ -140,17 +144,17 @@ func createAttachPolicyToRole() error {
 	return nil
 }
 
-func createAccessKey() (string, string, error) {
+func createAccessKey() (id string, secret string, err error) {
 	client, err := ram.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
 	if err != nil {
-		return "", "", err
+		return
 	}
 	listrequest := ram.CreateListAccessKeysRequest()
 	listrequest.UserName = username
 	listrequest.Scheme = "HTTPS"
 	listresponse, err := client.ListAccessKeys(listrequest)
 	if err != nil {
-		return "", "", err
+		return
 	}
 	if listresponse.AccessKeys.AccessKey != nil {
 		if len(listresponse.AccessKeys.AccessKey) >= 2 {
@@ -159,9 +163,9 @@ func createAccessKey() (string, string, error) {
 			deleterequest.UserAccessKeyId = accesskey.AccessKeyId
 			deleterequest.UserName = username
 			deleterequest.Scheme = "HTTPS"
-			_, err := client.DeleteAccessKey(deleterequest)
+			_, err = client.DeleteAccessKey(deleterequest)
 			if err != nil {
-				return "", "", err
+				return
 			}
 		}
 	}
@@ -170,28 +174,32 @@ func createAccessKey() (string, string, error) {
 	request.UserName = username
 	response, err := client.CreateAccessKey(request)
 	if err != nil {
-		return "", "", err
+		return
 	}
 
-	return response.AccessKey.AccessKeyId, response.AccessKey.AccessKeySecret, nil
+	id = response.AccessKey.AccessKeyId
+	secret = response.AccessKey.AccessKeySecret
+	return
 }
 
-func createAssumeRole() (*sts.AssumeRoleResponse, error) {
-	subaccesskeyid, subaccesskeysecret, err := createAccessKey()
-	if err != nil {
-		return nil, err
-	}
+func createAssumeRole() (response *sts.AssumeRoleResponse, err error) {
 	err = createUser()
 	if err != nil {
-		return nil, err
+		return
 	}
+
+	subaccesskeyid, subaccesskeysecret, err := createAccessKey()
+	if err != nil {
+		return
+	}
+
 	_, _, err = createRole(os.Getenv("USER_ID"))
 	if err != nil {
-		return nil, err
+		return
 	}
 	err = createAttachPolicyToUser()
 	if err != nil {
-		return nil, err
+		return
 	}
 	request := sts.CreateAssumeRoleRequest()
 	request.RoleArn = rolearn
@@ -199,11 +207,8 @@ func createAssumeRole() (*sts.AssumeRoleResponse, error) {
 	request.Scheme = "HTTPS"
 	client, err := sts.NewClientWithAccessKey(os.Getenv("REGION_ID"), subaccesskeyid, subaccesskeysecret)
 	if err != nil {
-		return nil, err
+		return
 	}
-	response, err := client.AssumeRole(request)
-	if err != nil {
-		return nil, err
-	}
-	return response, nil
+	response, err = client.AssumeRole(request)
+	return
 }

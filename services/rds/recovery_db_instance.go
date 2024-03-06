@@ -98,8 +98,8 @@ type RecoveryDBInstanceRequest struct {
 // RecoveryDBInstanceResponse is the response struct for api RecoveryDBInstance
 type RecoveryDBInstanceResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
 	DBInstanceId string `json:"DBInstanceId" xml:"DBInstanceId"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
 	OrderId      string `json:"OrderId" xml:"OrderId"`
 }
 
@@ -108,7 +108,7 @@ func CreateRecoveryDBInstanceRequest() (request *RecoveryDBInstanceRequest) {
 	request = &RecoveryDBInstanceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "RecoveryDBInstance", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "RecoveryDBInstance", "", "")
 	request.Method = requests.POST
 	return
 }

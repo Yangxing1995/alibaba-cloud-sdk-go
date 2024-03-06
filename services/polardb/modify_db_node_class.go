@@ -74,6 +74,7 @@ type ModifyDBNodeClassRequest struct {
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
 	PlannedEndTime       string           `position:"Query" name:"PlannedEndTime"`
+	DBNodeType           string           `position:"Query" name:"DBNodeType"`
 	DBNodeTargetClass    string           `position:"Query" name:"DBNodeTargetClass"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	DBClusterId          string           `position:"Query" name:"DBClusterId"`
@@ -81,6 +82,7 @@ type ModifyDBNodeClassRequest struct {
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 	PlannedStartTime     string           `position:"Query" name:"PlannedStartTime"`
 	ModifyType           string           `position:"Query" name:"ModifyType"`
+	SubCategory          string           `position:"Query" name:"SubCategory"`
 }
 
 // ModifyDBNodeClassResponse is the response struct for api ModifyDBNodeClass

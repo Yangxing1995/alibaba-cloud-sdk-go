@@ -71,14 +71,24 @@ func (client *Client) AddServiceSourceWithCallback(request *AddServiceSourceRequ
 // AddServiceSourceRequest is the request struct for api AddServiceSource
 type AddServiceSourceRequest struct {
 	*requests.RpcRequest
-	GatewayUniqueId string           `position:"Query" name:"GatewayUniqueId"`
-	Source          string           `position:"Query" name:"Source"`
-	Type            string           `position:"Query" name:"Type"`
-	GatewayId       requests.Integer `position:"Query" name:"GatewayId"`
-	Address         string           `position:"Query" name:"Address"`
-	Info1           string           `position:"Query" name:"Info1"`
-	Name            string           `position:"Query" name:"Name"`
-	Info2           string           `position:"Query" name:"Info2"`
+	IngressOptionsRequest AddServiceSourceIngressOptionsRequest `position:"Query" name:"IngressOptionsRequest"  type:"Struct"`
+	MseSessionId          string                                `position:"Query" name:"MseSessionId"`
+	GatewayUniqueId       string                                `position:"Query" name:"GatewayUniqueId"`
+	Source                string                                `position:"Query" name:"Source"`
+	Type                  string                                `position:"Query" name:"Type"`
+	PathList              *[]string                             `position:"Query" name:"PathList"  type:"Json"`
+	Address               string                                `position:"Query" name:"Address"`
+	Name                  string                                `position:"Query" name:"Name"`
+	AcceptLanguage        string                                `position:"Query" name:"AcceptLanguage"`
+	GroupList             *[]string                             `position:"Query" name:"GroupList"  type:"Json"`
+}
+
+// AddServiceSourceIngressOptionsRequest is a repeated param struct in AddServiceSourceRequest
+type AddServiceSourceIngressOptionsRequest struct {
+	EnableStatus   string `name:"EnableStatus"`
+	EnableIngress  string `name:"EnableIngress"`
+	WatchNamespace string `name:"WatchNamespace"`
+	IngressClass   string `name:"IngressClass"`
 }
 
 // AddServiceSourceResponse is the response struct for api AddServiceSource
@@ -97,7 +107,7 @@ func CreateAddServiceSourceRequest() (request *AddServiceSourceRequest) {
 	request = &AddServiceSourceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "AddServiceSource", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "AddServiceSource", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

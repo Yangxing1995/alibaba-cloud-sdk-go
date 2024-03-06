@@ -17,7 +17,11 @@ package edas
 
 // ResultItem is a nested struct in edas response
 type ResultItem struct {
-	Total      int              `json:"Total" xml:"Total"`
-	ConfigMaps []ConfigMapsItem `json:"ConfigMaps" xml:"ConfigMaps"`
-	Secrets    []SecretsItem    `json:"Secrets" xml:"Secrets"`
+	Id          string `json:"Id" xml:"Id"`
+	Name        string `json:"Name" xml:"Name"`
+	Format      string `json:"Format" xml:"Format"`
+	Description string `json:"Description" xml:"Description"`
+	Content     string `json:"Content" xml:"Content"`
+	GmtCreate   int64  `json:"GmtCreate" xml:"GmtCreate"`
+	GmtModified int64  `json:"GmtModified" xml:"GmtModified"`
 }

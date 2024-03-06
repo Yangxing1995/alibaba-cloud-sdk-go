@@ -71,8 +71,9 @@ func (client *Client) RemoveUsersWithCallback(request *RemoveUsersRequest, callb
 // RemoveUsersRequest is the request struct for api RemoveUsers
 type RemoveUsersRequest struct {
 	*requests.RpcRequest
-	UserIdList string `position:"Query" name:"UserIdList"`
-	InstanceId string `position:"Query" name:"InstanceId"`
+	UserIdList string           `position:"Query" name:"UserIdList"`
+	InstanceId string           `position:"Query" name:"InstanceId"`
+	Force      requests.Boolean `position:"Query" name:"Force"`
 }
 
 // RemoveUsersResponse is the response struct for api RemoveUsers

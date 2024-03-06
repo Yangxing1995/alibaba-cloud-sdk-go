@@ -17,11 +17,11 @@ package ccc
 
 // Device is a nested struct in ccc response
 type Device struct {
-	CallId     string `json:"CallId" xml:"CallId"`
+	Extension  string `json:"Extension" xml:"Extension"`
+	Expires    int64  `json:"Expires" xml:"Expires"`
 	Contact    string `json:"Contact" xml:"Contact"`
 	DeviceId   string `json:"DeviceId" xml:"DeviceId"`
-	Expires    int64  `json:"Expires" xml:"Expires"`
-	Extension  string `json:"Extension" xml:"Extension"`
-	InstanceId string `json:"InstanceId" xml:"InstanceId"`
 	UserId     string `json:"UserId" xml:"UserId"`
+	CallId     string `json:"CallId" xml:"CallId"`
+	InstanceId string `json:"InstanceId" xml:"InstanceId"`
 }

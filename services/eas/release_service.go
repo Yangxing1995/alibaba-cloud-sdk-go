@@ -21,7 +21,6 @@ import (
 )
 
 // ReleaseService invokes the eas.ReleaseService API synchronously
-// api document: https://help.aliyun.com/api/eas/releaseservice.html
 func (client *Client) ReleaseService(request *ReleaseServiceRequest) (response *ReleaseServiceResponse, err error) {
 	response = CreateReleaseServiceResponse()
 	err = client.DoAction(request, response)
@@ -29,8 +28,6 @@ func (client *Client) ReleaseService(request *ReleaseServiceRequest) (response *
 }
 
 // ReleaseServiceWithChan invokes the eas.ReleaseService API asynchronously
-// api document: https://help.aliyun.com/api/eas/releaseservice.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) ReleaseServiceWithChan(request *ReleaseServiceRequest) (<-chan *ReleaseServiceResponse, <-chan error) {
 	responseChan := make(chan *ReleaseServiceResponse, 1)
 	errChan := make(chan error, 1)
@@ -53,8 +50,6 @@ func (client *Client) ReleaseServiceWithChan(request *ReleaseServiceRequest) (<-
 }
 
 // ReleaseServiceWithCallback invokes the eas.ReleaseService API asynchronously
-// api document: https://help.aliyun.com/api/eas/releaseservice.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) ReleaseServiceWithCallback(request *ReleaseServiceRequest, callback func(response *ReleaseServiceResponse, err error)) <-chan int {
 	result := make(chan int, 1)
 	err := client.AddAsyncTask(func() {
@@ -76,13 +71,16 @@ func (client *Client) ReleaseServiceWithCallback(request *ReleaseServiceRequest,
 // ReleaseServiceRequest is the request struct for api ReleaseService
 type ReleaseServiceRequest struct {
 	*requests.RoaRequest
-	ServiceName string `position:"Path" name:"service_name"`
-	Region      string `position:"Path" name:"region"`
+	ServiceName string `position:"Path" name:"ServiceName"`
+	ClusterId   string `position:"Path" name:"ClusterId"`
+	Body        string `position:"Body" name:"body"`
 }
 
 // ReleaseServiceResponse is the response struct for api ReleaseService
 type ReleaseServiceResponse struct {
 	*responses.BaseResponse
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Message   string `json:"Message" xml:"Message"`
 }
 
 // CreateReleaseServiceRequest creates a request to invoke ReleaseService API
@@ -90,7 +88,7 @@ func CreateReleaseServiceRequest() (request *ReleaseServiceRequest) {
 	request = &ReleaseServiceRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("eas", "2018-05-22", "ReleaseService", "/api/services/[region]/[service_name]/release", "", "")
+	request.InitWithApiInfo("eas", "2021-07-01", "ReleaseService", "/api/v2/services/[ClusterId]/[ServiceName]/release", "eas", "openAPI")
 	request.Method = requests.PUT
 	return
 }

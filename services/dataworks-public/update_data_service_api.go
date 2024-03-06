@@ -73,28 +73,29 @@ type UpdateDataServiceApiRequest struct {
 	*requests.RpcRequest
 	ScriptDetails       string           `position:"Body" name:"ScriptDetails"`
 	RequestMethod       requests.Integer `position:"Body" name:"RequestMethod"`
-	ApiPath             string           `position:"Body" name:"ApiPath"`
-	WizardDetails       string           `position:"Body" name:"WizardDetails"`
-	VisibleRange        requests.Integer `position:"Body" name:"VisibleRange"`
 	ApiDescription      string           `position:"Body" name:"ApiDescription"`
 	Timeout             requests.Integer `position:"Body" name:"Timeout"`
-	RegistrationDetails string           `position:"Body" name:"RegistrationDetails"`
+	ResourceGroupId     requests.Integer `position:"Body" name:"ResourceGroupId"`
 	TenantId            requests.Integer `position:"Body" name:"TenantId"`
 	Protocols           string           `position:"Body" name:"Protocols"`
 	ProjectId           requests.Integer `position:"Body" name:"ProjectId"`
-	ApiId               requests.Integer `position:"Body" name:"ApiId"`
 	ResponseContentType requests.Integer `position:"Body" name:"ResponseContentType"`
+	ApiPath             string           `position:"Body" name:"ApiPath"`
+	WizardDetails       string           `position:"Body" name:"WizardDetails"`
+	VisibleRange        requests.Integer `position:"Body" name:"VisibleRange"`
+	RegistrationDetails string           `position:"Body" name:"RegistrationDetails"`
+	ApiId               requests.Integer `position:"Body" name:"ApiId"`
 }
 
 // UpdateDataServiceApiResponse is the response struct for api UpdateDataServiceApi
 type UpdateDataServiceApiResponse struct {
 	*responses.BaseResponse
-	Data           bool   `json:"Data" xml:"Data"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Success        bool   `json:"Success" xml:"Success"`
+	Data           bool   `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateUpdateDataServiceApiRequest creates a request to invoke UpdateDataServiceApi API

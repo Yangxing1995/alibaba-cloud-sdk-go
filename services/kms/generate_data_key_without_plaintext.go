@@ -71,19 +71,19 @@ func (client *Client) GenerateDataKeyWithoutPlaintextWithCallback(request *Gener
 // GenerateDataKeyWithoutPlaintextRequest is the request struct for api GenerateDataKeyWithoutPlaintext
 type GenerateDataKeyWithoutPlaintextRequest struct {
 	*requests.RpcRequest
-	EncryptionContext string           `position:"Query" name:"EncryptionContext"`
 	KeyId             string           `position:"Query" name:"KeyId"`
 	KeySpec           string           `position:"Query" name:"KeySpec"`
 	NumberOfBytes     requests.Integer `position:"Query" name:"NumberOfBytes"`
+	EncryptionContext string           `position:"Query" name:"EncryptionContext"`
 }
 
 // GenerateDataKeyWithoutPlaintextResponse is the response struct for api GenerateDataKeyWithoutPlaintext
 type GenerateDataKeyWithoutPlaintextResponse struct {
 	*responses.BaseResponse
-	CiphertextBlob string `json:"CiphertextBlob" xml:"CiphertextBlob"`
-	KeyId          string `json:"KeyId" xml:"KeyId"`
-	RequestId      string `json:"RequestId" xml:"RequestId"`
 	KeyVersionId   string `json:"KeyVersionId" xml:"KeyVersionId"`
+	KeyId          string `json:"KeyId" xml:"KeyId"`
+	CiphertextBlob string `json:"CiphertextBlob" xml:"CiphertextBlob"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateGenerateDataKeyWithoutPlaintextRequest creates a request to invoke GenerateDataKeyWithoutPlaintext API

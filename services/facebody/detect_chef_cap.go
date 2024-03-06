@@ -71,14 +71,17 @@ func (client *Client) DetectChefCapWithCallback(request *DetectChefCapRequest, c
 // DetectChefCapRequest is the request struct for api DetectChefCap
 type DetectChefCapRequest struct {
 	*requests.RpcRequest
-	ImageURL string `position:"Body" name:"ImageURL"`
+	FormatResultToJson requests.Boolean `position:"Query" name:"FormatResultToJson"`
+	OssFile            string           `position:"Query" name:"OssFile"`
+	RequestProxyBy     string           `position:"Query" name:"RequestProxyBy"`
+	ImageURL           string           `position:"Body" name:"ImageURL"`
 }
 
 // DetectChefCapResponse is the response struct for api DetectChefCap
 type DetectChefCapResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Data      Data   `json:"Data" xml:"Data"`
+	RequestId string              `json:"RequestId" xml:"RequestId"`
+	Data      DataInDetectChefCap `json:"Data" xml:"Data"`
 }
 
 // CreateDetectChefCapRequest creates a request to invoke DetectChefCap API

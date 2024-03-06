@@ -71,10 +71,10 @@ func (client *Client) DescribeEventRuleListWithCallback(request *DescribeEventRu
 // DescribeEventRuleListRequest is the request struct for api DescribeEventRuleList
 type DescribeEventRuleListRequest struct {
 	*requests.RpcRequest
-	GroupId    string `position:"Query" name:"GroupId"`
 	PageNumber string `position:"Query" name:"PageNumber"`
 	PageSize   string `position:"Query" name:"PageSize"`
 	NamePrefix string `position:"Query" name:"NamePrefix"`
+	GroupId    string `position:"Query" name:"GroupId"`
 }
 
 // DescribeEventRuleListResponse is the response struct for api DescribeEventRuleList

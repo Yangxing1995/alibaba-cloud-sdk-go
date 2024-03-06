@@ -77,11 +77,11 @@ type AbortChangeOrderRequest struct {
 // AbortChangeOrderResponse is the response struct for api AbortChangeOrder
 type AbortChangeOrderResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
+	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 
@@ -90,7 +90,7 @@ func CreateAbortChangeOrderRequest() (request *AbortChangeOrderRequest) {
 	request = &AbortChangeOrderRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "AbortChangeOrder", "/pop/v5/changeorder/change_order_abort", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "AbortChangeOrder", "/pop/v5/changeorder/change_order_abort", "Edas", "openAPI")
 	request.Method = requests.PUT
 	return
 }

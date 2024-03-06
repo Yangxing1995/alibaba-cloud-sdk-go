@@ -73,6 +73,7 @@ type ListAttemptsRequest struct {
 	*requests.RpcRequest
 	ContactId  string           `position:"Query" name:"ContactId"`
 	CampaignId string           `position:"Query" name:"CampaignId"`
+	Criteria   string           `position:"Query" name:"Criteria"`
 	Callee     string           `position:"Query" name:"Callee"`
 	StartTime  requests.Integer `position:"Query" name:"StartTime"`
 	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
@@ -89,11 +90,11 @@ type ListAttemptsRequest struct {
 // ListAttemptsResponse is the response struct for api ListAttempts
 type ListAttemptsResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Data           Data   `json:"Data" xml:"Data"`
+	Code           string             `json:"Code" xml:"Code"`
+	HttpStatusCode int                `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Message        string             `json:"Message" xml:"Message"`
+	RequestId      string             `json:"RequestId" xml:"RequestId"`
+	Data           DataInListAttempts `json:"Data" xml:"Data"`
 }
 
 // CreateListAttemptsRequest creates a request to invoke ListAttempts API

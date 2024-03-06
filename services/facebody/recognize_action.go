@@ -71,10 +71,13 @@ func (client *Client) RecognizeActionWithCallback(request *RecognizeActionReques
 // RecognizeActionRequest is the request struct for api RecognizeAction
 type RecognizeActionRequest struct {
 	*requests.RpcRequest
-	Type      requests.Integer          `position:"Body" name:"Type"`
-	VideoData string                    `position:"Body" name:"VideoData"`
-	URLList   *[]RecognizeActionURLList `position:"Body" name:"URLList"  type:"Repeated"`
-	VideoUrl  string                    `position:"Body" name:"VideoUrl"`
+	FormatResultToJson requests.Boolean          `position:"Query" name:"FormatResultToJson"`
+	Type               requests.Integer          `position:"Body" name:"Type"`
+	OssFile            string                    `position:"Query" name:"OssFile"`
+	VideoData          string                    `position:"Body" name:"VideoData"`
+	URLList            *[]RecognizeActionURLList `position:"Body" name:"URLList"  type:"Repeated"`
+	RequestProxyBy     string                    `position:"Query" name:"RequestProxyBy"`
+	VideoUrl           string                    `position:"Body" name:"VideoUrl"`
 }
 
 // RecognizeActionURLList is a repeated param struct in RecognizeActionRequest
@@ -86,8 +89,8 @@ type RecognizeActionURLList struct {
 // RecognizeActionResponse is the response struct for api RecognizeAction
 type RecognizeActionResponse struct {
 	*responses.BaseResponse
-	RequestId string                `json:"RequestId" xml:"RequestId"`
-	Data      DataInRecognizeAction `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Data      Data   `json:"Data" xml:"Data"`
 }
 
 // CreateRecognizeActionRequest creates a request to invoke RecognizeAction API

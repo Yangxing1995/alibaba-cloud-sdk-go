@@ -72,37 +72,41 @@ func (client *Client) UpgradeLindormInstanceWithCallback(request *UpgradeLindorm
 type UpgradeLindormInstanceRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	PhoenixCoreNum       requests.Integer `position:"Query" name:"PhoenixCoreNum"`
-	PhoenixCoreSpec      string           `position:"Query" name:"PhoenixCoreSpec"`
+	LogSpec              string           `position:"Query" name:"LogSpec"`
+	SecurityToken        string           `position:"Query" name:"SecurityToken"`
+	TsdbNum              requests.Integer `position:"Query" name:"TsdbNum"`
+	SolrNum              requests.Integer `position:"Query" name:"SolrNum"`
+	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	LindormNum           requests.Integer `position:"Query" name:"LindormNum"`
+	LtsCoreNum           requests.Integer `position:"Query" name:"LtsCoreNum"`
+	InstanceId           string           `position:"Query" name:"InstanceId"`
+	MlNum                requests.Integer `position:"Query" name:"MlNum"`
+	StreamNum            requests.Integer `position:"Query" name:"StreamNum"`
+	LogSingleStorage     requests.Integer `position:"Query" name:"LogSingleStorage"`
+	ZoneId               string           `position:"Query" name:"ZoneId"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
 	UpgradeType          string           `position:"Query" name:"UpgradeType"`
 	TsdbSpec             string           `position:"Query" name:"TsdbSpec"`
 	FilestoreSpec        string           `position:"Query" name:"FilestoreSpec"`
-	SecurityToken        string           `position:"Query" name:"SecurityToken"`
-	TsdbNum              requests.Integer `position:"Query" name:"TsdbNum"`
 	LindormSpec          string           `position:"Query" name:"LindormSpec"`
-	SolrNum              requests.Integer `position:"Query" name:"SolrNum"`
 	ColdStorage          requests.Integer `position:"Query" name:"ColdStorage"`
+	LogNum               requests.Integer `position:"Query" name:"LogNum"`
 	SolrSpec             string           `position:"Query" name:"SolrSpec"`
+	CoreSingleStorage    requests.Integer `position:"Query" name:"CoreSingleStorage"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
 	FilestoreNum         requests.Integer `position:"Query" name:"FilestoreNum"`
-	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
-	LindormNum           requests.Integer `position:"Query" name:"LindormNum"`
-	CoreSpec             string           `position:"Query" name:"CoreSpec"`
-	CoreNum              requests.Integer `position:"Query" name:"CoreNum"`
-	LtsCoreNum           requests.Integer `position:"Query" name:"LtsCoreNum"`
-	InstanceId           string           `position:"Query" name:"InstanceId"`
+	StreamSpec           string           `position:"Query" name:"StreamSpec"`
+	MlSpec               string           `position:"Query" name:"MlSpec"`
 	LtsCoreSpec          string           `position:"Query" name:"LtsCoreSpec"`
 	ClusterStorage       requests.Integer `position:"Query" name:"ClusterStorage"`
-	ZoneId               string           `position:"Query" name:"ZoneId"`
 }
 
 // UpgradeLindormInstanceResponse is the response struct for api UpgradeLindormInstance
 type UpgradeLindormInstanceResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	OrderId   int64  `json:"OrderId" xml:"OrderId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpgradeLindormInstanceRequest creates a request to invoke UpgradeLindormInstance API

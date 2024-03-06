@@ -78,13 +78,13 @@ type DescribeJobGroupExportTaskProgressRequest struct {
 // DescribeJobGroupExportTaskProgressResponse is the response struct for api DescribeJobGroupExportTaskProgress
 type DescribeJobGroupExportTaskProgressResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int     `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	FileHttpUrl    string  `json:"FileHttpUrl" xml:"FileHttpUrl"`
+	Progress       float64 `json:"Progress" xml:"Progress"`
 	RequestId      string  `json:"RequestId" xml:"RequestId"`
 	Success        bool    `json:"Success" xml:"Success"`
 	Code           string  `json:"Code" xml:"Code"`
 	Message        string  `json:"Message" xml:"Message"`
-	HttpStatusCode int     `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	FileHttpUrl    string  `json:"FileHttpUrl" xml:"FileHttpUrl"`
-	Progress       float64 `json:"Progress" xml:"Progress"`
 }
 
 // CreateDescribeJobGroupExportTaskProgressRequest creates a request to invoke DescribeJobGroupExportTaskProgress API
@@ -92,7 +92,7 @@ func CreateDescribeJobGroupExportTaskProgressRequest() (request *DescribeJobGrou
 	request = &DescribeJobGroupExportTaskProgressRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeJobGroupExportTaskProgress", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeJobGroupExportTaskProgress", "", "")
 	request.Method = requests.POST
 	return
 }

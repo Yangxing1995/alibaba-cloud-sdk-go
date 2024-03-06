@@ -17,11 +17,12 @@ package outboundbot
 
 // TTSConfig is a nested struct in outboundbot response
 type TTSConfig struct {
-	SpeechRate  string `json:"SpeechRate" xml:"SpeechRate"`
-	TTSConfigId string `json:"TTSConfigId" xml:"TTSConfigId"`
-	ScriptId    string `json:"ScriptId" xml:"ScriptId"`
-	InstanceId  string `json:"InstanceId" xml:"InstanceId"`
-	Volume      string `json:"Volume" xml:"Volume"`
-	Id          string `json:"Id" xml:"Id"`
-	Voice       string `json:"Voice" xml:"Voice"`
+	SpeechRate     string `json:"SpeechRate" xml:"SpeechRate"`
+	NlsServiceType string `json:"NlsServiceType" xml:"NlsServiceType"`
+	TTSConfigId    string `json:"TTSConfigId" xml:"TTSConfigId"`
+	AppKey         string `json:"AppKey" xml:"AppKey"`
+	ScriptId       string `json:"ScriptId" xml:"ScriptId"`
+	InstanceId     string `json:"InstanceId" xml:"InstanceId"`
+	Volume         string `json:"Volume" xml:"Volume"`
+	Voice          string `json:"Voice" xml:"Voice"`
 }

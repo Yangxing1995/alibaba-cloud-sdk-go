@@ -73,27 +73,27 @@ type DescribeFullBackupListRequest struct {
 	*requests.RpcRequest
 	ClientToken     string           `position:"Query" name:"ClientToken"`
 	BackupPlanId    string           `position:"Query" name:"BackupPlanId"`
-	BackupSetId     string           `position:"Query" name:"BackupSetId"`
 	PageNum         requests.Integer `position:"Query" name:"PageNum"`
-	OwnerId         string           `position:"Query" name:"OwnerId"`
 	StartTimestamp  requests.Integer `position:"Query" name:"StartTimestamp"`
 	EndTimestamp    requests.Integer `position:"Query" name:"EndTimestamp"`
 	ShowStorageType requests.Boolean `position:"Query" name:"ShowStorageType"`
 	PageSize        requests.Integer `position:"Query" name:"PageSize"`
+	BackupSetId     string           `position:"Query" name:"BackupSetId"`
+	OwnerId         string           `position:"Query" name:"OwnerId"`
 }
 
 // DescribeFullBackupListResponse is the response struct for api DescribeFullBackupList
 type DescribeFullBackupListResponse struct {
 	*responses.BaseResponse
-	Success        bool                          `json:"Success" xml:"Success"`
-	ErrCode        string                        `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string                        `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int                           `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	RequestId      string                        `json:"RequestId" xml:"RequestId"`
-	TotalPages     int                           `json:"TotalPages" xml:"TotalPages"`
-	PageSize       int                           `json:"PageSize" xml:"PageSize"`
 	PageNum        int                           `json:"PageNum" xml:"PageNum"`
+	RequestId      string                        `json:"RequestId" xml:"RequestId"`
+	ErrCode        string                        `json:"ErrCode" xml:"ErrCode"`
+	Success        bool                          `json:"Success" xml:"Success"`
+	ErrMessage     string                        `json:"ErrMessage" xml:"ErrMessage"`
+	TotalPages     int                           `json:"TotalPages" xml:"TotalPages"`
 	TotalElements  int                           `json:"TotalElements" xml:"TotalElements"`
+	PageSize       int                           `json:"PageSize" xml:"PageSize"`
 	Items          ItemsInDescribeFullBackupList `json:"Items" xml:"Items"`
 }
 

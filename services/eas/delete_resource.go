@@ -21,7 +21,6 @@ import (
 )
 
 // DeleteResource invokes the eas.DeleteResource API synchronously
-// api document: https://help.aliyun.com/api/eas/deleteresource.html
 func (client *Client) DeleteResource(request *DeleteResourceRequest) (response *DeleteResourceResponse, err error) {
 	response = CreateDeleteResourceResponse()
 	err = client.DoAction(request, response)
@@ -29,8 +28,6 @@ func (client *Client) DeleteResource(request *DeleteResourceRequest) (response *
 }
 
 // DeleteResourceWithChan invokes the eas.DeleteResource API asynchronously
-// api document: https://help.aliyun.com/api/eas/deleteresource.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) DeleteResourceWithChan(request *DeleteResourceRequest) (<-chan *DeleteResourceResponse, <-chan error) {
 	responseChan := make(chan *DeleteResourceResponse, 1)
 	errChan := make(chan error, 1)
@@ -53,8 +50,6 @@ func (client *Client) DeleteResourceWithChan(request *DeleteResourceRequest) (<-
 }
 
 // DeleteResourceWithCallback invokes the eas.DeleteResource API asynchronously
-// api document: https://help.aliyun.com/api/eas/deleteresource.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) DeleteResourceWithCallback(request *DeleteResourceRequest, callback func(response *DeleteResourceResponse, err error)) <-chan int {
 	result := make(chan int, 1)
 	err := client.AddAsyncTask(func() {
@@ -76,13 +71,15 @@ func (client *Client) DeleteResourceWithCallback(request *DeleteResourceRequest,
 // DeleteResourceRequest is the request struct for api DeleteResource
 type DeleteResourceRequest struct {
 	*requests.RoaRequest
-	ClusterId    string `position:"Path" name:"cluster_id"`
-	ResourceName string `position:"Path" name:"resource_name"`
+	ResourceId string `position:"Path" name:"ResourceId"`
+	ClusterId  string `position:"Path" name:"ClusterId"`
 }
 
 // DeleteResourceResponse is the response struct for api DeleteResource
 type DeleteResourceResponse struct {
 	*responses.BaseResponse
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Message   string `json:"Message" xml:"Message"`
 }
 
 // CreateDeleteResourceRequest creates a request to invoke DeleteResource API
@@ -90,7 +87,7 @@ func CreateDeleteResourceRequest() (request *DeleteResourceRequest) {
 	request = &DeleteResourceRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("eas", "2018-05-22", "DeleteResource", "/api/resources/[cluster_id]/[resource_name]", "", "")
+	request.InitWithApiInfo("eas", "2021-07-01", "DeleteResource", "/api/v2/resources/[ClusterId]/[ResourceId]", "eas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

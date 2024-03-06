@@ -74,13 +74,14 @@ type DescribeParameterGroupsRequest struct {
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 }
 
 // DescribeParameterGroupsResponse is the response struct for api DescribeParameterGroups
 type DescribeParameterGroupsResponse struct {
 	*responses.BaseResponse
-	RequestId               string          `json:"RequestId" xml:"RequestId"`
 	SignalForOptimizeParams bool            `json:"SignalForOptimizeParams" xml:"SignalForOptimizeParams"`
+	RequestId               string          `json:"RequestId" xml:"RequestId"`
 	ParameterGroups         ParameterGroups `json:"ParameterGroups" xml:"ParameterGroups"`
 }
 
@@ -89,7 +90,7 @@ func CreateDescribeParameterGroupsRequest() (request *DescribeParameterGroupsReq
 	request = &DescribeParameterGroupsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeParameterGroups", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeParameterGroups", "", "")
 	request.Method = requests.POST
 	return
 }

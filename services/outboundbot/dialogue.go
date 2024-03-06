@@ -72,6 +72,7 @@ func (client *Client) DialogueWithCallback(request *DialogueRequest, callback fu
 type DialogueRequest struct {
 	*requests.RpcRequest
 	CallId          string           `position:"Query" name:"CallId"`
+	ScriptId        string           `position:"Query" name:"ScriptId"`
 	InstanceOwnerId requests.Integer `position:"Query" name:"InstanceOwnerId"`
 	CalledNumber    string           `position:"Query" name:"CalledNumber"`
 	CallType        string           `position:"Query" name:"CallType"`
@@ -87,8 +88,8 @@ type DialogueRequest struct {
 // DialogueResponse is the response struct for api Dialogue
 type DialogueResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
 	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string   `json:"Code" xml:"Code"`
 	Message        string   `json:"Message" xml:"Message"`
 	RequestId      string   `json:"RequestId" xml:"RequestId"`
 	Success        bool     `json:"Success" xml:"Success"`
@@ -100,7 +101,7 @@ func CreateDialogueRequest() (request *DialogueRequest) {
 	request = &DialogueRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "Dialogue", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "Dialogue", "", "")
 	request.Method = requests.POST
 	return
 }

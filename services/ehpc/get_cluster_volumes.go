@@ -77,8 +77,8 @@ type GetClusterVolumesRequest struct {
 // GetClusterVolumesResponse is the response struct for api GetClusterVolumes
 type GetClusterVolumesResponse struct {
 	*responses.BaseResponse
-	RequestId string                     `json:"RequestId" xml:"RequestId"`
 	RegionId  string                     `json:"RegionId" xml:"RegionId"`
+	RequestId string                     `json:"RequestId" xml:"RequestId"`
 	Volumes   VolumesInGetClusterVolumes `json:"Volumes" xml:"Volumes"`
 }
 
@@ -87,7 +87,7 @@ func CreateGetClusterVolumesRequest() (request *GetClusterVolumesRequest) {
 	request = &GetClusterVolumesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "GetClusterVolumes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "GetClusterVolumes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

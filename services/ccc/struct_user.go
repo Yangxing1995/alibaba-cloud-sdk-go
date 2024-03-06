@@ -21,10 +21,11 @@ type User struct {
 	RoleId      string `json:"RoleId" xml:"RoleId"`
 	Mobile      string `json:"Mobile" xml:"Mobile"`
 	Email       string `json:"Email" xml:"Email"`
-	InstanceId  string `json:"InstanceId" xml:"InstanceId"`
 	LoginName   string `json:"LoginName" xml:"LoginName"`
 	UserId      string `json:"UserId" xml:"UserId"`
+	InstanceId  string `json:"InstanceId" xml:"InstanceId"`
 	Extension   string `json:"Extension" xml:"Extension"`
 	DisplayName string `json:"DisplayName" xml:"DisplayName"`
 	RoleName    string `json:"RoleName" xml:"RoleName"`
+	RamId       string `json:"RamId" xml:"RamId"`
 }

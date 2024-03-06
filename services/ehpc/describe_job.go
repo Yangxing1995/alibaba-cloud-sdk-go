@@ -71,8 +71,9 @@ func (client *Client) DescribeJobWithCallback(request *DescribeJobRequest, callb
 // DescribeJobRequest is the request struct for api DescribeJob
 type DescribeJobRequest struct {
 	*requests.RpcRequest
-	ClusterId string `position:"Query" name:"ClusterId"`
-	JobId     string `position:"Query" name:"JobId"`
+	ClusterId string           `position:"Query" name:"ClusterId"`
+	JobId     string           `position:"Query" name:"JobId"`
+	Async     requests.Boolean `position:"Query" name:"Async"`
 }
 
 // DescribeJobResponse is the response struct for api DescribeJob
@@ -87,7 +88,7 @@ func CreateDescribeJobRequest() (request *DescribeJobRequest) {
 	request = &DescribeJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "DescribeJob", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "DescribeJob", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

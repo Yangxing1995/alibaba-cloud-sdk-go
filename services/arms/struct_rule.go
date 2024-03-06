@@ -17,10 +17,10 @@ package arms
 
 // Rule is a nested struct in arms response
 type Rule struct {
-	Aggregates string  `json:"Aggregates" xml:"Aggregates"`
-	Alias      string  `json:"Alias" xml:"Alias"`
 	Measure    string  `json:"Measure" xml:"Measure"`
+	Value      float64 `json:"Value" xml:"Value"`
+	Aggregates string  `json:"Aggregates" xml:"Aggregates"`
 	NValue     int     `json:"NValue" xml:"NValue"`
 	Operator   string  `json:"Operator" xml:"Operator"`
-	Value      float64 `json:"Value" xml:"Value"`
+	Alias      string  `json:"Alias" xml:"Alias"`
 }

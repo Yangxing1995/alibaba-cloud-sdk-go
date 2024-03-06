@@ -17,8 +17,7 @@ package dts
 
 // MigrationMode is a nested struct in dts response
 type MigrationMode struct {
-	DataInitialization       bool `json:"dataInitialization" xml:"dataInitialization"`
-	DataExtractTransformLoad bool `json:"DataExtractTransformLoad" xml:"DataExtractTransformLoad"`
-	StructureInitialization  bool `json:"StructureInitialization" xml:"StructureInitialization"`
-	DataSynchronization      bool `json:"dataSynchronization" xml:"dataSynchronization"`
+	DataInitialization      bool `json:"dataInitialization" xml:"dataInitialization"`
+	StructureInitialization bool `json:"StructureInitialization" xml:"StructureInitialization"`
+	DataSynchronization     bool `json:"dataSynchronization" xml:"dataSynchronization"`
 }

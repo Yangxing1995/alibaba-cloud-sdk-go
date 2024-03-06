@@ -73,9 +73,11 @@ type ListCallDetailRecordsRequest struct {
 	*requests.RpcRequest
 	ContactId                   string           `position:"Query" name:"ContactId"`
 	Criteria                    string           `position:"Query" name:"Criteria"`
+	ContactDispositionList      string           `position:"Query" name:"ContactDispositionList"`
 	OrderByField                string           `position:"Query" name:"OrderByField"`
 	StartTime                   requests.Integer `position:"Query" name:"StartTime"`
 	PageNumber                  requests.Integer `position:"Query" name:"PageNumber"`
+	EarlyMediaStateList         string           `position:"Query" name:"EarlyMediaStateList"`
 	CalledNumber                string           `position:"Query" name:"CalledNumber"`
 	SatisfactionList            string           `position:"Query" name:"SatisfactionList"`
 	PageSize                    requests.Integer `position:"Query" name:"PageSize"`
@@ -83,6 +85,7 @@ type ListCallDetailRecordsRequest struct {
 	SatisfactionDescriptionList string           `position:"Query" name:"SatisfactionDescriptionList"`
 	AgentId                     string           `position:"Query" name:"AgentId"`
 	ContactType                 string           `position:"Query" name:"ContactType"`
+	ContactTypeList             string           `position:"Query" name:"ContactTypeList"`
 	SatisfactionSurveyChannel   string           `position:"Query" name:"SatisfactionSurveyChannel"`
 	EndTime                     requests.Integer `position:"Query" name:"EndTime"`
 	CallingNumber               string           `position:"Query" name:"CallingNumber"`

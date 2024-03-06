@@ -71,19 +71,19 @@ func (client *Client) GetMetaTableListByCategoryWithCallback(request *GetMetaTab
 // GetMetaTableListByCategoryRequest is the request struct for api GetMetaTableListByCategory
 type GetMetaTableListByCategoryRequest struct {
 	*requests.RpcRequest
-	PageSize   requests.Integer `position:"Query" name:"PageSize"`
 	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
+	PageSize   requests.Integer `position:"Query" name:"PageSize"`
 	CategoryId requests.Integer `position:"Query" name:"CategoryId"`
 }
 
 // GetMetaTableListByCategoryResponse is the response struct for api GetMetaTableListByCategory
 type GetMetaTableListByCategoryResponse struct {
 	*responses.BaseResponse
-	RequestId      string                           `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string                           `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                           `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                              `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string                           `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string                           `json:"RequestId" xml:"RequestId"`
 	Success        bool                             `json:"Success" xml:"Success"`
+	ErrorCode      string                           `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInGetMetaTableListByCategory `json:"Data" xml:"Data"`
 }
 

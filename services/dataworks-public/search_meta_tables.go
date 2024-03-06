@@ -71,6 +71,7 @@ func (client *Client) SearchMetaTablesWithCallback(request *SearchMetaTablesRequ
 // SearchMetaTablesRequest is the request struct for api SearchMetaTables
 type SearchMetaTablesRequest struct {
 	*requests.RpcRequest
+	Schema         string           `position:"Query" name:"Schema"`
 	DataSourceType string           `position:"Query" name:"DataSourceType"`
 	ClusterId      string           `position:"Query" name:"ClusterId"`
 	PageNumber     requests.Integer `position:"Query" name:"PageNumber"`
@@ -83,11 +84,11 @@ type SearchMetaTablesRequest struct {
 // SearchMetaTablesResponse is the response struct for api SearchMetaTables
 type SearchMetaTablesResponse struct {
 	*responses.BaseResponse
-	RequestId      string                 `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string                 `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                 `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string                 `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string                 `json:"RequestId" xml:"RequestId"`
 	Success        bool                   `json:"Success" xml:"Success"`
+	ErrorCode      string                 `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInSearchMetaTables `json:"Data" xml:"Data"`
 }
 

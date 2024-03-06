@@ -79,14 +79,14 @@ type DescribeIntentStatisticsRequest struct {
 // DescribeIntentStatisticsResponse is the response struct for api DescribeIntentStatistics
 type DescribeIntentStatisticsResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode       int                    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId            string                 `json:"RequestId" xml:"RequestId"`
+	GroupId              string                 `json:"GroupId" xml:"GroupId"`
 	Success              bool                   `json:"Success" xml:"Success"`
 	Code                 string                 `json:"Code" xml:"Code"`
 	Message              string                 `json:"Message" xml:"Message"`
-	HttpStatusCode       int                    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	InstanceId           string                 `json:"InstanceId" xml:"InstanceId"`
-	GroupId              string                 `json:"GroupId" xml:"GroupId"`
 	ProcessIntentNum     int                    `json:"ProcessIntentNum" xml:"ProcessIntentNum"`
+	InstanceId           string                 `json:"InstanceId" xml:"InstanceId"`
 	GlobalIntentNum      int                    `json:"GlobalIntentNum" xml:"GlobalIntentNum"`
 	ProcessIntents       []IntentStatisticsItem `json:"ProcessIntents" xml:"ProcessIntents"`
 	GlobalIntents        []IntentStatisticsItem `json:"GlobalIntents" xml:"GlobalIntents"`
@@ -98,7 +98,7 @@ func CreateDescribeIntentStatisticsRequest() (request *DescribeIntentStatisticsR
 	request = &DescribeIntentStatisticsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeIntentStatistics", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeIntentStatistics", "", "")
 	request.Method = requests.POST
 	return
 }

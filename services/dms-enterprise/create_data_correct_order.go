@@ -72,10 +72,10 @@ func (client *Client) CreateDataCorrectOrderWithCallback(request *CreateDataCorr
 type CreateDataCorrectOrderRequest struct {
 	*requests.RpcRequest
 	Tid             requests.Integer            `position:"Query" name:"Tid"`
-	AttachmentKey   string                      `position:"Query" name:"AttachmentKey"`
 	Param           CreateDataCorrectOrderParam `position:"Query" name:"Param"  type:"Struct"`
-	Comment         string                      `position:"Query" name:"Comment"`
 	RelatedUserList *[]string                   `position:"Query" name:"RelatedUserList"  type:"Json"`
+	AttachmentKey   string                      `position:"Query" name:"AttachmentKey"`
+	Comment         string                      `position:"Query" name:"Comment"`
 }
 
 // CreateDataCorrectOrderParam is a repeated param struct in CreateDataCorrectOrderRequest
@@ -86,6 +86,7 @@ type CreateDataCorrectOrderParam struct {
 	RollbackSqlType        string                                       `name:"RollbackSqlType"`
 	DbItemList             *[]CreateDataCorrectOrderParamDbItemListItem `name:"DbItemList" type:"Repeated"`
 	ExecSQL                string                                       `name:"ExecSQL"`
+	ExecMode               string                                       `name:"ExecMode"`
 	EstimateAffectRows     string                                       `name:"EstimateAffectRows"`
 	RollbackAttachmentName string                                       `name:"RollbackAttachmentName"`
 	AttachmentName         string                                       `name:"AttachmentName"`

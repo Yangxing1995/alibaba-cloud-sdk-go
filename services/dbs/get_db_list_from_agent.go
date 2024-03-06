@@ -74,18 +74,18 @@ type GetDBListFromAgentRequest struct {
 	SourceEndpointRegion string           `position:"Query" name:"SourceEndpointRegion"`
 	BackupGatewayId      requests.Integer `position:"Query" name:"BackupGatewayId"`
 	ClientToken          string           `position:"Query" name:"ClientToken"`
-	OwnerId              string           `position:"Query" name:"OwnerId"`
 	TaskId               requests.Integer `position:"Query" name:"TaskId"`
+	OwnerId              string           `position:"Query" name:"OwnerId"`
 }
 
 // GetDBListFromAgentResponse is the response struct for api GetDBListFromAgent
 type GetDBListFromAgentResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	DbList         DbList `json:"DbList" xml:"DbList"`
 }
 

@@ -17,11 +17,11 @@ package ccc
 
 // RamUser is a nested struct in ccc response
 type RamUser struct {
-	AliyunUid   int64  `json:"AliyunUid" xml:"AliyunUid"`
 	DisplayName string `json:"DisplayName" xml:"DisplayName"`
 	Email       string `json:"Email" xml:"Email"`
 	LoginName   string `json:"LoginName" xml:"LoginName"`
 	Mobile      string `json:"Mobile" xml:"Mobile"`
+	AliyunUid   int64  `json:"AliyunUid" xml:"AliyunUid"`
 	Primary     bool   `json:"Primary" xml:"Primary"`
 	RamId       string `json:"RamId" xml:"RamId"`
 }

@@ -71,9 +71,9 @@ func (client *Client) GetJobInstanceWithCallback(request *GetJobInstanceRequest,
 // GetJobInstanceRequest is the request struct for api GetJobInstance
 type GetJobInstanceRequest struct {
 	*requests.RpcRequest
-	JobId           requests.Integer `position:"Query" name:"JobId"`
 	NamespaceSource string           `position:"Query" name:"NamespaceSource"`
 	GroupId         string           `position:"Query" name:"GroupId"`
+	JobId           requests.Integer `position:"Query" name:"JobId"`
 	Namespace       string           `position:"Query" name:"Namespace"`
 	JobInstanceId   requests.Integer `position:"Query" name:"JobInstanceId"`
 }
@@ -81,9 +81,9 @@ type GetJobInstanceRequest struct {
 // GetJobInstanceResponse is the response struct for api GetJobInstance
 type GetJobInstanceResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }

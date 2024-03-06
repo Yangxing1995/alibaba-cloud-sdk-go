@@ -71,21 +71,22 @@ func (client *Client) CreateCampaignWithCallback(request *CreateCampaignRequest,
 // CreateCampaignRequest is the request struct for api CreateCampaign
 type CreateCampaignRequest struct {
 	*requests.RpcRequest
-	QueueId              string           `position:"Query" name:"QueueId"`
-	ContactFlowId        string           `position:"Query" name:"ContactFlowId"`
-	Simulation           requests.Boolean `position:"Query" name:"Simulation"`
-	EndTime              string           `position:"Query" name:"EndTime"`
-	StartTime            string           `position:"Query" name:"StartTime"`
-	MaxAttemptCount      requests.Integer `position:"Query" name:"MaxAttemptCount"`
-	StrategyParameters   string           `position:"Query" name:"StrategyParameters"`
-	CaseFileKey          string           `position:"Query" name:"CaseFileKey"`
-	MinAttemptInterval   requests.Integer `position:"Query" name:"MinAttemptInterval"`
-	InstanceId           string           `position:"Query" name:"InstanceId"`
-	SimulationParameters string           `position:"Query" name:"SimulationParameters"`
-	Name                 string           `position:"Query" name:"Name"`
-	StrategyType         string           `position:"Query" name:"StrategyType"`
-	CaseList             string           `position:"Query" name:"CaseList"`
-	CallableTime         string           `position:"Query" name:"CallableTime"`
+	QueueId               string           `position:"Query" name:"QueueId"`
+	ContactFlowId         string           `position:"Query" name:"ContactFlowId"`
+	Simulation            requests.Boolean `position:"Query" name:"Simulation"`
+	ExecutingUntilTimeout requests.Boolean `position:"Query" name:"ExecutingUntilTimeout"`
+	EndTime               string           `position:"Query" name:"EndTime"`
+	StartTime             string           `position:"Query" name:"StartTime"`
+	MaxAttemptCount       requests.Integer `position:"Query" name:"MaxAttemptCount"`
+	StrategyParameters    string           `position:"Query" name:"StrategyParameters"`
+	CaseFileKey           string           `position:"Query" name:"CaseFileKey"`
+	MinAttemptInterval    requests.Integer `position:"Query" name:"MinAttemptInterval"`
+	InstanceId            string           `position:"Query" name:"InstanceId"`
+	SimulationParameters  string           `position:"Query" name:"SimulationParameters"`
+	Name                  string           `position:"Query" name:"Name"`
+	StrategyType          string           `position:"Query" name:"StrategyType"`
+	CaseList              string           `position:"Query" name:"CaseList"`
+	CallableTime          string           `position:"Query" name:"CallableTime"`
 }
 
 // CreateCampaignResponse is the response struct for api CreateCampaign

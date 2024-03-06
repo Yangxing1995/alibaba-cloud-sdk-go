@@ -71,9 +71,11 @@ func (client *Client) GetEngineNamepaceWithCallback(request *GetEngineNamepaceRe
 // GetEngineNamepaceRequest is the request struct for api GetEngineNamepace
 type GetEngineNamepaceRequest struct {
 	*requests.RpcRequest
-	ClusterId  string `position:"Query" name:"ClusterId"`
-	InstanceId string `position:"Query" name:"InstanceId"`
-	Id         string `position:"Query" name:"Id"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	Id             string `position:"Query" name:"Id"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
+	InstanceId     string `position:"Query" name:"InstanceId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // GetEngineNamepaceResponse is the response struct for api GetEngineNamepace
@@ -97,7 +99,7 @@ func CreateGetEngineNamepaceRequest() (request *GetEngineNamepaceRequest) {
 	request = &GetEngineNamepaceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "GetEngineNamepace", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "GetEngineNamepace", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

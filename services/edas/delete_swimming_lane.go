@@ -79,8 +79,8 @@ type DeleteSwimmingLaneResponse struct {
 	*responses.BaseResponse
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Data      int    `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteSwimmingLaneRequest creates a request to invoke DeleteSwimmingLane API
@@ -88,7 +88,7 @@ func CreateDeleteSwimmingLaneRequest() (request *DeleteSwimmingLaneRequest) {
 	request = &DeleteSwimmingLaneRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteSwimmingLane", "/pop/v5/trafficmgnt/swimming_lanes", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteSwimmingLane", "/pop/v5/trafficmgnt/swimming_lanes", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

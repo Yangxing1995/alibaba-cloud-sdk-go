@@ -72,9 +72,12 @@ func (client *Client) DescribeDBInstancesAsCsvWithCallback(request *DescribeDBIn
 type DescribeDBInstancesAsCsvRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	ExportKey            string           `position:"Query" name:"ExportKey"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	DBInstanceId         string           `position:"Query" name:"DBInstanceId"`
+	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
+	CachedAsync          requests.Boolean `position:"Query" name:"CachedAsync"`
+	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 }
 
 // DescribeDBInstancesAsCsvResponse is the response struct for api DescribeDBInstancesAsCsv
@@ -89,7 +92,7 @@ func CreateDescribeDBInstancesAsCsvRequest() (request *DescribeDBInstancesAsCsvR
 	request = &DescribeDBInstancesAsCsvRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancesAsCsv", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancesAsCsv", "", "")
 	request.Method = requests.POST
 	return
 }

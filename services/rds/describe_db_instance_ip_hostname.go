@@ -82,8 +82,8 @@ type DescribeDBInstanceIpHostnameRequest struct {
 // DescribeDBInstanceIpHostnameResponse is the response struct for api DescribeDBInstanceIpHostname
 type DescribeDBInstanceIpHostnameResponse struct {
 	*responses.BaseResponse
-	RequestId       string `json:"RequestId" xml:"RequestId"`
 	DBInstanceId    string `json:"DBInstanceId" xml:"DBInstanceId"`
+	RequestId       string `json:"RequestId" xml:"RequestId"`
 	IpHostnameInfos string `json:"IpHostnameInfos" xml:"IpHostnameInfos"`
 }
 
@@ -92,7 +92,7 @@ func CreateDescribeDBInstanceIpHostnameRequest() (request *DescribeDBInstanceIpH
 	request = &DescribeDBInstanceIpHostnameRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceIpHostname", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceIpHostname", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -17,13 +17,10 @@ package arms
 
 // RetcodeApp is a nested struct in arms response
 type RetcodeApp struct {
-	AppId          int64  `json:"AppId" xml:"AppId"`
-	RegionId       string `json:"RegionId" xml:"RegionId"`
-	UpdateTime     int64  `json:"UpdateTime" xml:"UpdateTime"`
-	Pid            string `json:"Pid" xml:"Pid"`
-	UserId         string `json:"UserId" xml:"UserId"`
-	CreateTime     int64  `json:"CreateTime" xml:"CreateTime"`
-	AppName        string `json:"AppName" xml:"AppName"`
-	RetcodeAppType string `json:"RetcodeAppType" xml:"RetcodeAppType"`
-	Type           string `json:"Type" xml:"Type"`
+	AppId           string     `json:"AppId" xml:"AppId"`
+	ResourceGroupId string     `json:"ResourceGroupId" xml:"ResourceGroupId"`
+	Pid             string     `json:"Pid" xml:"Pid"`
+	AppName         string     `json:"AppName" xml:"AppName"`
+	RetcodeAppType  string     `json:"RetcodeAppType" xml:"RetcodeAppType"`
+	Tags            []TagsItem `json:"Tags" xml:"Tags"`
 }

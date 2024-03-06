@@ -78,9 +78,9 @@ type DescribeAppInstanceListRequest struct {
 // DescribeAppInstanceListResponse is the response struct for api DescribeAppInstanceList
 type DescribeAppInstanceListResponse struct {
 	*responses.BaseResponse
-	RequestId    string     `json:"RequestId" xml:"RequestId"`
 	Code         int        `json:"Code" xml:"Code"`
 	Message      string     `json:"Message" xml:"Message"`
+	RequestId    string     `json:"RequestId" xml:"RequestId"`
 	InstanceList []Instance `json:"InstanceList" xml:"InstanceList"`
 }
 
@@ -89,7 +89,7 @@ func CreateDescribeAppInstanceListRequest() (request *DescribeAppInstanceListReq
 	request = &DescribeAppInstanceListRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DescribeAppInstanceList", "/pop/v5/oam/app_instance_list", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DescribeAppInstanceList", "/pop/v5/oam/app_instance_list", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

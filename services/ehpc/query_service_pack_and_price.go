@@ -76,14 +76,14 @@ type QueryServicePackAndPriceRequest struct {
 // QueryServicePackAndPriceResponse is the response struct for api QueryServicePackAndPrice
 type QueryServicePackAndPriceResponse struct {
 	*responses.BaseResponse
+	OriginalAmount int         `json:"OriginalAmount" xml:"OriginalAmount"`
 	RequestId      string      `json:"RequestId" xml:"RequestId"`
-	RegionId       string      `json:"RegionId" xml:"RegionId"`
+	DiscountPrice  float64     `json:"DiscountPrice" xml:"DiscountPrice"`
 	TradePrice     float64     `json:"TradePrice" xml:"TradePrice"`
 	OriginalPrice  float64     `json:"OriginalPrice" xml:"OriginalPrice"`
-	DiscountPrice  float64     `json:"DiscountPrice" xml:"DiscountPrice"`
-	Currency       string      `json:"Currency" xml:"Currency"`
-	OriginalAmount int         `json:"OriginalAmount" xml:"OriginalAmount"`
 	ChargeAmount   int         `json:"ChargeAmount" xml:"ChargeAmount"`
+	Currency       string      `json:"Currency" xml:"Currency"`
+	RegionId       string      `json:"RegionId" xml:"RegionId"`
 	ServicePack    ServicePack `json:"ServicePack" xml:"ServicePack"`
 }
 
@@ -92,7 +92,7 @@ func CreateQueryServicePackAndPriceRequest() (request *QueryServicePackAndPriceR
 	request = &QueryServicePackAndPriceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "QueryServicePackAndPrice", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "QueryServicePackAndPrice", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

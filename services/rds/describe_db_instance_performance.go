@@ -75,6 +75,7 @@ type DescribeDBInstancePerformanceRequest struct {
 	RoleId                  string           `position:"Query" name:"RoleId"`
 	StartTime               string           `position:"Query" name:"StartTime"`
 	DBInstanceId            string           `position:"Query" name:"DBInstanceId"`
+	NodeId                  string           `position:"Query" name:"NodeId"`
 	Key                     string           `position:"Query" name:"Key"`
 	ResourceOwnerAccount    string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount            string           `position:"Query" name:"OwnerAccount"`
@@ -86,11 +87,11 @@ type DescribeDBInstancePerformanceRequest struct {
 // DescribeDBInstancePerformanceResponse is the response struct for api DescribeDBInstancePerformance
 type DescribeDBInstancePerformanceResponse struct {
 	*responses.BaseResponse
-	RequestId       string                                         `json:"RequestId" xml:"RequestId"`
+	EndTime         string                                         `json:"EndTime" xml:"EndTime"`
+	StartTime       string                                         `json:"StartTime" xml:"StartTime"`
 	DBInstanceId    string                                         `json:"DBInstanceId" xml:"DBInstanceId"`
 	Engine          string                                         `json:"Engine" xml:"Engine"`
-	StartTime       string                                         `json:"StartTime" xml:"StartTime"`
-	EndTime         string                                         `json:"EndTime" xml:"EndTime"`
+	RequestId       string                                         `json:"RequestId" xml:"RequestId"`
 	PerformanceKeys PerformanceKeysInDescribeDBInstancePerformance `json:"PerformanceKeys" xml:"PerformanceKeys"`
 }
 
@@ -99,7 +100,7 @@ func CreateDescribeDBInstancePerformanceRequest() (request *DescribeDBInstancePe
 	request = &DescribeDBInstancePerformanceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancePerformance", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancePerformance", "", "")
 	request.Method = requests.POST
 	return
 }

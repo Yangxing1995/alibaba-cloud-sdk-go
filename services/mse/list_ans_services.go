@@ -71,15 +71,18 @@ func (client *Client) ListAnsServicesWithCallback(request *ListAnsServicesReques
 // ListAnsServicesRequest is the request struct for api ListAnsServices
 type ListAnsServicesRequest struct {
 	*requests.RpcRequest
-	ClusterId   string           `position:"Query" name:"ClusterId"`
-	PageNum     requests.Integer `position:"Query" name:"PageNum"`
-	GroupName   string           `position:"Query" name:"GroupName"`
-	HasIpCount  string           `position:"Query" name:"HasIpCount"`
-	InstanceId  string           `position:"Query" name:"InstanceId"`
-	NamespaceId string           `position:"Query" name:"NamespaceId"`
-	RequestPars string           `position:"Query" name:"RequestPars"`
-	PageSize    requests.Integer `position:"Query" name:"PageSize"`
-	ServiceName string           `position:"Query" name:"ServiceName"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	ClusterName    string           `position:"Query" name:"ClusterName"`
+	PageNum        requests.Integer `position:"Query" name:"PageNum"`
+	NamespaceId    string           `position:"Query" name:"NamespaceId"`
+	RequestPars    string           `position:"Query" name:"RequestPars"`
+	GroupName      string           `position:"Query" name:"GroupName"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	PageSize       requests.Integer `position:"Query" name:"PageSize"`
+	ServiceName    string           `position:"Query" name:"ServiceName"`
+	ClusterId      string           `position:"Query" name:"ClusterId"`
+	HasIpCount     string           `position:"Query" name:"HasIpCount"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
 }
 
 // ListAnsServicesResponse is the response struct for api ListAnsServices
@@ -101,8 +104,8 @@ func CreateListAnsServicesRequest() (request *ListAnsServicesRequest) {
 	request = &ListAnsServicesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ListAnsServices", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "ListAnsServices", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

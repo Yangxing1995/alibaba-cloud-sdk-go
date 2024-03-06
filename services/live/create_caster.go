@@ -78,14 +78,15 @@ type CreateCasterRequest struct {
 	NormType       requests.Integer `position:"Query" name:"NormType"`
 	OwnerId        requests.Integer `position:"Query" name:"OwnerId"`
 	PurchaseTime   string           `position:"Query" name:"PurchaseTime"`
+	MicMode        requests.Integer `position:"Query" name:"MicMode"`
 	ChargeType     string           `position:"Query" name:"ChargeType"`
 }
 
 // CreateCasterResponse is the response struct for api CreateCaster
 type CreateCasterResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	CasterId  string `json:"CasterId" xml:"CasterId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateCasterRequest creates a request to invoke CreateCaster API

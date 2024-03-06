@@ -20,8 +20,8 @@ type Data struct {
 	StartingPrice      string                   `json:"StartingPrice" xml:"StartingPrice"`
 	Message            string                   `json:"Message" xml:"Message"`
 	Success            bool                     `json:"Success" xml:"Success"`
-	ProductLine        string                   `json:"ProductLine" xml:"ProductLine"`
 	IconUrl            string                   `json:"IconUrl" xml:"IconUrl"`
+	ProductLine        string                   `json:"ProductLine" xml:"ProductLine"`
 	CommodityCode      string                   `json:"CommodityCode" xml:"CommodityCode"`
 	Description        string                   `json:"Description" xml:"Description"`
 	ProtocolUrl        string                   `json:"ProtocolUrl" xml:"ProtocolUrl"`

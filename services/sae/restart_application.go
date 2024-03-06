@@ -71,19 +71,21 @@ func (client *Client) RestartApplicationWithCallback(request *RestartApplication
 // RestartApplicationRequest is the request struct for api RestartApplication
 type RestartApplicationRequest struct {
 	*requests.RoaRequest
-	MinReadyInstances requests.Integer `position:"Query" name:"MinReadyInstances"`
-	AppId             string           `position:"Query" name:"AppId"`
+	MinReadyInstances                requests.Integer `position:"Query" name:"MinReadyInstances"`
+	AppId                            string           `position:"Query" name:"AppId"`
+	MinReadyInstanceRatio            requests.Integer `position:"Query" name:"MinReadyInstanceRatio"`
+	AutoEnableApplicationScalingRule requests.Boolean `position:"Query" name:"AutoEnableApplicationScalingRule"`
 }
 
 // RestartApplicationResponse is the response struct for api RestartApplication
 type RestartApplicationResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
-	Success   bool   `json:"Success" xml:"Success"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Message   string `json:"Message" xml:"Message"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
+	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
+	Code      string `json:"Code" xml:"Code"`
+	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 

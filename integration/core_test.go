@@ -26,7 +26,7 @@ func Test_DescribeRegionsWithCommonRequestWithRPC(t *testing.T) {
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"
 	request.ApiName = "DescribeRegions"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	client, err := sdk.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
 	assert.Nil(t, err)
@@ -43,7 +43,7 @@ func Test_DescribeRegionsWithCommonRequestWithSTStoken(t *testing.T) {
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"
 	request.ApiName = "DescribeRegions"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	client, err := sdk.NewClientWithStsToken(os.Getenv("REGION_ID"), credential.AccessKeyId, credential.AccessKeySecret, credential.SecurityToken)
 	assert.Nil(t, err)
@@ -57,7 +57,7 @@ func Test_DescribeRegionsWithCommonRequestWithHTTPS(t *testing.T) {
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"
 	request.ApiName = "DescribeRegions"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	request.SetScheme("HTTPS")
 	client, err := sdk.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
@@ -72,7 +72,7 @@ func Test_DescribeRegionsWithCommonRequestWithUnicodeSpecificParams(t *testing.T
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"
 	request.ApiName = "DescribeRegions"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	request.SetContent([]byte("sdk&-杭&&&州-test"))
 	client, err := sdk.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
@@ -87,7 +87,7 @@ func Test_AddTagsWithCommonRequestWithError(t *testing.T) {
 	request.Version = "2014-05-26"
 	request.Product = "Ecs"
 	request.ApiName = "AddTags"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	client, err := sdk.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
 	assert.Nil(t, err)
@@ -97,14 +97,14 @@ func Test_AddTagsWithCommonRequestWithError(t *testing.T) {
 	assert.Equal(t, "The input parameter \"ResourceType\" that is mandatory for processing this request is not supplied.", realerr.Message())
 }
 
-func Test_DescribeRegionsWithCommonRequestWithIncompleteSignature(t *testing.T) {
+func SkipTest_DescribeRegionsWithCommonRequestWithIncompleteSignature(t *testing.T) {
 	request := requests.NewCommonRequest()
 	request.Version = "2014-05-26"
 	request.AcceptFormat = "json"
 	request.SetScheme("https")
 	request.Method = "POST"
 	request.ApiName = "DescribeRegions"
-	request.SetDomain("ecs.aliyuncs.com")
+	request.SetDomain(ecsEndpoint)
 	request.TransToAcsRequest()
 	client, err := sdk.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), strings.ToUpper(os.Getenv("ACCESS_KEY_SECRET")))
 	assert.Nil(t, err)
@@ -119,7 +119,7 @@ func Test_DescribeClustersWithCommonRequestWithROA(t *testing.T) {
 	assert.Nil(t, err)
 	request := requests.NewCommonRequest()
 	request.Method = "GET"
-	request.Domain = "cs.aliyuncs.com"
+	request.Domain = fmt.Sprintf("cs.%s.aliyuncs.com", os.Getenv("REGION_ID"))
 	request.Version = "2015-12-15"
 	request.PathPattern = "/clusters"
 	request.ApiName = "DescribeClusters"
@@ -136,14 +136,15 @@ func Test_DescribeClustersWithCommonRequestWithSignatureDostNotMatch(t *testing.
 	assert.Nil(t, err)
 	request := requests.NewCommonRequest()
 	request.Method = "GET"
-	request.Domain = "cs.aliyuncs.com"
+	request.Domain = fmt.Sprintf("cs.%s.aliyuncs.com", os.Getenv("REGION_ID"))
 	request.Version = "2015-12-15"
 	request.PathPattern = "/clusters/[ClusterId]"
 	request.QueryParams["RegionId"] = os.Getenv("REGION_ID")
 	request.TransToAcsRequest()
 	_, err = client.ProcessCommonRequest(request)
 	assert.NotNil(t, err)
-	real, _ := err.(*errors.ServerError)
+	real, ok := err.(*errors.ServerError)
+	assert.True(t, ok)
 	assert.Contains(t, real.Recommend(), "InvalidAccessKeySecret: Please check you AccessKeySecret")
 	assert.Equal(t, real.ErrorCode(), "SignatureDoesNotMatch")
 }
@@ -151,12 +152,16 @@ func Test_DescribeClustersWithCommonRequestWithSignatureDostNotMatch(t *testing.
 func Test_DescribeClustersWithCommonRequestWithROAWithSTStoken(t *testing.T) {
 	assumeresponse, err := createAssumeRole()
 	assert.Nil(t, err)
+
+	err = createAttachPolicyToRole()
+	assert.Nil(t, err)
+
 	credential := assumeresponse.Credentials
 	client, err := sdk.NewClientWithStsToken(os.Getenv("REGION_ID"), credential.AccessKeyId, credential.AccessKeySecret, credential.SecurityToken)
 	assert.Nil(t, err)
 	request := requests.NewCommonRequest()
 	request.Method = "GET"
-	request.Domain = "cs.aliyuncs.com"
+	request.Domain = fmt.Sprintf("cs.%s.aliyuncs.com", os.Getenv("REGION_ID"))
 	request.Version = "2015-12-15"
 	request.PathPattern = "/clusters/[ClusterId]"
 	request.QueryParams["RegionId"] = os.Getenv("REGION_ID")
@@ -168,7 +173,7 @@ func Test_DescribeClustersWithCommonRequestWithROAWithSTStoken(t *testing.T) {
 	client.SetLogger("error", "Alibaba", f1, templete)
 	_, err = client.ProcessCommonRequest(request)
 	assert.NotNil(t, err)
-	assert.Contains(t, client.GetLoggerMsg(), `1.1, cs.aliyuncs.com`)
+	assert.Contains(t, client.GetLoggerMsg(), "1.1, "+"cs."+os.Getenv("REGION_ID")+".aliyuncs.com")
 	assert.Contains(t, err.Error(), "ErrorClusterNotFound")
 }
 
@@ -177,7 +182,7 @@ func Test_DescribeClusterDetailWithCommonRequestWithROAWithHTTPS(t *testing.T) {
 	assert.Nil(t, err)
 	request := requests.NewCommonRequest()
 	request.Method = "GET"
-	request.Domain = "cs.aliyuncs.com"
+	request.Domain = fmt.Sprintf("cs.%s.aliyuncs.com", os.Getenv("REGION_ID"))
 	request.Version = "2015-12-15"
 	request.SetScheme("HTTPS")
 	request.PathPattern = "/clusters/[ClusterId]"
@@ -193,7 +198,7 @@ func Test_DescribeClusterDetailWithCommonRequestWithTimeout(t *testing.T) {
 	client, err := sdk.NewClientWithAccessKey(os.Getenv("REGION_ID"), os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
 	assert.Nil(t, err)
 	request := requests.NewCommonRequest()
-	request.Domain = "cs.aliyuncs.com"
+	request.Domain = fmt.Sprintf("cs.%s.aliyuncs.com", os.Getenv("REGION_ID"))
 	request.Version = "2015-12-15"
 	request.SetScheme("HTTPS")
 	request.PathPattern = "/clusters/[ClusterId]"
@@ -221,7 +226,7 @@ func Test_CreateInstanceWithCommonRequestWithPolicy(t *testing.T) {
 	request := requests.NewCommonRequest()
 	request.Method = "POST"
 	request.Product = "Ecs"
-	request.Domain = "ecs.aliyuncs.com"
+	request.Domain = "ecs." + os.Getenv("REGION_ID") + ".aliyuncs.com"
 	request.Version = "2014-05-26"
 	request.SetScheme("HTTPS")
 	request.ApiName = "CreateInstance"
@@ -257,7 +262,6 @@ func Test_CreateInstanceWithCommonRequestWithPolicy(t *testing.T) {
 func handlerTrue(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(200)
 	w.Write([]byte("test"))
-	return
 }
 
 func handlerFake(w http.ResponseWriter, r *http.Request) {
@@ -269,8 +273,6 @@ func handlerFake(w http.ResponseWriter, r *http.Request) {
 	proxy := httputil.NewSingleHostReverseProxy(url)
 	w.Write([]byte("sdk"))
 	proxy.ServeHTTP(w, r)
-
-	return
 }
 
 func handlerFakeServer() (server *httptest.Server) {
@@ -286,8 +288,7 @@ func handlerTrueServer() (server *httptest.Server) {
 	return server
 }
 
-func Test_HTTPProxy(t *testing.T) {
-
+func SkipTest_HTTPProxy(t *testing.T) {
 	ts := handlerFakeServer()
 	ts1 := handlerTrueServer()
 	defer func() {

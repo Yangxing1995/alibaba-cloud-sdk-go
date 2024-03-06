@@ -79,8 +79,8 @@ type StartApplicationRequest struct {
 type StartApplicationResponse struct {
 	*responses.BaseResponse
 	Code          int    `json:"Code" xml:"Code"`
-	Message       string `json:"Message" xml:"Message"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Message       string `json:"Message" xml:"Message"`
 	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
@@ -89,7 +89,7 @@ func CreateStartApplicationRequest() (request *StartApplicationRequest) {
 	request = &StartApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "StartApplication", "/pop/v5/changeorder/co_start", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "StartApplication", "/pop/v5/changeorder/co_start", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

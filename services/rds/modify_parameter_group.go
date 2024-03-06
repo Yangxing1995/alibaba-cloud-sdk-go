@@ -72,7 +72,9 @@ func (client *Client) ModifyParameterGroupWithCallback(request *ModifyParameterG
 type ModifyParameterGroupRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	ParameterGroupId     string           `position:"Query" name:"ParameterGroupId"`
+	ModifyMode           string           `position:"Query" name:"ModifyMode"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 	ParameterGroupName   string           `position:"Query" name:"ParameterGroupName"`
@@ -83,8 +85,8 @@ type ModifyParameterGroupRequest struct {
 // ModifyParameterGroupResponse is the response struct for api ModifyParameterGroup
 type ModifyParameterGroupResponse struct {
 	*responses.BaseResponse
-	RequestId        string `json:"RequestId" xml:"RequestId"`
 	ParameterGroupId string `json:"ParameterGroupId" xml:"ParameterGroupId"`
+	RequestId        string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateModifyParameterGroupRequest creates a request to invoke ModifyParameterGroup API
@@ -92,7 +94,7 @@ func CreateModifyParameterGroupRequest() (request *ModifyParameterGroupRequest) 
 	request = &ModifyParameterGroupRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyParameterGroup", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyParameterGroup", "", "")
 	request.Method = requests.POST
 	return
 }

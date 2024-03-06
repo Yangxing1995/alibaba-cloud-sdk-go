@@ -86,8 +86,8 @@ type DescribeDedicatedHostsRequest struct {
 // DescribeDedicatedHostsResponse is the response struct for api DescribeDedicatedHosts
 type DescribeDedicatedHostsResponse struct {
 	*responses.BaseResponse
-	RequestId            string         `json:"RequestId" xml:"RequestId"`
 	DedicatedHostGroupId string         `json:"DedicatedHostGroupId" xml:"DedicatedHostGroupId"`
+	RequestId            string         `json:"RequestId" xml:"RequestId"`
 	DedicatedHosts       DedicatedHosts `json:"DedicatedHosts" xml:"DedicatedHosts"`
 }
 
@@ -96,7 +96,7 @@ func CreateDescribeDedicatedHostsRequest() (request *DescribeDedicatedHostsReque
 	request = &DescribeDedicatedHostsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDedicatedHosts", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDedicatedHosts", "", "")
 	request.Method = requests.POST
 	return
 }

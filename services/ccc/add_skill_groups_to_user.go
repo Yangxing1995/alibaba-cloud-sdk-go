@@ -79,11 +79,10 @@ type AddSkillGroupsToUserRequest struct {
 // AddSkillGroupsToUserResponse is the response struct for api AddSkillGroupsToUser
 type AddSkillGroupsToUserResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
-	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string   `json:"Message" xml:"Message"`
-	RequestId      string   `json:"RequestId" xml:"RequestId"`
-	Params         []string `json:"Params" xml:"Params"`
+	Code           string `json:"Code" xml:"Code"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Message        string `json:"Message" xml:"Message"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateAddSkillGroupsToUserRequest creates a request to invoke AddSkillGroupsToUser API

@@ -82,12 +82,10 @@ type ListPhoneNumbersRequest struct {
 // ListPhoneNumbersResponse is the response struct for api ListPhoneNumbers
 type ListPhoneNumbersResponse struct {
 	*responses.BaseResponse
-	Code           string                 `json:"Code" xml:"Code"`
 	HttpStatusCode int                    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string                 `json:"Message" xml:"Message"`
-	PageNumber     int                    `json:"PageNumber" xml:"PageNumber"`
-	PageSize       int                    `json:"PageSize" xml:"PageSize"`
 	RequestId      string                 `json:"RequestId" xml:"RequestId"`
+	Code           string                 `json:"Code" xml:"Code"`
+	Message        string                 `json:"Message" xml:"Message"`
 	Data           DataInListPhoneNumbers `json:"Data" xml:"Data"`
 }
 

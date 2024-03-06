@@ -81,11 +81,11 @@ type SaveBaseStrategyPeriodRequest struct {
 // SaveBaseStrategyPeriodResponse is the response struct for api SaveBaseStrategyPeriod
 type SaveBaseStrategyPeriodResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Success        bool   `json:"Success" xml:"Success"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateSaveBaseStrategyPeriodRequest creates a request to invoke SaveBaseStrategyPeriod API
@@ -93,7 +93,7 @@ func CreateSaveBaseStrategyPeriodRequest() (request *SaveBaseStrategyPeriodReque
 	request = &SaveBaseStrategyPeriodRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SaveBaseStrategyPeriod", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SaveBaseStrategyPeriod", "", "")
 	request.Method = requests.POST
 	return
 }

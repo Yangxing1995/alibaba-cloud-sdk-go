@@ -80,11 +80,11 @@ type GetContactBlockListRequest struct {
 // GetContactBlockListResponse is the response struct for api GetContactBlockList
 type GetContactBlockListResponse struct {
 	*responses.BaseResponse
-	RequestId            string               `json:"RequestId" xml:"RequestId"`
-	Success              bool                 `json:"Success" xml:"Success"`
+	HttpStatusCode       int                  `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code                 string               `json:"Code" xml:"Code"`
 	Message              string               `json:"Message" xml:"Message"`
-	HttpStatusCode       int                  `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId            string               `json:"RequestId" xml:"RequestId"`
+	Success              bool                 `json:"Success" xml:"Success"`
 	ContactBlocklistList ContactBlocklistList `json:"ContactBlocklistList" xml:"ContactBlocklistList"`
 }
 
@@ -93,7 +93,7 @@ func CreateGetContactBlockListRequest() (request *GetContactBlockListRequest) {
 	request = &GetContactBlockListRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetContactBlockList", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetContactBlockList", "", "")
 	request.Method = requests.POST
 	return
 }

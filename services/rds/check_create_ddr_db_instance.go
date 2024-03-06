@@ -78,6 +78,7 @@ type CheckCreateDdrDBInstanceRequest struct {
 	BinlogRole           string           `position:"Query" name:"BinlogRole"`
 	EngineVersion        string           `position:"Query" name:"EngineVersion"`
 	UserBakSetURL        string           `position:"Query" name:"UserBakSetURL"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	Engine               string           `position:"Query" name:"Engine"`
 	BackupSetRegion      string           `position:"Query" name:"BackupSetRegion"`
 	BackupSetType        string           `position:"Query" name:"BackupSetType"`
@@ -96,8 +97,8 @@ type CheckCreateDdrDBInstanceRequest struct {
 // CheckCreateDdrDBInstanceResponse is the response struct for api CheckCreateDdrDBInstance
 type CheckCreateDdrDBInstanceResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	IsValid   string `json:"IsValid" xml:"IsValid"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCheckCreateDdrDBInstanceRequest creates a request to invoke CheckCreateDdrDBInstance API
@@ -105,7 +106,7 @@ func CreateCheckCreateDdrDBInstanceRequest() (request *CheckCreateDdrDBInstanceR
 	request = &CheckCreateDdrDBInstanceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CheckCreateDdrDBInstance", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CheckCreateDdrDBInstance", "", "")
 	request.Method = requests.POST
 	return
 }

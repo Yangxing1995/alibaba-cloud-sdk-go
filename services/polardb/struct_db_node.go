@@ -21,10 +21,22 @@ type DBNode struct {
 	DBNodeClass      string `json:"DBNodeClass" xml:"DBNodeClass"`
 	FailoverPriority int    `json:"FailoverPriority" xml:"FailoverPriority"`
 	DBNodeRole       string `json:"DBNodeRole" xml:"DBNodeRole"`
+	DBNodeStatus     string `json:"DBNodeStatus" xml:"DBNodeStatus"`
+	MasterId         string `json:"MasterId" xml:"MasterId"`
+	CpuCores         string `json:"CpuCores" xml:"CpuCores"`
+	SubCluster       string `json:"SubCluster" xml:"SubCluster"`
+	CreationTime     string `json:"CreationTime" xml:"CreationTime"`
+	HotReplicaMode   string `json:"HotReplicaMode" xml:"HotReplicaMode"`
+	ServerlessType   string `json:"ServerlessType" xml:"ServerlessType"`
+	Serverless       string `json:"Serverless" xml:"Serverless"`
 	MaxConnections   int    `json:"MaxConnections" xml:"MaxConnections"`
+	AddedCpuCores    string `json:"AddedCpuCores" xml:"AddedCpuCores"`
 	RegionId         string `json:"RegionId" xml:"RegionId"`
 	ZoneId           string `json:"ZoneId" xml:"ZoneId"`
-	DBNodeStatus     string `json:"DBNodeStatus" xml:"DBNodeStatus"`
-	CreationTime     string `json:"CreationTime" xml:"CreationTime"`
+	ServerWeight     string `json:"ServerWeight" xml:"ServerWeight"`
+	MemorySize       string `json:"MemorySize" xml:"MemorySize"`
 	DBNodeId         string `json:"DBNodeId" xml:"DBNodeId"`
+	SccMode          string `json:"SccMode" xml:"SccMode"`
+	ImciSwitch       string `json:"ImciSwitch" xml:"ImciSwitch"`
+	Tair             string `json:"Tair" xml:"Tair"`
 }

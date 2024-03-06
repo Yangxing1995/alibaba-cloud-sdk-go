@@ -77,8 +77,8 @@ type StopClusterRequest struct {
 // StopClusterResponse is the response struct for api StopCluster
 type StopClusterResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	TaskId    string `json:"TaskId" xml:"TaskId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateStopClusterRequest creates a request to invoke StopCluster API
@@ -86,7 +86,7 @@ func CreateStopClusterRequest() (request *StopClusterRequest) {
 	request = &StopClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "StopCluster", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "StopCluster", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

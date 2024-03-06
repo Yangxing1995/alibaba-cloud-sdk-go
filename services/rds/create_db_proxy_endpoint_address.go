@@ -73,8 +73,10 @@ type CreateDBProxyEndpointAddressRequest struct {
 	*requests.RpcRequest
 	ConnectionStringPrefix      string `position:"Query" name:"ConnectionStringPrefix"`
 	DBProxyConnectStringNetType string `position:"Query" name:"DBProxyConnectStringNetType"`
+	ResourceGroupId             string `position:"Query" name:"ResourceGroupId"`
 	DBInstanceId                string `position:"Query" name:"DBInstanceId"`
 	DBProxyNewConnectStringPort string `position:"Query" name:"DBProxyNewConnectStringPort"`
+	DBProxyEngineType           string `position:"Query" name:"DBProxyEngineType"`
 	VSwitchId                   string `position:"Query" name:"VSwitchId"`
 	DBProxyEndpointId           string `position:"Query" name:"DBProxyEndpointId"`
 	VPCId                       string `position:"Query" name:"VPCId"`
@@ -91,7 +93,7 @@ func CreateCreateDBProxyEndpointAddressRequest() (request *CreateDBProxyEndpoint
 	request = &CreateDBProxyEndpointAddressRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CreateDBProxyEndpointAddress", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CreateDBProxyEndpointAddress", "", "")
 	request.Method = requests.POST
 	return
 }

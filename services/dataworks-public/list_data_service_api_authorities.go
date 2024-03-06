@@ -72,20 +72,20 @@ func (client *Client) ListDataServiceApiAuthoritiesWithCallback(request *ListDat
 type ListDataServiceApiAuthoritiesRequest struct {
 	*requests.RpcRequest
 	ApiNameKeyword string           `position:"Body" name:"ApiNameKeyword"`
+	PageNumber     requests.Integer `position:"Query" name:"PageNumber"`
 	PageSize       requests.Integer `position:"Query" name:"PageSize"`
 	TenantId       requests.Integer `position:"Body" name:"TenantId"`
 	ProjectId      requests.Integer `position:"Body" name:"ProjectId"`
-	PageNumber     requests.Integer `position:"Query" name:"PageNumber"`
 }
 
 // ListDataServiceApiAuthoritiesResponse is the response struct for api ListDataServiceApiAuthorities
 type ListDataServiceApiAuthoritiesResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	Success        bool   `json:"Success" xml:"Success"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
 	Data           Data   `json:"Data" xml:"Data"`
 }
 

@@ -73,16 +73,17 @@ type GetQualityFollowerRequest struct {
 	*requests.RpcRequest
 	ProjectName string           `position:"Body" name:"ProjectName"`
 	EntityId    requests.Integer `position:"Body" name:"EntityId"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // GetQualityFollowerResponse is the response struct for api GetQualityFollower
 type GetQualityFollowerResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string     `json:"ErrorCode" xml:"ErrorCode"`
-	Success        bool       `json:"Success" xml:"Success"`
-	ErrorMessage   string     `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int        `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string     `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string     `json:"ErrorMessage" xml:"ErrorMessage"`
+	Success        bool       `json:"Success" xml:"Success"`
+	ErrorCode      string     `json:"ErrorCode" xml:"ErrorCode"`
 	Data           []Follower `json:"Data" xml:"Data"`
 }
 

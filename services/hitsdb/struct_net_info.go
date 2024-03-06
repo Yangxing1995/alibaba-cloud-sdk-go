@@ -17,8 +17,8 @@ package hitsdb
 
 // NetInfo is a nested struct in hitsdb response
 type NetInfo struct {
-	NetType          string `json:"NetType" xml:"NetType"`
-	ConnectionString string `json:"ConnectionString" xml:"ConnectionString"`
-	Port             int    `json:"Port" xml:"Port"`
 	AccessType       int    `json:"AccessType" xml:"AccessType"`
+	Port             int    `json:"Port" xml:"Port"`
+	ConnectionString string `json:"ConnectionString" xml:"ConnectionString"`
+	NetType          string `json:"NetType" xml:"NetType"`
 }

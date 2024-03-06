@@ -71,8 +71,7 @@ func (client *Client) RunCloudBenchTaskWithCallback(request *RunCloudBenchTaskRe
 // RunCloudBenchTaskRequest is the request struct for api RunCloudBenchTask
 type RunCloudBenchTaskRequest struct {
 	*requests.RpcRequest
-	ConsoleContext string `position:"Query" name:"ConsoleContext"`
-	TaskId         string `position:"Query" name:"TaskId"`
+	TaskId string `position:"Query" name:"TaskId"`
 }
 
 // RunCloudBenchTaskResponse is the response struct for api RunCloudBenchTask
@@ -90,7 +89,7 @@ func CreateRunCloudBenchTaskRequest() (request *RunCloudBenchTaskRequest) {
 	request = &RunCloudBenchTaskRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("DAS", "2020-01-16", "RunCloudBenchTask", "das", "openAPI")
+	request.InitWithApiInfo("DAS", "2020-01-16", "RunCloudBenchTask", "", "")
 	request.Method = requests.POST
 	return
 }

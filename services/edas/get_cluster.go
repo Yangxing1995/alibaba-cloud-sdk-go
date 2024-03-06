@@ -77,9 +77,9 @@ type GetClusterRequest struct {
 // GetClusterResponse is the response struct for api GetCluster
 type GetClusterResponse struct {
 	*responses.BaseResponse
-	RequestId string  `json:"RequestId" xml:"RequestId"`
 	Code      int     `json:"Code" xml:"Code"`
 	Message   string  `json:"Message" xml:"Message"`
+	RequestId string  `json:"RequestId" xml:"RequestId"`
 	Cluster   Cluster `json:"Cluster" xml:"Cluster"`
 }
 
@@ -88,7 +88,7 @@ func CreateGetClusterRequest() (request *GetClusterRequest) {
 	request = &GetClusterRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "GetCluster", "/pop/v5/resource/cluster", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "GetCluster", "/pop/v5/resource/cluster", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

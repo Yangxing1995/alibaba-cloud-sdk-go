@@ -71,7 +71,8 @@ func (client *Client) ListQueuesWithCallback(request *ListQueuesRequest, callbac
 // ListQueuesRequest is the request struct for api ListQueues
 type ListQueuesRequest struct {
 	*requests.RpcRequest
-	ClusterId string `position:"Query" name:"ClusterId"`
+	ClusterId string           `position:"Query" name:"ClusterId"`
+	Async     requests.Boolean `position:"Query" name:"Async"`
 }
 
 // ListQueuesResponse is the response struct for api ListQueues
@@ -86,7 +87,7 @@ func CreateListQueuesRequest() (request *ListQueuesRequest) {
 	request = &ListQueuesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListQueues", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListQueues", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -78,12 +78,12 @@ type GetBaseStrategyPeriodRequest struct {
 // GetBaseStrategyPeriodResponse is the response struct for api GetBaseStrategyPeriod
 type GetBaseStrategyPeriodResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int         `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	OnlyWeekdays   bool        `json:"OnlyWeekdays" xml:"OnlyWeekdays"`
 	RequestId      string      `json:"RequestId" xml:"RequestId"`
 	Success        bool        `json:"Success" xml:"Success"`
 	Code           string      `json:"Code" xml:"Code"`
 	Message        string      `json:"Message" xml:"Message"`
-	HttpStatusCode int         `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	OnlyWeekdays   bool        `json:"OnlyWeekdays" xml:"OnlyWeekdays"`
 	WorkingTime    []TimeFrame `json:"WorkingTime" xml:"WorkingTime"`
 }
 
@@ -92,7 +92,7 @@ func CreateGetBaseStrategyPeriodRequest() (request *GetBaseStrategyPeriodRequest
 	request = &GetBaseStrategyPeriodRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetBaseStrategyPeriod", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetBaseStrategyPeriod", "", "")
 	request.Method = requests.POST
 	return
 }

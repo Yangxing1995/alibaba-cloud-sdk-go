@@ -72,17 +72,15 @@ func (client *Client) StartMigrationJobWithCallback(request *StartMigrationJobRe
 type StartMigrationJobRequest struct {
 	*requests.RpcRequest
 	MigrationJobId string `position:"Query" name:"MigrationJobId"`
-	OwnerId        string `position:"Query" name:"OwnerId"`
-	AccountId      string `position:"Query" name:"AccountId"`
 }
 
 // StartMigrationJobResponse is the response struct for api StartMigrationJob
 type StartMigrationJobResponse struct {
 	*responses.BaseResponse
-	ErrCode    string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 	RequestId  string `json:"RequestId" xml:"RequestId"`
+	ErrCode    string `json:"ErrCode" xml:"ErrCode"`
 	Success    string `json:"Success" xml:"Success"`
+	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 }
 
 // CreateStartMigrationJobRequest creates a request to invoke StartMigrationJob API
@@ -90,7 +88,7 @@ func CreateStartMigrationJobRequest() (request *StartMigrationJobRequest) {
 	request = &StartMigrationJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Dts", "2020-01-01", "StartMigrationJob", "dts", "openAPI")
+	request.InitWithApiInfo("Dts", "2017-06-01", "StartMigrationJob", "dts", "openAPI")
 	request.Method = requests.POST
 	return
 }

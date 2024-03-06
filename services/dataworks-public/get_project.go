@@ -71,15 +71,16 @@ func (client *Client) GetProjectWithCallback(request *GetProjectRequest, callbac
 // GetProjectRequest is the request struct for api GetProject
 type GetProjectRequest struct {
 	*requests.RpcRequest
-	ProjectId requests.Integer `position:"Query" name:"ProjectId"`
+	ProjectIdentifier string           `position:"Query" name:"ProjectIdentifier"`
+	ProjectId         requests.Integer `position:"Query" name:"ProjectId"`
 }
 
 // GetProjectResponse is the response struct for api GetProject
 type GetProjectResponse struct {
 	*responses.BaseResponse
 	HttpStatusCode int              `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Success        bool             `json:"Success" xml:"Success"`
 	RequestId      string           `json:"RequestId" xml:"RequestId"`
+	Success        bool             `json:"Success" xml:"Success"`
 	Data           DataInGetProject `json:"Data" xml:"Data"`
 }
 

@@ -33,7 +33,7 @@ func Test_NewRamRoleArnSigner(t *testing.T) {
 	assert.Equal(t, 3600, signer.credentialExpiration)
 
 	c = credentials.NewRamRoleArnCredential("accessKeyId", "accessKeySecret", "roleArn", "", 100)
-	signer, err = NewRamRoleArnSigner(c, nil)
+	_, err = NewRamRoleArnSigner(c, nil)
 	assert.NotNil(t, err)
 	assert.Equal(t, "[SDK.InvalidParam] Assume Role session duration should be in the range of 15min - 1Hr", err.Error())
 }
@@ -79,7 +79,7 @@ func Test_RamRoleArn_GetAccessKeyId2(t *testing.T) {
 	assert.NotNil(t, s)
 	// s.lastUpdateTimestamp = time.Now().Unix() - 1000
 	accessKeyId, err := s.GetAccessKeyId()
-	assert.Equal(t, "SDK.ServerError\nErrorCode: \nRecommend: refresh session token failed\nRequestId: \nMessage: ", err.Error())
+	assert.Equal(t, "SDK.ServerError\nErrorCode: \nRecommend: refresh session token failed\nRequestId: \nMessage: \nRespHeaders: map[]", err.Error())
 	assert.Equal(t, "", accessKeyId)
 }
 
@@ -200,5 +200,31 @@ func Test_RamRoleArn_GetExtraParam_Fail(t *testing.T) {
 	assert.NotNil(t, s)
 
 	params := s.GetExtraParam()
+	assert.Len(t, params, 0)
+
+	c = credentials.NewRamRoleArnWithPolicyAndExternalIdCredential("accessKeyId", "accessKeySecret", "roleArn", "roleSessionName", "policy", "externalId", 3600)
+	// mock 200 response and valid json and valid result
+	s, err = NewRamRoleArnSigner(c, func(*requests.CommonRequest, interface{}) (response *responses.CommonResponse, err error) {
+		res := responses.NewCommonResponse()
+		statusCode := 200
+		header := make(http.Header)
+		status := strconv.Itoa(statusCode)
+		httpresp := &http.Response{
+			Proto:      "HTTP/1.1",
+			ProtoMajor: 1,
+			Header:     header,
+			StatusCode: statusCode,
+			Status:     status + " " + http.StatusText(statusCode),
+		}
+
+		json := `{"Credentials":{"AccessKeyId":"access key id","AccessKeySecret": "access key secret","SecurityToken":""}}`
+		httpresp.Body = ioutil.NopCloser(bytes.NewReader([]byte(json)))
+		responses.Unmarshal(res, httpresp, "JSON")
+		return res, nil
+	})
+	assert.Nil(t, err)
+	assert.NotNil(t, s)
+
+	params = s.GetExtraParam()
 	assert.Len(t, params, 0)
 }

@@ -72,14 +72,16 @@ func (client *Client) GenerateExecutionPolicyWithCallback(request *GenerateExecu
 type GenerateExecutionPolicyRequest struct {
 	*requests.RpcRequest
 	TemplateVersion string `position:"Query" name:"TemplateVersion"`
+	RamRole         string `position:"Query" name:"RamRole"`
 	TemplateName    string `position:"Query" name:"TemplateName"`
 }
 
 // GenerateExecutionPolicyResponse is the response struct for api GenerateExecutionPolicy
 type GenerateExecutionPolicyResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Policy    string `json:"Policy" xml:"Policy"`
+	Policy        string `json:"Policy" xml:"Policy"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
+	MissingPolicy string `json:"MissingPolicy" xml:"MissingPolicy"`
 }
 
 // CreateGenerateExecutionPolicyRequest creates a request to invoke GenerateExecutionPolicy API
@@ -87,7 +89,7 @@ func CreateGenerateExecutionPolicyRequest() (request *GenerateExecutionPolicyReq
 	request = &GenerateExecutionPolicyRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("oos", "2019-06-01", "GenerateExecutionPolicy", "", "")
+	request.InitWithApiInfo("oos", "2019-06-01", "GenerateExecutionPolicy", "oos", "openAPI")
 	request.Method = requests.POST
 	return
 }

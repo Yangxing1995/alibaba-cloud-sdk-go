@@ -17,10 +17,9 @@ package live
 
 // Config is a nested struct in live response
 type Config struct {
-	Vision     int    `json:"Vision" xml:"Vision"`
-	Data       string `json:"Data" xml:"Data"`
-	DomainName string `json:"DomainName" xml:"DomainName"`
-	AppUid     string `json:"AppUid" xml:"AppUid"`
-	AppName    string `json:"AppName" xml:"AppName"`
-	StreamName string `json:"StreamName" xml:"StreamName"`
+	AppName         string `json:"AppName" xml:"AppName"`
+	Vision          int    `json:"Vision" xml:"Vision"`
+	DomainName      string `json:"DomainName" xml:"DomainName"`
+	StreamName      string `json:"StreamName" xml:"StreamName"`
+	IgnoreTranscode bool   `json:"IgnoreTranscode" xml:"IgnoreTranscode"`
 }

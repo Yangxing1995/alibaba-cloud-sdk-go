@@ -80,11 +80,11 @@ type ListCommandsRequest struct {
 // ListCommandsResponse is the response struct for api ListCommands
 type ListCommandsResponse struct {
 	*responses.BaseResponse
-	RequestId  string   `json:"RequestId" xml:"RequestId"`
-	TotalCount int      `json:"TotalCount" xml:"TotalCount"`
-	PageNumber int      `json:"PageNumber" xml:"PageNumber"`
-	PageSize   int      `json:"PageSize" xml:"PageSize"`
-	Commands   Commands `json:"Commands" xml:"Commands"`
+	PageSize   int                    `json:"PageSize" xml:"PageSize"`
+	RequestId  string                 `json:"RequestId" xml:"RequestId"`
+	PageNumber int                    `json:"PageNumber" xml:"PageNumber"`
+	TotalCount int                    `json:"TotalCount" xml:"TotalCount"`
+	Commands   CommandsInListCommands `json:"Commands" xml:"Commands"`
 }
 
 // CreateListCommandsRequest creates a request to invoke ListCommands API
@@ -92,7 +92,7 @@ func CreateListCommandsRequest() (request *ListCommandsRequest) {
 	request = &ListCommandsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListCommands", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListCommands", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -71,21 +71,22 @@ func (client *Client) CreateQualityFollowerWithCallback(request *CreateQualityFo
 // CreateQualityFollowerRequest is the request struct for api CreateQualityFollower
 type CreateQualityFollowerRequest struct {
 	*requests.RpcRequest
-	AlarmMode   requests.Integer `position:"Body" name:"AlarmMode"`
 	ProjectName string           `position:"Body" name:"ProjectName"`
 	Follower    string           `position:"Body" name:"Follower"`
 	EntityId    requests.Integer `position:"Body" name:"EntityId"`
+	AlarmMode   requests.Integer `position:"Body" name:"AlarmMode"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // CreateQualityFollowerResponse is the response struct for api CreateQualityFollower
 type CreateQualityFollowerResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	Data           int    `json:"Data" xml:"Data"`
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Data           int    `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateCreateQualityFollowerRequest creates a request to invoke CreateQualityFollower API

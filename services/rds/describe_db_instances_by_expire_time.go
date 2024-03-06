@@ -73,6 +73,7 @@ type DescribeDBInstancesByExpireTimeRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	PageNumber           requests.Integer `position:"Query" name:"PageNumber"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	Expired              requests.Boolean `position:"Query" name:"Expired"`
 	PageSize             requests.Integer `position:"Query" name:"PageSize"`
 	ExpirePeriod         requests.Integer `position:"Query" name:"ExpirePeriod"`
@@ -88,8 +89,8 @@ type DescribeDBInstancesByExpireTimeResponse struct {
 	*responses.BaseResponse
 	RequestId        string                                 `json:"RequestId" xml:"RequestId"`
 	PageNumber       int                                    `json:"PageNumber" xml:"PageNumber"`
-	TotalRecordCount int                                    `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	PageRecordCount  int                                    `json:"PageRecordCount" xml:"PageRecordCount"`
+	TotalRecordCount int                                    `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	Items            ItemsInDescribeDBInstancesByExpireTime `json:"Items" xml:"Items"`
 }
 
@@ -98,7 +99,7 @@ func CreateDescribeDBInstancesByExpireTimeRequest() (request *DescribeDBInstance
 	request = &DescribeDBInstancesByExpireTimeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancesByExpireTime", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancesByExpireTime", "", "")
 	request.Method = requests.POST
 	return
 }

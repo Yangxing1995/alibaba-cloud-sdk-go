@@ -71,23 +71,30 @@ func (client *Client) GetMetaTablePartitionWithCallback(request *GetMetaTablePar
 // GetMetaTablePartitionRequest is the request struct for api GetMetaTablePartition
 type GetMetaTablePartitionRequest struct {
 	*requests.RpcRequest
-	DataSourceType string           `position:"Query" name:"DataSourceType"`
-	ClusterId      string           `position:"Query" name:"ClusterId"`
-	PageNumber     requests.Integer `position:"Query" name:"PageNumber"`
-	TableGuid      string           `position:"Query" name:"TableGuid"`
-	DatabaseName   string           `position:"Query" name:"DatabaseName"`
-	PageSize       requests.Integer `position:"Query" name:"PageSize"`
-	TableName      string           `position:"Query" name:"TableName"`
+	SortCriterion  GetMetaTablePartitionSortCriterion `position:"Query" name:"SortCriterion"  type:"Struct"`
+	DataSourceType string                             `position:"Query" name:"DataSourceType"`
+	ClusterId      string                             `position:"Query" name:"ClusterId"`
+	PageNumber     requests.Integer                   `position:"Query" name:"PageNumber"`
+	TableGuid      string                             `position:"Query" name:"TableGuid"`
+	DatabaseName   string                             `position:"Query" name:"DatabaseName"`
+	PageSize       requests.Integer                   `position:"Query" name:"PageSize"`
+	TableName      string                             `position:"Query" name:"TableName"`
+}
+
+// GetMetaTablePartitionSortCriterion is a repeated param struct in GetMetaTablePartitionRequest
+type GetMetaTablePartitionSortCriterion struct {
+	SortField string `name:"SortField"`
+	Order     string `name:"Order"`
 }
 
 // GetMetaTablePartitionResponse is the response struct for api GetMetaTablePartition
 type GetMetaTablePartitionResponse struct {
 	*responses.BaseResponse
-	RequestId      string                      `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string                      `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                      `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                         `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string                      `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string                      `json:"RequestId" xml:"RequestId"`
 	Success        bool                        `json:"Success" xml:"Success"`
+	ErrorCode      string                      `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInGetMetaTablePartition `json:"Data" xml:"Data"`
 }
 

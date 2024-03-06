@@ -77,8 +77,8 @@ type ListSecurityGroupsRequest struct {
 // ListSecurityGroupsResponse is the response struct for api ListSecurityGroups
 type ListSecurityGroupsResponse struct {
 	*responses.BaseResponse
-	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	TotalCount     int            `json:"TotalCount" xml:"TotalCount"`
+	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	SecurityGroups SecurityGroups `json:"SecurityGroups" xml:"SecurityGroups"`
 }
 
@@ -87,7 +87,7 @@ func CreateListSecurityGroupsRequest() (request *ListSecurityGroupsRequest) {
 	request = &ListSecurityGroupsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListSecurityGroups", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListSecurityGroups", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

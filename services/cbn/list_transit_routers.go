@@ -71,24 +71,42 @@ func (client *Client) ListTransitRoutersWithCallback(request *ListTransitRouters
 // ListTransitRoutersRequest is the request struct for api ListTransitRouters
 type ListTransitRoutersRequest struct {
 	*requests.RpcRequest
-	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	CenId                string           `position:"Query" name:"CenId"`
-	TransitRouterIds     *[]string        `position:"Query" name:"TransitRouterIds"  type:"Repeated"`
-	PageNumber           requests.Integer `position:"Query" name:"PageNumber"`
-	PageSize             requests.Integer `position:"Query" name:"PageSize"`
-	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
-	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
-	TransitRouterId      string           `position:"Query" name:"TransitRouterId"`
+	TransitRouterName    string                             `position:"Query" name:"TransitRouterName"`
+	ResourceOwnerId      requests.Integer                   `position:"Query" name:"ResourceOwnerId"`
+	CenId                string                             `position:"Query" name:"CenId"`
+	FeatureFilter        *[]ListTransitRoutersFeatureFilter `position:"Query" name:"FeatureFilter"  type:"Repeated"`
+	Type                 string                             `position:"Query" name:"Type"`
+	TransitRouterIds     *[]string                          `position:"Query" name:"TransitRouterIds"  type:"Repeated"`
+	PageNumber           requests.Integer                   `position:"Query" name:"PageNumber"`
+	PageSize             requests.Integer                   `position:"Query" name:"PageSize"`
+	Tag                  *[]ListTransitRoutersTag           `position:"Query" name:"Tag"  type:"Repeated"`
+	ResourceOwnerAccount string                             `position:"Query" name:"ResourceOwnerAccount"`
+	OwnerAccount         string                             `position:"Query" name:"OwnerAccount"`
+	OwnerId              requests.Integer                   `position:"Query" name:"OwnerId"`
+	TransitRouterId      string                             `position:"Query" name:"TransitRouterId"`
+	Version              string                             `position:"Query" name:"Version"`
+	Status               string                             `position:"Query" name:"Status"`
+}
+
+// ListTransitRoutersFeatureFilter is a repeated param struct in ListTransitRoutersRequest
+type ListTransitRoutersFeatureFilter struct {
+	Value *[]string `name:"Value" type:"Repeated"`
+	Key   string    `name:"Key"`
+}
+
+// ListTransitRoutersTag is a repeated param struct in ListTransitRoutersRequest
+type ListTransitRoutersTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // ListTransitRoutersResponse is the response struct for api ListTransitRouters
 type ListTransitRoutersResponse struct {
 	*responses.BaseResponse
-	RequestId      string          `json:"RequestId" xml:"RequestId"`
-	TotalCount     int             `json:"TotalCount" xml:"TotalCount"`
-	PageNumber     int             `json:"PageNumber" xml:"PageNumber"`
 	PageSize       int             `json:"PageSize" xml:"PageSize"`
+	RequestId      string          `json:"RequestId" xml:"RequestId"`
+	PageNumber     int             `json:"PageNumber" xml:"PageNumber"`
+	TotalCount     int             `json:"TotalCount" xml:"TotalCount"`
 	TransitRouters []TransitRouter `json:"TransitRouters" xml:"TransitRouters"`
 }
 
@@ -97,7 +115,7 @@ func CreateListTransitRoutersRequest() (request *ListTransitRoutersRequest) {
 	request = &ListTransitRoutersRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "ListTransitRouters", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "ListTransitRouters", "", "")
 	request.Method = requests.POST
 	return
 }

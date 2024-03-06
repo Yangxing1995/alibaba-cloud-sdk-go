@@ -74,6 +74,7 @@ type QueryFpShotJobListRequest struct {
 	ResourceOwnerId            requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	NextPageToken              string           `position:"Query" name:"NextPageToken"`
 	StartOfJobCreatedTimeRange string           `position:"Query" name:"StartOfJobCreatedTimeRange"`
+	UserData                   string           `position:"Query" name:"UserData"`
 	State                      string           `position:"Query" name:"State"`
 	EndOfJobCreatedTimeRange   string           `position:"Query" name:"EndOfJobCreatedTimeRange"`
 	ResourceOwnerAccount       string           `position:"Query" name:"ResourceOwnerAccount"`

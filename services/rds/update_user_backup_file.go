@@ -72,6 +72,7 @@ func (client *Client) UpdateUserBackupFileWithCallback(request *UpdateUserBackup
 type UpdateUserBackupFileRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	Retention            requests.Integer `position:"Query" name:"Retention"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	BackupId             string           `position:"Query" name:"BackupId"`
@@ -92,7 +93,7 @@ func CreateUpdateUserBackupFileRequest() (request *UpdateUserBackupFileRequest) 
 	request = &UpdateUserBackupFileRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "UpdateUserBackupFile", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "UpdateUserBackupFile", "", "")
 	request.Method = requests.POST
 	return
 }

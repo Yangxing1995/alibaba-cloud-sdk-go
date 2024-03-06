@@ -79,10 +79,10 @@ type ScaleK8sApplicationRequest struct {
 // ScaleK8sApplicationResponse is the response struct for api ScaleK8sApplication
 type ScaleK8sApplicationResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
+	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
 	Code          int    `json:"Code" xml:"Code"`
 	Message       string `json:"Message" xml:"Message"`
-	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateScaleK8sApplicationRequest creates a request to invoke ScaleK8sApplication API
@@ -90,7 +90,7 @@ func CreateScaleK8sApplicationRequest() (request *ScaleK8sApplicationRequest) {
 	request = &ScaleK8sApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "ScaleK8sApplication", "/pop/v5/k8s/acs/k8s_apps", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "ScaleK8sApplication", "/pop/v5/k8s/acs/k8s_apps", "Edas", "openAPI")
 	request.Method = requests.PUT
 	return
 }

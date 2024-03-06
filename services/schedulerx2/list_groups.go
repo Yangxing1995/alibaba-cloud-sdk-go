@@ -72,15 +72,16 @@ func (client *Client) ListGroupsWithCallback(request *ListGroupsRequest, callbac
 type ListGroupsRequest struct {
 	*requests.RpcRequest
 	NamespaceSource string `position:"Query" name:"NamespaceSource"`
+	AppGroupName    string `position:"Query" name:"AppGroupName"`
 	Namespace       string `position:"Query" name:"Namespace"`
 }
 
 // ListGroupsResponse is the response struct for api ListGroups
 type ListGroupsResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
@@ -91,7 +92,7 @@ func CreateListGroupsRequest() (request *ListGroupsRequest) {
 		RpcRequest: &requests.RpcRequest{},
 	}
 	request.InitWithApiInfo("schedulerx2", "2019-04-30", "ListGroups", "", "")
-	request.Method = requests.GET
+	request.Method = requests.POST
 	return
 }
 

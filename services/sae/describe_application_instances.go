@@ -71,17 +71,19 @@ func (client *Client) DescribeApplicationInstancesWithCallback(request *Describe
 // DescribeApplicationInstancesRequest is the request struct for api DescribeApplicationInstances
 type DescribeApplicationInstancesRequest struct {
 	*requests.RoaRequest
+	JobId       string           `position:"Query" name:"JobId"`
 	AppId       string           `position:"Query" name:"AppId"`
 	GroupId     string           `position:"Query" name:"GroupId"`
 	PageSize    requests.Integer `position:"Query" name:"PageSize"`
 	CurrentPage requests.Integer `position:"Query" name:"CurrentPage"`
+	Reverse     requests.Boolean `position:"Query" name:"Reverse"`
 }
 
 // DescribeApplicationInstancesResponse is the response struct for api DescribeApplicationInstances
 type DescribeApplicationInstancesResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
 	RequestId string `json:"RequestId" xml:"RequestId"`
+	Message   string `json:"Message" xml:"Message"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
 	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Code      string `json:"Code" xml:"Code"`

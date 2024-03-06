@@ -71,15 +71,17 @@ func (client *Client) ListNamespacesWithCallback(request *ListNamespacesRequest,
 // ListNamespacesRequest is the request struct for api ListNamespaces
 type ListNamespacesRequest struct {
 	*requests.RpcRequest
+	NamespaceName string `position:"Query" name:"NamespaceName"`
+	Namespace     string `position:"Query" name:"Namespace"`
 }
 
 // ListNamespacesResponse is the response struct for api ListNamespaces
 type ListNamespacesResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
-	Success   bool   `json:"Success" xml:"Success"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 
@@ -89,7 +91,7 @@ func CreateListNamespacesRequest() (request *ListNamespacesRequest) {
 		RpcRequest: &requests.RpcRequest{},
 	}
 	request.InitWithApiInfo("schedulerx2", "2019-04-30", "ListNamespaces", "", "")
-	request.Method = requests.GET
+	request.Method = requests.POST
 	return
 }
 

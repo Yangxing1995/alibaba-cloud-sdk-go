@@ -81,13 +81,13 @@ type ModifyDialogueFlowRequest struct {
 // ModifyDialogueFlowResponse is the response struct for api ModifyDialogueFlow
 type ModifyDialogueFlowResponse struct {
 	*responses.BaseResponse
-	Code                   string `json:"Code" xml:"Code"`
-	DialogueFlowDefinition string `json:"DialogueFlowDefinition" xml:"DialogueFlowDefinition"`
-	DialogueFlowId         string `json:"DialogueFlowId" xml:"DialogueFlowId"`
 	HttpStatusCode         int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message                string `json:"Message" xml:"Message"`
+	DialogueFlowDefinition string `json:"DialogueFlowDefinition" xml:"DialogueFlowDefinition"`
 	RequestId              string `json:"RequestId" xml:"RequestId"`
 	Success                bool   `json:"Success" xml:"Success"`
+	DialogueFlowId         string `json:"DialogueFlowId" xml:"DialogueFlowId"`
+	Code                   string `json:"Code" xml:"Code"`
+	Message                string `json:"Message" xml:"Message"`
 }
 
 // CreateModifyDialogueFlowRequest creates a request to invoke ModifyDialogueFlow API
@@ -95,7 +95,7 @@ func CreateModifyDialogueFlowRequest() (request *ModifyDialogueFlowRequest) {
 	request = &ModifyDialogueFlowRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyDialogueFlow", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyDialogueFlow", "", "")
 	request.Method = requests.POST
 	return
 }

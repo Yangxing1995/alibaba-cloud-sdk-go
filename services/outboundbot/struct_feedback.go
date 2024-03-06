@@ -21,4 +21,5 @@ type Feedback struct {
 	ActionParams  string `json:"ActionParams" xml:"ActionParams"`
 	Content       string `json:"Content" xml:"Content"`
 	Interruptible bool   `json:"Interruptible" xml:"Interruptible"`
+	ContentParams string `json:"ContentParams" xml:"ContentParams"`
 }

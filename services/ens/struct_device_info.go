@@ -17,12 +17,14 @@ package ens
 
 // DeviceInfo is a nested struct in ens response
 type DeviceInfo struct {
-	RegionID string `json:"RegionID" xml:"RegionID"`
-	ID       string `json:"ID" xml:"ID"`
-	IP       string `json:"IP" xml:"IP"`
-	Server   string `json:"Server" xml:"Server"`
-	Status   string `json:"Status" xml:"Status"`
-	Type     string `json:"Type" xml:"Type"`
-	Mac      string `json:"Mac" xml:"Mac"`
-	ISP      string `json:"ISP" xml:"ISP"`
+	RegionID   string `json:"RegionID" xml:"RegionID"`
+	ID         string `json:"ID" xml:"ID"`
+	IP         string `json:"IP" xml:"IP"`
+	Server     string `json:"Server" xml:"Server"`
+	Status     string `json:"Status" xml:"Status"`
+	Type       string `json:"Type" xml:"Type"`
+	Mac        string `json:"Mac" xml:"Mac"`
+	ISP        string `json:"ISP" xml:"ISP"`
+	DeviceName string `json:"DeviceName" xml:"DeviceName"`
+	ImageID    string `json:"ImageID" xml:"ImageID"`
 }

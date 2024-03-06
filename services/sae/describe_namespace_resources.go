@@ -71,17 +71,18 @@ func (client *Client) DescribeNamespaceResourcesWithCallback(request *DescribeNa
 // DescribeNamespaceResourcesRequest is the request struct for api DescribeNamespaceResources
 type DescribeNamespaceResourcesRequest struct {
 	*requests.RoaRequest
-	NamespaceId string `position:"Query" name:"NamespaceId"`
+	NamespaceId      string `position:"Query" name:"NamespaceId"`
+	NameSpaceShortId string `position:"Query" name:"NameSpaceShortId"`
 }
 
 // DescribeNamespaceResourcesResponse is the response struct for api DescribeNamespaceResources
 type DescribeNamespaceResourcesResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
+	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
+	Code      string `json:"Code" xml:"Code"`
 	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }

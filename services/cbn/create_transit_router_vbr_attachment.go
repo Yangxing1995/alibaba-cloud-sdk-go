@@ -71,29 +71,38 @@ func (client *Client) CreateTransitRouterVbrAttachmentWithCallback(request *Crea
 // CreateTransitRouterVbrAttachmentRequest is the request struct for api CreateTransitRouterVbrAttachment
 type CreateTransitRouterVbrAttachmentRequest struct {
 	*requests.RpcRequest
-	ResourceOwnerId                    requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	ClientToken                        string           `position:"Query" name:"ClientToken"`
-	CenId                              string           `position:"Query" name:"CenId"`
-	RouteTableAssociationEnabled       requests.Boolean `position:"Query" name:"RouteTableAssociationEnabled"`
-	VbrId                              string           `position:"Query" name:"VbrId"`
-	TransitRouterAttachmentName        string           `position:"Query" name:"TransitRouterAttachmentName"`
-	AutoPublishRouteEnabled            requests.Boolean `position:"Query" name:"AutoPublishRouteEnabled"`
-	RouteTablePropagationEnabled       requests.Boolean `position:"Query" name:"RouteTablePropagationEnabled"`
-	DryRun                             requests.Boolean `position:"Query" name:"DryRun"`
-	ResourceOwnerAccount               string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerAccount                       string           `position:"Query" name:"OwnerAccount"`
-	OwnerId                            requests.Integer `position:"Query" name:"OwnerId"`
-	TransitRouterId                    string           `position:"Query" name:"TransitRouterId"`
-	ResourceType                       string           `position:"Query" name:"ResourceType"`
-	TransitRouterAttachmentDescription string           `position:"Query" name:"TransitRouterAttachmentDescription"`
-	VbrOwnerId                         requests.Integer `position:"Query" name:"VbrOwnerId"`
+	ResourceOwnerId                    requests.Integer                       `position:"Query" name:"ResourceOwnerId"`
+	ClientToken                        string                                 `position:"Query" name:"ClientToken"`
+	CenId                              string                                 `position:"Query" name:"CenId"`
+	RouteTableAssociationEnabled       requests.Boolean                       `position:"Query" name:"RouteTableAssociationEnabled"`
+	VbrId                              string                                 `position:"Query" name:"VbrId"`
+	TransitRouterAttachmentName        string                                 `position:"Query" name:"TransitRouterAttachmentName"`
+	Tag                                *[]CreateTransitRouterVbrAttachmentTag `position:"Query" name:"Tag"  type:"Repeated"`
+	AutoPublishRouteEnabled            requests.Boolean                       `position:"Query" name:"AutoPublishRouteEnabled"`
+	RouteTablePropagationEnabled       requests.Boolean                       `position:"Query" name:"RouteTablePropagationEnabled"`
+	DryRun                             requests.Boolean                       `position:"Query" name:"DryRun"`
+	ResourceOwnerAccount               string                                 `position:"Query" name:"ResourceOwnerAccount"`
+	OwnerAccount                       string                                 `position:"Query" name:"OwnerAccount"`
+	OwnerId                            requests.Integer                       `position:"Query" name:"OwnerId"`
+	TransitRouterId                    string                                 `position:"Query" name:"TransitRouterId"`
+	ResourceType                       string                                 `position:"Query" name:"ResourceType"`
+	Version                            string                                 `position:"Query" name:"Version"`
+	TransitRouterAttachmentDescription string                                 `position:"Query" name:"TransitRouterAttachmentDescription"`
+	AssociateRouteTableId              string                                 `position:"Query" name:"AssociateRouteTableId"`
+	VbrOwnerId                         requests.Integer                       `position:"Query" name:"VbrOwnerId"`
+}
+
+// CreateTransitRouterVbrAttachmentTag is a repeated param struct in CreateTransitRouterVbrAttachmentRequest
+type CreateTransitRouterVbrAttachmentTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // CreateTransitRouterVbrAttachmentResponse is the response struct for api CreateTransitRouterVbrAttachment
 type CreateTransitRouterVbrAttachmentResponse struct {
 	*responses.BaseResponse
-	RequestId                 string `json:"RequestId" xml:"RequestId"`
 	TransitRouterAttachmentId string `json:"TransitRouterAttachmentId" xml:"TransitRouterAttachmentId"`
+	RequestId                 string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateTransitRouterVbrAttachmentRequest creates a request to invoke CreateTransitRouterVbrAttachment API
@@ -101,7 +110,7 @@ func CreateCreateTransitRouterVbrAttachmentRequest() (request *CreateTransitRout
 	request = &CreateTransitRouterVbrAttachmentRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "CreateTransitRouterVbrAttachment", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "CreateTransitRouterVbrAttachment", "", "")
 	request.Method = requests.POST
 	return
 }

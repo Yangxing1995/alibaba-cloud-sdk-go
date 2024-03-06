@@ -82,8 +82,8 @@ type DescribeDBInstanceMonitorRequest struct {
 // DescribeDBInstanceMonitorResponse is the response struct for api DescribeDBInstanceMonitor
 type DescribeDBInstanceMonitorResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Period    string `json:"Period" xml:"Period"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDescribeDBInstanceMonitorRequest creates a request to invoke DescribeDBInstanceMonitor API
@@ -91,7 +91,7 @@ func CreateDescribeDBInstanceMonitorRequest() (request *DescribeDBInstanceMonito
 	request = &DescribeDBInstanceMonitorRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceMonitor", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceMonitor", "", "")
 	request.Method = requests.POST
 	return
 }

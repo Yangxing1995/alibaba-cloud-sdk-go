@@ -29,6 +29,10 @@ import (
 
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/auth/credentials"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/auth/credentials/provider"
+	"github.com/opentracing/opentracing-go"
+	"github.com/uber/jaeger-client-go"
+	jaegercfg "github.com/uber/jaeger-client-go/config"
+	jaegerlog "github.com/uber/jaeger-client-go/log"
 
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/responses"
@@ -107,21 +111,48 @@ func Test_NewClientWithPolicy(t *testing.T) {
 }
 
 func Test_ClientWithSouceIp(t *testing.T) {
-	client, err := NewClientWithAccessKey("regionid", os.Getenv("ACCESS_KEY_ID"), os.Getenv("ACCESS_KEY_SECRET"))
+	client, err := NewClientWithAccessKey("regionid", "acesskeyid", "accesskeysecret")
 	assert.Nil(t, err)
 	assert.NotNil(t, client)
 	client.SourceIp = "192.168.0.1"
 	client.SecureTransport = "true"
+	// rpc test
 	request := requests.NewCommonRequest()
 	request.Domain = "ecs.aliyuncs.com"
 	request.Version = "2014-05-26"
-	// 因为是RPC接口，因此需指定ApiName(Action)
 	request.ApiName = "DescribeInstanceStatus"
 	request.QueryParams["PageNumber"] = "1"
 	request.QueryParams["PageSize"] = "30"
-	resp, err := client.ProcessCommonRequest(request)
-	fmt.Println(resp)
+	request.TransToAcsRequest()
+	response := responses.NewCommonResponse()
+	origTestHookDo := hookDo
+	defer func() { hookDo = origTestHookDo }()
+	hookDo = func(fn func(req *http.Request) (*http.Response, error)) func(req *http.Request) (*http.Response, error) {
+		return func(req *http.Request) (*http.Response, error) {
+			return mockResponse(200, "", nil)
+		}
+	}
+	err = client.DoAction(request, response)
 	assert.Nil(t, err)
+	assert.Equal(t, request.QueryParams["SourceIp"], "192.168.0.1")
+	assert.Equal(t, request.QueryParams["SecureTransport"], "true")
+	assert.Equal(t, request.Headers["x-acs-proxy-source-ip"], "")
+	assert.Equal(t, request.Headers["x-acs-proxy-secure-transport"], "")
+	// roa test
+	roaRequest := requests.NewCommonRequest()
+	roaRequest.PathPattern = "/test"
+	roaRequest.Domain = "ecs.aliyuncs.com"
+	roaRequest.Version = "2014-05-26"
+	roaRequest.ApiName = "DescribeInstanceStatus"
+	roaRequest.QueryParams["PageNumber"] = "1"
+	roaRequest.QueryParams["PageSize"] = "30"
+	roaRequest.TransToAcsRequest()
+	err = client.DoAction(roaRequest, response)
+	assert.Nil(t, err)
+	assert.Equal(t, roaRequest.QueryParams["SourceIp"], "")
+	assert.Equal(t, roaRequest.QueryParams["SecureTransport"], "")
+	assert.Equal(t, roaRequest.Headers["x-acs-proxy-source-ip"], "192.168.0.1")
+	assert.Equal(t, roaRequest.Headers["x-acs-proxy-secure-transport"], "true")
 }
 
 func Test_NewClientWithAccessKey(t *testing.T) {
@@ -447,6 +478,70 @@ func Test_DoAction_Timeout(t *testing.T) {
 	assert.Equal(t, "", response.GetHttpContentString())
 
 	client.Shutdown()
+}
+
+func Test_DoAction_Tracer(t *testing.T) {
+	client, err := NewClientWithAccessKey("regionid", "acesskeyid", "accesskeysecret")
+	assert.Nil(t, err)
+	assert.NotNil(t, client)
+	request := requests.NewCommonRequest()
+	request.Domain = "ecs.aliyuncs.com"
+	request.Version = "2014-05-26"
+	request.Product = "ecs"
+	request.ApiName = "DescribeRegions"
+
+	var cfg = jaegercfg.Configuration{
+		ServiceName: "client test",
+		Sampler: &jaegercfg.SamplerConfig{
+			Type:  jaeger.SamplerTypeConst,
+			Param: 1,
+		},
+		Reporter: &jaegercfg.ReporterConfig{
+			LogSpans:          true,
+			CollectorEndpoint: "http://127.0.0.1:8000",
+		},
+	}
+	jLogger := jaegerlog.StdLogger
+	tracer, closer, _ := cfg.NewTracer(
+		jaegercfg.Logger(jLogger),
+	)
+	rootSpan := tracer.StartSpan("root span")
+	parentSpan := tracer.StartSpan("request span")
+	opentracing.InitGlobalTracer(tracer)
+
+	client.SetTracerRootSpan(rootSpan)
+	request.TransToAcsRequest()
+	response := responses.NewCommonResponse()
+	err = client.DoAction(request, response)
+	assert.NotNil(t, err)
+	assert.Equal(t, 404, response.GetHttpStatus())
+	assert.NotNil(t, response.GetHttpContentString())
+
+	request.SetTracerSpan(parentSpan)
+	request.TransToAcsRequest()
+	response = responses.NewCommonResponse()
+	client.SetCloseTrace(true)
+	err = client.DoAction(request, response)
+	assert.NotNil(t, err)
+	assert.Equal(t, 404, response.GetHttpStatus())
+	assert.NotNil(t, response.GetHttpContentString())
+	client.SetCloseTrace(false)
+	err = client.DoAction(request, response)
+	assert.NotNil(t, err)
+	assert.Equal(t, 404, response.GetHttpStatus())
+	assert.NotNil(t, response.GetHttpContentString())
+
+	client.SetTracerRootSpan(nil)
+	request.TransToAcsRequest()
+	response = responses.NewCommonResponse()
+	err = client.DoAction(request, response)
+	assert.NotNil(t, err)
+	assert.Equal(t, 404, response.GetHttpStatus())
+	assert.NotNil(t, response.GetHttpContentString())
+
+	rootSpan.Finish()
+	parentSpan.Finish()
+	closer.Close()
 }
 
 func Test_ProcessCommonRequest(t *testing.T) {

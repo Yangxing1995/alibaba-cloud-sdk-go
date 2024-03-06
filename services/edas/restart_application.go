@@ -78,10 +78,10 @@ type RestartApplicationRequest struct {
 // RestartApplicationResponse is the response struct for api RestartApplication
 type RestartApplicationResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
+	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
 	Code          int    `json:"Code" xml:"Code"`
 	Message       string `json:"Message" xml:"Message"`
-	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateRestartApplicationRequest creates a request to invoke RestartApplication API
@@ -89,7 +89,7 @@ func CreateRestartApplicationRequest() (request *RestartApplicationRequest) {
 	request = &RestartApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "RestartApplication", "/pop/v5/changeorder/co_restart", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "RestartApplication", "/pop/v5/changeorder/co_restart", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

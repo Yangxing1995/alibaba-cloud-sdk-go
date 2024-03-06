@@ -71,7 +71,8 @@ func (client *Client) GetDbProxyInstanceSslWithCallback(request *GetDbProxyInsta
 // GetDbProxyInstanceSslRequest is the request struct for api GetDbProxyInstanceSsl
 type GetDbProxyInstanceSslRequest struct {
 	*requests.RpcRequest
-	DbInstanceId string `position:"Query" name:"DbInstanceId"`
+	DBProxyEngineType string `position:"Query" name:"DBProxyEngineType"`
+	DbInstanceId      string `position:"Query" name:"DbInstanceId"`
 }
 
 // GetDbProxyInstanceSslResponse is the response struct for api GetDbProxyInstanceSsl
@@ -86,7 +87,7 @@ func CreateGetDbProxyInstanceSslRequest() (request *GetDbProxyInstanceSslRequest
 	request = &GetDbProxyInstanceSslRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "GetDbProxyInstanceSsl", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "GetDbProxyInstanceSsl", "", "")
 	request.Method = requests.POST
 	return
 }

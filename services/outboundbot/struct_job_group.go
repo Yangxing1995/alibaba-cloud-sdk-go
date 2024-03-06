@@ -20,20 +20,24 @@ type JobGroup struct {
 	ScriptName           string         `json:"ScriptName" xml:"ScriptName"`
 	JobGroupId           string         `json:"JobGroupId" xml:"JobGroupId"`
 	ModifyTime           string         `json:"ModifyTime" xml:"ModifyTime"`
+	MinConcurrency       int64          `json:"MinConcurrency" xml:"MinConcurrency"`
 	JobGroupName         string         `json:"JobGroupName" xml:"JobGroupName"`
-	CreationTime         int64          `json:"CreationTime" xml:"CreationTime"`
-	ScenarioId           string         `json:"ScenarioId" xml:"ScenarioId"`
 	TotalCallNum         int            `json:"TotalCallNum" xml:"TotalCallNum"`
+	JobGroupDescription  string         `json:"JobGroupDescription" xml:"JobGroupDescription"`
+	Id                   string         `json:"Id" xml:"Id"`
+	RingingDuration      int64          `json:"RingingDuration" xml:"RingingDuration"`
+	CreationTime         int64          `json:"CreationTime" xml:"CreationTime"`
+	Priority             string         `json:"Priority" xml:"Priority"`
+	ScenarioId           string         `json:"ScenarioId" xml:"ScenarioId"`
 	ScriptVersion        string         `json:"ScriptVersion" xml:"ScriptVersion"`
 	ScriptId             string         `json:"ScriptId" xml:"ScriptId"`
 	JobDataParsingTaskId string         `json:"JobDataParsingTaskId" xml:"JobDataParsingTaskId"`
-	JobGroupDescription  string         `json:"JobGroupDescription" xml:"JobGroupDescription"`
 	JobFilePath          string         `json:"JobFilePath" xml:"JobFilePath"`
-	Id                   string         `json:"Id" xml:"Id"`
 	Status               string         `json:"Status" xml:"Status"`
 	CallingNumbers       []string       `json:"CallingNumbers" xml:"CallingNumbers"`
 	Progress             Progress       `json:"Progress" xml:"Progress"`
-	Strategy             Strategy       `json:"Strategy" xml:"Strategy"`
 	ExportProgress       ExportProgress `json:"ExportProgress" xml:"ExportProgress"`
+	RecallStrategy       RecallStrategy `json:"RecallStrategy" xml:"RecallStrategy"`
+	Strategy             Strategy       `json:"Strategy" xml:"Strategy"`
 	Result               Result         `json:"Result" xml:"Result"`
 }

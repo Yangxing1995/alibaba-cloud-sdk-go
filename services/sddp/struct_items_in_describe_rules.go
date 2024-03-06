@@ -17,5 +17,5 @@ package sddp
 
 // ItemsInDescribeRules is a nested struct in sddp response
 type ItemsInDescribeRules struct {
-	Rule []Rule `json:"Rule" xml:"Rule"`
+	Rule []RuleInDescribeRules `json:"Rule" xml:"Rule"`
 }

@@ -76,6 +76,7 @@ type ListAlertMessagesRequest struct {
 	BeginTime      string           `position:"Body" name:"BeginTime"`
 	AlertMethods   string           `position:"Body" name:"AlertMethods"`
 	PageNumber     requests.Integer `position:"Body" name:"PageNumber"`
+	BaselineId     requests.Integer `position:"Body" name:"BaselineId"`
 	RemindId       requests.Integer `position:"Body" name:"RemindId"`
 	PageSize       requests.Integer `position:"Body" name:"PageSize"`
 	AlertRuleTypes string           `position:"Body" name:"AlertRuleTypes"`
@@ -84,11 +85,11 @@ type ListAlertMessagesRequest struct {
 // ListAlertMessagesResponse is the response struct for api ListAlertMessages
 type ListAlertMessagesResponse struct {
 	*responses.BaseResponse
-	Success        bool                    `json:"Success" xml:"Success"`
-	ErrorCode      string                  `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                  `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                     `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string                  `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string                  `json:"ErrorMessage" xml:"ErrorMessage"`
+	ErrorCode      string                  `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool                    `json:"Success" xml:"Success"`
 	Data           DataInListAlertMessages `json:"Data" xml:"Data"`
 }
 

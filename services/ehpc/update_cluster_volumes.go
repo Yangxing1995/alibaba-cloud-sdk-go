@@ -77,19 +77,20 @@ type UpdateClusterVolumesRequest struct {
 
 // UpdateClusterVolumesAdditionalVolumes is a repeated param struct in UpdateClusterVolumesRequest
 type UpdateClusterVolumesAdditionalVolumes struct {
-	VolumeType       string                       `name:"VolumeType"`
-	VolumeProtocol   string                       `name:"VolumeProtocol"`
-	LocalDirectory   string                       `name:"LocalDirectory"`
-	RemoteDirectory  string                       `name:"RemoteDirectory"`
-	Roles            *[]UpdateClusterVolumesRoles `name:"Roles" type:"Repeated"`
-	VolumeId         string                       `name:"VolumeId"`
-	VolumeMountpoint string                       `name:"VolumeMountpoint"`
-	Location         string                       `name:"Location"`
-	JobQueue         string                       `name:"JobQueue"`
+	VolumeType        string                                        `name:"VolumeType"`
+	VolumeProtocol    string                                        `name:"VolumeProtocol"`
+	VolumeMountOption string                                        `name:"VolumeMountOption"`
+	LocalDirectory    string                                        `name:"LocalDirectory"`
+	RemoteDirectory   string                                        `name:"RemoteDirectory"`
+	Roles             *[]UpdateClusterVolumesAdditionalVolumesRoles `name:"Roles" type:"Repeated"`
+	VolumeId          string                                        `name:"VolumeId"`
+	VolumeMountpoint  string                                        `name:"VolumeMountpoint"`
+	Location          string                                        `name:"Location"`
+	JobQueue          string                                        `name:"JobQueue"`
 }
 
-// UpdateClusterVolumesRoles is a repeated param struct in UpdateClusterVolumesRequest
-type UpdateClusterVolumesRoles struct {
+// UpdateClusterVolumesAdditionalVolumesRoles is a repeated param struct in UpdateClusterVolumesRequest
+type UpdateClusterVolumesAdditionalVolumesRoles struct {
 	Name string `name:"Name"`
 }
 
@@ -104,7 +105,7 @@ func CreateUpdateClusterVolumesRequest() (request *UpdateClusterVolumesRequest) 
 	request = &UpdateClusterVolumesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "UpdateClusterVolumes", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "UpdateClusterVolumes", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

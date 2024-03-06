@@ -17,11 +17,13 @@ package vod
 
 // AppInfo is a nested struct in vod response
 type AppInfo struct {
-	AppId            string `json:"AppId" xml:"AppId"`
-	ModificationTime string `json:"ModificationTime" xml:"ModificationTime"`
-	CreationTime     string `json:"CreationTime" xml:"CreationTime"`
-	Status           string `json:"Status" xml:"Status"`
-	AppName          string `json:"AppName" xml:"AppName"`
-	Description      string `json:"Description" xml:"Description"`
-	Type             string `json:"Type" xml:"Type"`
+	AppId            string     `json:"AppId" xml:"AppId"`
+	RegionId         string     `json:"RegionId" xml:"RegionId"`
+	ModificationTime string     `json:"ModificationTime" xml:"ModificationTime"`
+	CreationTime     string     `json:"CreationTime" xml:"CreationTime"`
+	Status           string     `json:"Status" xml:"Status"`
+	AppName          string     `json:"AppName" xml:"AppName"`
+	Description      string     `json:"Description" xml:"Description"`
+	Type             string     `json:"Type" xml:"Type"`
+	Tags             []TagsItem `json:"Tags" xml:"Tags"`
 }

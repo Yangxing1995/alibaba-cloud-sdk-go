@@ -27,6 +27,11 @@ type UserDetail struct {
 	RoleName                   string                      `json:"RoleName" xml:"RoleName"`
 	RoleId                     string                      `json:"RoleId" xml:"RoleId"`
 	PrimaryAccount             bool                        `json:"PrimaryAccount" xml:"PrimaryAccount"`
+	RamId                      int64                       `json:"RamId" xml:"RamId"`
+	Extension                  string                      `json:"Extension" xml:"Extension"`
+	DeviceId                   string                      `json:"DeviceId" xml:"DeviceId"`
+	DeviceExt                  string                      `json:"DeviceExt" xml:"DeviceExt"`
+	DeviceState                string                      `json:"DeviceState" xml:"DeviceState"`
 	PersonalOutboundNumberList []PhoneNumber               `json:"PersonalOutboundNumberList" xml:"PersonalOutboundNumberList"`
 	SkillLevelList             []UserSkillLevelInListUsers `json:"SkillLevelList" xml:"SkillLevelList"`
 }

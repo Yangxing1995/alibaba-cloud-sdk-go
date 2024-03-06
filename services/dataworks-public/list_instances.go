@@ -75,6 +75,7 @@ type ListInstancesRequest struct {
 	Owner        string           `position:"Body" name:"Owner"`
 	BizName      string           `position:"Body" name:"BizName"`
 	BeginBizdate string           `position:"Body" name:"BeginBizdate"`
+	OrderBy      string           `position:"Body" name:"OrderBy"`
 	EndBizdate   string           `position:"Body" name:"EndBizdate"`
 	DagId        requests.Integer `position:"Body" name:"DagId"`
 	PageNumber   requests.Integer `position:"Body" name:"PageNumber"`
@@ -84,16 +85,17 @@ type ListInstancesRequest struct {
 	PageSize     requests.Integer `position:"Body" name:"PageSize"`
 	NodeId       requests.Integer `position:"Body" name:"NodeId"`
 	ProjectId    requests.Integer `position:"Body" name:"ProjectId"`
+	Status       string           `position:"Body" name:"Status"`
 }
 
 // ListInstancesResponse is the response struct for api ListInstances
 type ListInstancesResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 	Data           Data   `json:"Data" xml:"Data"`
 }
 

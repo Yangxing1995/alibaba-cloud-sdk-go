@@ -17,9 +17,10 @@ package videoenhan
 
 // ElementsItem is a nested struct in videoenhan response
 type ElementsItem struct {
-	TemplateURL string `json:"TemplateURL" xml:"TemplateURL"`
-	UserId      string `json:"UserId" xml:"UserId"`
-	CreateTime  string `json:"CreateTime" xml:"CreateTime"`
-	UpdateTime  string `json:"UpdateTime" xml:"UpdateTime"`
-	TemplateId  string `json:"TemplateId" xml:"TemplateId"`
+	CreateTime  string          `json:"CreateTime" xml:"CreateTime"`
+	UpdateTime  string          `json:"UpdateTime" xml:"UpdateTime"`
+	UserId      string          `json:"UserId" xml:"UserId"`
+	TemplateId  string          `json:"TemplateId" xml:"TemplateId"`
+	TemplateURL string          `json:"TemplateURL" xml:"TemplateURL"`
+	FaceInfos   []FaceInfosItem `json:"FaceInfos" xml:"FaceInfos"`
 }

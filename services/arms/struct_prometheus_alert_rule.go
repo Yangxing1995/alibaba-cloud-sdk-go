@@ -18,15 +18,16 @@ package arms
 // PrometheusAlertRule is a nested struct in arms response
 type PrometheusAlertRule struct {
 	ClusterId      string       `json:"ClusterId" xml:"ClusterId"`
-	Message        string       `json:"Message" xml:"Message"`
 	Status         int          `json:"Status" xml:"Status"`
-	Duration       string       `json:"Duration" xml:"Duration"`
+	Message        string       `json:"Message" xml:"Message"`
 	NotifyType     string       `json:"NotifyType" xml:"NotifyType"`
+	Duration       string       `json:"Duration" xml:"Duration"`
 	Expression     string       `json:"Expression" xml:"Expression"`
 	DispatchRuleId int64        `json:"DispatchRuleId" xml:"DispatchRuleId"`
-	AlertId        int64        `json:"AlertId" xml:"AlertId"`
-	AlertName      string       `json:"AlertName" xml:"AlertName"`
 	Type           string       `json:"Type" xml:"Type"`
+	AlertName      string       `json:"AlertName" xml:"AlertName"`
+	AlertId        int64        `json:"AlertId" xml:"AlertId"`
 	Labels         []Label      `json:"Labels" xml:"Labels"`
+	Tags           []TagsItem   `json:"Tags" xml:"Tags"`
 	Annotations    []Annotation `json:"Annotations" xml:"Annotations"`
 }

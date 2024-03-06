@@ -71,22 +71,22 @@ func (client *Client) UpdateTableLevelWithCallback(request *UpdateTableLevelRequ
 // UpdateTableLevelRequest is the request struct for api UpdateTableLevel
 type UpdateTableLevelRequest struct {
 	*requests.RpcRequest
-	LevelId     requests.Integer `position:"Query" name:"LevelId"`
 	LevelType   requests.Integer `position:"Query" name:"LevelType"`
-	Name        string           `position:"Query" name:"Name"`
 	Description string           `position:"Query" name:"Description"`
+	LevelId     requests.Integer `position:"Query" name:"LevelId"`
+	Name        string           `position:"Query" name:"Name"`
 	ProjectId   requests.Integer `position:"Query" name:"ProjectId"`
 }
 
 // UpdateTableLevelResponse is the response struct for api UpdateTableLevel
 type UpdateTableLevelResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Success        bool   `json:"Success" xml:"Success"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	UpdateResult   bool   `json:"UpdateResult" xml:"UpdateResult"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateUpdateTableLevelRequest creates a request to invoke UpdateTableLevel API

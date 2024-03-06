@@ -80,8 +80,8 @@ type ListGlobalQuestionsRequest struct {
 // ListGlobalQuestionsResponse is the response struct for api ListGlobalQuestions
 type ListGlobalQuestionsResponse struct {
 	*responses.BaseResponse
-	Code            string          `json:"Code" xml:"Code"`
 	HttpStatusCode  int             `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code            string          `json:"Code" xml:"Code"`
 	Message         string          `json:"Message" xml:"Message"`
 	RequestId       string          `json:"RequestId" xml:"RequestId"`
 	Success         bool            `json:"Success" xml:"Success"`
@@ -93,7 +93,7 @@ func CreateListGlobalQuestionsRequest() (request *ListGlobalQuestionsRequest) {
 	request = &ListGlobalQuestionsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListGlobalQuestions", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListGlobalQuestions", "", "")
 	request.Method = requests.POST
 	return
 }

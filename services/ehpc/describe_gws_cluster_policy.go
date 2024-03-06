@@ -79,10 +79,10 @@ type DescribeGWSClusterPolicyRequest struct {
 // DescribeGWSClusterPolicyResponse is the response struct for api DescribeGWSClusterPolicy
 type DescribeGWSClusterPolicyResponse struct {
 	*responses.BaseResponse
-	RequestId   string `json:"RequestId" xml:"RequestId"`
-	Clipboard   string `json:"Clipboard" xml:"Clipboard"`
-	UsbRedirect string `json:"UsbRedirect" xml:"UsbRedirect"`
 	Watermark   string `json:"Watermark" xml:"Watermark"`
+	Clipboard   string `json:"Clipboard" xml:"Clipboard"`
+	RequestId   string `json:"RequestId" xml:"RequestId"`
+	UsbRedirect string `json:"UsbRedirect" xml:"UsbRedirect"`
 	LocalDrive  string `json:"LocalDrive" xml:"LocalDrive"`
 }
 
@@ -91,7 +91,7 @@ func CreateDescribeGWSClusterPolicyRequest() (request *DescribeGWSClusterPolicyR
 	request = &DescribeGWSClusterPolicyRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "DescribeGWSClusterPolicy", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "DescribeGWSClusterPolicy", "ehs", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -71,12 +71,14 @@ func (client *Client) UpdateEngineNamespaceWithCallback(request *UpdateEngineNam
 // UpdateEngineNamespaceRequest is the request struct for api UpdateEngineNamespace
 type UpdateEngineNamespaceRequest struct {
 	*requests.RpcRequest
-	ClusterId    string           `position:"Query" name:"ClusterId"`
-	InstanceId   string           `position:"Query" name:"InstanceId"`
-	ServiceCount requests.Integer `position:"Query" name:"ServiceCount"`
-	Name         string           `position:"Query" name:"Name"`
-	Id           string           `position:"Query" name:"Id"`
-	Desc         string           `position:"Query" name:"Desc"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	ServiceCount   requests.Integer `position:"Query" name:"ServiceCount"`
+	Id             string           `position:"Query" name:"Id"`
+	ClusterId      string           `position:"Query" name:"ClusterId"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	Name           string           `position:"Query" name:"Name"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
+	Desc           string           `position:"Query" name:"Desc"`
 }
 
 // UpdateEngineNamespaceResponse is the response struct for api UpdateEngineNamespace
@@ -94,7 +96,7 @@ func CreateUpdateEngineNamespaceRequest() (request *UpdateEngineNamespaceRequest
 	request = &UpdateEngineNamespaceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "UpdateEngineNamespace", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "UpdateEngineNamespace", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

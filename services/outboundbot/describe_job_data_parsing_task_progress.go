@@ -78,11 +78,11 @@ type DescribeJobDataParsingTaskProgressRequest struct {
 // DescribeJobDataParsingTaskProgressResponse is the response struct for api DescribeJobDataParsingTaskProgress
 type DescribeJobDataParsingTaskProgressResponse struct {
 	*responses.BaseResponse
-	RequestId      string   `json:"RequestId" xml:"RequestId"`
-	Success        bool     `json:"Success" xml:"Success"`
+	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code           string   `json:"Code" xml:"Code"`
 	Message        string   `json:"Message" xml:"Message"`
-	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string   `json:"RequestId" xml:"RequestId"`
+	Success        bool     `json:"Success" xml:"Success"`
 	Progress       Progress `json:"Progress" xml:"Progress"`
 }
 
@@ -91,7 +91,7 @@ func CreateDescribeJobDataParsingTaskProgressRequest() (request *DescribeJobData
 	request = &DescribeJobDataParsingTaskProgressRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeJobDataParsingTaskProgress", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeJobDataParsingTaskProgress", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -72,18 +72,18 @@ func (client *Client) CreateTableThemeWithCallback(request *CreateTableThemeRequ
 type CreateTableThemeRequest struct {
 	*requests.RpcRequest
 	Level     requests.Integer `position:"Query" name:"Level"`
+	ParentId  requests.Integer `position:"Query" name:"ParentId"`
 	Name      string           `position:"Query" name:"Name"`
 	ProjectId requests.Integer `position:"Query" name:"ProjectId"`
-	ParentId  requests.Integer `position:"Query" name:"ParentId"`
 }
 
 // CreateTableThemeResponse is the response struct for api CreateTableTheme
 type CreateTableThemeResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
 	Success        bool   `json:"Success" xml:"Success"`
 	ThemeId        int64  `json:"ThemeId" xml:"ThemeId"`
 }

@@ -82,8 +82,8 @@ type ListJobsByGroupRequest struct {
 // ListJobsByGroupResponse is the response struct for api ListJobsByGroup
 type ListJobsByGroupResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -95,7 +95,7 @@ func CreateListJobsByGroupRequest() (request *ListJobsByGroupRequest) {
 	request = &ListJobsByGroupRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListJobsByGroup", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListJobsByGroup", "", "")
 	request.Method = requests.POST
 	return
 }

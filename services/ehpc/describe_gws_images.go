@@ -78,10 +78,10 @@ type DescribeGWSImagesRequest struct {
 // DescribeGWSImagesResponse is the response struct for api DescribeGWSImages
 type DescribeGWSImagesResponse struct {
 	*responses.BaseResponse
-	RequestId  string                    `json:"RequestId" xml:"RequestId"`
-	TotalCount int                       `json:"TotalCount" xml:"TotalCount"`
-	PageNumber int                       `json:"PageNumber" xml:"PageNumber"`
 	PageSize   int                       `json:"PageSize" xml:"PageSize"`
+	RequestId  string                    `json:"RequestId" xml:"RequestId"`
+	PageNumber int                       `json:"PageNumber" xml:"PageNumber"`
+	TotalCount int                       `json:"TotalCount" xml:"TotalCount"`
 	Images     ImagesInDescribeGWSImages `json:"Images" xml:"Images"`
 }
 
@@ -90,7 +90,7 @@ func CreateDescribeGWSImagesRequest() (request *DescribeGWSImagesRequest) {
 	request = &DescribeGWSImagesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "DescribeGWSImages", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "DescribeGWSImages", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

@@ -71,7 +71,9 @@ func (client *Client) ChangeSkyWithCallback(request *ChangeSkyRequest, callback 
 // ChangeSkyRequest is the request struct for api ChangeSky
 type ChangeSkyRequest struct {
 	*requests.RpcRequest
+	OssFile         string `position:"Query" name:"OssFile"`
 	ReplaceImageURL string `position:"Query" name:"ReplaceImageURL"`
+	RequestProxyBy  string `position:"Query" name:"RequestProxyBy"`
 	ImageURL        string `position:"Query" name:"ImageURL"`
 }
 

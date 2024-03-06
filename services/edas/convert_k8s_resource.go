@@ -80,9 +80,9 @@ type ConvertK8sResourceRequest struct {
 // ConvertK8sResourceResponse is the response struct for api ConvertK8sResource
 type ConvertK8sResourceResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Message   string `json:"Message" xml:"Message"`
 	Code      int    `json:"Code" xml:"Code"`
+	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateConvertK8sResourceRequest creates a request to invoke ConvertK8sResource API
@@ -90,7 +90,7 @@ func CreateConvertK8sResourceRequest() (request *ConvertK8sResourceRequest) {
 	request = &ConvertK8sResourceRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "ConvertK8sResource", "/pop/v5/oam/k8s_resource_convert", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "ConvertK8sResource", "/pop/v5/oam/k8s_resource_convert", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

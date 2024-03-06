@@ -71,12 +71,15 @@ func (client *Client) ExportNacosConfigWithCallback(request *ExportNacosConfigRe
 // ExportNacosConfigRequest is the request struct for api ExportNacosConfig
 type ExportNacosConfigRequest struct {
 	*requests.RpcRequest
-	InstanceId  string `position:"Query" name:"InstanceId"`
-	DataId      string `position:"Query" name:"DataId"`
-	AppName     string `position:"Query" name:"AppName"`
-	NamespaceId string `position:"Query" name:"NamespaceId"`
-	Ids         string `position:"Query" name:"Ids"`
-	Group       string `position:"Query" name:"Group"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	DataIds        string `position:"Query" name:"DataIds"`
+	AppName        string `position:"Query" name:"AppName"`
+	NamespaceId    string `position:"Query" name:"NamespaceId"`
+	Group          string `position:"Query" name:"Group"`
+	InstanceId     string `position:"Query" name:"InstanceId"`
+	DataId         string `position:"Query" name:"DataId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
+	Ids            string `position:"Query" name:"Ids"`
 }
 
 // ExportNacosConfigResponse is the response struct for api ExportNacosConfig
@@ -97,7 +100,7 @@ func CreateExportNacosConfigRequest() (request *ExportNacosConfigRequest) {
 	request = &ExportNacosConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ExportNacosConfig", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "ExportNacosConfig", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

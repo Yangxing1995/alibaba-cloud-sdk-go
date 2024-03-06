@@ -82,11 +82,10 @@ type SubscribeTopicRequest struct {
 // SubscribeTopicResponse is the response struct for api SubscribeTopic
 type SubscribeTopicResponse struct {
 	*responses.BaseResponse
-	RequestId     string   `json:"RequestId" xml:"RequestId"`
-	Success       bool     `json:"Success" xml:"Success"`
-	Code          string   `json:"Code" xml:"Code"`
-	ErrorMessage  string   `json:"ErrorMessage" xml:"ErrorMessage"`
-	FailureTopics []string `json:"FailureTopics" xml:"FailureTopics"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
+	Success      bool   `json:"Success" xml:"Success"`
+	Code         string `json:"Code" xml:"Code"`
+	ErrorMessage string `json:"ErrorMessage" xml:"ErrorMessage"`
 }
 
 // CreateSubscribeTopicRequest creates a request to invoke SubscribeTopic API

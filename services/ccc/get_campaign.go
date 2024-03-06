@@ -81,7 +81,6 @@ type GetCampaignResponse struct {
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	HttpStatusCode int64  `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code           string `json:"Code" xml:"Code"`
-	Success        bool   `json:"Success" xml:"Success"`
 	Data           Data   `json:"Data" xml:"Data"`
 }
 

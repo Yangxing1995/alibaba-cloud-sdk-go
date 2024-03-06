@@ -79,10 +79,10 @@ type ModifyUserLevelsOfSkillGroupRequest struct {
 // ModifyUserLevelsOfSkillGroupResponse is the response struct for api ModifyUserLevelsOfSkillGroup
 type ModifyUserLevelsOfSkillGroupResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
-	Data           string `json:"Data" xml:"Data"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
+	Data           string `json:"Data" xml:"Data"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 }
 

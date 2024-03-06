@@ -78,8 +78,10 @@ type AddIntegrationRequest struct {
 // AddIntegrationResponse is the response struct for api AddIntegration
 type AddIntegrationResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Data      string `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Code      int    `json:"Code" xml:"Code"`
+	Message   string `json:"Message" xml:"Message"`
 }
 
 // CreateAddIntegrationRequest creates a request to invoke AddIntegration API

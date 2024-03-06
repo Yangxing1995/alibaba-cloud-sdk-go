@@ -71,29 +71,30 @@ func (client *Client) CreateUdfFileWithCallback(request *CreateUdfFileRequest, c
 // CreateUdfFileRequest is the request struct for api CreateUdfFile
 type CreateUdfFileRequest struct {
 	*requests.RpcRequest
-	ReturnValue          string           `position:"Body" name:"ReturnValue"`
-	Resources            string           `position:"Body" name:"Resources"`
-	FunctionType         string           `position:"Body" name:"FunctionType"`
-	CmdDescription       string           `position:"Body" name:"CmdDescription"`
-	UdfDescription       string           `position:"Body" name:"UdfDescription"`
-	ParameterDescription string           `position:"Body" name:"ParameterDescription"`
-	ProjectIdentifier    string           `position:"Body" name:"ProjectIdentifier"`
-	Example              string           `position:"Body" name:"Example"`
-	FileName             string           `position:"Body" name:"FileName"`
-	ClassName            string           `position:"Body" name:"ClassName"`
-	FileFolderPath       string           `position:"Body" name:"FileFolderPath"`
-	ProjectId            requests.Integer `position:"Body" name:"ProjectId"`
+	CreateFolderIfNotExists requests.Boolean `position:"Body" name:"CreateFolderIfNotExists"`
+	ReturnValue             string           `position:"Body" name:"ReturnValue"`
+	Resources               string           `position:"Body" name:"Resources"`
+	FunctionType            string           `position:"Body" name:"FunctionType"`
+	CmdDescription          string           `position:"Body" name:"CmdDescription"`
+	UdfDescription          string           `position:"Body" name:"UdfDescription"`
+	ParameterDescription    string           `position:"Body" name:"ParameterDescription"`
+	ProjectIdentifier       string           `position:"Body" name:"ProjectIdentifier"`
+	Example                 string           `position:"Body" name:"Example"`
+	FileName                string           `position:"Body" name:"FileName"`
+	ClassName               string           `position:"Body" name:"ClassName"`
+	FileFolderPath          string           `position:"Body" name:"FileFolderPath"`
+	ProjectId               requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // CreateUdfFileResponse is the response struct for api CreateUdfFile
 type CreateUdfFileResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Data           int64  `json:"Data" xml:"Data"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	Success        bool   `json:"Success" xml:"Success"`
 	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
-	Data           int64  `json:"Data" xml:"Data"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 }
 
 // CreateCreateUdfFileRequest creates a request to invoke CreateUdfFile API

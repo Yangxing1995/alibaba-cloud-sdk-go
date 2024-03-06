@@ -83,11 +83,13 @@ type DescribeIntranetAttributeRequest struct {
 // DescribeIntranetAttributeResponse is the response struct for api DescribeIntranetAttribute
 type DescribeIntranetAttributeResponse struct {
 	*responses.BaseResponse
-	RequestId           string `json:"RequestId" xml:"RequestId"`
-	IntranetBandwidth   int    `json:"IntranetBandwidth" xml:"IntranetBandwidth"`
-	ExpireTime          string `json:"ExpireTime" xml:"ExpireTime"`
-	BandwidthExpireTime string `json:"BandwidthExpireTime" xml:"BandwidthExpireTime"`
-	AutoRenewal         bool   `json:"AutoRenewal" xml:"AutoRenewal"`
+	AutoRenewal                     bool   `json:"AutoRenewal" xml:"AutoRenewal"`
+	RequestId                       string `json:"RequestId" xml:"RequestId"`
+	ExpireTime                      string `json:"ExpireTime" xml:"ExpireTime"`
+	IntranetBandwidth               int    `json:"IntranetBandwidth" xml:"IntranetBandwidth"`
+	HasPrePaidBandWidthOrderRunning bool   `json:"HasPrePaidBandWidthOrderRunning" xml:"HasPrePaidBandWidthOrderRunning"`
+	BandwidthExpireTime             string `json:"BandwidthExpireTime" xml:"BandwidthExpireTime"`
+	BandwidthPrePaid                string `json:"BandwidthPrePaid" xml:"BandwidthPrePaid"`
 }
 
 // CreateDescribeIntranetAttributeRequest creates a request to invoke DescribeIntranetAttribute API

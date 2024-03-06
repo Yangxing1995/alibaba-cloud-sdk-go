@@ -71,7 +71,9 @@ func (client *Client) SegmentSkinWithCallback(request *SegmentSkinRequest, callb
 // SegmentSkinRequest is the request struct for api SegmentSkin
 type SegmentSkinRequest struct {
 	*requests.RpcRequest
-	URL string `position:"Body" name:"URL"`
+	OssFile        string `position:"Query" name:"OssFile"`
+	RequestProxyBy string `position:"Query" name:"RequestProxyBy"`
+	URL            string `position:"Body" name:"URL"`
 }
 
 // SegmentSkinResponse is the response struct for api SegmentSkin

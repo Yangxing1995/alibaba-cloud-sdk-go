@@ -18,11 +18,12 @@ package ccc
 // UserSkillLevelInListUserLevelsOfSkillGroup is a nested struct in ccc response
 type UserSkillLevelInListUserLevelsOfSkillGroup struct {
 	DisplayName    string `json:"DisplayName" xml:"DisplayName"`
+	SkillLevel     int    `json:"SkillLevel" xml:"SkillLevel"`
 	LoginName      string `json:"LoginName" xml:"LoginName"`
-	RoleId         string `json:"RoleId" xml:"RoleId"`
-	RoleName       string `json:"RoleName" xml:"RoleName"`
+	UserId         string `json:"UserId" xml:"UserId"`
 	SkillGroupId   string `json:"SkillGroupId" xml:"SkillGroupId"`
 	SkillGroupName string `json:"SkillGroupName" xml:"SkillGroupName"`
-	SkillLevel     int    `json:"SkillLevel" xml:"SkillLevel"`
-	UserId         string `json:"UserId" xml:"UserId"`
+	RoleName       string `json:"RoleName" xml:"RoleName"`
+	RoleId         string `json:"RoleId" xml:"RoleId"`
+	RamId          string `json:"RamId" xml:"RamId"`
 }

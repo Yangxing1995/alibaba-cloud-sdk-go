@@ -17,20 +17,12 @@ package dataworks_public
 
 // RunsItem is a nested struct in dataworks_public response
 type RunsItem struct {
+	Status            string `json:"Status" xml:"Status"`
 	AbsTime           int64  `json:"AbsTime" xml:"AbsTime"`
-	BeginCast         int64  `json:"BeginCast" xml:"BeginCast"`
 	BeginRunningTime  int64  `json:"BeginRunningTime" xml:"BeginRunningTime"`
+	FinishTime        int64  `json:"FinishTime" xml:"FinishTime"`
+	BeginCast         int64  `json:"BeginCast" xml:"BeginCast"`
+	EndCast           int64  `json:"EndCast" xml:"EndCast"`
 	BeginWaitResTime  int64  `json:"BeginWaitResTime" xml:"BeginWaitResTime"`
 	BeginWaitTimeTime int64  `json:"BeginWaitTimeTime" xml:"BeginWaitTimeTime"`
-	Bizdate           int64  `json:"Bizdate" xml:"Bizdate"`
-	CycTime           int64  `json:"CycTime" xml:"CycTime"`
-	EndCast           int64  `json:"EndCast" xml:"EndCast"`
-	FinishTime        int64  `json:"FinishTime" xml:"FinishTime"`
-	InGroupId         int    `json:"InGroupId" xml:"InGroupId"`
-	InstanceId        int64  `json:"InstanceId" xml:"InstanceId"`
-	NodeId            int64  `json:"NodeId" xml:"NodeId"`
-	NodeName          string `json:"NodeName" xml:"NodeName"`
-	Owner             string `json:"Owner" xml:"Owner"`
-	ProjectId         int64  `json:"ProjectId" xml:"ProjectId"`
-	Status            string `json:"Status" xml:"Status"`
 }

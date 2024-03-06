@@ -72,17 +72,15 @@ func (client *Client) DeleteMigrationJobWithCallback(request *DeleteMigrationJob
 type DeleteMigrationJobRequest struct {
 	*requests.RpcRequest
 	MigrationJobId string `position:"Query" name:"MigrationJobId"`
-	OwnerId        string `position:"Query" name:"OwnerId"`
-	AccountId      string `position:"Query" name:"AccountId"`
 }
 
 // DeleteMigrationJobResponse is the response struct for api DeleteMigrationJob
 type DeleteMigrationJobResponse struct {
 	*responses.BaseResponse
-	ErrCode    string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 	RequestId  string `json:"RequestId" xml:"RequestId"`
+	ErrCode    string `json:"ErrCode" xml:"ErrCode"`
 	Success    string `json:"Success" xml:"Success"`
+	ErrMessage string `json:"ErrMessage" xml:"ErrMessage"`
 }
 
 // CreateDeleteMigrationJobRequest creates a request to invoke DeleteMigrationJob API
@@ -90,7 +88,7 @@ func CreateDeleteMigrationJobRequest() (request *DeleteMigrationJobRequest) {
 	request = &DeleteMigrationJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Dts", "2020-01-01", "DeleteMigrationJob", "dts", "openAPI")
+	request.InitWithApiInfo("Dts", "2017-06-01", "DeleteMigrationJob", "dts", "openAPI")
 	request.Method = requests.POST
 	return
 }

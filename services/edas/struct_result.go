@@ -17,11 +17,7 @@ package edas
 
 // Result is a nested struct in edas response
 type Result struct {
-	DefaultGroupId  string `json:"DefaultGroupId" xml:"DefaultGroupId"`
-	AppId           string `json:"AppId" xml:"AppId"`
-	Appname         string `json:"Appname" xml:"Appname"`
-	RegionId        string `json:"RegionId" xml:"RegionId"`
-	DevelopType     string `json:"DevelopType" xml:"DevelopType"`
-	ApplicationType string `json:"ApplicationType" xml:"ApplicationType"`
-	PackageVersion  string `json:"PackageVersion" xml:"PackageVersion"`
+	Total      int              `json:"Total" xml:"Total"`
+	ConfigMaps []ConfigMapsItem `json:"ConfigMaps" xml:"ConfigMaps"`
+	Secrets    []SecretsItem    `json:"Secrets" xml:"Secrets"`
 }

@@ -19,5 +19,6 @@ package live
 type RecordConfig struct {
 	OssEndpoint  string                             `json:"OssEndpoint" xml:"OssEndpoint"`
 	OssBucket    string                             `json:"OssBucket" xml:"OssBucket"`
+	OnDemand     int                                `json:"OnDemand" xml:"OnDemand"`
 	RecordFormat RecordFormatInDescribeCasterConfig `json:"RecordFormat" xml:"RecordFormat"`
 }

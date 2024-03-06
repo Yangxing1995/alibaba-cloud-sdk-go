@@ -73,17 +73,18 @@ type DeleteQualityRuleRequest struct {
 	*requests.RpcRequest
 	ProjectName string           `position:"Body" name:"ProjectName"`
 	RuleId      requests.Integer `position:"Body" name:"RuleId"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // DeleteQualityRuleResponse is the response struct for api DeleteQualityRule
 type DeleteQualityRuleResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Data           bool   `json:"Data" xml:"Data"`
 	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
-	Success        bool   `json:"Success" xml:"Success"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateDeleteQualityRuleRequest creates a request to invoke DeleteQualityRule API

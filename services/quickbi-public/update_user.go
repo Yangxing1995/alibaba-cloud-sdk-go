@@ -77,6 +77,7 @@ type UpdateUserRequest struct {
 	UserType      requests.Integer `position:"Query" name:"UserType"`
 	SignType      string           `position:"Query" name:"SignType"`
 	UserId        string           `position:"Query" name:"UserId"`
+	RoleIds       string           `position:"Query" name:"RoleIds"`
 	Phone         string           `position:"Query" name:"Phone"`
 	NickName      string           `position:"Query" name:"NickName"`
 	AuthAdminUser requests.Boolean `position:"Query" name:"AuthAdminUser"`
@@ -96,7 +97,7 @@ func CreateUpdateUserRequest() (request *UpdateUserRequest) {
 	request = &UpdateUserRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("quickbi-public", "2020-08-01", "UpdateUser", "quickbi", "openAPI")
+	request.InitWithApiInfo("quickbi-public", "2022-01-01", "UpdateUser", "2.2.0", "openAPI")
 	request.Method = requests.POST
 	return
 }

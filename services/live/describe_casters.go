@@ -71,21 +71,24 @@ func (client *Client) DescribeCastersWithCallback(request *DescribeCastersReques
 // DescribeCastersRequest is the request struct for api DescribeCasters
 type DescribeCastersRequest struct {
 	*requests.RpcRequest
-	StartTime  string           `position:"Query" name:"StartTime"`
-	PageNum    requests.Integer `position:"Query" name:"PageNum"`
-	CasterName string           `position:"Query" name:"CasterName"`
-	PageSize   requests.Integer `position:"Query" name:"PageSize"`
-	CasterId   string           `position:"Query" name:"CasterId"`
-	EndTime    string           `position:"Query" name:"EndTime"`
-	OwnerId    requests.Integer `position:"Query" name:"OwnerId"`
-	Status     requests.Integer `position:"Query" name:"Status"`
+	StartTime        string           `position:"Query" name:"StartTime"`
+	PageNum          requests.Integer `position:"Query" name:"PageNum"`
+	CasterName       string           `position:"Query" name:"CasterName"`
+	PageSize         requests.Integer `position:"Query" name:"PageSize"`
+	NormType         string           `position:"Query" name:"NormType"`
+	CasterId         string           `position:"Query" name:"CasterId"`
+	EndTime          string           `position:"Query" name:"EndTime"`
+	OwnerId          requests.Integer `position:"Query" name:"OwnerId"`
+	OrderByModifyAsc string           `position:"Query" name:"OrderByModifyAsc"`
+	ChargeType       requests.Integer `position:"Query" name:"ChargeType"`
+	Status           requests.Integer `position:"Query" name:"Status"`
 }
 
 // DescribeCastersResponse is the response struct for api DescribeCasters
 type DescribeCastersResponse struct {
 	*responses.BaseResponse
-	RequestId  string     `json:"RequestId" xml:"RequestId"`
 	Total      int        `json:"Total" xml:"Total"`
+	RequestId  string     `json:"RequestId" xml:"RequestId"`
 	CasterList CasterList `json:"CasterList" xml:"CasterList"`
 }
 

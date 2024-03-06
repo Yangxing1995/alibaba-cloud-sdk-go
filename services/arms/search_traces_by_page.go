@@ -72,15 +72,24 @@ func (client *Client) SearchTracesByPageWithCallback(request *SearchTracesByPage
 type SearchTracesByPageRequest struct {
 	*requests.RpcRequest
 	EndTime          requests.Integer                      `position:"Query" name:"EndTime"`
+	Pid              string                                `position:"Query" name:"Pid"`
 	StartTime        requests.Integer                      `position:"Query" name:"StartTime"`
 	Reverse          requests.Boolean                      `position:"Query" name:"Reverse"`
 	MinDuration      requests.Integer                      `position:"Query" name:"MinDuration"`
 	PageNumber       requests.Integer                      `position:"Query" name:"PageNumber"`
+	IsError          requests.Boolean                      `position:"Query" name:"IsError"`
+	Tags             *[]SearchTracesByPageTags             `position:"Query" name:"Tags"  type:"Repeated"`
 	ServiceIp        string                                `position:"Query" name:"ServiceIp"`
 	ExclusionFilters *[]SearchTracesByPageExclusionFilters `position:"Query" name:"ExclusionFilters"  type:"Repeated"`
 	OperationName    string                                `position:"Query" name:"OperationName"`
 	PageSize         requests.Integer                      `position:"Query" name:"PageSize"`
 	ServiceName      string                                `position:"Query" name:"ServiceName"`
+}
+
+// SearchTracesByPageTags is a repeated param struct in SearchTracesByPageRequest
+type SearchTracesByPageTags struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // SearchTracesByPageExclusionFilters is a repeated param struct in SearchTracesByPageRequest
@@ -92,8 +101,8 @@ type SearchTracesByPageExclusionFilters struct {
 // SearchTracesByPageResponse is the response struct for api SearchTracesByPage
 type SearchTracesByPageResponse struct {
 	*responses.BaseResponse
-	RequestId string   `json:"RequestId" xml:"RequestId"`
-	PageBean  PageBean `json:"PageBean" xml:"PageBean"`
+	RequestId string                       `json:"RequestId" xml:"RequestId"`
+	PageBean  PageBeanInSearchTracesByPage `json:"PageBean" xml:"PageBean"`
 }
 
 // CreateSearchTracesByPageRequest creates a request to invoke SearchTracesByPage API

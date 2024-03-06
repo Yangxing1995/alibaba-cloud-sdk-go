@@ -71,19 +71,30 @@ func (client *Client) DescribeEaisWithCallback(request *DescribeEaisRequest, cal
 // DescribeEaisRequest is the request struct for api DescribeEais
 type DescribeEaisRequest struct {
 	*requests.RpcRequest
-	ElasticAcceleratedInstanceIds string `position:"Query" name:"ElasticAcceleratedInstanceIds"`
-	InstanceName                  string `position:"Query" name:"InstanceName"`
-	InstanceType                  string `position:"Query" name:"InstanceType"`
-	Status                        string `position:"Query" name:"Status"`
+	ElasticAcceleratedInstanceIds string             `position:"Query" name:"ElasticAcceleratedInstanceIds"`
+	PageNumber                    requests.Integer   `position:"Query" name:"PageNumber"`
+	ResourceGroupId               string             `position:"Query" name:"ResourceGroupId"`
+	PageSize                      requests.Integer   `position:"Query" name:"PageSize"`
+	InstanceType                  string             `position:"Query" name:"InstanceType"`
+	Tag                           *[]DescribeEaisTag `position:"Query" name:"Tag"  type:"Repeated"`
+	ClientInstanceId              string             `position:"Query" name:"ClientInstanceId"`
+	InstanceName                  string             `position:"Query" name:"InstanceName"`
+	Status                        string             `position:"Query" name:"Status"`
+}
+
+// DescribeEaisTag is a repeated param struct in DescribeEaisRequest
+type DescribeEaisTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // DescribeEaisResponse is the response struct for api DescribeEais
 type DescribeEaisResponse struct {
 	*responses.BaseResponse
-	PageNumber int       `json:"PageNumber" xml:"PageNumber"`
-	TotalCount int       `json:"TotalCount" xml:"TotalCount"`
-	PageSize   int       `json:"PageSize" xml:"PageSize"`
 	RequestId  string    `json:"RequestId" xml:"RequestId"`
+	PageNumber int       `json:"PageNumber" xml:"PageNumber"`
+	PageSize   int       `json:"PageSize" xml:"PageSize"`
+	TotalCount int       `json:"TotalCount" xml:"TotalCount"`
 	Instances  Instances `json:"Instances" xml:"Instances"`
 }
 

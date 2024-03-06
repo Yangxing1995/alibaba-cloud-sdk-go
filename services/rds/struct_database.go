@@ -21,8 +21,19 @@ type Database struct {
 	Engine           string                      `json:"Engine" xml:"Engine"`
 	DBStatus         string                      `json:"DBStatus" xml:"DBStatus"`
 	TDEStatus        string                      `json:"TDEStatus" xml:"TDEStatus"`
+	ConnLimit        string                      `json:"ConnLimit" xml:"ConnLimit"`
+	PageSize         int                         `json:"PageSize" xml:"PageSize"`
+	ResourceGroupId  string                      `json:"ResourceGroupId" xml:"ResourceGroupId"`
+	Tablespace       string                      `json:"Tablespace" xml:"Tablespace"`
+	TotalCount       int                         `json:"TotalCount" xml:"TotalCount"`
 	DBName           string                      `json:"DBName" xml:"DBName"`
+	Ctype            string                      `json:"Ctype" xml:"Ctype"`
+	PageNumber       int                         `json:"PageNumber" xml:"PageNumber"`
 	DBInstanceId     string                      `json:"DBInstanceId" xml:"DBInstanceId"`
 	DBDescription    string                      `json:"DBDescription" xml:"DBDescription"`
+	Collate          string                      `json:"Collate" xml:"Collate"`
+	BasicInfo        BasicInfo                   `json:"BasicInfo" xml:"BasicInfo"`
+	RuntimeInfo      RuntimeInfo                 `json:"RuntimeInfo" xml:"RuntimeInfo"`
+	AdvancedInfo     AdvancedInfo                `json:"AdvancedInfo" xml:"AdvancedInfo"`
 	Accounts         AccountsInDescribeDatabases `json:"Accounts" xml:"Accounts"`
 }

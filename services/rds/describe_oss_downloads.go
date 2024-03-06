@@ -75,14 +75,15 @@ type DescribeOssDownloadsRequest struct {
 	MigrateTaskId        string           `position:"Query" name:"MigrateTaskId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	DBInstanceId         string           `position:"Query" name:"DBInstanceId"`
 }
 
 // DescribeOssDownloadsResponse is the response struct for api DescribeOssDownloads
 type DescribeOssDownloadsResponse struct {
 	*responses.BaseResponse
-	RequestId     string                      `json:"RequestId" xml:"RequestId"`
 	DBInstanceId  string                      `json:"DBInstanceId" xml:"DBInstanceId"`
+	RequestId     string                      `json:"RequestId" xml:"RequestId"`
 	MigrateTaskId string                      `json:"MigrateTaskId" xml:"MigrateTaskId"`
 	Items         ItemsInDescribeOssDownloads `json:"Items" xml:"Items"`
 }
@@ -92,7 +93,7 @@ func CreateDescribeOssDownloadsRequest() (request *DescribeOssDownloadsRequest) 
 	request = &DescribeOssDownloadsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeOssDownloads", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeOssDownloads", "", "")
 	request.Method = requests.POST
 	return
 }

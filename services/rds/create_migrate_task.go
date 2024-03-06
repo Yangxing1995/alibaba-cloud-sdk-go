@@ -88,11 +88,11 @@ type CreateMigrateTaskRequest struct {
 type CreateMigrateTaskResponse struct {
 	*responses.BaseResponse
 	RequestId     string `json:"RequestId" xml:"RequestId"`
-	DBInstanceId  string `json:"DBInstanceId" xml:"DBInstanceId"`
-	TaskId        string `json:"TaskId" xml:"TaskId"`
 	DBName        string `json:"DBName" xml:"DBName"`
-	MigrateTaskId string `json:"MigrateTaskId" xml:"MigrateTaskId"`
 	BackupMode    string `json:"BackupMode" xml:"BackupMode"`
+	DBInstanceId  string `json:"DBInstanceId" xml:"DBInstanceId"`
+	MigrateTaskId string `json:"MigrateTaskId" xml:"MigrateTaskId"`
+	TaskId        string `json:"TaskId" xml:"TaskId"`
 }
 
 // CreateCreateMigrateTaskRequest creates a request to invoke CreateMigrateTask API
@@ -100,7 +100,7 @@ func CreateCreateMigrateTaskRequest() (request *CreateMigrateTaskRequest) {
 	request = &CreateMigrateTaskRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CreateMigrateTask", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CreateMigrateTask", "", "")
 	request.Method = requests.POST
 	return
 }

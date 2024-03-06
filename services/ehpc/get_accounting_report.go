@@ -85,12 +85,12 @@ type GetAccountingReportRequest struct {
 // GetAccountingReportResponse is the response struct for api GetAccountingReport
 type GetAccountingReportResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
-	Metrics       string `json:"Metrics" xml:"Metrics"`
 	TotalCoreTime int    `json:"TotalCoreTime" xml:"TotalCoreTime"`
-	TotalCount    int    `json:"TotalCount" xml:"TotalCount"`
+	Metrics       string `json:"Metrics" xml:"Metrics"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 	PageSize      int    `json:"PageSize" xml:"PageSize"`
 	PageNumber    int    `json:"PageNumber" xml:"PageNumber"`
+	TotalCount    int    `json:"TotalCount" xml:"TotalCount"`
 	Data          Data   `json:"Data" xml:"Data"`
 }
 
@@ -99,7 +99,7 @@ func CreateGetAccountingReportRequest() (request *GetAccountingReportRequest) {
 	request = &GetAccountingReportRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "GetAccountingReport", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "GetAccountingReport", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

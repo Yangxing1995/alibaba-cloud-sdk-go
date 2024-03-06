@@ -78,8 +78,8 @@ type ListDialogueFlowsRequest struct {
 // ListDialogueFlowsResponse is the response struct for api ListDialogueFlows
 type ListDialogueFlowsResponse struct {
 	*responses.BaseResponse
-	Code           string         `json:"Code" xml:"Code"`
 	HttpStatusCode int            `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string         `json:"Code" xml:"Code"`
 	Message        string         `json:"Message" xml:"Message"`
 	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	Success        bool           `json:"Success" xml:"Success"`
@@ -91,7 +91,7 @@ func CreateListDialogueFlowsRequest() (request *ListDialogueFlowsRequest) {
 	request = &ListDialogueFlowsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListDialogueFlows", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListDialogueFlows", "", "")
 	request.Method = requests.POST
 	return
 }

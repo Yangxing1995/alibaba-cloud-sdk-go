@@ -71,9 +71,10 @@ func (client *Client) ModifyEventTypeStatusWithCallback(request *ModifyEventType
 // ModifyEventTypeStatusRequest is the request struct for api ModifyEventTypeStatus
 type ModifyEventTypeStatusRequest struct {
 	*requests.RpcRequest
-	SubTypeIds string `position:"Query" name:"SubTypeIds"`
-	SourceIp   string `position:"Query" name:"SourceIp"`
-	Lang       string `position:"Query" name:"Lang"`
+	SubTypeIds  string           `position:"Query" name:"SubTypeIds"`
+	FeatureType requests.Integer `position:"Query" name:"FeatureType"`
+	SourceIp    string           `position:"Query" name:"SourceIp"`
+	Lang        string           `position:"Query" name:"Lang"`
 }
 
 // ModifyEventTypeStatusResponse is the response struct for api ModifyEventTypeStatus
@@ -87,7 +88,7 @@ func CreateModifyEventTypeStatusRequest() (request *ModifyEventTypeStatusRequest
 	request = &ModifyEventTypeStatusRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "ModifyEventTypeStatus", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "ModifyEventTypeStatus", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -17,5 +17,6 @@ package videoenhan
 
 // Date is a nested struct in videoenhan response
 type Date struct {
-	TemplateId string `json:"TemplateId" xml:"TemplateId"`
+	TemplateId string          `json:"TemplateId" xml:"TemplateId"`
+	FaceInfos  []FaceInfosItem `json:"FaceInfos" xml:"FaceInfos"`
 }

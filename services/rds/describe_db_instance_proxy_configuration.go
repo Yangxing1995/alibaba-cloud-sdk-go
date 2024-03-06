@@ -80,10 +80,10 @@ type DescribeDBInstanceProxyConfigurationRequest struct {
 // DescribeDBInstanceProxyConfigurationResponse is the response struct for api DescribeDBInstanceProxyConfiguration
 type DescribeDBInstanceProxyConfigurationResponse struct {
 	*responses.BaseResponse
-	RequestId                          string `json:"RequestId" xml:"RequestId"`
-	TransparentSwitchConfiguration     string `json:"TransparentSwitchConfiguration" xml:"TransparentSwitchConfiguration"`
 	PersistentConnectionsConfiguration string `json:"PersistentConnectionsConfiguration" xml:"PersistentConnectionsConfiguration"`
 	AttacksProtectionConfiguration     string `json:"AttacksProtectionConfiguration" xml:"AttacksProtectionConfiguration"`
+	RequestId                          string `json:"RequestId" xml:"RequestId"`
+	TransparentSwitchConfiguration     string `json:"TransparentSwitchConfiguration" xml:"TransparentSwitchConfiguration"`
 }
 
 // CreateDescribeDBInstanceProxyConfigurationRequest creates a request to invoke DescribeDBInstanceProxyConfiguration API
@@ -91,7 +91,7 @@ func CreateDescribeDBInstanceProxyConfigurationRequest() (request *DescribeDBIns
 	request = &DescribeDBInstanceProxyConfigurationRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceProxyConfiguration", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceProxyConfiguration", "", "")
 	request.Method = requests.POST
 	return
 }

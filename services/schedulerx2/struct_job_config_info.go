@@ -17,17 +17,20 @@ package schedulerx2
 
 // JobConfigInfo is a nested struct in schedulerx2 response
 type JobConfigInfo struct {
-	ClassName       string         `json:"ClassName" xml:"ClassName"`
-	JarUrl          string         `json:"JarUrl" xml:"JarUrl"`
-	Content         string         `json:"Content" xml:"Content"`
-	Name            string         `json:"Name" xml:"Name"`
-	Description     string         `json:"Description" xml:"Description"`
+	JobId           int64          `json:"JobId" xml:"JobId"`
 	Status          int            `json:"Status" xml:"Status"`
-	ExecuteMode     string         `json:"ExecuteMode" xml:"ExecuteMode"`
 	Parameters      string         `json:"Parameters" xml:"Parameters"`
+	Description     string         `json:"Description" xml:"Description"`
+	ExecuteMode     string         `json:"ExecuteMode" xml:"ExecuteMode"`
 	MaxConcurrency  string         `json:"MaxConcurrency" xml:"MaxConcurrency"`
+	Name            string         `json:"Name" xml:"Name"`
 	MaxAttempt      int            `json:"MaxAttempt" xml:"MaxAttempt"`
+	Content         string         `json:"Content" xml:"Content"`
+	JarUrl          string         `json:"JarUrl" xml:"JarUrl"`
+	ClassName       string         `json:"ClassName" xml:"ClassName"`
+	JobType         string         `json:"JobType" xml:"JobType"`
 	AttemptInterval int            `json:"AttemptInterval" xml:"AttemptInterval"`
+	XAttrs          string         `json:"XAttrs" xml:"XAttrs"`
 	MapTaskXAttrs   MapTaskXAttrs  `json:"MapTaskXAttrs" xml:"MapTaskXAttrs"`
 	TimeConfig      TimeConfig     `json:"TimeConfig" xml:"TimeConfig"`
 	JobMonitorInfo  JobMonitorInfo `json:"JobMonitorInfo" xml:"JobMonitorInfo"`

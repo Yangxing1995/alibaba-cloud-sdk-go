@@ -86,8 +86,8 @@ type DescribeErrorLogsRequest struct {
 type DescribeErrorLogsResponse struct {
 	*responses.BaseResponse
 	PageNumber       int                      `json:"PageNumber" xml:"PageNumber"`
-	PageRecordCount  int                      `json:"PageRecordCount" xml:"PageRecordCount"`
 	RequestId        string                   `json:"RequestId" xml:"RequestId"`
+	PageRecordCount  int                      `json:"PageRecordCount" xml:"PageRecordCount"`
 	TotalRecordCount int                      `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	Items            ItemsInDescribeErrorLogs `json:"Items" xml:"Items"`
 }
@@ -97,7 +97,7 @@ func CreateDescribeErrorLogsRequest() (request *DescribeErrorLogsRequest) {
 	request = &DescribeErrorLogsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeErrorLogs", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeErrorLogs", "", "")
 	request.Method = requests.POST
 	return
 }

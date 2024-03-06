@@ -78,20 +78,26 @@ type DescribeCasterConfigRequest struct {
 // DescribeCasterConfigResponse is the response struct for api DescribeCasterConfig
 type DescribeCasterConfigResponse struct {
 	*responses.BaseResponse
-	RequestId        string           `json:"RequestId" xml:"RequestId"`
-	CasterId         string           `json:"CasterId" xml:"CasterId"`
-	CasterName       string           `json:"CasterName" xml:"CasterName"`
-	DomainName       string           `json:"DomainName" xml:"DomainName"`
-	Delay            float64          `json:"Delay" xml:"Delay"`
-	UrgentMaterialId string           `json:"UrgentMaterialId" xml:"UrgentMaterialId"`
-	SideOutputUrl    string           `json:"SideOutputUrl" xml:"SideOutputUrl"`
-	CallbackUrl      string           `json:"CallbackUrl" xml:"CallbackUrl"`
-	ProgramName      string           `json:"ProgramName" xml:"ProgramName"`
-	ProgramEffect    int              `json:"ProgramEffect" xml:"ProgramEffect"`
-	ChannelEnable    int              `json:"ChannelEnable" xml:"ChannelEnable"`
-	TranscodeConfig  TranscodeConfig  `json:"TranscodeConfig" xml:"TranscodeConfig"`
-	RecordConfig     RecordConfig     `json:"RecordConfig" xml:"RecordConfig"`
-	SyncGroupsConfig SyncGroupsConfig `json:"SyncGroupsConfig" xml:"SyncGroupsConfig"`
+	Delay                  float64          `json:"Delay" xml:"Delay"`
+	UrgentLiveStreamUrl    string           `json:"UrgentLiveStreamUrl" xml:"UrgentLiveStreamUrl"`
+	UrgentMaterialId       string           `json:"UrgentMaterialId" xml:"UrgentMaterialId"`
+	UrgentImageId          string           `json:"UrgentImageId" xml:"UrgentImageId"`
+	UrgentImageUrl         string           `json:"UrgentImageUrl" xml:"UrgentImageUrl"`
+	CallbackUrl            string           `json:"CallbackUrl" xml:"CallbackUrl"`
+	ProgramName            string           `json:"ProgramName" xml:"ProgramName"`
+	CasterName             string           `json:"CasterName" xml:"CasterName"`
+	CasterId               string           `json:"CasterId" xml:"CasterId"`
+	ProgramEffect          int              `json:"ProgramEffect" xml:"ProgramEffect"`
+	ChannelEnable          int              `json:"ChannelEnable" xml:"ChannelEnable"`
+	DomainName             string           `json:"DomainName" xml:"DomainName"`
+	RequestId              string           `json:"RequestId" xml:"RequestId"`
+	SideOutputUrlList      string           `json:"SideOutputUrlList" xml:"SideOutputUrlList"`
+	SideOutputUrl          string           `json:"SideOutputUrl" xml:"SideOutputUrl"`
+	AutoSwitchUrgentOn     string           `json:"AutoSwitchUrgentOn" xml:"AutoSwitchUrgentOn"`
+	AutoSwitchUrgentConfig string           `json:"AutoSwitchUrgentConfig" xml:"AutoSwitchUrgentConfig"`
+	TranscodeConfig        TranscodeConfig  `json:"TranscodeConfig" xml:"TranscodeConfig"`
+	RecordConfig           RecordConfig     `json:"RecordConfig" xml:"RecordConfig"`
+	SyncGroupsConfig       SyncGroupsConfig `json:"SyncGroupsConfig" xml:"SyncGroupsConfig"`
 }
 
 // CreateDescribeCasterConfigRequest creates a request to invoke DescribeCasterConfig API

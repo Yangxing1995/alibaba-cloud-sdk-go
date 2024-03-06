@@ -71,15 +71,15 @@ func (client *Client) UpdateMetaTableIntroWikiWithCallback(request *UpdateMetaTa
 // UpdateMetaTableIntroWikiRequest is the request struct for api UpdateMetaTableIntroWiki
 type UpdateMetaTableIntroWikiRequest struct {
 	*requests.RpcRequest
-	TableGuid string `position:"Query" name:"TableGuid"`
 	Content   string `position:"Body" name:"Content"`
+	TableGuid string `position:"Query" name:"TableGuid"`
 }
 
 // UpdateMetaTableIntroWikiResponse is the response struct for api UpdateMetaTableIntroWiki
 type UpdateMetaTableIntroWikiResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
 	UpdateResult bool   `json:"UpdateResult" xml:"UpdateResult"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateUpdateMetaTableIntroWikiRequest creates a request to invoke UpdateMetaTableIntroWiki API

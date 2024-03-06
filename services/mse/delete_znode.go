@@ -71,9 +71,11 @@ func (client *Client) DeleteZnodeWithCallback(request *DeleteZnodeRequest, callb
 // DeleteZnodeRequest is the request struct for api DeleteZnode
 type DeleteZnodeRequest struct {
 	*requests.RpcRequest
-	ClusterId   string `position:"Query" name:"ClusterId"`
-	Path        string `position:"Query" name:"Path"`
-	RequestPars string `position:"Query" name:"RequestPars"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	Path           string `position:"Query" name:"Path"`
+	RequestPars    string `position:"Query" name:"RequestPars"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // DeleteZnodeResponse is the response struct for api DeleteZnode
@@ -92,7 +94,7 @@ func CreateDeleteZnodeRequest() (request *DeleteZnodeRequest) {
 	request = &DeleteZnodeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "DeleteZnode", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "DeleteZnode", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

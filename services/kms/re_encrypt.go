@@ -72,10 +72,10 @@ func (client *Client) ReEncryptWithCallback(request *ReEncryptRequest, callback 
 type ReEncryptRequest struct {
 	*requests.RpcRequest
 	DestinationEncryptionContext string `position:"Query" name:"DestinationEncryptionContext"`
+	SourceKeyId                  string `position:"Query" name:"SourceKeyId"`
 	SourceEncryptionAlgorithm    string `position:"Query" name:"SourceEncryptionAlgorithm"`
 	SourceKeyVersionId           string `position:"Query" name:"SourceKeyVersionId"`
 	DestinationKeyId             string `position:"Query" name:"DestinationKeyId"`
-	SourceKeyId                  string `position:"Query" name:"SourceKeyId"`
 	SourceEncryptionContext      string `position:"Query" name:"SourceEncryptionContext"`
 	CiphertextBlob               string `position:"Query" name:"CiphertextBlob"`
 }
@@ -83,10 +83,10 @@ type ReEncryptRequest struct {
 // ReEncryptResponse is the response struct for api ReEncrypt
 type ReEncryptResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
 	KeyId          string `json:"KeyId" xml:"KeyId"`
 	KeyVersionId   string `json:"KeyVersionId" xml:"KeyVersionId"`
 	CiphertextBlob string `json:"CiphertextBlob" xml:"CiphertextBlob"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateReEncryptRequest creates a request to invoke ReEncrypt API

@@ -78,6 +78,7 @@ type DescribeDBInstancesByPerformanceRequest struct {
 	Tag3Key              string           `position:"Query" name:"Tag.3.key"`
 	PageNumber           requests.Integer `position:"Query" name:"PageNumber"`
 	Tag1Value            string           `position:"Query" name:"Tag.1.value"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	SortKey              string           `position:"Query" name:"SortKey"`
 	PageSize             requests.Integer `position:"Query" name:"PageSize"`
 	DBInstanceId         string           `position:"Query" name:"DBInstanceId"`
@@ -100,8 +101,8 @@ type DescribeDBInstancesByPerformanceResponse struct {
 	*responses.BaseResponse
 	RequestId        string                                  `json:"RequestId" xml:"RequestId"`
 	PageNumber       int                                     `json:"PageNumber" xml:"PageNumber"`
-	TotalRecordCount int                                     `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	PageRecordCount  int                                     `json:"PageRecordCount" xml:"PageRecordCount"`
+	TotalRecordCount int                                     `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	Items            ItemsInDescribeDBInstancesByPerformance `json:"Items" xml:"Items"`
 }
 
@@ -110,7 +111,7 @@ func CreateDescribeDBInstancesByPerformanceRequest() (request *DescribeDBInstanc
 	request = &DescribeDBInstancesByPerformanceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancesByPerformance", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstancesByPerformance", "", "")
 	request.Method = requests.POST
 	return
 }

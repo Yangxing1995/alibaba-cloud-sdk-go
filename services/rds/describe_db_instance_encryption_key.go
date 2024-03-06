@@ -84,15 +84,16 @@ type DescribeDBInstanceEncryptionKeyRequest struct {
 // DescribeDBInstanceEncryptionKeyResponse is the response struct for api DescribeDBInstanceEncryptionKey
 type DescribeDBInstanceEncryptionKeyResponse struct {
 	*responses.BaseResponse
-	RequestId           string `json:"RequestId" xml:"RequestId"`
-	EncryptionKey       string `json:"EncryptionKey" xml:"EncryptionKey"`
-	Description         string `json:"Description" xml:"Description"`
-	KeyUsage            string `json:"KeyUsage" xml:"KeyUsage"`
-	DeleteDate          string `json:"DeleteDate" xml:"DeleteDate"`
-	Creator             string `json:"Creator" xml:"Creator"`
-	Origin              string `json:"Origin" xml:"Origin"`
-	MaterialExpireTime  string `json:"MaterialExpireTime" xml:"MaterialExpireTime"`
-	EncryptionKeyStatus string `json:"EncryptionKeyStatus" xml:"EncryptionKeyStatus"`
+	DeleteDate          string              `json:"DeleteDate" xml:"DeleteDate"`
+	RequestId           string              `json:"RequestId" xml:"RequestId"`
+	Description         string              `json:"Description" xml:"Description"`
+	Origin              string              `json:"Origin" xml:"Origin"`
+	MaterialExpireTime  string              `json:"MaterialExpireTime" xml:"MaterialExpireTime"`
+	EncryptionKeyStatus string              `json:"EncryptionKeyStatus" xml:"EncryptionKeyStatus"`
+	KeyUsage            string              `json:"KeyUsage" xml:"KeyUsage"`
+	EncryptionKey       string              `json:"EncryptionKey" xml:"EncryptionKey"`
+	Creator             string              `json:"Creator" xml:"Creator"`
+	EncryptionKeyList   []EncryptionKeyInfo `json:"EncryptionKeyList" xml:"EncryptionKeyList"`
 }
 
 // CreateDescribeDBInstanceEncryptionKeyRequest creates a request to invoke DescribeDBInstanceEncryptionKey API
@@ -100,7 +101,7 @@ func CreateDescribeDBInstanceEncryptionKeyRequest() (request *DescribeDBInstance
 	request = &DescribeDBInstanceEncryptionKeyRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceEncryptionKey", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceEncryptionKey", "", "")
 	request.Method = requests.POST
 	return
 }

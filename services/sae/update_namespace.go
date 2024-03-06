@@ -71,20 +71,22 @@ func (client *Client) UpdateNamespaceWithCallback(request *UpdateNamespaceReques
 // UpdateNamespaceRequest is the request struct for api UpdateNamespace
 type UpdateNamespaceRequest struct {
 	*requests.RoaRequest
-	NamespaceName        string `position:"Query" name:"NamespaceName"`
-	NamespaceDescription string `position:"Query" name:"NamespaceDescription"`
-	NamespaceId          string `position:"Query" name:"NamespaceId"`
+	NamespaceName           string           `position:"Query" name:"NamespaceName"`
+	NamespaceDescription    string           `position:"Query" name:"NamespaceDescription"`
+	EnableMicroRegistration requests.Boolean `position:"Query" name:"EnableMicroRegistration"`
+	NamespaceId             string           `position:"Query" name:"NamespaceId"`
+	NameSpaceShortId        string           `position:"Query" name:"NameSpaceShortId"`
 }
 
 // UpdateNamespaceResponse is the response struct for api UpdateNamespace
 type UpdateNamespaceResponse struct {
 	*responses.BaseResponse
 	RequestId string `json:"RequestId" xml:"RequestId"`
-	Code      string `json:"Code" xml:"Code"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Message   string `json:"Message" xml:"Message"`
-	Success   bool   `json:"Success" xml:"Success"`
 	TraceId   string `json:"TraceId" xml:"TraceId"`
+	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
+	Code      string `json:"Code" xml:"Code"`
+	Success   bool   `json:"Success" xml:"Success"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 

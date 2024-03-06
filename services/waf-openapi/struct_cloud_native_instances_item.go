@@ -17,9 +17,9 @@ package waf_openapi
 
 // CloudNativeInstancesItem is a nested struct in waf_openapi response
 type CloudNativeInstancesItem struct {
-	CloudNativeProductName string                    `json:"CloudNativeProductName" xml:"CloudNativeProductName"`
 	RedirectionTypeName    string                    `json:"RedirectionTypeName" xml:"RedirectionTypeName"`
+	CloudNativeProductName string                    `json:"CloudNativeProductName" xml:"CloudNativeProductName"`
 	InstanceId             string                    `json:"InstanceId" xml:"InstanceId"`
-	IPAddressList          string                    `json:"IPAddressList" xml:"IPAddressList"`
+	IPAddressList          []string                  `json:"IPAddressList" xml:"IPAddressList"`
 	ProtocolPortConfigs    []ProtocolPortConfigsItem `json:"ProtocolPortConfigs" xml:"ProtocolPortConfigs"`
 }

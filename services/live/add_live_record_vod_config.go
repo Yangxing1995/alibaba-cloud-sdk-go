@@ -75,6 +75,7 @@ type AddLiveRecordVodConfigRequest struct {
 	ComposeVodTranscodeGroupId string           `position:"Query" name:"ComposeVodTranscodeGroupId"`
 	StorageLocation            string           `position:"Query" name:"StorageLocation"`
 	AppName                    string           `position:"Query" name:"AppName"`
+	OnDemand                   requests.Integer `position:"Query" name:"OnDemand"`
 	StreamName                 string           `position:"Query" name:"StreamName"`
 	VodTranscodeGroupId        string           `position:"Query" name:"VodTranscodeGroupId"`
 	DomainName                 string           `position:"Query" name:"DomainName"`

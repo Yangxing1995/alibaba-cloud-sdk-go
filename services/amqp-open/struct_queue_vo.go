@@ -17,12 +17,12 @@ package amqp_open
 
 // QueueVO is a nested struct in amqp_open response
 type QueueVO struct {
+	ExclusiveState  bool                   `json:"ExclusiveState" xml:"ExclusiveState"`
+	AutoDeleteState bool                   `json:"AutoDeleteState" xml:"AutoDeleteState"`
+	CreateTime      int64                  `json:"CreateTime" xml:"CreateTime"`
+	Attributes      map[string]interface{} `json:"Attributes" xml:"Attributes"`
+	VHostName       string                 `json:"VHostName" xml:"VHostName"`
 	Name            string                 `json:"Name" xml:"Name"`
 	OwnerId         string                 `json:"OwnerId" xml:"OwnerId"`
-	VHostName       string                 `json:"VHostName" xml:"VHostName"`
-	AutoDeleteState bool                   `json:"AutoDeleteState" xml:"AutoDeleteState"`
-	ExclusiveState  bool                   `json:"ExclusiveState" xml:"ExclusiveState"`
-	CreateTime      int64                  `json:"CreateTime" xml:"CreateTime"`
 	LastConsumeTime int64                  `json:"LastConsumeTime" xml:"LastConsumeTime"`
-	Attributes      map[string]interface{} `json:"Attributes" xml:"Attributes"`
 }

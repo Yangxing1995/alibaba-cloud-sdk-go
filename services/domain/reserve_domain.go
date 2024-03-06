@@ -78,8 +78,8 @@ type ReserveDomainRequest struct {
 // ReserveDomainResponse is the response struct for api ReserveDomain
 type ReserveDomainResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	AuctionId string `json:"AuctionId" xml:"AuctionId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateReserveDomainRequest creates a request to invoke ReserveDomain API

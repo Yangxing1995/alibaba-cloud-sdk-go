@@ -72,6 +72,7 @@ func (client *Client) ModifyUserPasswordsWithCallback(request *ModifyUserPasswor
 type ModifyUserPasswordsRequest struct {
 	*requests.RpcRequest
 	ClusterId string                     `position:"Query" name:"ClusterId"`
+	Async     requests.Boolean           `position:"Query" name:"Async"`
 	User      *[]ModifyUserPasswordsUser `position:"Query" name:"User"  type:"Repeated"`
 }
 
@@ -92,7 +93,7 @@ func CreateModifyUserPasswordsRequest() (request *ModifyUserPasswordsRequest) {
 	request = &ModifyUserPasswordsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ModifyUserPasswords", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ModifyUserPasswords", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

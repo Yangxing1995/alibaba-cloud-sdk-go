@@ -74,22 +74,27 @@ type SubmitJobRequest struct {
 	StderrRedirectPath string           `position:"Query" name:"StderrRedirectPath"`
 	RunasUserPassword  string           `position:"Query" name:"RunasUserPassword"`
 	ClockTime          string           `position:"Query" name:"ClockTime"`
+	JobRetryPriority   requests.Integer `position:"Query" name:"JobRetry.Priority"`
 	CommandLine        string           `position:"Query" name:"CommandLine"`
 	JobQueue           string           `position:"Query" name:"JobQueue"`
 	ArrayRequest       string           `position:"Query" name:"ArrayRequest"`
 	UnzipCmd           string           `position:"Query" name:"UnzipCmd"`
 	PackagePath        string           `position:"Query" name:"PackagePath"`
 	Mem                string           `position:"Query" name:"Mem"`
+	JobRetryCount      requests.Integer `position:"Query" name:"JobRetry.Count"`
 	StdoutRedirectPath string           `position:"Query" name:"StdoutRedirectPath"`
 	Variables          string           `position:"Query" name:"Variables"`
 	PostCmdLine        string           `position:"Query" name:"PostCmdLine"`
 	RunasUser          string           `position:"Query" name:"RunasUser"`
+	Cpu                requests.Integer `position:"Query" name:"Cpu"`
 	ClusterId          string           `position:"Query" name:"ClusterId"`
 	ReRunable          requests.Boolean `position:"Query" name:"ReRunable"`
 	Thread             requests.Integer `position:"Query" name:"Thread"`
 	Priority           requests.Integer `position:"Query" name:"Priority"`
 	Gpu                requests.Integer `position:"Query" name:"Gpu"`
+	JobRetryOnExitCode requests.Integer `position:"Query" name:"JobRetry.OnExitCode"`
 	Node               requests.Integer `position:"Query" name:"Node"`
+	Async              requests.Boolean `position:"Query" name:"Async"`
 	Task               requests.Integer `position:"Query" name:"Task"`
 	InputFileUrl       string           `position:"Query" name:"InputFileUrl"`
 	Name               string           `position:"Query" name:"Name"`
@@ -99,8 +104,8 @@ type SubmitJobRequest struct {
 // SubmitJobResponse is the response struct for api SubmitJob
 type SubmitJobResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	JobId     string `json:"JobId" xml:"JobId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateSubmitJobRequest creates a request to invoke SubmitJob API
@@ -108,7 +113,7 @@ func CreateSubmitJobRequest() (request *SubmitJobRequest) {
 	request = &SubmitJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "SubmitJob", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "SubmitJob", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

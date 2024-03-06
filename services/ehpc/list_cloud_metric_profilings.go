@@ -79,10 +79,10 @@ type ListCloudMetricProfilingsRequest struct {
 // ListCloudMetricProfilingsResponse is the response struct for api ListCloudMetricProfilings
 type ListCloudMetricProfilingsResponse struct {
 	*responses.BaseResponse
-	RequestId  string     `json:"RequestId" xml:"RequestId"`
-	TotalCount int        `json:"TotalCount" xml:"TotalCount"`
-	PageNumber int        `json:"PageNumber" xml:"PageNumber"`
 	PageSize   int        `json:"PageSize" xml:"PageSize"`
+	RequestId  string     `json:"RequestId" xml:"RequestId"`
+	PageNumber int        `json:"PageNumber" xml:"PageNumber"`
+	TotalCount int        `json:"TotalCount" xml:"TotalCount"`
 	Profilings Profilings `json:"Profilings" xml:"Profilings"`
 }
 
@@ -91,7 +91,7 @@ func CreateListCloudMetricProfilingsRequest() (request *ListCloudMetricProfiling
 	request = &ListCloudMetricProfilingsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListCloudMetricProfilings", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListCloudMetricProfilings", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

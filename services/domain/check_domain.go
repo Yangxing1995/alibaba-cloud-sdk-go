@@ -71,23 +71,23 @@ func (client *Client) CheckDomainWithCallback(request *CheckDomainRequest, callb
 // CheckDomainRequest is the request struct for api CheckDomain
 type CheckDomainRequest struct {
 	*requests.RpcRequest
-	DomainName  string           `position:"Query" name:"DomainName"`
-	FeeCurrency string           `position:"Query" name:"FeeCurrency"`
-	FeePeriod   requests.Integer `position:"Query" name:"FeePeriod"`
-	FeeCommand  string           `position:"Query" name:"FeeCommand"`
-	Lang        string           `position:"Query" name:"Lang"`
+	DomainName   string `position:"Query" name:"DomainName"`
+	UserClientIp string `position:"Query" name:"UserClientIp"`
+	Lang         string `position:"Query" name:"Lang"`
 }
 
 // CheckDomainResponse is the response struct for api CheckDomain
 type CheckDomainResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
-	DomainName   string `json:"DomainName" xml:"DomainName"`
-	Avail        string `json:"Avail" xml:"Avail"`
-	Premium      string `json:"Premium" xml:"Premium"`
-	Reason       string `json:"Reason" xml:"Reason"`
-	Price        int64  `json:"Price" xml:"Price"`
-	DynamicCheck bool   `json:"DynamicCheck" xml:"DynamicCheck"`
+	FeeFee      string `json:"FeeFee" xml:"FeeFee"`
+	RequestId   string `json:"RequestId" xml:"RequestId"`
+	Avail       int    `json:"Avail" xml:"Avail"`
+	RmbFee      string `json:"RmbFee" xml:"RmbFee"`
+	FeeCommand  string `json:"FeeCommand" xml:"FeeCommand"`
+	FeePeriod   int    `json:"FeePeriod" xml:"FeePeriod"`
+	Reason      string `json:"Reason" xml:"Reason"`
+	FeeCurrency string `json:"FeeCurrency" xml:"FeeCurrency"`
+	Name        string `json:"Name" xml:"Name"`
 }
 
 // CreateCheckDomainRequest creates a request to invoke CheckDomain API
@@ -95,7 +95,7 @@ func CreateCheckDomainRequest() (request *CheckDomainRequest) {
 	request = &CheckDomainRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Domain", "2018-01-29", "CheckDomain", "domain", "openAPI")
+	request.InitWithApiInfo("Domain", "2016-05-11", "CheckDomain", "domain", "openAPI")
 	request.Method = requests.POST
 	return
 }

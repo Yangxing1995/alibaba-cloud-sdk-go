@@ -71,10 +71,12 @@ func (client *Client) ChangeWorkModeWithCallback(request *ChangeWorkModeRequest,
 // ChangeWorkModeRequest is the request struct for api ChangeWorkMode
 type ChangeWorkModeRequest struct {
 	*requests.RpcRequest
-	WorkMode   string `position:"Query" name:"WorkMode"`
-	UserId     string `position:"Query" name:"UserId"`
-	DeviceId   string `position:"Query" name:"DeviceId"`
-	InstanceId string `position:"Query" name:"InstanceId"`
+	SignedSkillGroupIdList string `position:"Query" name:"SignedSkillGroupIdList"`
+	Mobile                 string `position:"Query" name:"Mobile"`
+	WorkMode               string `position:"Query" name:"WorkMode"`
+	UserId                 string `position:"Query" name:"UserId"`
+	DeviceId               string `position:"Query" name:"DeviceId"`
+	InstanceId             string `position:"Query" name:"InstanceId"`
 }
 
 // ChangeWorkModeResponse is the response struct for api ChangeWorkMode

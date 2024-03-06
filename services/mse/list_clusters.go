@@ -71,10 +71,20 @@ func (client *Client) ListClustersWithCallback(request *ListClustersRequest, cal
 // ListClustersRequest is the request struct for api ListClusters
 type ListClustersRequest struct {
 	*requests.RpcRequest
-	ClusterAliasName string           `position:"Query" name:"ClusterAliasName"`
-	PageNum          requests.Integer `position:"Query" name:"PageNum"`
-	RequestPars      string           `position:"Query" name:"RequestPars"`
-	PageSize         requests.Integer `position:"Query" name:"PageSize"`
+	MseSessionId     string             `position:"Query" name:"MseSessionId"`
+	PageNum          requests.Integer   `position:"Query" name:"PageNum"`
+	ResourceGroupId  string             `position:"Query" name:"ResourceGroupId"`
+	RequestPars      string             `position:"Query" name:"RequestPars"`
+	PageSize         requests.Integer   `position:"Query" name:"PageSize"`
+	Tag              *[]ListClustersTag `position:"Query" name:"Tag"  type:"Repeated"`
+	ClusterAliasName string             `position:"Query" name:"ClusterAliasName"`
+	AcceptLanguage   string             `position:"Query" name:"AcceptLanguage"`
+}
+
+// ListClustersTag is a repeated param struct in ListClustersRequest
+type ListClustersTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // ListClustersResponse is the response struct for api ListClusters
@@ -96,8 +106,8 @@ func CreateListClustersRequest() (request *ListClustersRequest) {
 	request = &ListClustersRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ListClusters", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "ListClusters", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

@@ -71,20 +71,19 @@ func (client *Client) RemovePhoneNumbersWithCallback(request *RemovePhoneNumbers
 // RemovePhoneNumbersRequest is the request struct for api RemovePhoneNumbers
 type RemovePhoneNumbersRequest struct {
 	*requests.RpcRequest
-	NumberList string `position:"Query" name:"NumberList"`
-	InstanceId string `position:"Query" name:"InstanceId"`
+	NumberList string           `position:"Query" name:"NumberList"`
+	InstanceId string           `position:"Query" name:"InstanceId"`
+	Force      requests.Boolean `position:"Query" name:"Force"`
 }
 
 // RemovePhoneNumbersResponse is the response struct for api RemovePhoneNumbers
 type RemovePhoneNumbersResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
-	Data           string   `json:"Data" xml:"Data"`
 	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string   `json:"Code" xml:"Code"`
 	Message        string   `json:"Message" xml:"Message"`
 	RequestId      string   `json:"RequestId" xml:"RequestId"`
-	Params         []string `json:"Params" xml:"Params"`
-	FailureList    []string `json:"FailureList" xml:"FailureList"`
+	Data           []string `json:"Data" xml:"Data"`
 }
 
 // CreateRemovePhoneNumbersRequest creates a request to invoke RemovePhoneNumbers API

@@ -71,15 +71,17 @@ func (client *Client) ListNacosConfigsWithCallback(request *ListNacosConfigsRequ
 // ListNacosConfigsRequest is the request struct for api ListNacosConfigs
 type ListNacosConfigsRequest struct {
 	*requests.RpcRequest
-	PageNum     requests.Integer `position:"Query" name:"PageNum"`
-	Tags        string           `position:"Query" name:"Tags"`
-	InstanceId  string           `position:"Query" name:"InstanceId"`
-	DataId      string           `position:"Query" name:"DataId"`
-	AppName     string           `position:"Query" name:"AppName"`
-	NamespaceId string           `position:"Query" name:"NamespaceId"`
-	RequestPars string           `position:"Query" name:"RequestPars"`
-	PageSize    requests.Integer `position:"Query" name:"PageSize"`
-	Group       string           `position:"Query" name:"Group"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	PageNum        requests.Integer `position:"Query" name:"PageNum"`
+	AppName        string           `position:"Query" name:"AppName"`
+	NamespaceId    string           `position:"Query" name:"NamespaceId"`
+	RequestPars    string           `position:"Query" name:"RequestPars"`
+	PageSize       requests.Integer `position:"Query" name:"PageSize"`
+	Group          string           `position:"Query" name:"Group"`
+	Tags           string           `position:"Query" name:"Tags"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	DataId         string           `position:"Query" name:"DataId"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
 }
 
 // ListNacosConfigsResponse is the response struct for api ListNacosConfigs
@@ -102,7 +104,7 @@ func CreateListNacosConfigsRequest() (request *ListNacosConfigsRequest) {
 	request = &ListNacosConfigsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ListNacosConfigs", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "ListNacosConfigs", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

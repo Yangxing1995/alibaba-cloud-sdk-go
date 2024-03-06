@@ -75,6 +75,7 @@ type DescibeImportsFromDatabaseRequest struct {
 	ClientToken          string           `position:"Query" name:"ClientToken"`
 	StartTime            string           `position:"Query" name:"StartTime"`
 	PageNumber           requests.Integer `position:"Query" name:"PageNumber"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	ImportId             requests.Integer `position:"Query" name:"ImportId"`
 	Engine               string           `position:"Query" name:"Engine"`
 	PageSize             requests.Integer `position:"Query" name:"PageSize"`
@@ -89,9 +90,9 @@ type DescibeImportsFromDatabaseRequest struct {
 type DescibeImportsFromDatabaseResponse struct {
 	*responses.BaseResponse
 	RequestId        string                            `json:"RequestId" xml:"RequestId"`
-	TotalRecordCount int                               `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	PageNumber       int                               `json:"PageNumber" xml:"PageNumber"`
 	PageRecordCount  int                               `json:"PageRecordCount" xml:"PageRecordCount"`
+	TotalRecordCount int                               `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	Items            ItemsInDescibeImportsFromDatabase `json:"Items" xml:"Items"`
 }
 
@@ -100,7 +101,7 @@ func CreateDescibeImportsFromDatabaseRequest() (request *DescibeImportsFromDatab
 	request = &DescibeImportsFromDatabaseRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescibeImportsFromDatabase", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescibeImportsFromDatabase", "", "")
 	request.Method = requests.POST
 	return
 }

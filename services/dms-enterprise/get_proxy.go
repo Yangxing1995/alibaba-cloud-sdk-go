@@ -71,9 +71,8 @@ func (client *Client) GetProxyWithCallback(request *GetProxyRequest, callback fu
 // GetProxyRequest is the request struct for api GetProxy
 type GetProxyRequest struct {
 	*requests.RpcRequest
-	Tid        requests.Integer `position:"Query" name:"Tid"`
-	InstanceId requests.Integer `position:"Query" name:"InstanceId"`
-	ProxyId    requests.Integer `position:"Query" name:"ProxyId"`
+	Tid     requests.Integer `position:"Query" name:"Tid"`
+	ProxyId requests.Integer `position:"Query" name:"ProxyId"`
 }
 
 // GetProxyResponse is the response struct for api GetProxy
@@ -91,8 +90,10 @@ type GetProxyResponse struct {
 	PrivateHost   string `json:"PrivateHost" xml:"PrivateHost"`
 	PublicEnable  bool   `json:"PublicEnable" xml:"PublicEnable"`
 	PublicHost    string `json:"PublicHost" xml:"PublicHost"`
-	MysqlPort     int    `json:"MysqlPort" xml:"MysqlPort"`
 	HttpsPort     int    `json:"HttpsPort" xml:"HttpsPort"`
+	ProtocolType  string `json:"ProtocolType" xml:"ProtocolType"`
+	ProtocolPort  int    `json:"ProtocolPort" xml:"ProtocolPort"`
+	RegionId      string `json:"RegionId" xml:"RegionId"`
 }
 
 // CreateGetProxyRequest creates a request to invoke GetProxy API

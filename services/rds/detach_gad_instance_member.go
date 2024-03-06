@@ -71,6 +71,7 @@ func (client *Client) DetachGadInstanceMemberWithCallback(request *DetachGadInst
 // DetachGadInstanceMemberRequest is the request struct for api DetachGadInstanceMember
 type DetachGadInstanceMemberRequest struct {
 	*requests.RpcRequest
+	ResourceGroupId    string `position:"Query" name:"ResourceGroupId"`
 	MemberInstanceName string `position:"Query" name:"MemberInstanceName"`
 	GadInstanceName    string `position:"Query" name:"GadInstanceName"`
 }
@@ -86,7 +87,7 @@ func CreateDetachGadInstanceMemberRequest() (request *DetachGadInstanceMemberReq
 	request = &DetachGadInstanceMemberRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DetachGadInstanceMember", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DetachGadInstanceMember", "", "")
 	request.Method = requests.POST
 	return
 }

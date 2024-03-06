@@ -17,31 +17,44 @@ package iot
 
 // Items is a nested struct in iot response
 type Items struct {
+	Name                  string                                         `json:"Name" xml:"Name"`
+	ResultCode            string                                         `json:"ResultCode" xml:"ResultCode"`
 	Text                  string                                         `json:"Text" xml:"Text"`
 	AudioFormat           string                                         `json:"AudioFormat" xml:"AudioFormat"`
 	SpeechCode            string                                         `json:"SpeechCode" xml:"SpeechCode"`
 	SpeechType            string                                         `json:"SpeechType" xml:"SpeechType"`
+	ErrorMessage          string                                         `json:"ErrorMessage" xml:"ErrorMessage"`
 	Strategy              int                                            `json:"Strategy" xml:"Strategy"`
 	SourceInstanceName    string                                         `json:"SourceInstanceName" xml:"SourceInstanceName"`
+	OpenType              string                                         `json:"OpenType" xml:"OpenType"`
+	PeriodCode            string                                         `json:"PeriodCode" xml:"PeriodCode"`
 	SourceRegion          string                                         `json:"SourceRegion" xml:"SourceRegion"`
 	TargetAliyunId        string                                         `json:"TargetAliyunId" xml:"TargetAliyunId"`
+	SoundCodeContent      string                                         `json:"SoundCodeContent" xml:"SoundCodeContent"`
+	Duration              int                                            `json:"Duration" xml:"Duration"`
 	Size                  float64                                        `json:"Size" xml:"Size"`
 	TargetUid             string                                         `json:"TargetUid" xml:"TargetUid"`
 	TargetRegion          string                                         `json:"TargetRegion" xml:"TargetRegion"`
 	BizCode               string                                         `json:"BizCode" xml:"BizCode"`
 	Voice                 string                                         `json:"Voice" xml:"Voice"`
+	Description           string                                         `json:"Description" xml:"Description"`
 	JobId                 string                                         `json:"JobId" xml:"JobId"`
 	Status                int                                            `json:"Status" xml:"Status"`
 	Label                 string                                         `json:"Label" xml:"Label"`
 	ProductKey            string                                         `json:"ProductKey" xml:"ProductKey"`
+	SoundCode             string                                         `json:"SoundCode" xml:"SoundCode"`
+	Sharable              int64                                          `json:"Sharable" xml:"Sharable"`
 	TargetInstanceId      string                                         `json:"TargetInstanceId" xml:"TargetInstanceId"`
 	GmtCreate             int64                                          `json:"GmtCreate" xml:"GmtCreate"`
 	SourceUid             string                                         `json:"SourceUid" xml:"SourceUid"`
 	Value                 string                                         `json:"Value" xml:"Value"`
 	DeviceName            string                                         `json:"DeviceName" xml:"DeviceName"`
 	TargetInstanceName    string                                         `json:"TargetInstanceName" xml:"TargetInstanceName"`
+	StartTime             string                                         `json:"StartTime" xml:"StartTime"`
+	GmtAdded              int64                                          `json:"GmtAdded" xml:"GmtAdded"`
 	Total                 int                                            `json:"Total" xml:"Total"`
 	IotId                 string                                         `json:"IotId" xml:"IotId"`
+	EndTime               string                                         `json:"EndTime" xml:"EndTime"`
 	SourceInstanceId      string                                         `json:"SourceInstanceId" xml:"SourceInstanceId"`
 	GmtModified           int64                                          `json:"GmtModified" xml:"GmtModified"`
 	AvailableSpace        float64                                        `json:"AvailableSpace" xml:"AvailableSpace"`

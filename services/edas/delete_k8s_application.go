@@ -71,16 +71,17 @@ func (client *Client) DeleteK8sApplicationWithCallback(request *DeleteK8sApplica
 // DeleteK8sApplicationRequest is the request struct for api DeleteK8sApplication
 type DeleteK8sApplicationRequest struct {
 	*requests.RoaRequest
-	AppId string `position:"Query" name:"AppId"`
+	AppId string           `position:"Query" name:"AppId"`
+	Force requests.Boolean `position:"Query" name:"Force"`
 }
 
 // DeleteK8sApplicationResponse is the response struct for api DeleteK8sApplication
 type DeleteK8sApplicationResponse struct {
 	*responses.BaseResponse
-	RequestId     string `json:"RequestId" xml:"RequestId"`
+	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
 	Code          int    `json:"Code" xml:"Code"`
 	Message       string `json:"Message" xml:"Message"`
-	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteK8sApplicationRequest creates a request to invoke DeleteK8sApplication API
@@ -88,7 +89,7 @@ func CreateDeleteK8sApplicationRequest() (request *DeleteK8sApplicationRequest) 
 	request = &DeleteK8sApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteK8sApplication", "/pop/v5/k8s/acs/k8s_apps", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteK8sApplication", "/pop/v5/k8s/acs/k8s_apps", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

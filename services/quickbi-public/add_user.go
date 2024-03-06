@@ -78,6 +78,7 @@ type AddUserRequest struct {
 	UserType      requests.Integer `position:"Query" name:"UserType"`
 	SignType      string           `position:"Query" name:"SignType"`
 	AccountId     string           `position:"Query" name:"AccountId"`
+	RoleIds       string           `position:"Body" name:"RoleIds"`
 	AccountName   string           `position:"Query" name:"AccountName"`
 	Phone         string           `position:"Query" name:"Phone"`
 	NickName      string           `position:"Query" name:"NickName"`
@@ -98,7 +99,7 @@ func CreateAddUserRequest() (request *AddUserRequest) {
 	request = &AddUserRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("quickbi-public", "2020-08-01", "AddUser", "quickbi", "openAPI")
+	request.InitWithApiInfo("quickbi-public", "2022-01-01", "AddUser", "2.2.0", "openAPI")
 	request.Method = requests.POST
 	return
 }

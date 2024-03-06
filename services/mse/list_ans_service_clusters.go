@@ -71,14 +71,16 @@ func (client *Client) ListAnsServiceClustersWithCallback(request *ListAnsService
 // ListAnsServiceClustersRequest is the request struct for api ListAnsServiceClusters
 type ListAnsServiceClustersRequest struct {
 	*requests.RpcRequest
-	ClusterName string           `position:"Query" name:"ClusterName"`
-	ClusterId   string           `position:"Query" name:"ClusterId"`
-	PageNum     requests.Integer `position:"Query" name:"PageNum"`
-	GroupName   string           `position:"Query" name:"GroupName"`
-	NamespaceId string           `position:"Query" name:"NamespaceId"`
-	RequestPars string           `position:"Query" name:"RequestPars"`
-	PageSize    requests.Integer `position:"Query" name:"PageSize"`
-	ServiceName string           `position:"Query" name:"ServiceName"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	ClusterName    string           `position:"Query" name:"ClusterName"`
+	PageNum        requests.Integer `position:"Query" name:"PageNum"`
+	NamespaceId    string           `position:"Query" name:"NamespaceId"`
+	PageSize       requests.Integer `position:"Query" name:"PageSize"`
+	ServiceName    string           `position:"Query" name:"ServiceName"`
+	ClusterId      string           `position:"Query" name:"ClusterId"`
+	GroupName      string           `position:"Query" name:"GroupName"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
 }
 
 // ListAnsServiceClustersResponse is the response struct for api ListAnsServiceClusters
@@ -88,6 +90,7 @@ type ListAnsServiceClustersResponse struct {
 	RequestId string `json:"RequestId" xml:"RequestId"`
 	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
 	Success   bool   `json:"Success" xml:"Success"`
+	HttpCode  string `json:"HttpCode" xml:"HttpCode"`
 	Data      Data   `json:"Data" xml:"Data"`
 }
 
@@ -96,8 +99,8 @@ func CreateListAnsServiceClustersRequest() (request *ListAnsServiceClustersReque
 	request = &ListAnsServiceClustersRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "ListAnsServiceClusters", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "ListAnsServiceClusters", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

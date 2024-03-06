@@ -72,6 +72,7 @@ func (client *Client) CopyDatabaseWithCallback(request *CopyDatabaseRequest, cal
 type CopyDatabaseRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 }
@@ -79,9 +80,10 @@ type CopyDatabaseRequest struct {
 // CopyDatabaseResponse is the response struct for api CopyDatabase
 type CopyDatabaseResponse struct {
 	*responses.BaseResponse
-	DBName   string `json:"DBName" xml:"DBName"`
-	DBStatus string `json:"DBStatus" xml:"DBStatus"`
-	TaskId   string `json:"TaskId" xml:"TaskId"`
+	DBName    string `json:"DBName" xml:"DBName"`
+	TaskId    string `json:"TaskId" xml:"TaskId"`
+	DBStatus  string `json:"DBStatus" xml:"DBStatus"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCopyDatabaseRequest creates a request to invoke CopyDatabase API
@@ -89,7 +91,7 @@ func CreateCopyDatabaseRequest() (request *CopyDatabaseRequest) {
 	request = &CopyDatabaseRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CopyDatabase", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CopyDatabase", "", "")
 	request.Method = requests.POST
 	return
 }

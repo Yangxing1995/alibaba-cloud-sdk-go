@@ -71,9 +71,9 @@ func (client *Client) RenewBackupPlanWithCallback(request *RenewBackupPlanReques
 // RenewBackupPlanRequest is the request struct for api RenewBackupPlan
 type RenewBackupPlanRequest struct {
 	*requests.RpcRequest
-	Period       string           `position:"Query" name:"Period"`
 	ClientToken  string           `position:"Query" name:"ClientToken"`
 	BackupPlanId string           `position:"Query" name:"BackupPlanId"`
+	Period       string           `position:"Query" name:"Period"`
 	OwnerId      string           `position:"Query" name:"OwnerId"`
 	UsedTime     requests.Integer `position:"Query" name:"UsedTime"`
 }
@@ -81,11 +81,11 @@ type RenewBackupPlanRequest struct {
 // RenewBackupPlanResponse is the response struct for api RenewBackupPlan
 type RenewBackupPlanResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	BackupPlanId   string `json:"BackupPlanId" xml:"BackupPlanId"`
 	OrderId        string `json:"OrderId" xml:"OrderId"`
 }

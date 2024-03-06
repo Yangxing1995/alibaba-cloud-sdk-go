@@ -77,12 +77,11 @@ type GetTurnServerListRequest struct {
 // GetTurnServerListResponse is the response struct for api GetTurnServerList
 type GetTurnServerListResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
-	Data           string   `json:"Data" xml:"Data"`
-	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string   `json:"Message" xml:"Message"`
-	RequestId      string   `json:"RequestId" xml:"RequestId"`
-	Params         []string `json:"Params" xml:"Params"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
+	Message        string `json:"Message" xml:"Message"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Data           string `json:"Data" xml:"Data"`
 }
 
 // CreateGetTurnServerListRequest creates a request to invoke GetTurnServerList API

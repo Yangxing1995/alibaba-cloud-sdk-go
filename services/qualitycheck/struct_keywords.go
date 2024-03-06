@@ -17,5 +17,5 @@ package qualitycheck
 
 // Keywords is a nested struct in qualitycheck response
 type Keywords struct {
-	Keywords []string `json:"Keywords" xml:"Keywords"`
+	Keyword []string `json:"Keyword" xml:"Keyword"`
 }

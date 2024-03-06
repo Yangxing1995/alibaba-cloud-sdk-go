@@ -80,8 +80,8 @@ type ModifyVisualServicePasswdRequest struct {
 // ModifyVisualServicePasswdResponse is the response struct for api ModifyVisualServicePasswd
 type ModifyVisualServicePasswdResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateModifyVisualServicePasswdRequest creates a request to invoke ModifyVisualServicePasswd API
@@ -89,7 +89,7 @@ func CreateModifyVisualServicePasswdRequest() (request *ModifyVisualServicePassw
 	request = &ModifyVisualServicePasswdRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ModifyVisualServicePasswd", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ModifyVisualServicePasswd", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

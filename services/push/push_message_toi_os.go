@@ -71,19 +71,20 @@ func (client *Client) PushMessageToiOSWithCallback(request *PushMessageToiOSRequ
 // PushMessageToiOSRequest is the request struct for api PushMessageToiOS
 type PushMessageToiOSRequest struct {
 	*requests.RpcRequest
-	Title       string           `position:"Query" name:"Title"`
-	Body        string           `position:"Query" name:"Body"`
-	JobKey      string           `position:"Query" name:"JobKey"`
-	Target      string           `position:"Query" name:"Target"`
-	AppKey      requests.Integer `position:"Query" name:"AppKey"`
-	TargetValue string           `position:"Query" name:"TargetValue"`
+	StoreOffline requests.Boolean `position:"Query" name:"StoreOffline"`
+	Title        string           `position:"Query" name:"Title"`
+	Body         string           `position:"Query" name:"Body"`
+	JobKey       string           `position:"Query" name:"JobKey"`
+	Target       string           `position:"Query" name:"Target"`
+	AppKey       requests.Integer `position:"Query" name:"AppKey"`
+	TargetValue  string           `position:"Query" name:"TargetValue"`
 }
 
 // PushMessageToiOSResponse is the response struct for api PushMessageToiOS
 type PushMessageToiOSResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	MessageId string `json:"MessageId" xml:"MessageId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreatePushMessageToiOSRequest creates a request to invoke PushMessageToiOS API

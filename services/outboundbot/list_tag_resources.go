@@ -86,12 +86,12 @@ type ListTagResourcesTag struct {
 // ListTagResourcesResponse is the response struct for api ListTagResources
 type ListTagResourcesResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int           `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	NextToken      string        `json:"NextToken" xml:"NextToken"`
 	RequestId      string        `json:"RequestId" xml:"RequestId"`
 	Success        bool          `json:"Success" xml:"Success"`
 	Code           string        `json:"Code" xml:"Code"`
 	Message        string        `json:"Message" xml:"Message"`
-	HttpStatusCode int           `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	NextToken      string        `json:"NextToken" xml:"NextToken"`
 	TagResources   []TagResource `json:"TagResources" xml:"TagResources"`
 }
 
@@ -100,7 +100,7 @@ func CreateListTagResourcesRequest() (request *ListTagResourcesRequest) {
 	request = &ListTagResourcesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListTagResources", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListTagResources", "", "")
 	request.Method = requests.POST
 	return
 }

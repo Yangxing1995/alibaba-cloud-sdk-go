@@ -17,10 +17,10 @@ package quotas
 
 // QuotaDimensionsItem is a nested struct in quotas response
 type QuotaDimensionsItem struct {
+	Requisite            bool                       `json:"Requisite" xml:"Requisite"`
 	DimensionKey         string                     `json:"DimensionKey" xml:"DimensionKey"`
 	Name                 string                     `json:"Name" xml:"Name"`
-	Requisite            bool                       `json:"Requisite" xml:"Requisite"`
-	DimensionValues      []string                   `json:"DimensionValues" xml:"DimensionValues"`
 	DependentDimensions  []string                   `json:"DependentDimensions" xml:"DependentDimensions"`
+	DimensionValues      []string                   `json:"DimensionValues" xml:"DimensionValues"`
 	DimensionValueDetail []DimensionValueDetailItem `json:"DimensionValueDetail" xml:"DimensionValueDetail"`
 }

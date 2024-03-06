@@ -79,9 +79,9 @@ type DeleteK8sSecretRequest struct {
 // DeleteK8sSecretResponse is the response struct for api DeleteK8sSecret
 type DeleteK8sSecretResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateDeleteK8sSecretRequest creates a request to invoke DeleteK8sSecret API
@@ -89,7 +89,7 @@ func CreateDeleteK8sSecretRequest() (request *DeleteK8sSecretRequest) {
 	request = &DeleteK8sSecretRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteK8sSecret", "/pop/v5/k8s/acs/k8s_secret", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteK8sSecret", "/pop/v5/k8s/acs/k8s_secret", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

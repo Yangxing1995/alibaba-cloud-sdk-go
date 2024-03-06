@@ -76,16 +76,17 @@ type GetSqlOptimizeAdviceRequest struct {
 	Engine         string `position:"Query" name:"Engine"`
 	InstanceIds    string `position:"Query" name:"InstanceIds"`
 	StartDt        string `position:"Query" name:"StartDt"`
+	Region         string `position:"Query" name:"Region"`
 }
 
 // GetSqlOptimizeAdviceResponse is the response struct for api GetSqlOptimizeAdvice
 type GetSqlOptimizeAdviceResponse struct {
 	*responses.BaseResponse
-	Code      string `json:"Code" xml:"Code"`
-	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	Success   string `json:"Success" xml:"Success"`
-	Data      Data   `json:"Data" xml:"Data"`
+	Code      string                     `json:"Code" xml:"Code"`
+	Message   string                     `json:"Message" xml:"Message"`
+	RequestId string                     `json:"RequestId" xml:"RequestId"`
+	Success   string                     `json:"Success" xml:"Success"`
+	Data      DataInGetSqlOptimizeAdvice `json:"Data" xml:"Data"`
 }
 
 // CreateGetSqlOptimizeAdviceRequest creates a request to invoke GetSqlOptimizeAdvice API
@@ -93,7 +94,7 @@ func CreateGetSqlOptimizeAdviceRequest() (request *GetSqlOptimizeAdviceRequest) 
 	request = &GetSqlOptimizeAdviceRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("DAS", "2020-01-16", "GetSqlOptimizeAdvice", "das", "openAPI")
+	request.InitWithApiInfo("DAS", "2020-01-16", "GetSqlOptimizeAdvice", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -78,12 +78,12 @@ type ImportScriptRequest struct {
 // ImportScriptResponse is the response struct for api ImportScript
 type ImportScriptResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
-	ScriptId       string `json:"ScriptId" xml:"ScriptId"`
 	Success        bool   `json:"Success" xml:"Success"`
+	Code           string `json:"Code" xml:"Code"`
+	Message        string `json:"Message" xml:"Message"`
+	ScriptId       string `json:"ScriptId" xml:"ScriptId"`
 }
 
 // CreateImportScriptRequest creates a request to invoke ImportScript API
@@ -91,7 +91,7 @@ func CreateImportScriptRequest() (request *ImportScriptRequest) {
 	request = &ImportScriptRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ImportScript", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ImportScript", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -73,18 +73,18 @@ type DescribeBackupPlanBillingRequest struct {
 	*requests.RpcRequest
 	ClientToken     string           `position:"Query" name:"ClientToken"`
 	BackupPlanId    string           `position:"Query" name:"BackupPlanId"`
-	OwnerId         string           `position:"Query" name:"OwnerId"`
 	ShowStorageType requests.Boolean `position:"Query" name:"ShowStorageType"`
+	OwnerId         string           `position:"Query" name:"OwnerId"`
 }
 
 // DescribeBackupPlanBillingResponse is the response struct for api DescribeBackupPlanBilling
 type DescribeBackupPlanBillingResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	Item           Item   `json:"Item" xml:"Item"`
 }
 

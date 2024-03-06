@@ -17,19 +17,22 @@ package vod
 
 // Image is a nested struct in vod response
 type Image struct {
-	Title            string `json:"Title" xml:"Title"`
-	ImageId          string `json:"ImageId" xml:"ImageId"`
-	CateId           int64  `json:"CateId" xml:"CateId"`
-	CateName         string `json:"CateName" xml:"CateName"`
-	Ext              string `json:"Ext" xml:"Ext"`
-	CreationTime     string `json:"CreationTime" xml:"CreationTime"`
-	ModificationTime string `json:"ModificationTime" xml:"ModificationTime"`
-	Tags             string `json:"Tags" xml:"Tags"`
-	Type             string `json:"Type" xml:"Type"`
-	URL              string `json:"URL" xml:"URL"`
-	Status           string `json:"Status" xml:"Status"`
-	Description      string `json:"Description" xml:"Description"`
-	StorageLocation  string `json:"StorageLocation" xml:"StorageLocation"`
-	RegionId         string `json:"RegionId" xml:"RegionId"`
-	AppId            string `json:"AppId" xml:"AppId"`
+	Tags             string    `json:"Tags" xml:"Tags"`
+	Title            string    `json:"Title" xml:"Title"`
+	ModificationTime string    `json:"ModificationTime" xml:"ModificationTime"`
+	ImageId          string    `json:"ImageId" xml:"ImageId"`
+	StorageLocation  string    `json:"StorageLocation" xml:"StorageLocation"`
+	CreationTime     string    `json:"CreationTime" xml:"CreationTime"`
+	URL              string    `json:"URL" xml:"URL"`
+	AppId            string    `json:"AppId" xml:"AppId"`
+	RegionId         string    `json:"RegionId" xml:"RegionId"`
+	ImageType        string    `json:"ImageType" xml:"ImageType"`
+	CateName         string    `json:"CateName" xml:"CateName"`
+	Status           string    `json:"Status" xml:"Status"`
+	AuditStatus      string    `json:"AuditStatus" xml:"AuditStatus"`
+	Description      string    `json:"Description" xml:"Description"`
+	Ext              string    `json:"Ext" xml:"Ext"`
+	CateId           int64     `json:"CateId" xml:"CateId"`
+	Type             string    `json:"Type" xml:"Type"`
+	Mezzanine        Mezzanine `json:"Mezzanine" xml:"Mezzanine"`
 }

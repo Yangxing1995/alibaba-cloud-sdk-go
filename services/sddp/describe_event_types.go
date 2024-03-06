@@ -72,6 +72,7 @@ func (client *Client) DescribeEventTypesWithCallback(request *DescribeEventTypes
 type DescribeEventTypesRequest struct {
 	*requests.RpcRequest
 	ResourceId   requests.Integer `position:"Query" name:"ResourceId"`
+	FeatureType  requests.Integer `position:"Query" name:"FeatureType"`
 	ParentTypeId requests.Integer `position:"Query" name:"ParentTypeId"`
 	SourceIp     string           `position:"Query" name:"SourceIp"`
 	Lang         string           `position:"Query" name:"Lang"`
@@ -90,7 +91,7 @@ func CreateDescribeEventTypesRequest() (request *DescribeEventTypesRequest) {
 	request = &DescribeEventTypesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeEventTypes", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeEventTypes", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

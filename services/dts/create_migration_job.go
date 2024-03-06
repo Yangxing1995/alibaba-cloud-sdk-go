@@ -72,20 +72,19 @@ func (client *Client) CreateMigrationJobWithCallback(request *CreateMigrationJob
 type CreateMigrationJobRequest struct {
 	*requests.RpcRequest
 	ClientToken       string `position:"Query" name:"ClientToken"`
-	OwnerId           string `position:"Query" name:"OwnerId"`
-	AccountId         string `position:"Query" name:"AccountId"`
 	Region            string `position:"Query" name:"Region"`
 	MigrationJobClass string `position:"Query" name:"MigrationJobClass"`
+	OwnerId           string `position:"Query" name:"OwnerId"`
 }
 
 // CreateMigrationJobResponse is the response struct for api CreateMigrationJob
 type CreateMigrationJobResponse struct {
 	*responses.BaseResponse
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
-	MigrationJobId string `json:"MigrationJobId" xml:"MigrationJobId"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	MigrationJobId string `json:"MigrationJobId" xml:"MigrationJobId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
 	Success        string `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 }
 
 // CreateCreateMigrationJobRequest creates a request to invoke CreateMigrationJob API
@@ -93,7 +92,7 @@ func CreateCreateMigrationJobRequest() (request *CreateMigrationJobRequest) {
 	request = &CreateMigrationJobRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Dts", "2020-01-01", "CreateMigrationJob", "dts", "openAPI")
+	request.InitWithApiInfo("Dts", "2017-06-01", "CreateMigrationJob", "dts", "openAPI")
 	request.Method = requests.POST
 	return
 }

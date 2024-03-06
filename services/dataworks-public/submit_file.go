@@ -71,21 +71,22 @@ func (client *Client) SubmitFileWithCallback(request *SubmitFileRequest, callbac
 // SubmitFileRequest is the request struct for api SubmitFile
 type SubmitFileRequest struct {
 	*requests.RpcRequest
-	Comment           string           `position:"Body" name:"Comment"`
-	ProjectId         requests.Integer `position:"Body" name:"ProjectId"`
-	ProjectIdentifier string           `position:"Body" name:"ProjectIdentifier"`
-	FileId            requests.Integer `position:"Body" name:"FileId"`
+	SkipAllDeployFileExtensions requests.Boolean `position:"Body" name:"SkipAllDeployFileExtensions"`
+	Comment                     string           `position:"Body" name:"Comment"`
+	ProjectId                   requests.Integer `position:"Body" name:"ProjectId"`
+	ProjectIdentifier           string           `position:"Body" name:"ProjectIdentifier"`
+	FileId                      requests.Integer `position:"Body" name:"FileId"`
 }
 
 // SubmitFileResponse is the response struct for api SubmitFile
 type SubmitFileResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Data           int64  `json:"Data" xml:"Data"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	Success        bool   `json:"Success" xml:"Success"`
 	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
-	Data           int64  `json:"Data" xml:"Data"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 }
 
 // CreateSubmitFileRequest creates a request to invoke SubmitFile API

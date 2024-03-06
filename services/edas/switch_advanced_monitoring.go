@@ -78,9 +78,9 @@ type SwitchAdvancedMonitoringRequest struct {
 // SwitchAdvancedMonitoringResponse is the response struct for api SwitchAdvancedMonitoring
 type SwitchAdvancedMonitoringResponse struct {
 	*responses.BaseResponse
-	RequestId                 string `json:"RequestId" xml:"RequestId"`
 	Code                      int    `json:"Code" xml:"Code"`
 	Message                   string `json:"Message" xml:"Message"`
+	RequestId                 string `json:"RequestId" xml:"RequestId"`
 	AdvancedMonitoringEnabled bool   `json:"AdvancedMonitoringEnabled" xml:"AdvancedMonitoringEnabled"`
 }
 
@@ -89,7 +89,7 @@ func CreateSwitchAdvancedMonitoringRequest() (request *SwitchAdvancedMonitoringR
 	request = &SwitchAdvancedMonitoringRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "SwitchAdvancedMonitoring", "/pop/v5/monitor/advancedMonitorInfo", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "SwitchAdvancedMonitoring", "/pop/v5/monitor/advancedMonitorInfo", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

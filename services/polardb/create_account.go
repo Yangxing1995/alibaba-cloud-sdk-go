@@ -77,12 +77,14 @@ type CreateAccountRequest struct {
 	AccountDescription   string           `position:"Query" name:"AccountDescription"`
 	AccountPrivilege     string           `position:"Query" name:"AccountPrivilege"`
 	AccountName          string           `position:"Query" name:"AccountName"`
+	TairAccountPassword  string           `position:"Query" name:"TairAccountPassword"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	DBClusterId          string           `position:"Query" name:"DBClusterId"`
 	OwnerAccount         string           `position:"Query" name:"OwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 	AccountPassword      string           `position:"Query" name:"AccountPassword"`
 	DBName               string           `position:"Query" name:"DBName"`
+	PrivForAllDB         string           `position:"Query" name:"PrivForAllDB"`
 }
 
 // CreateAccountResponse is the response struct for api CreateAccount

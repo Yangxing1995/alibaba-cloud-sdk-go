@@ -22,5 +22,6 @@ type EventRule struct {
 	GroupId      string                              `json:"GroupId" xml:"GroupId"`
 	Name         string                              `json:"Name" xml:"Name"`
 	State        string                              `json:"State" xml:"State"`
+	SilenceTime  int64                               `json:"SilenceTime" xml:"SilenceTime"`
 	EventPattern EventPatternInDescribeEventRuleList `json:"EventPattern" xml:"EventPattern"`
 }

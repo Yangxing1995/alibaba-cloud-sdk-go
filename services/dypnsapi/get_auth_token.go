@@ -72,8 +72,9 @@ func (client *Client) GetAuthTokenWithCallback(request *GetAuthTokenRequest, cal
 type GetAuthTokenRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	Origin               string           `position:"Query" name:"Origin"`
+	SceneCode            string           `position:"Query" name:"SceneCode"`
+	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 	Url                  string           `position:"Query" name:"Url"`
 }
@@ -92,7 +93,7 @@ func CreateGetAuthTokenRequest() (request *GetAuthTokenRequest) {
 	request = &GetAuthTokenRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Dypnsapi", "2017-05-25", "GetAuthToken", "", "")
+	request.InitWithApiInfo("Dypnsapi", "2017-05-25", "GetAuthToken", "dypnsapi", "openAPI")
 	request.Method = requests.POST
 	return
 }

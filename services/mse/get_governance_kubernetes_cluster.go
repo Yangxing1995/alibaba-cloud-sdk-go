@@ -71,7 +71,9 @@ func (client *Client) GetGovernanceKubernetesClusterWithCallback(request *GetGov
 // GetGovernanceKubernetesClusterRequest is the request struct for api GetGovernanceKubernetesCluster
 type GetGovernanceKubernetesClusterRequest struct {
 	*requests.RpcRequest
-	ClusterId string `position:"Query" name:"ClusterId"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // GetGovernanceKubernetesClusterResponse is the response struct for api GetGovernanceKubernetesCluster
@@ -90,7 +92,7 @@ func CreateGetGovernanceKubernetesClusterRequest() (request *GetGovernanceKubern
 	request = &GetGovernanceKubernetesClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "GetGovernanceKubernetesCluster", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "GetGovernanceKubernetesCluster", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -79,9 +79,9 @@ type UpdateHealthCheckUrlRequest struct {
 type UpdateHealthCheckUrlResponse struct {
 	*responses.BaseResponse
 	Code           int    `json:"Code" xml:"Code"`
-	HealthCheckURL string `json:"HealthCheckURL" xml:"HealthCheckURL"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	HealthCheckURL string `json:"HealthCheckURL" xml:"HealthCheckURL"`
 }
 
 // CreateUpdateHealthCheckUrlRequest creates a request to invoke UpdateHealthCheckUrl API
@@ -89,7 +89,7 @@ func CreateUpdateHealthCheckUrlRequest() (request *UpdateHealthCheckUrlRequest) 
 	request = &UpdateHealthCheckUrlRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateHealthCheckUrl", "/pop/v5/app/modify_hc_url", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateHealthCheckUrl", "/pop/v5/app/modify_hc_url", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -89,8 +89,7 @@ type CopyDatabaseBetweenInstancesRequest struct {
 // CopyDatabaseBetweenInstancesResponse is the response struct for api CopyDatabaseBetweenInstances
 type CopyDatabaseBetweenInstancesResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
-	DBInstanceId string `json:"DBInstanceId" xml:"DBInstanceId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCopyDatabaseBetweenInstancesRequest creates a request to invoke CopyDatabaseBetweenInstances API
@@ -98,7 +97,7 @@ func CreateCopyDatabaseBetweenInstancesRequest() (request *CopyDatabaseBetweenIn
 	request = &CopyDatabaseBetweenInstancesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CopyDatabaseBetweenInstances", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CopyDatabaseBetweenInstances", "", "")
 	request.Method = requests.POST
 	return
 }

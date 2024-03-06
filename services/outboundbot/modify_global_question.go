@@ -83,12 +83,12 @@ type ModifyGlobalQuestionRequest struct {
 // ModifyGlobalQuestionResponse is the response struct for api ModifyGlobalQuestion
 type ModifyGlobalQuestionResponse struct {
 	*responses.BaseResponse
-	Code               string `json:"Code" xml:"Code"`
-	DialogueQuestionId string `json:"DialogueQuestionId" xml:"DialogueQuestionId"`
 	HttpStatusCode     int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message            string `json:"Message" xml:"Message"`
 	RequestId          string `json:"RequestId" xml:"RequestId"`
 	Success            bool   `json:"Success" xml:"Success"`
+	Code               string `json:"Code" xml:"Code"`
+	Message            string `json:"Message" xml:"Message"`
+	DialogueQuestionId string `json:"DialogueQuestionId" xml:"DialogueQuestionId"`
 }
 
 // CreateModifyGlobalQuestionRequest creates a request to invoke ModifyGlobalQuestion API
@@ -96,7 +96,7 @@ func CreateModifyGlobalQuestionRequest() (request *ModifyGlobalQuestionRequest) 
 	request = &ModifyGlobalQuestionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyGlobalQuestion", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyGlobalQuestion", "", "")
 	request.Method = requests.POST
 	return
 }

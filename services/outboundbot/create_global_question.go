@@ -82,12 +82,12 @@ type CreateGlobalQuestionRequest struct {
 // CreateGlobalQuestionResponse is the response struct for api CreateGlobalQuestion
 type CreateGlobalQuestionResponse struct {
 	*responses.BaseResponse
-	Code             string `json:"Code" xml:"Code"`
-	GlobalQuestionId string `json:"GlobalQuestionId" xml:"GlobalQuestionId"`
 	HttpStatusCode   int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message          string `json:"Message" xml:"Message"`
+	GlobalQuestionId string `json:"GlobalQuestionId" xml:"GlobalQuestionId"`
 	RequestId        string `json:"RequestId" xml:"RequestId"`
 	Success          bool   `json:"Success" xml:"Success"`
+	Code             string `json:"Code" xml:"Code"`
+	Message          string `json:"Message" xml:"Message"`
 }
 
 // CreateCreateGlobalQuestionRequest creates a request to invoke CreateGlobalQuestion API
@@ -95,7 +95,7 @@ func CreateCreateGlobalQuestionRequest() (request *CreateGlobalQuestionRequest) 
 	request = &CreateGlobalQuestionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "CreateGlobalQuestion", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "CreateGlobalQuestion", "", "")
 	request.Method = requests.POST
 	return
 }

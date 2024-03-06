@@ -71,11 +71,13 @@ func (client *Client) CloneNacosConfigWithCallback(request *CloneNacosConfigRequ
 // CloneNacosConfigRequest is the request struct for api CloneNacosConfig
 type CloneNacosConfigRequest struct {
 	*requests.RpcRequest
+	MseSessionId      string `position:"Query" name:"MseSessionId"`
 	TargetNamespaceId string `position:"Query" name:"TargetNamespaceId"`
-	InstanceId        string `position:"Query" name:"InstanceId"`
-	Ids               string `position:"Query" name:"Ids"`
 	OriginNamespaceId string `position:"Query" name:"OriginNamespaceId"`
 	Policy            string `position:"Query" name:"Policy"`
+	InstanceId        string `position:"Query" name:"InstanceId"`
+	AcceptLanguage    string `position:"Query" name:"AcceptLanguage"`
+	Ids               string `position:"Query" name:"Ids"`
 }
 
 // CloneNacosConfigResponse is the response struct for api CloneNacosConfig
@@ -96,7 +98,7 @@ func CreateCloneNacosConfigRequest() (request *CloneNacosConfigRequest) {
 	request = &CloneNacosConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "CloneNacosConfig", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "CloneNacosConfig", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

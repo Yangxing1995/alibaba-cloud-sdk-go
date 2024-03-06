@@ -78,9 +78,9 @@ type EnableApplicationScalingRuleRequest struct {
 // EnableApplicationScalingRuleResponse is the response struct for api EnableApplicationScalingRule
 type EnableApplicationScalingRuleResponse struct {
 	*responses.BaseResponse
-	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	Code           int            `json:"Code" xml:"Code"`
 	Message        string         `json:"Message" xml:"Message"`
+	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	AppScalingRule AppScalingRule `json:"AppScalingRule" xml:"AppScalingRule"`
 }
 
@@ -89,7 +89,7 @@ func CreateEnableApplicationScalingRuleRequest() (request *EnableApplicationScal
 	request = &EnableApplicationScalingRuleRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "EnableApplicationScalingRule", "/pop/v1/eam/scale/enable_application_scaling_rule", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "EnableApplicationScalingRule", "/pop/v1/eam/scale/enable_application_scaling_rule", "Edas", "openAPI")
 	request.Method = requests.PUT
 	return
 }

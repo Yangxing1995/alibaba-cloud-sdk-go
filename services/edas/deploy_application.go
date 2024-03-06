@@ -92,8 +92,8 @@ type DeployApplicationRequest struct {
 type DeployApplicationResponse struct {
 	*responses.BaseResponse
 	Code          int    `json:"Code" xml:"Code"`
-	Message       string `json:"Message" xml:"Message"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Message       string `json:"Message" xml:"Message"`
 	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
@@ -102,7 +102,7 @@ func CreateDeployApplicationRequest() (request *DeployApplicationRequest) {
 	request = &DeployApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeployApplication", "/pop/v5/changeorder/co_deploy", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeployApplication", "/pop/v5/changeorder/co_deploy", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

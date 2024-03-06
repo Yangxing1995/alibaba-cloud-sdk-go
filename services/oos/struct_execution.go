@@ -17,8 +17,8 @@ package oos
 
 // Execution is a nested struct in oos response
 type Execution struct {
-	TemplateId                string                 `json:"TemplateId" xml:"TemplateId"`
 	Category                  string                 `json:"Category" xml:"Category"`
+	TemplateId                string                 `json:"TemplateId" xml:"TemplateId"`
 	ExecutedBy                string                 `json:"ExecutedBy" xml:"ExecutedBy"`
 	TemplateName              string                 `json:"TemplateName" xml:"TemplateName"`
 	WaitingStatus             string                 `json:"WaitingStatus" xml:"WaitingStatus"`
@@ -28,6 +28,7 @@ type Execution struct {
 	SafetyCheck               string                 `json:"SafetyCheck" xml:"SafetyCheck"`
 	TemplateVersion           string                 `json:"TemplateVersion" xml:"TemplateVersion"`
 	Parameters                map[string]interface{} `json:"Parameters" xml:"Parameters"`
+	ResourceGroupId           string                 `json:"ResourceGroupId" xml:"ResourceGroupId"`
 	UpdateDate                string                 `json:"UpdateDate" xml:"UpdateDate"`
 	ParentExecutionId         string                 `json:"ParentExecutionId" xml:"ParentExecutionId"`
 	Outputs                   string                 `json:"Outputs" xml:"Outputs"`
@@ -37,12 +38,14 @@ type Execution struct {
 	Tags                      map[string]interface{} `json:"Tags" xml:"Tags"`
 	EndDate                   string                 `json:"EndDate" xml:"EndDate"`
 	LastSuccessfulTriggerTime string                 `json:"LastSuccessfulTriggerTime" xml:"LastSuccessfulTriggerTime"`
+	LastTriggerStatusMessage  string                 `json:"LastTriggerStatusMessage" xml:"LastTriggerStatusMessage"`
 	RamRole                   string                 `json:"RamRole" xml:"RamRole"`
 	Targets                   string                 `json:"Targets" xml:"Targets"`
 	StartDate                 string                 `json:"StartDate" xml:"StartDate"`
 	StatusReason              string                 `json:"StatusReason" xml:"StatusReason"`
 	ResourceStatus            string                 `json:"ResourceStatus" xml:"ResourceStatus"`
 	CreateDate                string                 `json:"CreateDate" xml:"CreateDate"`
+	LastTriggerOutputs        string                 `json:"LastTriggerOutputs" xml:"LastTriggerOutputs"`
 	LastTriggerStatus         string                 `json:"LastTriggerStatus" xml:"LastTriggerStatus"`
 	ExecutionId               string                 `json:"ExecutionId" xml:"ExecutionId"`
 	Status                    string                 `json:"Status" xml:"Status"`

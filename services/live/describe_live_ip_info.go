@@ -79,11 +79,11 @@ type DescribeLiveIpInfoRequest struct {
 // DescribeLiveIpInfoResponse is the response struct for api DescribeLiveIpInfo
 type DescribeLiveIpInfoResponse struct {
 	*responses.BaseResponse
-	RequestId   string `json:"RequestId" xml:"RequestId"`
-	ISP         string `json:"ISP" xml:"ISP"`
 	IspEname    string `json:"IspEname" xml:"IspEname"`
-	Region      string `json:"Region" xml:"Region"`
+	RequestId   string `json:"RequestId" xml:"RequestId"`
 	RegionEname string `json:"RegionEname" xml:"RegionEname"`
+	ISP         string `json:"ISP" xml:"ISP"`
+	Region      string `json:"Region" xml:"Region"`
 }
 
 // CreateDescribeLiveIpInfoRequest creates a request to invoke DescribeLiveIpInfo API

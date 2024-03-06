@@ -71,6 +71,8 @@ func (client *Client) QueryGatewayTypeWithCallback(request *QueryGatewayTypeRequ
 // QueryGatewayTypeRequest is the request struct for api QueryGatewayType
 type QueryGatewayTypeRequest struct {
 	*requests.RpcRequest
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // QueryGatewayTypeResponse is the response struct for api QueryGatewayType
@@ -89,8 +91,8 @@ func CreateQueryGatewayTypeRequest() (request *QueryGatewayTypeRequest) {
 	request = &QueryGatewayTypeRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "QueryGatewayType", "", "")
-	request.Method = requests.GET
+	request.InitWithApiInfo("mse", "2019-05-31", "QueryGatewayType", "mse", "openAPI")
+	request.Method = requests.POST
 	return
 }
 

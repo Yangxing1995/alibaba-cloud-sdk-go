@@ -83,8 +83,8 @@ type ListClassesRequest struct {
 // ListClassesResponse is the response struct for api ListClasses
 type ListClassesResponse struct {
 	*responses.BaseResponse
-	RegionId  string      `json:"RegionId" xml:"RegionId"`
 	RequestId string      `json:"RequestId" xml:"RequestId"`
+	RegionId  string      `json:"RegionId" xml:"RegionId"`
 	Items     []ClassList `json:"Items" xml:"Items"`
 }
 
@@ -93,7 +93,7 @@ func CreateListClassesRequest() (request *ListClassesRequest) {
 	request = &ListClassesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ListClasses", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ListClasses", "", "")
 	request.Method = requests.POST
 	return
 }

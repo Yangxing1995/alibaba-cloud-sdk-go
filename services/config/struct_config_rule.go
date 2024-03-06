@@ -18,23 +18,36 @@ package config
 // ConfigRule is a nested struct in config response
 type ConfigRule struct {
 	RiskLevel                  int                        `json:"RiskLevel" xml:"RiskLevel"`
+	ExcludeResourceIdsScope    string                     `json:"ExcludeResourceIdsScope" xml:"ExcludeResourceIdsScope"`
 	CreateTimestamp            int64                      `json:"CreateTimestamp" xml:"CreateTimestamp"`
+	ResourceGroupIdsScope      string                     `json:"ResourceGroupIdsScope" xml:"ResourceGroupIdsScope"`
 	SourceOwner                string                     `json:"SourceOwner" xml:"SourceOwner"`
 	ModifiedTimestamp          int64                      `json:"ModifiedTimestamp" xml:"ModifiedTimestamp"`
+	TagValueScope              string                     `json:"TagValueScope" xml:"TagValueScope"`
+	AutomationType             string                     `json:"AutomationType" xml:"AutomationType"`
+	TagKeyScope                string                     `json:"TagKeyScope" xml:"TagKeyScope"`
+	RegionIdsScope             string                     `json:"RegionIdsScope" xml:"RegionIdsScope"`
+	ExcludeFolderIdsScope      string                     `json:"ExcludeFolderIdsScope" xml:"ExcludeFolderIdsScope"`
+	ConfigRuleState            string                     `json:"ConfigRuleState" xml:"ConfigRuleState"`
+	Description                string                     `json:"Description" xml:"Description"`
+	ConfigRuleTriggerTypes     string                     `json:"ConfigRuleTriggerTypes" xml:"ConfigRuleTriggerTypes"`
+	MaximumExecutionFrequency  string                     `json:"MaximumExecutionFrequency" xml:"MaximumExecutionFrequency"`
 	ConfigRuleName             string                     `json:"ConfigRuleName" xml:"ConfigRuleName"`
 	ConfigRuleId               string                     `json:"ConfigRuleId" xml:"ConfigRuleId"`
-	AutomationType             string                     `json:"AutomationType" xml:"AutomationType"`
+	ServiceChannel             string                     `json:"ServiceChannel" xml:"ServiceChannel"`
 	ConfigRuleArn              string                     `json:"ConfigRuleArn" xml:"ConfigRuleArn"`
+	ExcludeAccountIdsScope     string                     `json:"ExcludeAccountIdsScope" xml:"ExcludeAccountIdsScope"`
 	InputParameters            map[string]interface{}     `json:"InputParameters" xml:"InputParameters"`
-	ConfigRuleState            string                     `json:"ConfigRuleState" xml:"ConfigRuleState"`
+	TagKeyLogicScope           string                     `json:"TagKeyLogicScope" xml:"TagKeyLogicScope"`
+	FolderIdsScope             string                     `json:"FolderIdsScope" xml:"FolderIdsScope"`
 	AccountId                  int64                      `json:"AccountId" xml:"AccountId"`
 	SourceIdentifier           string                     `json:"SourceIdentifier" xml:"SourceIdentifier"`
-	Description                string                     `json:"Description" xml:"Description"`
-	MaximumExecutionFrequency  string                     `json:"MaximumExecutionFrequency" xml:"MaximumExecutionFrequency"`
-	Source                     Source                     `json:"Source" xml:"Source"`
-	ConfigRuleEvaluationStatus ConfigRuleEvaluationStatus `json:"ConfigRuleEvaluationStatus" xml:"ConfigRuleEvaluationStatus"`
+	ResourceTypesScope         string                     `json:"ResourceTypesScope" xml:"ResourceTypesScope"`
 	CreateBy                   CreateBy                   `json:"CreateBy" xml:"CreateBy"`
-	ManagedRule                ManagedRule                `json:"ManagedRule" xml:"ManagedRule"`
+	ConfigRuleEvaluationStatus ConfigRuleEvaluationStatus `json:"ConfigRuleEvaluationStatus" xml:"ConfigRuleEvaluationStatus"`
 	Scope                      Scope                      `json:"Scope" xml:"Scope"`
+	ManagedRule                ManagedRuleInGetConfigRule `json:"ManagedRule" xml:"ManagedRule"`
 	Compliance                 Compliance                 `json:"Compliance" xml:"Compliance"`
+	Source                     SourceInGetConfigRule      `json:"Source" xml:"Source"`
+	Tags                       []Tag                      `json:"Tags" xml:"Tags"`
 }

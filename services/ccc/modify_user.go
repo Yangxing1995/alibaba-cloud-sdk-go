@@ -71,22 +71,24 @@ func (client *Client) ModifyUserWithCallback(request *ModifyUserRequest, callbac
 // ModifyUserRequest is the request struct for api ModifyUser
 type ModifyUserRequest struct {
 	*requests.RpcRequest
-	RoleId     string `position:"Query" name:"RoleId"`
-	Mobile     string `position:"Query" name:"Mobile"`
-	WorkMode   string `position:"Query" name:"WorkMode"`
-	UserId     string `position:"Query" name:"UserId"`
-	InstanceId string `position:"Query" name:"InstanceId"`
+	RoleId      string           `position:"Query" name:"RoleId"`
+	Mobile      string           `position:"Query" name:"Mobile"`
+	WorkMode    string           `position:"Query" name:"WorkMode"`
+	UserId      string           `position:"Query" name:"UserId"`
+	InstanceId  string           `position:"Query" name:"InstanceId"`
+	DisplayName string           `position:"Query" name:"DisplayName"`
+	Force       requests.Boolean `position:"Query" name:"Force"`
+	DisplayId   string           `position:"Query" name:"DisplayId"`
 }
 
 // ModifyUserResponse is the response struct for api ModifyUser
 type ModifyUserResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
-	Data           string   `json:"Data" xml:"Data"`
-	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string   `json:"Message" xml:"Message"`
-	RequestId      string   `json:"RequestId" xml:"RequestId"`
-	Params         []string `json:"Params" xml:"Params"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
+	Message        string `json:"Message" xml:"Message"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Data           string `json:"Data" xml:"Data"`
 }
 
 // CreateModifyUserRequest creates a request to invoke ModifyUser API

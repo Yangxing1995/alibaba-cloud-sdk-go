@@ -79,8 +79,8 @@ type UpdateContainerRequest struct {
 type UpdateContainerResponse struct {
 	*responses.BaseResponse
 	Code          int    `json:"Code" xml:"Code"`
-	Message       string `json:"Message" xml:"Message"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Message       string `json:"Message" xml:"Message"`
 	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
@@ -89,7 +89,7 @@ func CreateUpdateContainerRequest() (request *UpdateContainerRequest) {
 	request = &UpdateContainerRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateContainer", "/pop/v5/changeorder/co_update_container", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "UpdateContainer", "/pop/v5/changeorder/co_update_container", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -77,9 +77,9 @@ type GetWebContainerConfigRequest struct {
 // GetWebContainerConfigResponse is the response struct for api GetWebContainerConfig
 type GetWebContainerConfigResponse struct {
 	*responses.BaseResponse
-	RequestId          string             `json:"RequestId" xml:"RequestId"`
-	Message            string             `json:"Message" xml:"Message"`
 	Code               int                `json:"Code" xml:"Code"`
+	Message            string             `json:"Message" xml:"Message"`
+	RequestId          string             `json:"RequestId" xml:"RequestId"`
 	WebContainerConfig WebContainerConfig `json:"WebContainerConfig" xml:"WebContainerConfig"`
 }
 
@@ -88,7 +88,7 @@ func CreateGetWebContainerConfigRequest() (request *GetWebContainerConfigRequest
 	request = &GetWebContainerConfigRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "GetWebContainerConfig", "/pop/v5/oam/web_container_config", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "GetWebContainerConfig", "/pop/v5/oam/web_container_config", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

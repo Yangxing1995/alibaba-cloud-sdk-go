@@ -80,6 +80,8 @@ type PushRequest struct {
 	AndroidNotificationHuaweiChannel string           `position:"Query" name:"AndroidNotificationHuaweiChannel"`
 	AndroidPopupActivity             string           `position:"Query" name:"AndroidPopupActivity"`
 	IOSRemindBody                    string           `position:"Query" name:"iOSRemindBody"`
+	Trim                             requests.Boolean `position:"Query" name:"Trim"`
+	AndroidMessageVivoCategory       string           `position:"Query" name:"AndroidMessageVivoCategory"`
 	AndroidNotifyType                string           `position:"Query" name:"AndroidNotifyType"`
 	AndroidPopupTitle                string           `position:"Query" name:"AndroidPopupTitle"`
 	AndroidMessageHuaweiCategory     string           `position:"Query" name:"AndroidMessageHuaweiCategory"`
@@ -89,11 +91,15 @@ type PushRequest struct {
 	AndroidNotificationBarPriority   requests.Integer `position:"Query" name:"AndroidNotificationBarPriority"`
 	ExpireTime                       string           `position:"Query" name:"ExpireTime"`
 	AndroidImageUrl                  string           `position:"Query" name:"AndroidImageUrl"`
+	AndroidHonorTargetUserType       requests.Integer `position:"Query" name:"AndroidHonorTargetUserType"`
 	AndroidNotificationVivoChannel   string           `position:"Query" name:"AndroidNotificationVivoChannel"`
+	AndroidVivoReceiptId             string           `position:"Query" name:"AndroidVivoReceiptId"`
 	IOSNotificationCategory          string           `position:"Query" name:"iOSNotificationCategory"`
 	AndroidNotificationXiaomiChannel string           `position:"Query" name:"AndroidNotificationXiaomiChannel"`
 	StoreOffline                     requests.Boolean `position:"Query" name:"StoreOffline"`
+	IOSRelevanceScore                string           `position:"Query" name:"iOSRelevanceScore"`
 	SmsParams                        string           `position:"Query" name:"SmsParams"`
+	AndroidVivoPushMode              requests.Integer `position:"Query" name:"AndroidVivoPushMode"`
 	AndroidInboxBody                 string           `position:"Query" name:"AndroidInboxBody"`
 	JobKey                           string           `position:"Query" name:"JobKey"`
 	AndroidOpenUrl                   string           `position:"Query" name:"AndroidOpenUrl"`
@@ -102,10 +108,12 @@ type PushRequest struct {
 	AndroidXiaomiBigPictureUrl       string           `position:"Query" name:"AndroidXiaomiBigPictureUrl"`
 	IOSRemind                        requests.Boolean `position:"Query" name:"iOSRemind"`
 	IOSNotificationThreadId          string           `position:"Query" name:"iOSNotificationThreadId"`
+	AndroidHuaweiTargetUserType      requests.Integer `position:"Query" name:"AndroidHuaweiTargetUserType"`
 	AndroidMusic                     string           `position:"Query" name:"AndroidMusic"`
 	IOSNotificationCollapseId        string           `position:"Query" name:"iOSNotificationCollapseId"`
 	AndroidMessageHuaweiUrgency      string           `position:"Query" name:"AndroidMessageHuaweiUrgency"`
 	PushType                         string           `position:"Query" name:"PushType"`
+	IOSInterruptionLevel             string           `position:"Query" name:"iOSInterruptionLevel"`
 	AndroidExtParameters             string           `position:"Query" name:"AndroidExtParameters"`
 	IOSBadge                         requests.Integer `position:"Query" name:"iOSBadge"`
 	AndroidBigBody                   string           `position:"Query" name:"AndroidBigBody"`
@@ -115,11 +123,15 @@ type PushRequest struct {
 	SmsDelaySecs                     requests.Integer `position:"Query" name:"SmsDelaySecs"`
 	AndroidRenderStyle               requests.Integer `position:"Query" name:"AndroidRenderStyle"`
 	IOSExtParameters                 string           `position:"Query" name:"iOSExtParameters"`
+	AndroidHuaweiReceiptId           string           `position:"Query" name:"AndroidHuaweiReceiptId"`
+	AndroidNotificationHonorChannel  string           `position:"Query" name:"AndroidNotificationHonorChannel"`
 	AndroidXiaomiImageUrl            string           `position:"Query" name:"AndroidXiaomiImageUrl"`
+	AndroidTargetUserType            requests.Integer `position:"Query" name:"AndroidTargetUserType"`
 	SmsTemplateName                  string           `position:"Query" name:"SmsTemplateName"`
 	AndroidPopupBody                 string           `position:"Query" name:"AndroidPopupBody"`
 	AndroidBigPictureUrl             string           `position:"Query" name:"AndroidBigPictureUrl"`
 	IOSSilentNotification            requests.Boolean `position:"Query" name:"iOSSilentNotification"`
+	AndroidNotificationGroup         string           `position:"Query" name:"AndroidNotificationGroup"`
 	SendChannels                     string           `position:"Query" name:"SendChannels"`
 	Target                           string           `position:"Query" name:"Target"`
 	AndroidBigTitle                  string           `position:"Query" name:"AndroidBigTitle"`
@@ -130,8 +142,8 @@ type PushRequest struct {
 	AndroidNotificationNotifyId      requests.Integer `position:"Query" name:"AndroidNotificationNotifyId"`
 	AppKey                           requests.Integer `position:"Query" name:"AppKey"`
 	TargetValue                      string           `position:"Query" name:"TargetValue"`
-	AndroidXiaoMiActivity            string           `position:"Query" name:"AndroidXiaoMiActivity"`
 	AndroidXiaoMiNotifyTitle         string           `position:"Query" name:"AndroidXiaoMiNotifyTitle"`
+	AndroidXiaoMiActivity            string           `position:"Query" name:"AndroidXiaoMiActivity"`
 }
 
 // PushResponse is the response struct for api Push

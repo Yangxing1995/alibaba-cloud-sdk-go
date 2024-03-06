@@ -71,6 +71,7 @@ func (client *Client) DescribeDataLimitDetailWithCallback(request *DescribeDataL
 // DescribeDataLimitDetailRequest is the request struct for api DescribeDataLimitDetail
 type DescribeDataLimitDetailRequest struct {
 	*requests.RpcRequest
+	FeatureType requests.Integer `position:"Query" name:"FeatureType"`
 	NetworkType requests.Integer `position:"Query" name:"NetworkType"`
 	SourceIp    string           `position:"Query" name:"SourceIp"`
 	Id          requests.Integer `position:"Query" name:"Id"`
@@ -89,7 +90,7 @@ func CreateDescribeDataLimitDetailRequest() (request *DescribeDataLimitDetailReq
 	request = &DescribeDataLimitDetailRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeDataLimitDetail", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeDataLimitDetail", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

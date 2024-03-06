@@ -71,18 +71,18 @@ func (client *Client) ListAliasesByKeyIdWithCallback(request *ListAliasesByKeyId
 // ListAliasesByKeyIdRequest is the request struct for api ListAliasesByKeyId
 type ListAliasesByKeyIdRequest struct {
 	*requests.RpcRequest
-	PageSize   requests.Integer `position:"Query" name:"PageSize"`
 	KeyId      string           `position:"Query" name:"KeyId"`
 	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
+	PageSize   requests.Integer `position:"Query" name:"PageSize"`
 }
 
 // ListAliasesByKeyIdResponse is the response struct for api ListAliasesByKeyId
 type ListAliasesByKeyIdResponse struct {
 	*responses.BaseResponse
-	TotalCount int                         `json:"TotalCount" xml:"TotalCount"`
+	RequestId  string                      `json:"RequestId" xml:"RequestId"`
 	PageNumber int                         `json:"PageNumber" xml:"PageNumber"`
 	PageSize   int                         `json:"PageSize" xml:"PageSize"`
-	RequestId  string                      `json:"RequestId" xml:"RequestId"`
+	TotalCount int                         `json:"TotalCount" xml:"TotalCount"`
 	Aliases    AliasesInListAliasesByKeyId `json:"Aliases" xml:"Aliases"`
 }
 

@@ -91,6 +91,7 @@ type SaveBatchTaskForCreatingOrderActivateOrderActivateParam struct {
 	RegistrantProfileId       string `name:"RegistrantProfileId"`
 	AliyunDns                 string `name:"AliyunDns"`
 	ZhCity                    string `name:"ZhCity"`
+	ResourceGroupId           string `name:"ResourceGroupId"`
 	TelExt                    string `name:"TelExt"`
 	ZhRegistrantName          string `name:"ZhRegistrantName"`
 	Province                  string `name:"Province"`
@@ -100,8 +101,8 @@ type SaveBatchTaskForCreatingOrderActivateOrderActivateParam struct {
 	Address                   string `name:"Address"`
 	TelArea                   string `name:"TelArea"`
 	DomainName                string `name:"DomainName"`
-	ZhAddress                 string `name:"ZhAddress"`
 	RegistrantType            string `name:"RegistrantType"`
+	ZhAddress                 string `name:"ZhAddress"`
 	Telephone                 string `name:"Telephone"`
 	TrademarkDomainActivation string `name:"TrademarkDomainActivation"`
 	ZhProvince                string `name:"ZhProvince"`

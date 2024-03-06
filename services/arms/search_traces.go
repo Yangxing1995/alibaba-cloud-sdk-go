@@ -72,6 +72,7 @@ func (client *Client) SearchTracesWithCallback(request *SearchTracesRequest, cal
 type SearchTracesRequest struct {
 	*requests.RpcRequest
 	EndTime          requests.Integer                `position:"Query" name:"EndTime"`
+	Pid              string                          `position:"Query" name:"Pid"`
 	StartTime        requests.Integer                `position:"Query" name:"StartTime"`
 	Reverse          requests.Boolean                `position:"Query" name:"Reverse"`
 	MinDuration      requests.Integer                `position:"Query" name:"MinDuration"`

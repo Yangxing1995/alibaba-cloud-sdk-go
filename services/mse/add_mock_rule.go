@@ -71,28 +71,30 @@ func (client *Client) AddMockRuleWithCallback(request *AddMockRuleRequest, callb
 // AddMockRuleRequest is the request struct for api AddMockRule
 type AddMockRuleRequest struct {
 	*requests.RpcRequest
+	MseSessionId    string           `position:"Query" name:"MseSessionId"`
 	ExtraJson       string           `position:"Query" name:"ExtraJson"`
-	ProviderAppId   string           `position:"Query" name:"ProviderAppId"`
 	Source          string           `position:"Query" name:"Source"`
 	Enable          requests.Boolean `position:"Query" name:"Enable"`
 	ScMockItems     string           `position:"Query" name:"ScMockItems"`
+	Name            string           `position:"Query" name:"Name"`
+	Region          string           `position:"Query" name:"Region"`
+	ProviderAppId   string           `position:"Query" name:"ProviderAppId"`
 	ProviderAppName string           `position:"Query" name:"ProviderAppName"`
 	ConsumerAppIds  string           `position:"Query" name:"ConsumerAppIds"`
 	DubboMockItems  string           `position:"Query" name:"DubboMockItems"`
-	Name            string           `position:"Query" name:"Name"`
+	AcceptLanguage  string           `position:"Query" name:"AcceptLanguage"`
 	MockType        requests.Integer `position:"Query" name:"MockType"`
-	Region          string           `position:"Query" name:"Region"`
 }
 
 // AddMockRuleResponse is the response struct for api AddMockRule
 type AddMockRuleResponse struct {
 	*responses.BaseResponse
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Code           int    `json:"Code" xml:"Code"`
-	Success        bool   `json:"Success" xml:"Success"`
-	Data           Data   `json:"Data" xml:"Data"`
+	HttpStatusCode int               `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Message        string            `json:"Message" xml:"Message"`
+	RequestId      string            `json:"RequestId" xml:"RequestId"`
+	Code           int               `json:"Code" xml:"Code"`
+	Success        bool              `json:"Success" xml:"Success"`
+	Data           DataInAddMockRule `json:"Data" xml:"Data"`
 }
 
 // CreateAddMockRuleRequest creates a request to invoke AddMockRule API
@@ -100,7 +102,7 @@ func CreateAddMockRuleRequest() (request *AddMockRuleRequest) {
 	request = &AddMockRuleRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "AddMockRule", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "AddMockRule", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

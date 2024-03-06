@@ -71,6 +71,7 @@ func (client *Client) DescribeGadInstancesWithCallback(request *DescribeGadInsta
 // DescribeGadInstancesRequest is the request struct for api DescribeGadInstances
 type DescribeGadInstancesRequest struct {
 	*requests.RpcRequest
+	ResourceGroupId string `position:"Query" name:"ResourceGroupId"`
 	GadInstanceName string `position:"Query" name:"GadInstanceName"`
 }
 
@@ -86,7 +87,7 @@ func CreateDescribeGadInstancesRequest() (request *DescribeGadInstancesRequest) 
 	request = &DescribeGadInstancesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeGadInstances", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeGadInstances", "", "")
 	request.Method = requests.POST
 	return
 }

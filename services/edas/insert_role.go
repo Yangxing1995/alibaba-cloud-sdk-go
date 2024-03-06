@@ -80,8 +80,8 @@ type InsertRoleResponse struct {
 	*responses.BaseResponse
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
-	RoleId    int    `json:"RoleId" xml:"RoleId"`
 	RequestId string `json:"RequestId" xml:"RequestId"`
+	RoleId    int    `json:"RoleId" xml:"RoleId"`
 }
 
 // CreateInsertRoleRequest creates a request to invoke InsertRole API
@@ -89,7 +89,7 @@ func CreateInsertRoleRequest() (request *InsertRoleRequest) {
 	request = &InsertRoleRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "InsertRole", "/pop/v5/account/create_role", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "InsertRole", "/pop/v5/account/create_role", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

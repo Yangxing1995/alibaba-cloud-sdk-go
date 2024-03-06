@@ -72,17 +72,17 @@ func (client *Client) CheckMetaTableWithCallback(request *CheckMetaTableRequest,
 type CheckMetaTableRequest struct {
 	*requests.RpcRequest
 	DataSourceType string `position:"Query" name:"DataSourceType"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
 	TableGuid      string `position:"Query" name:"TableGuid"`
 	DatabaseName   string `position:"Query" name:"DatabaseName"`
-	ClusterId      string `position:"Query" name:"ClusterId"`
 	TableName      string `position:"Query" name:"TableName"`
 }
 
 // CheckMetaTableResponse is the response struct for api CheckMetaTable
 type CheckMetaTableResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Data      bool   `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCheckMetaTableRequest creates a request to invoke CheckMetaTable API

@@ -84,10 +84,10 @@ type ModifyDTCSecurityIpHostsForSQLServerRequest struct {
 // ModifyDTCSecurityIpHostsForSQLServerResponse is the response struct for api ModifyDTCSecurityIpHostsForSQLServer
 type ModifyDTCSecurityIpHostsForSQLServerResponse struct {
 	*responses.BaseResponse
-	RequestId    string `json:"RequestId" xml:"RequestId"`
 	DBInstanceId string `json:"DBInstanceId" xml:"DBInstanceId"`
-	DTCSetResult string `json:"DTCSetResult" xml:"DTCSetResult"`
+	RequestId    string `json:"RequestId" xml:"RequestId"`
 	TaskId       string `json:"TaskId" xml:"TaskId"`
+	DTCSetResult string `json:"DTCSetResult" xml:"DTCSetResult"`
 }
 
 // CreateModifyDTCSecurityIpHostsForSQLServerRequest creates a request to invoke ModifyDTCSecurityIpHostsForSQLServer API
@@ -95,7 +95,7 @@ func CreateModifyDTCSecurityIpHostsForSQLServerRequest() (request *ModifyDTCSecu
 	request = &ModifyDTCSecurityIpHostsForSQLServerRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDTCSecurityIpHostsForSQLServer", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "ModifyDTCSecurityIpHostsForSQLServer", "", "")
 	request.Method = requests.POST
 	return
 }

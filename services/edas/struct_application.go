@@ -18,11 +18,14 @@ package edas
 // Application is a nested struct in edas response
 type Application struct {
 	Name                 string `json:"Name" xml:"Name"`
+	WorkloadType         string `json:"WorkloadType" xml:"WorkloadType"`
 	CreateTime           int64  `json:"CreateTime" xml:"CreateTime"`
 	Dockerize            bool   `json:"Dockerize" xml:"Dockerize"`
 	SlbInfo              string `json:"SlbInfo" xml:"SlbInfo"`
+	AppPhase             string `json:"AppPhase" xml:"AppPhase"`
 	RegionId             string `json:"RegionId" xml:"RegionId"`
 	SlbPort              int    `json:"SlbPort" xml:"SlbPort"`
+	ResourceGroupId      string `json:"ResourceGroupId" xml:"ResourceGroupId"`
 	UserId               string `json:"UserId" xml:"UserId"`
 	ApplicationType      string `json:"ApplicationType" xml:"ApplicationType"`
 	Description          string `json:"Description" xml:"Description"`
@@ -32,6 +35,7 @@ type Application struct {
 	ExtSlbIp             string `json:"ExtSlbIp" xml:"ExtSlbIp"`
 	BuildPackageId       int64  `json:"BuildPackageId" xml:"BuildPackageId"`
 	Email                string `json:"Email" xml:"Email"`
+	EnablePortCheck      bool   `json:"EnablePortCheck" xml:"EnablePortCheck"`
 	Memory               int    `json:"Memory" xml:"Memory"`
 	NameSpace            string `json:"NameSpace" xml:"NameSpace"`
 	ExtSlbId             string `json:"ExtSlbId" xml:"ExtSlbId"`
@@ -39,7 +43,9 @@ type Application struct {
 	ExtSlbName           string `json:"ExtSlbName" xml:"ExtSlbName"`
 	SlbName              string `json:"SlbName" xml:"SlbName"`
 	AppId                string `json:"AppId" xml:"AppId"`
+	EnableUrlCheck       bool   `json:"EnableUrlCheck" xml:"EnableUrlCheck"`
 	InstanceCount        int    `json:"InstanceCount" xml:"InstanceCount"`
+	HaveManageAccess     string `json:"HaveManageAccess" xml:"HaveManageAccess"`
 	HealthCheckUrl       string `json:"HealthCheckUrl" xml:"HealthCheckUrl"`
 	SlbId                string `json:"SlbId" xml:"SlbId"`
 	Cpu                  int    `json:"Cpu" xml:"Cpu"`

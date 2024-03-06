@@ -80,8 +80,8 @@ type ModifyTagGroupsRequest struct {
 // ModifyTagGroupsResponse is the response struct for api ModifyTagGroups
 type ModifyTagGroupsResponse struct {
 	*responses.BaseResponse
-	Code           string     `json:"Code" xml:"Code"`
 	HttpStatusCode int        `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string     `json:"Code" xml:"Code"`
 	Message        string     `json:"Message" xml:"Message"`
 	RequestId      string     `json:"RequestId" xml:"RequestId"`
 	Success        bool       `json:"Success" xml:"Success"`
@@ -94,7 +94,7 @@ func CreateModifyTagGroupsRequest() (request *ModifyTagGroupsRequest) {
 	request = &ModifyTagGroupsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyTagGroups", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyTagGroups", "", "")
 	request.Method = requests.POST
 	return
 }

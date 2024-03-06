@@ -21,7 +21,6 @@ import (
 )
 
 // ListServices invokes the eas.ListServices API synchronously
-// api document: https://help.aliyun.com/api/eas/listservices.html
 func (client *Client) ListServices(request *ListServicesRequest) (response *ListServicesResponse, err error) {
 	response = CreateListServicesResponse()
 	err = client.DoAction(request, response)
@@ -29,8 +28,6 @@ func (client *Client) ListServices(request *ListServicesRequest) (response *List
 }
 
 // ListServicesWithChan invokes the eas.ListServices API asynchronously
-// api document: https://help.aliyun.com/api/eas/listservices.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) ListServicesWithChan(request *ListServicesRequest) (<-chan *ListServicesResponse, <-chan error) {
 	responseChan := make(chan *ListServicesResponse, 1)
 	errChan := make(chan error, 1)
@@ -53,8 +50,6 @@ func (client *Client) ListServicesWithChan(request *ListServicesRequest) (<-chan
 }
 
 // ListServicesWithCallback invokes the eas.ListServices API asynchronously
-// api document: https://help.aliyun.com/api/eas/listservices.html
-// asynchronous document: https://help.aliyun.com/document_detail/66220.html
 func (client *Client) ListServicesWithCallback(request *ListServicesRequest, callback func(response *ListServicesResponse, err error)) <-chan int {
 	result := make(chan int, 1)
 	err := client.AddAsyncTask(func() {
@@ -76,8 +71,11 @@ func (client *Client) ListServicesWithCallback(request *ListServicesRequest, cal
 // ListServicesRequest is the request struct for api ListServices
 type ListServicesRequest struct {
 	*requests.RoaRequest
-	Filter string `position:"Query" name:"filter"`
-	Sort   string `position:"Query" name:"sort"`
+	Filter     string           `position:"Query" name:"Filter"`
+	PageSize   requests.Integer `position:"Query" name:"PageSize"`
+	Sort       string           `position:"Query" name:"Sort"`
+	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
+	Order      string           `position:"Query" name:"Order"`
 }
 
 // ListServicesResponse is the response struct for api ListServices
@@ -90,7 +88,7 @@ func CreateListServicesRequest() (request *ListServicesRequest) {
 	request = &ListServicesRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("eas", "2018-05-22", "ListServices", "/api/services", "", "")
+	request.InitWithApiInfo("eas", "2021-07-01", "ListServices", "/api/v2/services", "eas", "openAPI")
 	request.Method = requests.GET
 	return
 }

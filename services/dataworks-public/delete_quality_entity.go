@@ -72,19 +72,20 @@ func (client *Client) DeleteQualityEntityWithCallback(request *DeleteQualityEnti
 type DeleteQualityEntityRequest struct {
 	*requests.RpcRequest
 	ProjectName string           `position:"Body" name:"ProjectName"`
-	EnvType     string           `position:"Body" name:"EnvType"`
 	EntityId    requests.Integer `position:"Body" name:"EntityId"`
+	EnvType     string           `position:"Body" name:"EnvType"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // DeleteQualityEntityResponse is the response struct for api DeleteQualityEntity
 type DeleteQualityEntityResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Data           bool   `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
 }
 
 // CreateDeleteQualityEntityRequest creates a request to invoke DeleteQualityEntity API

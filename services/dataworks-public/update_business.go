@@ -73,20 +73,20 @@ type UpdateBusinessRequest struct {
 	*requests.RpcRequest
 	Owner             string           `position:"Body" name:"Owner"`
 	BusinessId        requests.Integer `position:"Body" name:"BusinessId"`
-	BusinessName      string           `position:"Body" name:"BusinessName"`
 	Description       string           `position:"Body" name:"Description"`
-	ProjectId         requests.Integer `position:"Body" name:"ProjectId"`
 	ProjectIdentifier string           `position:"Body" name:"ProjectIdentifier"`
+	BusinessName      string           `position:"Body" name:"BusinessName"`
+	ProjectId         requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // UpdateBusinessResponse is the response struct for api UpdateBusiness
 type UpdateBusinessResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateUpdateBusinessRequest creates a request to invoke UpdateBusiness API

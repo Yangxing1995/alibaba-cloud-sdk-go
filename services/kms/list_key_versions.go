@@ -71,18 +71,18 @@ func (client *Client) ListKeyVersionsWithCallback(request *ListKeyVersionsReques
 // ListKeyVersionsRequest is the request struct for api ListKeyVersions
 type ListKeyVersionsRequest struct {
 	*requests.RpcRequest
-	PageSize   requests.Integer `position:"Query" name:"PageSize"`
 	KeyId      string           `position:"Query" name:"KeyId"`
 	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
+	PageSize   requests.Integer `position:"Query" name:"PageSize"`
 }
 
 // ListKeyVersionsResponse is the response struct for api ListKeyVersions
 type ListKeyVersionsResponse struct {
 	*responses.BaseResponse
-	RequestId   string      `json:"RequestId" xml:"RequestId"`
-	TotalCount  int         `json:"TotalCount" xml:"TotalCount"`
-	PageNumber  int         `json:"PageNumber" xml:"PageNumber"`
 	PageSize    int         `json:"PageSize" xml:"PageSize"`
+	RequestId   string      `json:"RequestId" xml:"RequestId"`
+	PageNumber  int         `json:"PageNumber" xml:"PageNumber"`
+	TotalCount  int         `json:"TotalCount" xml:"TotalCount"`
 	KeyVersions KeyVersions `json:"KeyVersions" xml:"KeyVersions"`
 }
 

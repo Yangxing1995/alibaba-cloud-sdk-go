@@ -71,15 +71,18 @@ func (client *Client) ListConfigRulesWithCallback(request *ListConfigRulesReques
 // ListConfigRulesRequest is the request struct for api ListConfigRules
 type ListConfigRulesRequest struct {
 	*requests.RpcRequest
-	MultiAccount      requests.Boolean `position:"Query" name:"MultiAccount"`
-	MessageType       string           `position:"Query" name:"MessageType"`
-	ConfigRuleState   string           `position:"Query" name:"ConfigRuleState"`
-	PageNumber        requests.Integer `position:"Query" name:"PageNumber"`
-	PageSize          requests.Integer `position:"Query" name:"PageSize"`
-	ComplianceType    string           `position:"Query" name:"ComplianceType"`
-	ConfigRuleSceneId string           `position:"Query" name:"ConfigRuleSceneId"`
-	RiskLevel         requests.Integer `position:"Query" name:"RiskLevel"`
-	MemberId          requests.Integer `position:"Query" name:"MemberId"`
+	FilterInCompliancePack           requests.Boolean `position:"Query" name:"FilterInCompliancePack"`
+	ConfigRuleState                  string           `position:"Query" name:"ConfigRuleState"`
+	FilterInCompliancePackExcludeIds string           `position:"Query" name:"FilterInCompliancePackExcludeIds"`
+	PageNumber                       requests.Integer `position:"Query" name:"PageNumber"`
+	PageSize                         requests.Integer `position:"Query" name:"PageSize"`
+	CompliancePackId                 string           `position:"Query" name:"CompliancePackId"`
+	Keyword                          string           `position:"Query" name:"Keyword"`
+	ComplianceType                   string           `position:"Query" name:"ComplianceType"`
+	ResourceTypes                    string           `position:"Query" name:"ResourceTypes"`
+	RiskLevel                        requests.Integer `position:"Query" name:"RiskLevel"`
+	ConfigRuleName                   string           `position:"Query" name:"ConfigRuleName"`
+	ServiceChannel                   string           `position:"Query" name:"ServiceChannel"`
 }
 
 // ListConfigRulesResponse is the response struct for api ListConfigRules
@@ -94,8 +97,8 @@ func CreateListConfigRulesRequest() (request *ListConfigRulesRequest) {
 	request = &ListConfigRulesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Config", "2019-01-08", "ListConfigRules", "Config", "openAPI")
-	request.Method = requests.GET
+	request.InitWithApiInfo("Config", "2020-09-07", "ListConfigRules", "", "")
+	request.Method = requests.POST
 	return
 }
 

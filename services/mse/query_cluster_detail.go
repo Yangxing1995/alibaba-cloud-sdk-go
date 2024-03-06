@@ -71,9 +71,12 @@ func (client *Client) QueryClusterDetailWithCallback(request *QueryClusterDetail
 // QueryClusterDetailRequest is the request struct for api QueryClusterDetail
 type QueryClusterDetailRequest struct {
 	*requests.RpcRequest
-	OrderId    string `position:"Query" name:"OrderId"`
-	ClusterId  string `position:"Query" name:"ClusterId"`
-	InstanceId string `position:"Query" name:"InstanceId"`
+	MseSessionId   string           `position:"Query" name:"MseSessionId"`
+	AclSwitch      requests.Boolean `position:"Query" name:"AclSwitch"`
+	OrderId        string           `position:"Query" name:"OrderId"`
+	ClusterId      string           `position:"Query" name:"ClusterId"`
+	InstanceId     string           `position:"Query" name:"InstanceId"`
+	AcceptLanguage string           `position:"Query" name:"AcceptLanguage"`
 }
 
 // QueryClusterDetailResponse is the response struct for api QueryClusterDetail
@@ -91,7 +94,7 @@ func CreateQueryClusterDetailRequest() (request *QueryClusterDetailRequest) {
 	request = &QueryClusterDetailRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "QueryClusterDetail", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "QueryClusterDetail", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

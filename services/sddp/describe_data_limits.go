@@ -82,6 +82,7 @@ type DescribeDataLimitsRequest struct {
 	ServiceRegionId string           `position:"Query" name:"ServiceRegionId"`
 	EngineType      string           `position:"Query" name:"EngineType"`
 	AuditStatus     requests.Integer `position:"Query" name:"AuditStatus"`
+	FeatureType     requests.Integer `position:"Query" name:"FeatureType"`
 	EndTime         requests.Integer `position:"Query" name:"EndTime"`
 	CurrentPage     requests.Integer `position:"Query" name:"CurrentPage"`
 	ResourceType    requests.Integer `position:"Query" name:"ResourceType"`
@@ -90,9 +91,9 @@ type DescribeDataLimitsRequest struct {
 // DescribeDataLimitsResponse is the response struct for api DescribeDataLimits
 type DescribeDataLimitsResponse struct {
 	*responses.BaseResponse
+	CurrentPage int         `json:"CurrentPage" xml:"CurrentPage"`
 	RequestId   string      `json:"RequestId" xml:"RequestId"`
 	PageSize    int         `json:"PageSize" xml:"PageSize"`
-	CurrentPage int         `json:"CurrentPage" xml:"CurrentPage"`
 	TotalCount  int         `json:"TotalCount" xml:"TotalCount"`
 	Items       []DataLimit `json:"Items" xml:"Items"`
 }
@@ -102,7 +103,7 @@ func CreateDescribeDataLimitsRequest() (request *DescribeDataLimitsRequest) {
 	request = &DescribeDataLimitsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeDataLimits", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "DescribeDataLimits", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

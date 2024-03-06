@@ -71,16 +71,18 @@ func (client *Client) ExecDatamaskWithCallback(request *ExecDatamaskRequest, cal
 // ExecDatamaskRequest is the request struct for api ExecDatamask
 type ExecDatamaskRequest struct {
 	*requests.RpcRequest
-	Data       string           `position:"Query" name:"Data"`
-	TemplateId requests.Integer `position:"Query" name:"TemplateId"`
-	SourceIp   string           `position:"Query" name:"SourceIp"`
+	Data        string           `position:"Query" name:"Data"`
+	FeatureType requests.Integer `position:"Query" name:"FeatureType"`
+	TemplateId  requests.Integer `position:"Query" name:"TemplateId"`
+	SourceIp    string           `position:"Query" name:"SourceIp"`
+	Lang        string           `position:"Query" name:"Lang"`
 }
 
 // ExecDatamaskResponse is the response struct for api ExecDatamask
 type ExecDatamaskResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Data      string `json:"Data" xml:"Data"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateExecDatamaskRequest creates a request to invoke ExecDatamask API
@@ -88,7 +90,7 @@ func CreateExecDatamaskRequest() (request *ExecDatamaskRequest) {
 	request = &ExecDatamaskRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Sddp", "2019-01-03", "ExecDatamask", "", "")
+	request.InitWithApiInfo("Sddp", "2019-01-03", "ExecDatamask", "sddp", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -71,25 +71,36 @@ func (client *Client) ListTransitRouterVpcAttachmentsWithCallback(request *ListT
 // ListTransitRouterVpcAttachmentsRequest is the request struct for api ListTransitRouterVpcAttachments
 type ListTransitRouterVpcAttachmentsRequest struct {
 	*requests.RpcRequest
-	ResourceOwnerId           requests.Integer `position:"Query" name:"ResourceOwnerId"`
-	CenId                     string           `position:"Query" name:"CenId"`
-	NextToken                 string           `position:"Query" name:"NextToken"`
-	ResourceOwnerAccount      string           `position:"Query" name:"ResourceOwnerAccount"`
-	OwnerAccount              string           `position:"Query" name:"OwnerAccount"`
-	OwnerId                   requests.Integer `position:"Query" name:"OwnerId"`
-	TransitRouterId           string           `position:"Query" name:"TransitRouterId"`
-	ResourceType              string           `position:"Query" name:"ResourceType"`
-	TransitRouterAttachmentId string           `position:"Query" name:"TransitRouterAttachmentId"`
-	MaxResults                requests.Integer `position:"Query" name:"MaxResults"`
+	ResourceOwnerId           requests.Integer                      `position:"Query" name:"ResourceOwnerId"`
+	CenId                     string                                `position:"Query" name:"CenId"`
+	NextToken                 string                                `position:"Query" name:"NextToken"`
+	Tag                       *[]ListTransitRouterVpcAttachmentsTag `position:"Query" name:"Tag"  type:"Repeated"`
+	ResourceOwnerAccount      string                                `position:"Query" name:"ResourceOwnerAccount"`
+	OwnerAccount              string                                `position:"Query" name:"OwnerAccount"`
+	OwnerId                   requests.Integer                      `position:"Query" name:"OwnerId"`
+	TransitRouterId           string                                `position:"Query" name:"TransitRouterId"`
+	ResourceType              string                                `position:"Query" name:"ResourceType"`
+	Version                   string                                `position:"Query" name:"Version"`
+	TransitRouterAttachmentId string                                `position:"Query" name:"TransitRouterAttachmentId"`
+	VpcId                     string                                `position:"Query" name:"VpcId"`
+	MaxResults                requests.Integer                      `position:"Query" name:"MaxResults"`
+	OrderType                 string                                `position:"Query" name:"OrderType"`
+	Status                    string                                `position:"Query" name:"Status"`
+}
+
+// ListTransitRouterVpcAttachmentsTag is a repeated param struct in ListTransitRouterVpcAttachmentsRequest
+type ListTransitRouterVpcAttachmentsTag struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // ListTransitRouterVpcAttachmentsResponse is the response struct for api ListTransitRouterVpcAttachments
 type ListTransitRouterVpcAttachmentsResponse struct {
 	*responses.BaseResponse
+	NextToken                string                    `json:"NextToken" xml:"NextToken"`
 	RequestId                string                    `json:"RequestId" xml:"RequestId"`
 	TotalCount               int                       `json:"TotalCount" xml:"TotalCount"`
 	MaxResults               int                       `json:"MaxResults" xml:"MaxResults"`
-	NextToken                string                    `json:"NextToken" xml:"NextToken"`
 	TransitRouterAttachments []TransitRouterAttachment `json:"TransitRouterAttachments" xml:"TransitRouterAttachments"`
 }
 
@@ -98,7 +109,7 @@ func CreateListTransitRouterVpcAttachmentsRequest() (request *ListTransitRouterV
 	request = &ListTransitRouterVpcAttachmentsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Cbn", "2017-09-12", "ListTransitRouterVpcAttachments", "cbn", "openAPI")
+	request.InitWithApiInfo("Cbn", "2017-09-12", "ListTransitRouterVpcAttachments", "", "")
 	request.Method = requests.POST
 	return
 }

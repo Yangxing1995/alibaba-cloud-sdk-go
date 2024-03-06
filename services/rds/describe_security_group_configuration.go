@@ -80,8 +80,8 @@ type DescribeSecurityGroupConfigurationRequest struct {
 // DescribeSecurityGroupConfigurationResponse is the response struct for api DescribeSecurityGroupConfiguration
 type DescribeSecurityGroupConfigurationResponse struct {
 	*responses.BaseResponse
-	RequestId      string                                    `json:"RequestId" xml:"RequestId"`
 	DBInstanceName string                                    `json:"DBInstanceName" xml:"DBInstanceName"`
+	RequestId      string                                    `json:"RequestId" xml:"RequestId"`
 	Items          ItemsInDescribeSecurityGroupConfiguration `json:"Items" xml:"Items"`
 }
 
@@ -90,7 +90,7 @@ func CreateDescribeSecurityGroupConfigurationRequest() (request *DescribeSecurit
 	request = &DescribeSecurityGroupConfigurationRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeSecurityGroupConfiguration", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeSecurityGroupConfiguration", "", "")
 	request.Method = requests.POST
 	return
 }

@@ -73,20 +73,22 @@ type AllocateInstancePublicConnectionRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId        requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ConnectionStringPrefix string           `position:"Query" name:"ConnectionStringPrefix"`
+	PGBouncerPort          string           `position:"Query" name:"PGBouncerPort"`
 	GeneralGroupName       string           `position:"Query" name:"GeneralGroupName"`
 	DBInstanceId           string           `position:"Query" name:"DBInstanceId"`
 	ResourceOwnerAccount   string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerAccount           string           `position:"Query" name:"OwnerAccount"`
 	OwnerId                requests.Integer `position:"Query" name:"OwnerId"`
+	BabelfishPort          string           `position:"Query" name:"BabelfishPort"`
 	Port                   string           `position:"Query" name:"Port"`
 }
 
 // AllocateInstancePublicConnectionResponse is the response struct for api AllocateInstancePublicConnection
 type AllocateInstancePublicConnectionResponse struct {
 	*responses.BaseResponse
+	DbInstanceName   string `json:"DbInstanceName" xml:"DbInstanceName"`
 	RequestId        string `json:"RequestId" xml:"RequestId"`
 	ConnectionString string `json:"ConnectionString" xml:"ConnectionString"`
-	DbInstanceName   string `json:"DbInstanceName" xml:"DbInstanceName"`
 }
 
 // CreateAllocateInstancePublicConnectionRequest creates a request to invoke AllocateInstancePublicConnection API
@@ -94,7 +96,7 @@ func CreateAllocateInstancePublicConnectionRequest() (request *AllocateInstanceP
 	request = &AllocateInstancePublicConnectionRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "AllocateInstancePublicConnection", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "AllocateInstancePublicConnection", "", "")
 	request.Method = requests.POST
 	return
 }

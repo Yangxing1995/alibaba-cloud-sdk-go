@@ -17,5 +17,5 @@ package mts
 
 // ResultsInQueryMediaCensorJobList is a nested struct in mts response
 type ResultsInQueryMediaCensorJobList struct {
-	Result []Result `json:"Result" xml:"Result"`
+	Result []ResultInQueryMediaCensorJobList `json:"Result" xml:"Result"`
 }

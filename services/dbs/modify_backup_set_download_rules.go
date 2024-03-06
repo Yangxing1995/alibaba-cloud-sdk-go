@@ -76,21 +76,21 @@ type ModifyBackupSetDownloadRulesRequest struct {
 	ClientToken                         string           `position:"Query" name:"ClientToken"`
 	BackupSetDownloadTargetType         string           `position:"Query" name:"BackupSetDownloadTargetType"`
 	BackupPlanId                        string           `position:"Query" name:"BackupPlanId"`
+	BackupSetDownloadTargetTypeLocation string           `position:"Query" name:"BackupSetDownloadTargetTypeLocation"`
+	BackupSetDownloadDir                string           `position:"Query" name:"BackupSetDownloadDir"`
 	OwnerId                             string           `position:"Query" name:"OwnerId"`
 	OpenAutoDownload                    requests.Boolean `position:"Query" name:"OpenAutoDownload"`
 	IncrementDataFormat                 string           `position:"Query" name:"IncrementDataFormat"`
-	BackupSetDownloadTargetTypeLocation string           `position:"Query" name:"BackupSetDownloadTargetTypeLocation"`
-	BackupSetDownloadDir                string           `position:"Query" name:"BackupSetDownloadDir"`
 }
 
 // ModifyBackupSetDownloadRulesResponse is the response struct for api ModifyBackupSetDownloadRules
 type ModifyBackupSetDownloadRulesResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	BackupPlanId   string `json:"BackupPlanId" xml:"BackupPlanId"`
 }
 

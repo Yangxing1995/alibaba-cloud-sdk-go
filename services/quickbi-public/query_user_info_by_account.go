@@ -71,17 +71,18 @@ func (client *Client) QueryUserInfoByAccountWithCallback(request *QueryUserInfoB
 // QueryUserInfoByAccountRequest is the request struct for api QueryUserInfoByAccount
 type QueryUserInfoByAccountRequest struct {
 	*requests.RpcRequest
-	AccessPoint string           `position:"Query" name:"AccessPoint"`
-	AccountType requests.Integer `position:"Query" name:"AccountType"`
-	SignType    string           `position:"Query" name:"SignType"`
-	Account     string           `position:"Query" name:"Account"`
+	AccessPoint       string           `position:"Query" name:"AccessPoint"`
+	AccountType       requests.Integer `position:"Query" name:"AccountType"`
+	SignType          string           `position:"Query" name:"SignType"`
+	ParentAccountName string           `position:"Query" name:"ParentAccountName"`
+	Account           string           `position:"Query" name:"Account"`
 }
 
 // QueryUserInfoByAccountResponse is the response struct for api QueryUserInfoByAccount
 type QueryUserInfoByAccountResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Success   bool   `json:"Success" xml:"Success"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 	Result    Result `json:"Result" xml:"Result"`
 }
 
@@ -90,7 +91,7 @@ func CreateQueryUserInfoByAccountRequest() (request *QueryUserInfoByAccountReque
 	request = &QueryUserInfoByAccountRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("quickbi-public", "2020-08-01", "QueryUserInfoByAccount", "quickbi", "openAPI")
+	request.InitWithApiInfo("quickbi-public", "2022-01-01", "QueryUserInfoByAccount", "2.2.0", "openAPI")
 	request.Method = requests.POST
 	return
 }

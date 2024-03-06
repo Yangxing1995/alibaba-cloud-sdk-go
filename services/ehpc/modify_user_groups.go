@@ -72,6 +72,7 @@ func (client *Client) ModifyUserGroupsWithCallback(request *ModifyUserGroupsRequ
 type ModifyUserGroupsRequest struct {
 	*requests.RpcRequest
 	ClusterId string                  `position:"Query" name:"ClusterId"`
+	Async     requests.Boolean        `position:"Query" name:"Async"`
 	User      *[]ModifyUserGroupsUser `position:"Query" name:"User"  type:"Repeated"`
 }
 
@@ -92,7 +93,7 @@ func CreateModifyUserGroupsRequest() (request *ModifyUserGroupsRequest) {
 	request = &ModifyUserGroupsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ModifyUserGroups", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ModifyUserGroups", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

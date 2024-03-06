@@ -73,17 +73,17 @@ type BatchDisableJobsRequest struct {
 	*requests.RpcRequest
 	NamespaceSource string    `position:"Query" name:"NamespaceSource"`
 	GroupId         string    `position:"Query" name:"GroupId"`
-	Namespace       string    `position:"Query" name:"Namespace"`
 	JobIdList       *[]string `position:"Body" name:"JobIdList"  type:"Repeated"`
+	Namespace       string    `position:"Query" name:"Namespace"`
 }
 
 // BatchDisableJobsResponse is the response struct for api BatchDisableJobs
 type BatchDisableJobsResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
-	Success   bool   `json:"Success" xml:"Success"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
+	Success   bool   `json:"Success" xml:"Success"`
 }
 
 // CreateBatchDisableJobsRequest creates a request to invoke BatchDisableJobs API

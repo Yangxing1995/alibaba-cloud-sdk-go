@@ -80,8 +80,8 @@ type CreateDiagnosticReportRequest struct {
 // CreateDiagnosticReportResponse is the response struct for api CreateDiagnosticReport
 type CreateDiagnosticReportResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	ReportId  string `json:"ReportId" xml:"ReportId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateCreateDiagnosticReportRequest creates a request to invoke CreateDiagnosticReport API
@@ -89,7 +89,7 @@ func CreateCreateDiagnosticReportRequest() (request *CreateDiagnosticReportReque
 	request = &CreateDiagnosticReportRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "CreateDiagnosticReport", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "CreateDiagnosticReport", "", "")
 	request.Method = requests.POST
 	return
 }

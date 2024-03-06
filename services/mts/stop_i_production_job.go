@@ -81,8 +81,8 @@ type StopIProductionJobRequest struct {
 // StopIProductionJobResponse is the response struct for api StopIProductionJob
 type StopIProductionJobResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	JobId     string `json:"JobId" xml:"JobId"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateStopIProductionJobRequest creates a request to invoke StopIProductionJob API

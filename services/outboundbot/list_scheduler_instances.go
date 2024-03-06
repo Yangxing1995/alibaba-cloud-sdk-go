@@ -77,11 +77,11 @@ type ListSchedulerInstancesRequest struct {
 // ListSchedulerInstancesResponse is the response struct for api ListSchedulerInstances
 type ListSchedulerInstancesResponse struct {
 	*responses.BaseResponse
-	RequestId          string              `json:"RequestId" xml:"RequestId"`
-	Success            bool                `json:"Success" xml:"Success"`
+	HttpStatusCode     int                 `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code               string              `json:"Code" xml:"Code"`
 	Message            string              `json:"Message" xml:"Message"`
-	HttpStatusCode     int                 `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId          string              `json:"RequestId" xml:"RequestId"`
+	Success            bool                `json:"Success" xml:"Success"`
 	SchedulerInstances []SchedulerInstance `json:"SchedulerInstances" xml:"SchedulerInstances"`
 }
 
@@ -90,7 +90,7 @@ func CreateListSchedulerInstancesRequest() (request *ListSchedulerInstancesReque
 	request = &ListSchedulerInstancesRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListSchedulerInstances", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ListSchedulerInstances", "", "")
 	request.Method = requests.POST
 	return
 }

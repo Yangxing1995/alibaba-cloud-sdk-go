@@ -75,6 +75,7 @@ type DescribeDBInstanceMetricsRequest struct {
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 }
 
 // DescribeDBInstanceMetricsResponse is the response struct for api DescribeDBInstanceMetrics
@@ -82,6 +83,7 @@ type DescribeDBInstanceMetricsResponse struct {
 	*responses.BaseResponse
 	TotalRecordCount int       `json:"TotalRecordCount" xml:"TotalRecordCount"`
 	RequestId        string    `json:"RequestId" xml:"RequestId"`
+	DBInstanceName   string    `json:"DBInstanceName" xml:"DBInstanceName"`
 	Items            []Metrics `json:"Items" xml:"Items"`
 }
 
@@ -90,7 +92,7 @@ func CreateDescribeDBInstanceMetricsRequest() (request *DescribeDBInstanceMetric
 	request = &DescribeDBInstanceMetricsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceMetrics", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDBInstanceMetrics", "", "")
 	request.Method = requests.POST
 	return
 }

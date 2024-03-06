@@ -81,8 +81,8 @@ type ModifyScriptVoiceConfigRequest struct {
 // ModifyScriptVoiceConfigResponse is the response struct for api ModifyScriptVoiceConfig
 type ModifyScriptVoiceConfigResponse struct {
 	*responses.BaseResponse
-	Code              string            `json:"Code" xml:"Code"`
 	HttpStatusCode    int               `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code              string            `json:"Code" xml:"Code"`
 	Message           string            `json:"Message" xml:"Message"`
 	RequestId         string            `json:"RequestId" xml:"RequestId"`
 	Success           bool              `json:"Success" xml:"Success"`
@@ -94,7 +94,7 @@ func CreateModifyScriptVoiceConfigRequest() (request *ModifyScriptVoiceConfigReq
 	request = &ModifyScriptVoiceConfigRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyScriptVoiceConfig", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ModifyScriptVoiceConfig", "", "")
 	request.Method = requests.POST
 	return
 }

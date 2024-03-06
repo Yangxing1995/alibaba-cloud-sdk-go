@@ -80,9 +80,9 @@ type TagResourcesRequest struct {
 // TagResourcesResponse is the response struct for api TagResources
 type TagResourcesResponse struct {
 	*responses.BaseResponse
-	RequestId string `json:"RequestId" xml:"RequestId"`
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
+	RequestId string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateTagResourcesRequest creates a request to invoke TagResources API
@@ -90,7 +90,7 @@ func CreateTagResourcesRequest() (request *TagResourcesRequest) {
 	request = &TagResourcesRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "TagResources", "/pop/v5/tag/tags", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "TagResources", "/pop/v5/tag/tags", "Edas", "openAPI")
 	request.Method = requests.POST
 	return
 }

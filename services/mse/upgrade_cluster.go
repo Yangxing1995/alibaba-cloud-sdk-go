@@ -71,9 +71,11 @@ func (client *Client) UpgradeClusterWithCallback(request *UpgradeClusterRequest,
 // UpgradeClusterRequest is the request struct for api UpgradeCluster
 type UpgradeClusterRequest struct {
 	*requests.RpcRequest
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	RequestPars    string `position:"Query" name:"RequestPars"`
 	UpgradeVersion string `position:"Query" name:"UpgradeVersion"`
 	InstanceId     string `position:"Query" name:"InstanceId"`
-	RequestPars    string `position:"Query" name:"RequestPars"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // UpgradeClusterResponse is the response struct for api UpgradeCluster
@@ -91,7 +93,7 @@ func CreateUpgradeClusterRequest() (request *UpgradeClusterRequest) {
 	request = &UpgradeClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "UpgradeCluster", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "UpgradeCluster", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

@@ -71,18 +71,27 @@ func (client *Client) ListResourceGroupsWithCallback(request *ListResourceGroups
 // ListResourceGroupsRequest is the request struct for api ListResourceGroups
 type ListResourceGroupsRequest struct {
 	*requests.RpcRequest
-	BizExtKey         string           `position:"Query" name:"BizExtKey"`
-	ResourceGroupType requests.Integer `position:"Query" name:"ResourceGroupType"`
-	Keyword           string           `position:"Query" name:"Keyword"`
+	BizExtKey                      string                    `position:"Query" name:"BizExtKey"`
+	Tags                           *[]ListResourceGroupsTags `position:"Query" name:"Tags"  type:"Json"`
+	TypeNames                      string                    `position:"Query" name:"TypeNames"`
+	ResourceManagerResourceGroupId string                    `position:"Query" name:"ResourceManagerResourceGroupId"`
+	ResourceGroupType              requests.Integer          `position:"Query" name:"ResourceGroupType"`
+	Keyword                        string                    `position:"Query" name:"Keyword"`
+}
+
+// ListResourceGroupsTags is a repeated param struct in ListResourceGroupsRequest
+type ListResourceGroupsTags struct {
+	Value string `name:"Value"`
+	Key   string `name:"Key"`
 }
 
 // ListResourceGroupsResponse is the response struct for api ListResourceGroups
 type ListResourceGroupsResponse struct {
 	*responses.BaseResponse
-	HttpStatusCode int        `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Success        bool       `json:"Success" xml:"Success"`
-	RequestId      string     `json:"RequestId" xml:"RequestId"`
-	Data           []DataItem `json:"Data" xml:"Data"`
+	HttpStatusCode int                            `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string                         `json:"RequestId" xml:"RequestId"`
+	Success        bool                           `json:"Success" xml:"Success"`
+	Data           []DataItemInListResourceGroups `json:"Data" xml:"Data"`
 }
 
 // CreateListResourceGroupsRequest creates a request to invoke ListResourceGroups API

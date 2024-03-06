@@ -77,16 +77,17 @@ type DescribeTTSDemoRequest struct {
 	InstanceId string           `position:"Query" name:"InstanceId"`
 	Text       string           `position:"Query" name:"Text"`
 	SpeechRate requests.Integer `position:"Query" name:"SpeechRate"`
+	PitchRate  requests.Integer `position:"Query" name:"PitchRate"`
 }
 
 // DescribeTTSDemoResponse is the response struct for api DescribeTTSDemo
 type DescribeTTSDemoResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	AuditionUrl    string `json:"AuditionUrl" xml:"AuditionUrl"`
 }
 
@@ -95,7 +96,7 @@ func CreateDescribeTTSDemoRequest() (request *DescribeTTSDemoRequest) {
 	request = &DescribeTTSDemoRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeTTSDemo", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeTTSDemo", "", "")
 	request.Method = requests.POST
 	return
 }

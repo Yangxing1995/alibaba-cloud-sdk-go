@@ -78,8 +78,8 @@ type ExportScriptRequest struct {
 // ExportScriptResponse is the response struct for api ExportScript
 type ExportScriptResponse struct {
 	*responses.BaseResponse
-	Code           string         `json:"Code" xml:"Code"`
 	HttpStatusCode int            `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string         `json:"Code" xml:"Code"`
 	Message        string         `json:"Message" xml:"Message"`
 	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	Success        bool           `json:"Success" xml:"Success"`
@@ -91,7 +91,7 @@ func CreateExportScriptRequest() (request *ExportScriptRequest) {
 	request = &ExportScriptRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ExportScript", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "ExportScript", "", "")
 	request.Method = requests.POST
 	return
 }

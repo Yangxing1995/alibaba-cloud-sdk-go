@@ -78,8 +78,8 @@ type PublishScriptForDebugRequest struct {
 // PublishScriptForDebugResponse is the response struct for api PublishScriptForDebug
 type PublishScriptForDebugResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -90,7 +90,7 @@ func CreatePublishScriptForDebugRequest() (request *PublishScriptForDebugRequest
 	request = &PublishScriptForDebugRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "PublishScriptForDebug", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "PublishScriptForDebug", "", "")
 	request.Method = requests.POST
 	return
 }

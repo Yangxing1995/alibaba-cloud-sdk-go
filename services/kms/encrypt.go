@@ -71,18 +71,18 @@ func (client *Client) EncryptWithCallback(request *EncryptRequest, callback func
 // EncryptRequest is the request struct for api Encrypt
 type EncryptRequest struct {
 	*requests.RpcRequest
-	EncryptionContext string `position:"Query" name:"EncryptionContext"`
 	KeyId             string `position:"Query" name:"KeyId"`
 	Plaintext         string `position:"Query" name:"Plaintext"`
+	EncryptionContext string `position:"Query" name:"EncryptionContext"`
 }
 
 // EncryptResponse is the response struct for api Encrypt
 type EncryptResponse struct {
 	*responses.BaseResponse
-	CiphertextBlob string `json:"CiphertextBlob" xml:"CiphertextBlob"`
-	KeyId          string `json:"KeyId" xml:"KeyId"`
-	RequestId      string `json:"RequestId" xml:"RequestId"`
 	KeyVersionId   string `json:"KeyVersionId" xml:"KeyVersionId"`
+	KeyId          string `json:"KeyId" xml:"KeyId"`
+	CiphertextBlob string `json:"CiphertextBlob" xml:"CiphertextBlob"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
 }
 
 // CreateEncryptRequest creates a request to invoke Encrypt API

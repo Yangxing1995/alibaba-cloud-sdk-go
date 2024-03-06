@@ -81,13 +81,12 @@ type AssignUsersRequest struct {
 // AssignUsersResponse is the response struct for api AssignUsers
 type AssignUsersResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
-	Data           string `json:"Data" xml:"Data"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	Message        string `json:"Message" xml:"Message"`
+	Data           string `json:"Data" xml:"Data"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Sync           string `json:"Sync" xml:"Sync"`
+	Code           string `json:"Code" xml:"Code"`
 	WorkflowId     string `json:"WorkflowId" xml:"WorkflowId"`
+	Message        string `json:"Message" xml:"Message"`
 }
 
 // CreateAssignUsersRequest creates a request to invoke AssignUsers API

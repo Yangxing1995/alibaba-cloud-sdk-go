@@ -71,8 +71,10 @@ func (client *Client) DeleteClusterWithCallback(request *DeleteClusterRequest, c
 // DeleteClusterRequest is the request struct for api DeleteCluster
 type DeleteClusterRequest struct {
 	*requests.RpcRequest
-	ClusterId  string `position:"Query" name:"ClusterId"`
-	InstanceId string `position:"Query" name:"InstanceId"`
+	MseSessionId   string `position:"Query" name:"MseSessionId"`
+	ClusterId      string `position:"Query" name:"ClusterId"`
+	InstanceId     string `position:"Query" name:"InstanceId"`
+	AcceptLanguage string `position:"Query" name:"AcceptLanguage"`
 }
 
 // DeleteClusterResponse is the response struct for api DeleteCluster
@@ -90,7 +92,7 @@ func CreateDeleteClusterRequest() (request *DeleteClusterRequest) {
 	request = &DeleteClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "DeleteCluster", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "DeleteCluster", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

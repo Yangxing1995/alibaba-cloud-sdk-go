@@ -71,19 +71,22 @@ func (client *Client) UpdateClusterWithCallback(request *UpdateClusterRequest, c
 // UpdateClusterRequest is the request struct for api UpdateCluster
 type UpdateClusterRequest struct {
 	*requests.RpcRequest
+	MseSessionId     string `position:"Query" name:"MseSessionId"`
+	RequestPars      string `position:"Query" name:"RequestPars"`
 	ClusterAliasName string `position:"Query" name:"ClusterAliasName"`
 	ClusterId        string `position:"Query" name:"ClusterId"`
 	InstanceId       string `position:"Query" name:"InstanceId"`
-	RequestPars      string `position:"Query" name:"RequestPars"`
+	AcceptLanguage   string `position:"Query" name:"AcceptLanguage"`
 }
 
 // UpdateClusterResponse is the response struct for api UpdateCluster
 type UpdateClusterResponse struct {
 	*responses.BaseResponse
-	Message   string `json:"Message" xml:"Message"`
-	RequestId string `json:"RequestId" xml:"RequestId"`
-	ErrorCode string `json:"ErrorCode" xml:"ErrorCode"`
-	Success   bool   `json:"Success" xml:"Success"`
+	Message        string `json:"Message" xml:"Message"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	HttpStatusCode string `json:"HttpStatusCode" xml:"HttpStatusCode"`
 }
 
 // CreateUpdateClusterRequest creates a request to invoke UpdateCluster API
@@ -91,7 +94,7 @@ func CreateUpdateClusterRequest() (request *UpdateClusterRequest) {
 	request = &UpdateClusterRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("mse", "2019-05-31", "UpdateCluster", "", "")
+	request.InitWithApiInfo("mse", "2019-05-31", "UpdateCluster", "mse", "openAPI")
 	request.Method = requests.POST
 	return
 }

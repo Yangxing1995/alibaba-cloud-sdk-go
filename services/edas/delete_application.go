@@ -78,8 +78,8 @@ type DeleteApplicationRequest struct {
 type DeleteApplicationResponse struct {
 	*responses.BaseResponse
 	Code          int    `json:"Code" xml:"Code"`
-	Message       string `json:"Message" xml:"Message"`
 	ChangeOrderId string `json:"ChangeOrderId" xml:"ChangeOrderId"`
+	Message       string `json:"Message" xml:"Message"`
 	RequestId     string `json:"RequestId" xml:"RequestId"`
 }
 
@@ -88,7 +88,7 @@ func CreateDeleteApplicationRequest() (request *DeleteApplicationRequest) {
 	request = &DeleteApplicationRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteApplication", "/pop/v5/changeorder/co_delete_app", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "DeleteApplication", "/pop/v5/changeorder/co_delete_app", "Edas", "openAPI")
 	request.Method = requests.DELETE
 	return
 }

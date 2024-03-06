@@ -82,8 +82,8 @@ type SuspendJobsRequest struct {
 // SuspendJobsResponse is the response struct for api SuspendJobs
 type SuspendJobsResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -94,7 +94,7 @@ func CreateSuspendJobsRequest() (request *SuspendJobsRequest) {
 	request = &SuspendJobsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SuspendJobs", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "SuspendJobs", "", "")
 	request.Method = requests.POST
 	return
 }

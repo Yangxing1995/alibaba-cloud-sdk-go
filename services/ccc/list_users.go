@@ -84,7 +84,6 @@ type ListUsersResponse struct {
 	HttpStatusCode int             `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Message        string          `json:"Message" xml:"Message"`
 	RequestId      string          `json:"RequestId" xml:"RequestId"`
-	Params         []string        `json:"Params" xml:"Params"`
 	Data           DataInListUsers `json:"Data" xml:"Data"`
 }
 

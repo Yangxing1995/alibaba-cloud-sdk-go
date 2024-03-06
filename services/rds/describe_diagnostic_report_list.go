@@ -71,14 +71,16 @@ func (client *Client) DescribeDiagnosticReportListWithCallback(request *Describe
 // DescribeDiagnosticReportListRequest is the request struct for api DescribeDiagnosticReportList
 type DescribeDiagnosticReportListRequest struct {
 	*requests.RpcRequest
-	DBInstanceId string `position:"Query" name:"DBInstanceId"`
+	ResourceGroupId string `position:"Query" name:"ResourceGroupId"`
+	DBInstanceId    string `position:"Query" name:"DBInstanceId"`
 }
 
 // DescribeDiagnosticReportListResponse is the response struct for api DescribeDiagnosticReportList
 type DescribeDiagnosticReportListResponse struct {
 	*responses.BaseResponse
-	RequestId  string   `json:"RequestId" xml:"RequestId"`
-	ReportList []Report `json:"ReportList" xml:"ReportList"`
+	RequestId    string   `json:"RequestId" xml:"RequestId"`
+	DBInstanceId string   `json:"DBInstanceId" xml:"DBInstanceId"`
+	ReportList   []Report `json:"ReportList" xml:"ReportList"`
 }
 
 // CreateDescribeDiagnosticReportListRequest creates a request to invoke DescribeDiagnosticReportList API
@@ -86,7 +88,7 @@ func CreateDescribeDiagnosticReportListRequest() (request *DescribeDiagnosticRep
 	request = &DescribeDiagnosticReportListRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDiagnosticReportList", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeDiagnosticReportList", "", "")
 	request.Method = requests.POST
 	return
 }

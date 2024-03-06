@@ -78,11 +78,11 @@ type GetAsrServerInfoRequest struct {
 // GetAsrServerInfoResponse is the response struct for api GetAsrServerInfo
 type GetAsrServerInfoResponse struct {
 	*responses.BaseResponse
-	RequestId      string `json:"RequestId" xml:"RequestId"`
-	Success        bool   `json:"Success" xml:"Success"`
+	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
-	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	RequestId      string `json:"RequestId" xml:"RequestId"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateGetAsrServerInfoRequest creates a request to invoke GetAsrServerInfo API
@@ -90,7 +90,7 @@ func CreateGetAsrServerInfoRequest() (request *GetAsrServerInfoRequest) {
 	request = &GetAsrServerInfoRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetAsrServerInfo", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "GetAsrServerInfo", "", "")
 	request.Method = requests.POST
 	return
 }

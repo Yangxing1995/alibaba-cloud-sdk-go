@@ -17,5 +17,5 @@ package iot
 
 // InfoInListDistributedProduct is a nested struct in iot response
 type InfoInListDistributedProduct struct {
-	Items []ItemsInListDistributedProduct `json:"items" xml:"items"`
+	Items []Items `json:"items" xml:"items"`
 }

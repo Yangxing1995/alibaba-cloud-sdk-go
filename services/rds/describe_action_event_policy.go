@@ -72,6 +72,7 @@ func (client *Client) DescribeActionEventPolicyWithCallback(request *DescribeAct
 type DescribeActionEventPolicyRequest struct {
 	*requests.RpcRequest
 	ResourceOwnerId      requests.Integer `position:"Query" name:"ResourceOwnerId"`
+	ResourceGroupId      string           `position:"Query" name:"ResourceGroupId"`
 	ResourceOwnerAccount string           `position:"Query" name:"ResourceOwnerAccount"`
 	OwnerId              requests.Integer `position:"Query" name:"OwnerId"`
 }
@@ -79,9 +80,9 @@ type DescribeActionEventPolicyRequest struct {
 // DescribeActionEventPolicyResponse is the response struct for api DescribeActionEventPolicy
 type DescribeActionEventPolicyResponse struct {
 	*responses.BaseResponse
+	EnableEventLog string `json:"EnableEventLog" xml:"EnableEventLog"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	RegionId       string `json:"RegionId" xml:"RegionId"`
-	EnableEventLog string `json:"EnableEventLog" xml:"EnableEventLog"`
 }
 
 // CreateDescribeActionEventPolicyRequest creates a request to invoke DescribeActionEventPolicy API
@@ -89,7 +90,7 @@ func CreateDescribeActionEventPolicyRequest() (request *DescribeActionEventPolic
 	request = &DescribeActionEventPolicyRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeActionEventPolicy", "rds", "openAPI")
+	request.InitWithApiInfo("Rds", "2014-08-15", "DescribeActionEventPolicy", "", "")
 	request.Method = requests.POST
 	return
 }

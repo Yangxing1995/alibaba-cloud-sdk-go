@@ -73,18 +73,18 @@ type DescribeJobErrorCodeRequest struct {
 	*requests.RpcRequest
 	ClientToken string `position:"Query" name:"ClientToken"`
 	Language    string `position:"Query" name:"Language"`
-	OwnerId     string `position:"Query" name:"OwnerId"`
 	TaskId      string `position:"Query" name:"TaskId"`
+	OwnerId     string `position:"Query" name:"OwnerId"`
 }
 
 // DescribeJobErrorCodeResponse is the response struct for api DescribeJobErrorCode
 type DescribeJobErrorCodeResponse struct {
 	*responses.BaseResponse
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
-	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrCode        string `json:"ErrCode" xml:"ErrCode"`
+	Success        bool   `json:"Success" xml:"Success"`
+	ErrMessage     string `json:"ErrMessage" xml:"ErrMessage"`
 	Item           Item   `json:"Item" xml:"Item"`
 }
 

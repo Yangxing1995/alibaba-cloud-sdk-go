@@ -17,7 +17,6 @@ package domain
 
 // FailRecord is a nested struct in domain response
 type FailRecord struct {
-	Date                         string `json:"Date" xml:"Date"`
-	FailReason                   string `json:"FailReason" xml:"FailReason"`
-	DomainNameVerificationStatus string `json:"DomainNameVerificationStatus" xml:"DomainNameVerificationStatus"`
+	Date       string `json:"Date" xml:"Date"`
+	FailReason string `json:"FailReason" xml:"FailReason"`
 }

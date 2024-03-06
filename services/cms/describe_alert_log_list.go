@@ -86,6 +86,7 @@ type DescribeAlertLogListRequest struct {
 	EndTime      requests.Integer `position:"Query" name:"EndTime"`
 	GroupBy      string           `position:"Query" name:"GroupBy"`
 	Namespace    string           `position:"Query" name:"Namespace"`
+	RuleId       string           `position:"Query" name:"RuleId"`
 }
 
 // DescribeAlertLogListResponse is the response struct for api DescribeAlertLogList

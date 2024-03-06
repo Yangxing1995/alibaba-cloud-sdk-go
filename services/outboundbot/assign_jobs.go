@@ -84,12 +84,12 @@ type AssignJobsRequest struct {
 // AssignJobsResponse is the response struct for api AssignJobs
 type AssignJobsResponse struct {
 	*responses.BaseResponse
-	Code           string   `json:"Code" xml:"Code"`
 	HttpStatusCode int      `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	JobGroupId     string   `json:"JobGroupId" xml:"JobGroupId"`
-	Message        string   `json:"Message" xml:"Message"`
 	RequestId      string   `json:"RequestId" xml:"RequestId"`
 	Success        bool     `json:"Success" xml:"Success"`
+	Code           string   `json:"Code" xml:"Code"`
+	Message        string   `json:"Message" xml:"Message"`
 	JobsId         []string `json:"JobsId" xml:"JobsId"`
 }
 
@@ -98,7 +98,7 @@ func CreateAssignJobsRequest() (request *AssignJobsRequest) {
 	request = &AssignJobsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "AssignJobs", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "AssignJobs", "", "")
 	request.Method = requests.POST
 	return
 }

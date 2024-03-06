@@ -78,10 +78,10 @@ type ListFileSystemWithMountTargetsRequest struct {
 // ListFileSystemWithMountTargetsResponse is the response struct for api ListFileSystemWithMountTargets
 type ListFileSystemWithMountTargetsResponse struct {
 	*responses.BaseResponse
-	RequestId      string                                         `json:"RequestId" xml:"RequestId"`
-	TotalCount     int                                            `json:"TotalCount" xml:"TotalCount"`
-	PageNumber     int                                            `json:"PageNumber" xml:"PageNumber"`
 	PageSize       int                                            `json:"PageSize" xml:"PageSize"`
+	RequestId      string                                         `json:"RequestId" xml:"RequestId"`
+	PageNumber     int                                            `json:"PageNumber" xml:"PageNumber"`
+	TotalCount     int                                            `json:"TotalCount" xml:"TotalCount"`
 	FileSystemList FileSystemListInListFileSystemWithMountTargets `json:"FileSystemList" xml:"FileSystemList"`
 }
 
@@ -90,7 +90,7 @@ func CreateListFileSystemWithMountTargetsRequest() (request *ListFileSystemWithM
 	request = &ListFileSystemWithMountTargetsRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("EHPC", "2018-04-12", "ListFileSystemWithMountTargets", "", "")
+	request.InitWithApiInfo("EHPC", "2018-04-12", "ListFileSystemWithMountTargets", "ehs", "openAPI")
 	request.Method = requests.GET
 	return
 }

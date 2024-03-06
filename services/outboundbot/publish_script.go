@@ -80,8 +80,8 @@ type PublishScriptRequest struct {
 // PublishScriptResponse is the response struct for api PublishScript
 type PublishScriptResponse struct {
 	*responses.BaseResponse
-	Code           string `json:"Code" xml:"Code"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string `json:"Code" xml:"Code"`
 	Message        string `json:"Message" xml:"Message"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
 	Success        bool   `json:"Success" xml:"Success"`
@@ -92,7 +92,7 @@ func CreatePublishScriptRequest() (request *PublishScriptRequest) {
 	request = &PublishScriptRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "PublishScript", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "PublishScript", "", "")
 	request.Method = requests.POST
 	return
 }

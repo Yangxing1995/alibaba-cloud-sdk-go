@@ -71,15 +71,16 @@ func (client *Client) DownloadRecordingWithCallback(request *DownloadRecordingRe
 // DownloadRecordingRequest is the request struct for api DownloadRecording
 type DownloadRecordingRequest struct {
 	*requests.RpcRequest
-	InstanceId string `position:"Query" name:"InstanceId"`
-	TaskId     string `position:"Query" name:"TaskId"`
+	NeedVoiceSliceRecording requests.Boolean `position:"Query" name:"NeedVoiceSliceRecording"`
+	InstanceId              string           `position:"Query" name:"InstanceId"`
+	TaskId                  string           `position:"Query" name:"TaskId"`
 }
 
 // DownloadRecordingResponse is the response struct for api DownloadRecording
 type DownloadRecordingResponse struct {
 	*responses.BaseResponse
-	Code           string         `json:"Code" xml:"Code"`
 	HttpStatusCode int            `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Code           string         `json:"Code" xml:"Code"`
 	Message        string         `json:"Message" xml:"Message"`
 	RequestId      string         `json:"RequestId" xml:"RequestId"`
 	Success        bool           `json:"Success" xml:"Success"`
@@ -91,7 +92,7 @@ func CreateDownloadRecordingRequest() (request *DownloadRecordingRequest) {
 	request = &DownloadRecordingRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DownloadRecording", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DownloadRecording", "", "")
 	request.Method = requests.POST
 	return
 }

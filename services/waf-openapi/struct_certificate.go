@@ -17,9 +17,10 @@ package waf_openapi
 
 // Certificate is a nested struct in waf_openapi response
 type Certificate struct {
-	CommonName      string   `json:"CommonName" xml:"CommonName"`
 	IsUsing         bool     `json:"IsUsing" xml:"IsUsing"`
 	CertificateName string   `json:"CertificateName" xml:"CertificateName"`
 	CertificateId   int64    `json:"CertificateId" xml:"CertificateId"`
+	CommonName      string   `json:"CommonName" xml:"CommonName"`
+	EndTime         int64    `json:"EndTime" xml:"EndTime"`
 	Sans            []string `json:"Sans" xml:"Sans"`
 }

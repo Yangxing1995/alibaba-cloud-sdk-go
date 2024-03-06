@@ -71,21 +71,22 @@ func (client *Client) GetMetaTableOutputWithCallback(request *GetMetaTableOutput
 // GetMetaTableOutputRequest is the request struct for api GetMetaTableOutput
 type GetMetaTableOutputRequest struct {
 	*requests.RpcRequest
+	StartDate  string           `position:"Query" name:"StartDate"`
+	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
 	EndDate    string           `position:"Query" name:"EndDate"`
 	TableGuid  string           `position:"Query" name:"TableGuid"`
 	PageSize   requests.Integer `position:"Query" name:"PageSize"`
-	StartDate  string           `position:"Query" name:"StartDate"`
-	PageNumber requests.Integer `position:"Query" name:"PageNumber"`
+	TaskId     string           `position:"Query" name:"TaskId"`
 }
 
 // GetMetaTableOutputResponse is the response struct for api GetMetaTableOutput
 type GetMetaTableOutputResponse struct {
 	*responses.BaseResponse
-	RequestId      string                   `json:"RequestId" xml:"RequestId"`
-	ErrorCode      string                   `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string                   `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int                      `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	ErrorMessage   string                   `json:"ErrorMessage" xml:"ErrorMessage"`
+	RequestId      string                   `json:"RequestId" xml:"RequestId"`
 	Success        bool                     `json:"Success" xml:"Success"`
+	ErrorCode      string                   `json:"ErrorCode" xml:"ErrorCode"`
 	Data           DataInGetMetaTableOutput `json:"Data" xml:"Data"`
 }
 

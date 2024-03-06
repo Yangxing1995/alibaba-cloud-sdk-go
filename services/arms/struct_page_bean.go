@@ -17,15 +17,27 @@ package arms
 
 // PageBean is a nested struct in arms response
 type PageBean struct {
-	Total          int               `json:"Total" xml:"Total"`
-	TotalCount     int               `json:"TotalCount" xml:"TotalCount"`
-	PageNumber     int               `json:"PageNumber" xml:"PageNumber"`
-	PageSize       int               `json:"PageSize" xml:"PageSize"`
-	Event          []EventItem       `json:"Event" xml:"Event"`
-	TraceApps      []TraceApp        `json:"TraceApps" xml:"TraceApps"`
-	Contacts       []Contact         `json:"Contacts" xml:"Contacts"`
-	AlertRules     []AlertRuleEntity `json:"AlertRules" xml:"AlertRules"`
-	RetcodeApps    []RetcodeApp      `json:"RetcodeApps" xml:"RetcodeApps"`
-	AlarmHistories []AlarmHistory    `json:"AlarmHistories" xml:"AlarmHistories"`
-	TraceInfos     []TraceInfo       `json:"TraceInfos" xml:"TraceInfos"`
+	Page                    int64                                `json:"Page" xml:"Page"`
+	PageSize                int                                  `json:"PageSize" xml:"PageSize"`
+	TotalCount              int                                  `json:"TotalCount" xml:"TotalCount"`
+	Size                    int64                                `json:"Size" xml:"Size"`
+	PageNumber              int                                  `json:"PageNumber" xml:"PageNumber"`
+	Total                   int64                                `json:"Total" xml:"Total"`
+	AlertContactGroups      []ContactGroups                      `json:"AlertContactGroups" xml:"AlertContactGroups"`
+	SilencePolicies         []Policies                           `json:"SilencePolicies" xml:"SilencePolicies"`
+	WebhookContacts         []WebhookContactsItem                `json:"WebhookContacts" xml:"WebhookContacts"`
+	Contacts                []Contact                            `json:"Contacts" xml:"Contacts"`
+	AlertIMRobots           []IMRobots                           `json:"AlertIMRobots" xml:"AlertIMRobots"`
+	Event                   []EventItem                          `json:"Event" xml:"Event"`
+	RetcodeApps             []RetcodeAppInSearchRetcodeAppByPage `json:"RetcodeApps" xml:"RetcodeApps"`
+	AlertContacts           []Contacts                           `json:"AlertContacts" xml:"AlertContacts"`
+	OnCallSchedules         []OnCallSchedulesItem                `json:"OnCallSchedules" xml:"OnCallSchedules"`
+	AlertRules              []AlertRulesItem                     `json:"AlertRules" xml:"AlertRules"`
+	TraceApps               []TraceApp                           `json:"TraceApps" xml:"TraceApps"`
+	NotificationPolicies    []Policies                           `json:"NotificationPolicies" xml:"NotificationPolicies"`
+	EscalationPolicies      []EscalationPoliciesItem             `json:"EscalationPolicies" xml:"EscalationPolicies"`
+	ListAlerts              []ListAlertsItem                     `json:"ListAlerts" xml:"ListAlerts"`
+	AlarmHistories          []AlarmHistory                       `json:"AlarmHistories" xml:"AlarmHistories"`
+	EventBridgeIntegrations []Integrations                       `json:"EventBridgeIntegrations" xml:"EventBridgeIntegrations"`
+	Events                  []EventsItem                         `json:"Events" xml:"Events"`
 }

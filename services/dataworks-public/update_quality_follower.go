@@ -71,21 +71,22 @@ func (client *Client) UpdateQualityFollowerWithCallback(request *UpdateQualityFo
 // UpdateQualityFollowerRequest is the request struct for api UpdateQualityFollower
 type UpdateQualityFollowerRequest struct {
 	*requests.RpcRequest
-	AlarmMode   requests.Integer `position:"Body" name:"AlarmMode"`
 	ProjectName string           `position:"Body" name:"ProjectName"`
 	Follower    string           `position:"Body" name:"Follower"`
 	FollowerId  requests.Integer `position:"Body" name:"FollowerId"`
+	AlarmMode   requests.Integer `position:"Body" name:"AlarmMode"`
+	ProjectId   requests.Integer `position:"Body" name:"ProjectId"`
 }
 
 // UpdateQualityFollowerResponse is the response struct for api UpdateQualityFollower
 type UpdateQualityFollowerResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	Data           bool   `json:"Data" xml:"Data"`
-	Success        bool   `json:"Success" xml:"Success"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
+	Data           bool   `json:"Data" xml:"Data"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
+	Success        bool   `json:"Success" xml:"Success"`
 }
 
 // CreateUpdateQualityFollowerRequest creates a request to invoke UpdateQualityFollower API

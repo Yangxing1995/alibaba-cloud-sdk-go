@@ -80,9 +80,9 @@ type SynchronizeResourceResponse struct {
 	*responses.BaseResponse
 	Code      int    `json:"Code" xml:"Code"`
 	Message   string `json:"Message" xml:"Message"`
-	Success   bool   `json:"Success" xml:"Success"`
 	Data      string `json:"Data" xml:"Data"`
 	RequestId string `json:"RequestId" xml:"RequestId"`
+	Success   bool   `json:"Success" xml:"Success"`
 }
 
 // CreateSynchronizeResourceRequest creates a request to invoke SynchronizeResource API
@@ -90,7 +90,7 @@ func CreateSynchronizeResourceRequest() (request *SynchronizeResourceRequest) {
 	request = &SynchronizeResourceRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "SynchronizeResource", "/pop/v5/resource/pop_sync_resource", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "SynchronizeResource", "/pop/v5/resource/pop_sync_resource", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

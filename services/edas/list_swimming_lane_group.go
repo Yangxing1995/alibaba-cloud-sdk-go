@@ -71,7 +71,8 @@ func (client *Client) ListSwimmingLaneGroupWithCallback(request *ListSwimmingLan
 // ListSwimmingLaneGroupRequest is the request struct for api ListSwimmingLaneGroup
 type ListSwimmingLaneGroupRequest struct {
 	*requests.RoaRequest
-	LogicalRegionId string `position:"Query" name:"LogicalRegionId"`
+	LogicalRegionId string           `position:"Query" name:"LogicalRegionId"`
+	GroupId         requests.Integer `position:"Query" name:"GroupId"`
 }
 
 // ListSwimmingLaneGroupResponse is the response struct for api ListSwimmingLaneGroup
@@ -88,7 +89,7 @@ func CreateListSwimmingLaneGroupRequest() (request *ListSwimmingLaneGroupRequest
 	request = &ListSwimmingLaneGroupRequest{
 		RoaRequest: &requests.RoaRequest{},
 	}
-	request.InitWithApiInfo("Edas", "2017-08-01", "ListSwimmingLaneGroup", "/pop/v5/trafficmgnt/swimming_lane_groups", "edas", "openAPI")
+	request.InitWithApiInfo("Edas", "2017-08-01", "ListSwimmingLaneGroup", "/pop/v5/trafficmgnt/swimming_lane_groups", "Edas", "openAPI")
 	request.Method = requests.GET
 	return
 }

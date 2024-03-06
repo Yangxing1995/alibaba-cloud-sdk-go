@@ -71,20 +71,20 @@ func (client *Client) ListDataServiceApplicationsWithCallback(request *ListDataS
 // ListDataServiceApplicationsRequest is the request struct for api ListDataServiceApplications
 type ListDataServiceApplicationsRequest struct {
 	*requests.RpcRequest
+	PageNumber    requests.Integer `position:"Body" name:"PageNumber"`
 	PageSize      requests.Integer `position:"Body" name:"PageSize"`
 	TenantId      requests.Integer `position:"Body" name:"TenantId"`
 	ProjectIdList string           `position:"Body" name:"ProjectIdList"`
-	PageNumber    requests.Integer `position:"Body" name:"PageNumber"`
 }
 
 // ListDataServiceApplicationsResponse is the response struct for api ListDataServiceApplications
 type ListDataServiceApplicationsResponse struct {
 	*responses.BaseResponse
-	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
-	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	HttpStatusCode int    `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string `json:"RequestId" xml:"RequestId"`
+	ErrorMessage   string `json:"ErrorMessage" xml:"ErrorMessage"`
 	Success        bool   `json:"Success" xml:"Success"`
+	ErrorCode      string `json:"ErrorCode" xml:"ErrorCode"`
 	Data           Data   `json:"Data" xml:"Data"`
 }
 

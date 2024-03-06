@@ -19,12 +19,12 @@ package ccc
 type CallCenterInstance struct {
 	Name        string        `json:"Name" xml:"Name"`
 	DomainName  string        `json:"DomainName" xml:"DomainName"`
-	AliyunUid   string        `json:"AliyunUid" xml:"AliyunUid"`
 	ConsoleUrl  string        `json:"ConsoleUrl" xml:"ConsoleUrl"`
+	AliyunUid   string        `json:"AliyunUid" xml:"AliyunUid"`
 	Id          string        `json:"Id" xml:"Id"`
-	CreateTime  int64         `json:"CreateTime" xml:"CreateTime"`
 	Status      string        `json:"Status" xml:"Status"`
+	CreateTime  int64         `json:"CreateTime" xml:"CreateTime"`
 	Description string        `json:"Description" xml:"Description"`
-	AdminList   []User        `json:"AdminList" xml:"AdminList"`
 	NumberList  []PhoneNumber `json:"NumberList" xml:"NumberList"`
+	AdminList   []User        `json:"AdminList" xml:"AdminList"`
 }

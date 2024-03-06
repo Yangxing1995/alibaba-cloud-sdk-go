@@ -17,13 +17,19 @@ package ccc
 
 // AgentState is a nested struct in ccc response
 type AgentState struct {
-	AgentId          string   `json:"AgentId" xml:"AgentId"`
-	AgentName        string   `json:"AgentName" xml:"AgentName"`
-	CounterParty     string   `json:"CounterParty" xml:"CounterParty"`
-	Extension        string   `json:"Extension" xml:"Extension"`
-	InstanceId       string   `json:"InstanceId" xml:"InstanceId"`
-	State            string   `json:"State" xml:"State"`
-	StateCode        string   `json:"StateCode" xml:"StateCode"`
-	StateTime        int64    `json:"StateTime" xml:"StateTime"`
-	SkillGroupIdList []string `json:"SkillGroupIdList" xml:"SkillGroupIdList"`
+	Extension          string   `json:"Extension" xml:"Extension"`
+	StateCode          string   `json:"StateCode" xml:"StateCode"`
+	State              string   `json:"State" xml:"State"`
+	AgentId            string   `json:"AgentId" xml:"AgentId"`
+	StateTime          int64    `json:"StateTime" xml:"StateTime"`
+	AgentName          string   `json:"AgentName" xml:"AgentName"`
+	InstanceId         string   `json:"InstanceId" xml:"InstanceId"`
+	CounterParty       string   `json:"CounterParty" xml:"CounterParty"`
+	WorkMode           string   `json:"WorkMode" xml:"WorkMode"`
+	OutboundScenario   bool     `json:"OutboundScenario" xml:"OutboundScenario"`
+	Mobile             string   `json:"Mobile" xml:"Mobile"`
+	CallType           string   `json:"CallType" xml:"CallType"`
+	Duration           int64    `json:"Duration" xml:"Duration"`
+	SkillGroupIdList   []string `json:"SkillGroupIdList" xml:"SkillGroupIdList"`
+	SkillGroupNameList []string `json:"SkillGroupNameList" xml:"SkillGroupNameList"`
 }

@@ -78,12 +78,12 @@ type DescribeGroupExecutingInfoRequest struct {
 // DescribeGroupExecutingInfoResponse is the response struct for api DescribeGroupExecutingInfo
 type DescribeGroupExecutingInfoResponse struct {
 	*responses.BaseResponse
+	HttpStatusCode int           `json:"HttpStatusCode" xml:"HttpStatusCode"`
 	RequestId      string        `json:"RequestId" xml:"RequestId"`
+	GroupId        string        `json:"GroupId" xml:"GroupId"`
 	Success        bool          `json:"Success" xml:"Success"`
 	Code           string        `json:"Code" xml:"Code"`
 	Message        string        `json:"Message" xml:"Message"`
-	HttpStatusCode int           `json:"HttpStatusCode" xml:"HttpStatusCode"`
-	GroupId        string        `json:"GroupId" xml:"GroupId"`
 	InstanceId     string        `json:"InstanceId" xml:"InstanceId"`
 	ExecutingInfo  ExecutingInfo `json:"ExecutingInfo" xml:"ExecutingInfo"`
 }
@@ -93,7 +93,7 @@ func CreateDescribeGroupExecutingInfoRequest() (request *DescribeGroupExecutingI
 	request = &DescribeGroupExecutingInfoRequest{
 		RpcRequest: &requests.RpcRequest{},
 	}
-	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeGroupExecutingInfo", "outboundbot", "openAPI")
+	request.InitWithApiInfo("OutboundBot", "2019-12-26", "DescribeGroupExecutingInfo", "", "")
 	request.Method = requests.POST
 	return
 }
